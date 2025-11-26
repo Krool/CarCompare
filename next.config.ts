@@ -5,9 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // For GitHub Pages - set this to your repo name if not using custom domain
-  // basePath: "/CarCompare",
-  // assetPrefix: "/CarCompare/",
+  // For GitHub Pages - repo name as base path
+  basePath: "/CarCompare",
+  assetPrefix: "/CarCompare/",
 };
 
 export default nextConfig;
