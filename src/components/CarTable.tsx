@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Car, SortConfig, SortField } from "@/types/car";
 import {
   formatCurrency,
@@ -135,17 +136,7 @@ export default function CarTable({
                   </button>
                 </td>
                 <td className="px-3 py-2">
-                  {car.imageUrl ? (
-                    <img
-                      src={car.imageUrl}
-                      alt={`${car.year} ${car.make} ${car.model}`}
-                      className="w-16 h-10 object-cover rounded"
-                    />
-                  ) : (
-                    <div className="w-16 h-10 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
-                      No img
-                    </div>
-                  )}
+                  <CarImage car={car} />
                 </td>
                 <td className="px-3 py-2 text-sm text-white">{car.year}</td>
                 <td className="px-3 py-2 text-sm text-white">{car.make}</td>
@@ -264,5 +255,40 @@ function BodyTypeBadge({ bodyType }: { bodyType: string }) {
     <span className={`px-2 py-0.5 rounded text-xs ${colors[bodyType] ?? "bg-gray-600"}`}>
       {labels[bodyType] ?? bodyType}
     </span>
+  );
+}
+
+function CarImage({ car }: { car: Car }) {
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  if (!car.imageUrl || hasError) {
+    return (
+      <div className="w-16 h-10 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
+        {car.bodyType.charAt(0).toUpperCase()}
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-16 h-10 relative">
+      {isLoading && (
+        <div className="absolute inset-0 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
+          ...
+        </div>
+      )}
+      <img
+        src={car.imageUrl}
+        alt={`${car.year} ${car.make} ${car.model}`}
+        className={`w-16 h-10 object-cover rounded ${isLoading ? "opacity-0" : "opacity-100"}`}
+        onLoad={() => setIsLoading(false)}
+        onError={() => {
+          setHasError(true);
+          setIsLoading(false);
+        }}
+        referrerPolicy="no-referrer"
+        crossOrigin="anonymous"
+      />
+    </div>
   );
 }
