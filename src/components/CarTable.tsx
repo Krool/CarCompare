@@ -258,11 +258,28 @@ function BodyTypeBadge({ bodyType }: { bodyType: string }) {
   );
 }
 
+function getCarImageUrl(car: Car): string {
+  // Use IMAGIN.studio API for consistent car images
+  // Format model name: "RAV4 Hybrid" -> "rav4", "Model Y" -> "model-y", "CR-V" -> "cr-v"
+  const modelFamily = car.model
+    .split(" ")[0] // Take first word (e.g., "RAV4" from "RAV4 Hybrid")
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "-") // Replace non-alphanumeric with dash
+    .replace(/-+/g, "-") // Remove consecutive dashes
+    .replace(/^-|-$/g, ""); // Remove leading/trailing dashes
+
+  const make = car.make.toLowerCase();
+
+  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=200`;
+}
+
 function CarImage({ car }: { car: Car }) {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  if (!car.imageUrl || hasError) {
+  const imageUrl = getCarImageUrl(car);
+
+  if (hasError) {
     return (
       <div className="w-16 h-10 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
         {car.bodyType.charAt(0).toUpperCase()}
@@ -278,7 +295,7 @@ function CarImage({ car }: { car: Car }) {
         </div>
       )}
       <img
-        src={car.imageUrl}
+        src={imageUrl}
         alt={`${car.year} ${car.make} ${car.model}`}
         className={`w-16 h-10 object-cover rounded ${isLoading ? "opacity-0" : "opacity-100"}`}
         onLoad={() => setIsLoading(false)}
@@ -286,8 +303,6 @@ function CarImage({ car }: { car: Car }) {
           setHasError(true);
           setIsLoading(false);
         }}
-        referrerPolicy="no-referrer"
-        crossOrigin="anonymous"
       />
     </div>
   );
