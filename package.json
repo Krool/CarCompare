@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync-data": "npx ts-node scripts/sync-car-data.ts"
   },
   "dependencies": {
     "next": "16.0.4",
