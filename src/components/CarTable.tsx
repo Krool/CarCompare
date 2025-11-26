@@ -84,9 +84,13 @@ export default function CarTable({
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
               Baseline
             </th>
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+              Image
+            </th>
             <SortableHeader field="year" label="Year" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="make" label="Make" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="model" label="Model" sortConfig={sortConfig} onSortChange={onSortChange} />
+            <SortableHeader field="bodyType" label="Type" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="doors" label="Doors" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="bodyWidthInches" label="Width (in)" sortConfig={sortConfig} onSortChange={onSortChange} />
@@ -130,11 +134,27 @@ export default function CarTable({
                     {isBaseline ? "Baseline" : "Set"}
                   </button>
                 </td>
+                <td className="px-3 py-2">
+                  {car.imageUrl ? (
+                    <img
+                      src={car.imageUrl}
+                      alt={`${car.year} ${car.make} ${car.model}`}
+                      className="w-16 h-10 object-cover rounded"
+                    />
+                  ) : (
+                    <div className="w-16 h-10 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
+                      No img
+                    </div>
+                  )}
+                </td>
                 <td className="px-3 py-2 text-sm text-white">{car.year}</td>
                 <td className="px-3 py-2 text-sm text-white">{car.make}</td>
                 <td className="px-3 py-2 text-sm text-white">
                   {car.model}
                   {car.trim && <span className="text-gray-400 text-xs ml-1">{car.trim}</span>}
+                </td>
+                <td className="px-3 py-2 text-sm">
+                  <BodyTypeBadge bodyType={car.bodyType} />
                 </td>
                 <td className="px-3 py-2 text-sm text-white">
                   {car.seats}
@@ -213,6 +233,36 @@ function FuelTypeBadge({ fuelType }: { fuelType: string }) {
   return (
     <span className={`px-2 py-0.5 rounded text-xs ${colors[fuelType] ?? "bg-gray-600"}`}>
       {labels[fuelType] ?? fuelType}
+    </span>
+  );
+}
+
+function BodyTypeBadge({ bodyType }: { bodyType: string }) {
+  const colors: Record<string, string> = {
+    sedan: "bg-purple-800 text-purple-200",
+    crossover: "bg-orange-800 text-orange-200",
+    suv: "bg-amber-800 text-amber-200",
+    truck: "bg-red-800 text-red-200",
+    minivan: "bg-pink-800 text-pink-200",
+    hatchback: "bg-cyan-800 text-cyan-200",
+    wagon: "bg-lime-800 text-lime-200",
+    coupe: "bg-indigo-800 text-indigo-200",
+  };
+
+  const labels: Record<string, string> = {
+    sedan: "Sedan",
+    crossover: "Crossover",
+    suv: "SUV",
+    truck: "Truck",
+    minivan: "Minivan",
+    hatchback: "Hatch",
+    wagon: "Wagon",
+    coupe: "Coupe",
+  };
+
+  return (
+    <span className={`px-2 py-0.5 rounded text-xs ${colors[bodyType] ?? "bg-gray-600"}`}>
+      {labels[bodyType] ?? bodyType}
     </span>
   );
 }

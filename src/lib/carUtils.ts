@@ -26,6 +26,11 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       return false;
     }
 
+    // Body type filter
+    if (filters.bodyTypes && filters.bodyTypes.length > 0 && !filters.bodyTypes.includes(car.bodyType)) {
+      return false;
+    }
+
     // Width filter (garage fit) - use mirror width if available, otherwise body + buffer
     if (filters.maxWidthInches !== undefined) {
       const effectiveWidth = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
@@ -58,6 +63,10 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
       case "model":
         aVal = a.model.toLowerCase();
         bVal = b.model.toLowerCase();
+        break;
+      case "bodyType":
+        aVal = a.bodyType.toLowerCase();
+        bVal = b.bodyType.toLowerCase();
         break;
       case "bodyWidthInches":
         aVal = a.mirrorWidthInches ?? a.bodyWidthInches;

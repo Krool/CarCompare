@@ -1,6 +1,6 @@
 "use client";
 
-import { CarFilters, FuelType, PlugType } from "@/types/car";
+import { CarFilters, FuelType, PlugType, BodyType } from "@/types/car";
 
 interface FilterControlsProps {
   filters: CarFilters;
@@ -24,6 +24,17 @@ const PLUG_TYPES: { value: PlugType; label: string }[] = [
   { value: "CCS1", label: "CCS1" },
   { value: "CHAdeMO", label: "CHAdeMO" },
   { value: "NACS", label: "NACS/Tesla" },
+];
+
+const BODY_TYPES: { value: BodyType; label: string }[] = [
+  { value: "sedan", label: "Sedan" },
+  { value: "crossover", label: "Crossover" },
+  { value: "suv", label: "SUV" },
+  { value: "truck", label: "Truck" },
+  { value: "minivan", label: "Minivan" },
+  { value: "hatchback", label: "Hatchback" },
+  { value: "wagon", label: "Wagon" },
+  { value: "coupe", label: "Coupe" },
 ];
 
 const DOOR_OPTIONS = [2, 4, 5];
@@ -61,6 +72,12 @@ export default function FilterControls({
     const arr = filters.makes ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
     updateFilter("makes", newArr.length > 0 ? newArr : undefined);
+  };
+
+  const toggleBodyTypeFilter = (value: BodyType) => {
+    const arr = filters.bodyTypes ?? [];
+    const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
+    updateFilter("bodyTypes", newArr.length > 0 ? newArr : undefined);
   };
 
   return (
@@ -167,6 +184,26 @@ export default function FilterControls({
               }`}
             >
               {d}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Body Type */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">Body Type</label>
+        <div className="flex gap-2 flex-wrap">
+          {BODY_TYPES.map((bt) => (
+            <button
+              key={bt.value}
+              onClick={() => toggleBodyTypeFilter(bt.value)}
+              className={`px-3 py-1 rounded text-sm ${
+                filters.bodyTypes?.includes(bt.value)
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              }`}
+            >
+              {bt.label}
             </button>
           ))}
         </div>

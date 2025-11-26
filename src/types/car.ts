@@ -2,12 +2,16 @@ export type FuelType = "gasoline" | "hybrid" | "electric" | "diesel" | "plug-in-
 
 export type PlugType = "J1772" | "CCS1" | "CHAdeMO" | "NACS" | "Tesla" | "none";
 
+export type BodyType = "sedan" | "crossover" | "suv" | "truck" | "minivan" | "hatchback" | "wagon" | "coupe";
+
 export interface Car {
   id: string;
   year: number;
   make: string;
   model: string;
   trim?: string;
+  bodyType: BodyType;
+  imageUrl?: string;            // URL to car image
 
   // Dimensions
   bodyWidthInches: number;      // Width without mirrors
@@ -51,6 +55,7 @@ export interface CarFilters {
   doors?: number[];
   fuelTypes?: FuelType[];
   plugTypes?: PlugType[];
+  bodyTypes?: BodyType[];
   maxWidthInches?: number;      // For garage fit
   makes?: string[];
 }
@@ -65,6 +70,7 @@ export type SortField =
   | "year"
   | "make"
   | "model"
+  | "bodyType"
   | "bodyWidthInches"
   | "seats"
   | "doors"
