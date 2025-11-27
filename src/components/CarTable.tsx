@@ -541,6 +541,53 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           </div>
         )}
 
+        {/* Search Links */}
+        <div className="mt-6 bg-gray-900 rounded-lg p-4">
+          <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Search This Vehicle</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <SearchLink
+              name="Cars.com"
+              url={`https://www.cars.com/shopping/results/?keyword=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}`}
+              color="bg-blue-700"
+            />
+            <SearchLink
+              name="AutoTrader"
+              url={`https://www.autotrader.com/cars-for-sale/all-cars/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}?startYear=${car.year}&endYear=${car.year}`}
+              color="bg-red-700"
+            />
+            <SearchLink
+              name="CarGurus"
+              url={`https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?zip=10001&sourceContext=carGurusHomePageModel&newSearchFromOverviewPage=true&inventorySearchWidgetType=AUTO&entitySelectingHelper.selectedEntity=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}`}
+              color="bg-green-700"
+            />
+            <SearchLink
+              name="Edmunds"
+              url={`https://www.edmunds.com/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}/${car.year}/`}
+              color="bg-purple-700"
+            />
+            <SearchLink
+              name="KBB"
+              url={`https://www.kbb.com/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}/${car.year}/`}
+              color="bg-cyan-700"
+            />
+            <SearchLink
+              name="TrueCar"
+              url={`https://www.truecar.com/used-cars-for-sale/listings/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}/year-${car.year}/`}
+              color="bg-orange-700"
+            />
+            <SearchLink
+              name="CarMax"
+              url={`https://www.carmax.com/cars/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}?year=${car.year}`}
+              color="bg-yellow-700"
+            />
+            <SearchLink
+              name="Google"
+              url={`https://www.google.com/search?q=${encodeURIComponent(`${car.year} ${car.make} ${car.model} for sale`)}`}
+              color="bg-gray-600"
+            />
+          </div>
+        </div>
+
         {/* Baseline comparison note */}
         {isBaseline && (
           <div className="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-700">
@@ -593,5 +640,18 @@ function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void })
         }}
       />
     </div>
+  );
+}
+
+function SearchLink({ name, url, color }: { name: string; url: string; color: string }) {
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${color} hover:opacity-80 text-white text-center py-2 px-3 rounded text-sm font-medium transition-opacity`}
+    >
+      {name}
+    </a>
   );
 }
