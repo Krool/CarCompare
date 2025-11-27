@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Car, SortConfig, SortField } from "@/types/car";
+import { Car, SortConfig, SortField, SafetyRating } from "@/types/car";
 import {
   formatCurrency,
   formatMpg,
@@ -69,6 +69,8 @@ export default function CarTable({
   mirrorBuffer,
   onSelectBaseline,
 }: CarTableProps) {
+  const [modalCar, setModalCar] = useState<Car | null>(null);
+
   if (cars.length === 0) {
     return (
       <div className="bg-gray-800 rounded-lg p-8 text-center text-gray-400">
@@ -78,6 +80,8 @@ export default function CarTable({
   }
 
   return (
+    <>
+      {modalCar && <ImageModal car={modalCar} onClose={() => setModalCar(null)} />}
     <div className="overflow-x-auto bg-gray-800 rounded-lg">
       <table className="min-w-full divide-y divide-gray-700">
         <thead className="bg-gray-900">
@@ -92,8 +96,9 @@ export default function CarTable({
             <SortableHeader field="make" label="Make" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="model" label="Model" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="bodyType" label="Type" sortConfig={sortConfig} onSortChange={onSortChange} />
+            <SortableHeader field="safetyRating" label="Safety" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="doors" label="Doors" sortConfig={sortConfig} onSortChange={onSortChange} />
+            <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="bodyWidthInches" label="Width (in)" sortConfig={sortConfig} onSortChange={onSortChange} />
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
               Fuel
@@ -136,7 +141,7 @@ export default function CarTable({
                   </button>
                 </td>
                 <td className="px-3 py-2">
-                  <CarImage car={car} />
+                  <CarImage car={car} onImageClick={() => setModalCar(car)} />
                 </td>
                 <td className="px-3 py-2 text-sm text-white">{car.year}</td>
                 <td className="px-3 py-2 text-sm text-white">{car.make}</td>
@@ -147,13 +152,18 @@ export default function CarTable({
                 <td className="px-3 py-2 text-sm">
                   <BodyTypeBadge bodyType={car.bodyType} />
                 </td>
+                <td className="px-3 py-2 text-sm">
+                  <SafetyBadge rating={car.safetyRating} />
+                </td>
                 <td className="px-3 py-2 text-sm text-white">
                   {car.seats}
                   {baselineCar && !isBaseline && (
                     <DiffBadge diff={calculateDifference(baselineCar, car, "seats", mirrorBuffer)} positive="higher" />
                   )}
                 </td>
-                <td className="px-3 py-2 text-sm text-white">{car.doors}</td>
+                <td className="px-3 py-2 text-sm text-white">
+                  {car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}
+                </td>
                 <td className="px-3 py-2 text-sm text-white">
                   <span title={hasActualMirrorWidth ? "Actual mirror width" : `Body: ${car.bodyWidthInches}" + ${mirrorBuffer}" buffer`}>
                     {effectiveWidth.toFixed(1)}
@@ -201,6 +211,7 @@ export default function CarTable({
         * Width estimated using body width + {mirrorBuffer}" mirror buffer
       </div>
     </div>
+    </>
   );
 }
 
@@ -258,7 +269,36 @@ function BodyTypeBadge({ bodyType }: { bodyType: string }) {
   );
 }
 
-function getCarImageUrl(car: Car): string {
+function SafetyBadge({ rating }: { rating?: SafetyRating }) {
+  if (!rating || rating === "Not Rated") {
+    return <span className="text-gray-500 text-xs">-</span>;
+  }
+
+  const colors: Record<string, string> = {
+    "TSP+": "bg-green-700 text-green-100",
+    "TSP": "bg-green-800 text-green-200",
+    "Good": "bg-blue-800 text-blue-200",
+    "Acceptable": "bg-yellow-800 text-yellow-200",
+  };
+
+  const titles: Record<string, string> = {
+    "TSP+": "IIHS Top Safety Pick+",
+    "TSP": "IIHS Top Safety Pick",
+    "Good": "IIHS Good Rating",
+    "Acceptable": "IIHS Acceptable Rating",
+  };
+
+  return (
+    <span
+      className={`px-2 py-0.5 rounded text-xs ${colors[rating] ?? "bg-gray-600"}`}
+      title={titles[rating]}
+    >
+      {rating}
+    </span>
+  );
+}
+
+function getCarImageUrl(car: Car, size: number = 400): string {
   // Use IMAGIN.studio API for consistent car images
   // Format model name: "RAV4 Hybrid" -> "rav4", "Model Y" -> "model-y", "CR-V" -> "cr-v"
   const modelFamily = car.model
@@ -270,10 +310,61 @@ function getCarImageUrl(car: Car): string {
 
   const make = car.make.toLowerCase();
 
-  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=400`;
+  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=${size}`;
 }
 
-function CarImage({ car }: { car: Car }) {
+function ImageModal({ car, onClose }: { car: Car; onClose: () => void }) {
+  const imageUrl = getCarImageUrl(car, 800);
+
+  return (
+    <div
+      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-gray-800 rounded-lg max-w-3xl w-full p-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-xl font-bold text-white">
+            {car.year} {car.make} {car.model} {car.trim && <span className="text-gray-400 font-normal">{car.trim}</span>}
+          </h3>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-white text-2xl leading-none"
+          >
+            ×
+          </button>
+        </div>
+        <img
+          src={imageUrl}
+          alt={`${car.year} ${car.make} ${car.model}`}
+          className="w-full h-auto rounded-lg"
+        />
+        <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <div>
+            <span className="text-gray-400">Body Type:</span>
+            <span className="text-white ml-2">{car.bodyType}</span>
+          </div>
+          <div>
+            <span className="text-gray-400">Seats:</span>
+            <span className="text-white ml-2">{car.seats}</span>
+          </div>
+          <div>
+            <span className="text-gray-400">MSRP:</span>
+            <span className="text-white ml-2">{formatCurrency(car.msrp)}</span>
+          </div>
+          <div>
+            <span className="text-gray-400">Fuel:</span>
+            <span className="text-white ml-2">{car.fuelType}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void }) {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -288,7 +379,10 @@ function CarImage({ car }: { car: Car }) {
   }
 
   return (
-    <div className="w-28 h-16 relative">
+    <div
+      className="w-28 h-16 relative cursor-pointer hover:opacity-80 transition-opacity"
+      onClick={onImageClick}
+    >
       {isLoading && (
         <div className="absolute inset-0 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
           ...

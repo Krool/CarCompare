@@ -4,6 +4,9 @@ export type PlugType = "J1772" | "CCS1" | "CHAdeMO" | "NACS" | "Tesla" | "none";
 
 export type BodyType = "sedan" | "crossover" | "suv" | "truck" | "minivan" | "hatchback" | "wagon" | "coupe";
 
+// IIHS Top Safety Pick ratings
+export type SafetyRating = "TSP+" | "TSP" | "Good" | "Acceptable" | "Not Rated";
+
 export interface Car {
   id: string;
   year: number;
@@ -23,6 +26,7 @@ export interface Car {
   seats: number;
   doors: number;
   cargoVolumesCuFt?: number;
+  driverLegroomInches?: number;  // Driver leg room in inches
 
   // Powertrain
   fuelType: FuelType;
@@ -37,6 +41,9 @@ export interface Car {
   msrp?: number;                // New car MSRP
   usedPriceLow?: number;        // Estimated used price range
   usedPriceHigh?: number;
+
+  // Safety
+  safetyRating?: SafetyRating;    // IIHS rating: TSP+, TSP, Good, Acceptable, Not Rated
 
   // Features/Notes
   standardFeatures?: string[];
@@ -76,7 +83,9 @@ export type SortField =
   | "doors"
   | "msrp"
   | "mpgCombined"
-  | "electricRangeMiles";
+  | "electricRangeMiles"
+  | "driverLegroomInches"
+  | "safetyRating";
 
 export type SortDirection = "asc" | "desc";
 
