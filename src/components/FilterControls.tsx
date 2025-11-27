@@ -8,6 +8,7 @@ interface FilterControlsProps {
   availableMakes: string[];
   mirrorBuffer: number;
   onMirrorBufferChange: (buffer: number) => void;
+  hasFavorites: boolean;
 }
 
 const FUEL_TYPES: { value: FuelType; label: string }[] = [
@@ -47,12 +48,23 @@ const SAFETY_RATINGS: { value: SafetyRating; label: string }[] = [
   { value: "Not Rated", label: "Not Rated" },
 ];
 
+// Quick preset filter definitions
+const PRESETS = [
+  { name: "EVs Under $50k", filters: { fuelTypes: ["electric" as FuelType], maxPrice: 50000 } },
+  { name: "Family SUVs", filters: { bodyTypes: ["suv" as BodyType, "crossover" as BodyType], minSeats: 6 } },
+  { name: "Top Safety", filters: { safetyRatings: ["TSP+" as SafetyRating] } },
+  { name: "Fuel Efficient", filters: { minMpg: 35 } },
+  { name: "Long Range EVs", filters: { fuelTypes: ["electric" as FuelType], minEvRange: 300 } },
+  { name: "Compact", filters: { bodyTypes: ["crossover" as BodyType, "hatchback" as BodyType, "sedan" as BodyType], maxPrice: 40000 } },
+];
+
 export default function FilterControls({
   filters,
   onFiltersChange,
   availableMakes,
   mirrorBuffer,
   onMirrorBufferChange,
+  hasFavorites,
 }: FilterControlsProps) {
   const updateFilter = (key: keyof CarFilters, value: CarFilters[keyof CarFilters]) => {
     onFiltersChange({ ...filters, [key]: value });
@@ -97,6 +109,63 @@ export default function FilterControls({
   return (
     <div className="bg-gray-800 rounded-lg p-4 space-y-4">
       <h2 className="text-lg font-semibold text-white border-b border-gray-600 pb-2">Filters</h2>
+
+      {/* Quick Presets */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">Quick Presets</label>
+        <div className="flex gap-2 flex-wrap">
+          {PRESETS.map((preset) => (
+            <button
+              key={preset.name}
+              onClick={() => onFiltersChange({ ...preset.filters })}
+              className="px-3 py-1 rounded text-xs bg-purple-800 text-purple-200 hover:bg-purple-700"
+            >
+              {preset.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Show Favorites Only */}
+      {hasFavorites && (
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={filters.showFavoritesOnly ?? false}
+              onChange={(e) => updateFilter("showFavoritesOnly", e.target.checked || undefined)}
+              className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-yellow-500 focus:ring-yellow-500"
+            />
+            <span className="text-sm font-medium text-yellow-400">★ Show Favorites Only</span>
+          </label>
+        </div>
+      )}
+
+      {/* Year Range */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">Year</label>
+        <div className="flex gap-2">
+          <input
+            type="number"
+            min={2010}
+            max={2026}
+            placeholder="Min"
+            value={filters.minYear ?? ""}
+            onChange={(e) => updateFilter("minYear", e.target.value ? parseInt(e.target.value) : undefined)}
+            className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+          />
+          <span className="text-gray-400 self-center">to</span>
+          <input
+            type="number"
+            min={2010}
+            max={2026}
+            placeholder="Max"
+            value={filters.maxYear ?? ""}
+            onChange={(e) => updateFilter("maxYear", e.target.value ? parseInt(e.target.value) : undefined)}
+            className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+          />
+        </div>
+      </div>
 
       {/* Seats */}
       <div className="space-y-2">
@@ -199,6 +268,55 @@ export default function FilterControls({
           className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
         />
         <p className="text-xs text-gray-500">Filter for taller drivers</p>
+      </div>
+
+      {/* Min Cargo Volume */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">
+          Min Cargo Volume (cu ft)
+        </label>
+        <input
+          type="number"
+          min={0}
+          max={150}
+          placeholder="e.g., 60"
+          value={filters.minCargo ?? ""}
+          onChange={(e) => updateFilter("minCargo", e.target.value ? parseFloat(e.target.value) : undefined)}
+          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+        />
+      </div>
+
+      {/* Min MPG/MPGe */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">
+          Min MPG/MPGe
+        </label>
+        <input
+          type="number"
+          min={0}
+          max={200}
+          placeholder="e.g., 30"
+          value={filters.minMpg ?? ""}
+          onChange={(e) => updateFilter("minMpg", e.target.value ? parseInt(e.target.value) : undefined)}
+          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+        />
+      </div>
+
+      {/* Min EV Range */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">
+          Min EV Range (miles)
+        </label>
+        <input
+          type="number"
+          min={0}
+          max={500}
+          placeholder="e.g., 250"
+          value={filters.minEvRange ?? ""}
+          onChange={(e) => updateFilter("minEvRange", e.target.value ? parseInt(e.target.value) : undefined)}
+          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+        />
+        <p className="text-xs text-gray-500">Only shows EVs/PHEVs</p>
       </div>
 
       {/* Safety Rating */}

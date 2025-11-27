@@ -17,6 +17,10 @@ interface CarTableProps {
   baselineCar: Car | null;
   mirrorBuffer: number;
   onSelectBaseline: (car: Car) => void;
+  compareList: string[];
+  onToggleCompare: (carId: string) => void;
+  favorites: string[];
+  onToggleFavorite: (carId: string) => void;
 }
 
 interface SortableHeaderProps {
@@ -68,6 +72,10 @@ export default function CarTable({
   baselineCar,
   mirrorBuffer,
   onSelectBaseline,
+  compareList,
+  onToggleCompare,
+  favorites,
+  onToggleFavorite,
 }: CarTableProps) {
   const [modalCar, setModalCar] = useState<Car | null>(null);
 
@@ -81,13 +89,26 @@ export default function CarTable({
 
   return (
     <>
-      {modalCar && <ImageModal car={modalCar} onClose={() => setModalCar(null)} />}
-    <div className="overflow-x-auto bg-gray-800 rounded-lg">
+      {modalCar && (
+        <ImageModal
+          car={modalCar}
+          onClose={() => setModalCar(null)}
+          baselineCar={baselineCar}
+          mirrorBuffer={mirrorBuffer}
+        />
+      )}
+    <div className="overflow-x-auto bg-gray-800 rounded-lg max-h-[calc(100vh-300px)] overflow-y-auto">
       <table className="min-w-full divide-y divide-gray-700">
-        <thead className="bg-gray-900">
+        <thead className="bg-gray-900 sticky top-0 z-10">
           <tr>
+            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10">
+              <span title="Add to favorites">★</span>
+            </th>
+            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10">
+              <span title="Add to compare">⚖</span>
+            </th>
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-              Baseline
+              Base
             </th>
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
               Image
@@ -122,12 +143,34 @@ export default function CarTable({
             const isBaseline = baselineCar?.id === car.id;
             const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
             const hasActualMirrorWidth = car.mirrorWidthInches !== undefined;
+            const isFavorite = favorites.includes(car.id);
+            const isInCompare = compareList.includes(car.id);
 
             return (
               <tr
                 key={car.id}
-                className={`${isBaseline ? "bg-blue-900/30" : "hover:bg-gray-700/50"}`}
+                className={`${isBaseline ? "bg-blue-900/30" : isFavorite ? "bg-yellow-900/20" : "hover:bg-gray-700/50"}`}
               >
+                <td className="px-2 py-2 text-center">
+                  <button
+                    onClick={() => onToggleFavorite(car.id)}
+                    className={`text-xl transition-colors ${
+                      isFavorite ? "text-yellow-400" : "text-gray-600 hover:text-yellow-400"
+                    }`}
+                    title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+                  >
+                    ★
+                  </button>
+                </td>
+                <td className="px-2 py-2 text-center">
+                  <input
+                    type="checkbox"
+                    checked={isInCompare}
+                    onChange={() => onToggleCompare(car.id)}
+                    className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
+                    title="Add to comparison"
+                  />
+                </td>
                 <td className="px-3 py-2">
                   <button
                     onClick={() => onSelectBaseline(car)}
@@ -137,7 +180,7 @@ export default function CarTable({
                         : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                     }`}
                   >
-                    {isBaseline ? "Baseline" : "Set"}
+                    {isBaseline ? "✓" : "Set"}
                   </button>
                 </td>
                 <td className="px-3 py-2">
@@ -163,6 +206,9 @@ export default function CarTable({
                 </td>
                 <td className="px-3 py-2 text-sm text-white">
                   {car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}
+                  {baselineCar && !isBaseline && car.driverLegroomInches && (
+                    <DiffBadge diff={calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer)} positive="higher" />
+                  )}
                 </td>
                 <td className="px-3 py-2 text-sm text-white">
                   <span title={hasActualMirrorWidth ? "Actual mirror width" : `Body: ${car.bodyWidthInches}" + ${mirrorBuffer}" buffer`}>
@@ -313,51 +359,199 @@ function getCarImageUrl(car: Car, size: number = 400): string {
   return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=${size}`;
 }
 
-function ImageModal({ car, onClose }: { car: Car; onClose: () => void }) {
+interface ImageModalProps {
+  car: Car;
+  onClose: () => void;
+  baselineCar: Car | null;
+  mirrorBuffer: number;
+}
+
+function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps) {
   const imageUrl = getCarImageUrl(car, 800);
+  const isBaseline = baselineCar?.id === car.id;
+  const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
+
+  const DetailRow = ({ label, value, diff, positive }: { label: string; value: string | number | undefined; diff?: string | null; positive?: "higher" | "lower" }) => (
+    <div className="flex justify-between py-1 border-b border-gray-700">
+      <span className="text-gray-400">{label}</span>
+      <span className="text-white">
+        {value ?? "-"}
+        {diff && !isBaseline && <DiffBadge diff={diff} positive={positive} />}
+      </span>
+    </div>
+  );
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="bg-gray-800 rounded-lg max-w-3xl w-full p-4"
+        className="bg-gray-800 rounded-lg max-w-4xl w-full p-6 my-8"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-white">
-            {car.year} {car.make} {car.model} {car.trim && <span className="text-gray-400 font-normal">{car.trim}</span>}
-          </h3>
+        {/* Header */}
+        <div className="flex justify-between items-start mb-4">
+          <div>
+            <h3 className="text-2xl font-bold text-white">
+              {car.year} {car.make} {car.model}
+            </h3>
+            {car.trim && <p className="text-gray-400">{car.trim}</p>}
+            <div className="flex gap-2 mt-2">
+              <BodyTypeBadge bodyType={car.bodyType} />
+              <FuelTypeBadge fuelType={car.fuelType} />
+              <SafetyBadge rating={car.safetyRating} />
+            </div>
+          </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white text-2xl leading-none"
+            className="text-gray-400 hover:text-white text-3xl leading-none p-2"
           >
             ×
           </button>
         </div>
+
+        {/* Image */}
         <img
           src={imageUrl}
           alt={`${car.year} ${car.make} ${car.model}`}
-          className="w-full h-auto rounded-lg"
+          className="w-full h-auto rounded-lg mb-6"
         />
-        <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-          <div>
-            <span className="text-gray-400">Body Type:</span>
-            <span className="text-white ml-2">{car.bodyType}</span>
+
+        {/* Details Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Pricing */}
+          <div className="bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Pricing</h4>
+            <DetailRow
+              label="MSRP"
+              value={formatCurrency(car.msrp)}
+              diff={baselineCar ? calculateDifference(baselineCar, car, "msrp", mirrorBuffer) : null}
+              positive="lower"
+            />
+            {(car.usedPriceLow || car.usedPriceHigh) && (
+              <DetailRow
+                label="Used Price Range"
+                value={`${formatCurrency(car.usedPriceLow)} - ${formatCurrency(car.usedPriceHigh)}`}
+              />
+            )}
           </div>
-          <div>
-            <span className="text-gray-400">Seats:</span>
-            <span className="text-white ml-2">{car.seats}</span>
+
+          {/* Dimensions */}
+          <div className="bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Dimensions</h4>
+            <DetailRow
+              label="Width (w/ mirrors)"
+              value={`${effectiveWidth.toFixed(1)}"`}
+              diff={baselineCar ? calculateDifference(baselineCar, car, "bodyWidthInches", mirrorBuffer) : null}
+              positive="lower"
+            />
+            <DetailRow label="Body Width" value={car.bodyWidthInches ? `${car.bodyWidthInches}"` : undefined} />
+            <DetailRow label="Length" value={car.lengthInches ? `${car.lengthInches}"` : undefined} />
+            <DetailRow label="Height" value={car.heightInches ? `${car.heightInches}"` : undefined} />
           </div>
-          <div>
-            <span className="text-gray-400">MSRP:</span>
-            <span className="text-white ml-2">{formatCurrency(car.msrp)}</span>
+
+          {/* Capacity */}
+          <div className="bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Capacity</h4>
+            <DetailRow
+              label="Seats"
+              value={car.seats}
+              diff={baselineCar ? calculateDifference(baselineCar, car, "seats", mirrorBuffer) : null}
+              positive="higher"
+            />
+            <DetailRow label="Doors" value={car.doors} />
+            <DetailRow
+              label="Driver Legroom"
+              value={car.driverLegroomInches ? `${car.driverLegroomInches}"` : undefined}
+              diff={baselineCar ? calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer) : null}
+              positive="higher"
+            />
+            <DetailRow label="Cargo Volume" value={car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : undefined} />
           </div>
-          <div>
-            <span className="text-gray-400">Fuel:</span>
-            <span className="text-white ml-2">{car.fuelType}</span>
+
+          {/* Efficiency */}
+          <div className="bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Efficiency</h4>
+            {car.fuelType !== "electric" && (
+              <>
+                <DetailRow label="City MPG" value={car.mpgCity} />
+                <DetailRow label="Highway MPG" value={car.mpgHighway} />
+                <DetailRow
+                  label="Combined MPG"
+                  value={car.mpgCombined}
+                  diff={baselineCar ? calculateDifference(baselineCar, car, "mpgCombined", mirrorBuffer) : null}
+                  positive="higher"
+                />
+              </>
+            )}
+            {car.mpge && <DetailRow label="MPGe" value={car.mpge} />}
+            {car.electricRangeMiles && (
+              <DetailRow
+                label="Electric Range"
+                value={`${car.electricRangeMiles} mi`}
+                diff={baselineCar ? calculateDifference(baselineCar, car, "electricRangeMiles", mirrorBuffer) : null}
+                positive="higher"
+              />
+            )}
           </div>
+
+          {/* Powertrain */}
+          <div className="bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Powertrain</h4>
+            <DetailRow label="Fuel Type" value={car.fuelType} />
+            <DetailRow label="Plug Type" value={car.plugType === "none" ? "N/A" : car.plugType} />
+          </div>
+
+          {/* Safety */}
+          <div className="bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Safety</h4>
+            <DetailRow label="IIHS Rating" value={car.safetyRating ?? "Not Rated"} />
+            {car.safetyRating === "TSP+" && (
+              <p className="text-xs text-green-400 mt-2">Top Safety Pick+ - Highest IIHS award</p>
+            )}
+            {car.safetyRating === "TSP" && (
+              <p className="text-xs text-green-400 mt-2">Top Safety Pick - Excellent safety rating</p>
+            )}
+          </div>
+        </div>
+
+        {/* Features & Notes */}
+        {(car.standardFeatures?.length || car.notes) && (
+          <div className="mt-6 bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Features & Notes</h4>
+            {car.standardFeatures && car.standardFeatures.length > 0 && (
+              <div className="mb-3">
+                <span className="text-gray-400 text-sm">Standard Features:</span>
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {car.standardFeatures.map((feature, i) => (
+                    <span key={i} className="px-2 py-1 bg-gray-700 rounded text-xs text-gray-200">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {car.notes && (
+              <div>
+                <span className="text-gray-400 text-sm">Notes:</span>
+                <p className="text-white mt-1">{car.notes}</p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Baseline comparison note */}
+        {isBaseline && (
+          <div className="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-700">
+            <p className="text-blue-300 text-sm">This is your baseline vehicle for comparisons.</p>
+          </div>
+        )}
+
+        {/* Footer with metadata */}
+        <div className="mt-6 pt-4 border-t border-gray-700 flex justify-between text-xs text-gray-500">
+          <span>Last updated: {car.lastUpdated}</span>
+          <span>Source: {car.dataSource ?? "manual"}</span>
         </div>
       </div>
     </div>

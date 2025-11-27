@@ -66,6 +66,36 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       }
     }
 
+    // Year range filter
+    if (filters.minYear !== undefined && car.year < filters.minYear) {
+      return false;
+    }
+    if (filters.maxYear !== undefined && car.year > filters.maxYear) {
+      return false;
+    }
+
+    // MPG/MPGe filter
+    if (filters.minMpg !== undefined) {
+      const efficiency = car.mpgCombined ?? car.mpge ?? 0;
+      if (efficiency < filters.minMpg) {
+        return false;
+      }
+    }
+
+    // EV Range filter
+    if (filters.minEvRange !== undefined) {
+      if (!car.electricRangeMiles || car.electricRangeMiles < filters.minEvRange) {
+        return false;
+      }
+    }
+
+    // Cargo volume filter
+    if (filters.minCargo !== undefined) {
+      if (!car.cargoVolumesCuFt || car.cargoVolumesCuFt < filters.minCargo) {
+        return false;
+      }
+    }
+
     return true;
   });
 }
@@ -197,4 +227,61 @@ export function calculateDifference(baseline: Car, comparison: Car, field: keyof
 
 export function getCarDisplayName(car: Car): string {
   return `${car.year} ${car.make} ${car.model}${car.trim ? ` ${car.trim}` : ""}`;
+}
+
+export function exportToCsv(cars: Car[], mirrorBuffer: number): string {
+  const headers = [
+    "Year", "Make", "Model", "Trim", "Body Type", "Safety Rating",
+    "Seats", "Driver Legroom", "Width (w/ mirrors)", "Body Width",
+    "Length", "Height", "Cargo Volume", "Fuel Type", "Plug Type",
+    "City MPG", "Highway MPG", "Combined MPG", "MPGe", "EV Range",
+    "MSRP", "Used Price Low", "Used Price High", "Notes"
+  ];
+
+  const rows = cars.map(car => [
+    car.year,
+    car.make,
+    car.model,
+    car.trim ?? "",
+    car.bodyType,
+    car.safetyRating ?? "",
+    car.seats,
+    car.driverLegroomInches ?? "",
+    getEffectiveWidth(car, mirrorBuffer).toFixed(1),
+    car.bodyWidthInches,
+    car.lengthInches ?? "",
+    car.heightInches ?? "",
+    car.cargoVolumesCuFt ?? "",
+    car.fuelType,
+    car.plugType === "none" ? "" : car.plugType,
+    car.mpgCity ?? "",
+    car.mpgHighway ?? "",
+    car.mpgCombined ?? "",
+    car.mpge ?? "",
+    car.electricRangeMiles ?? "",
+    car.msrp ?? "",
+    car.usedPriceLow ?? "",
+    car.usedPriceHigh ?? "",
+    car.notes ?? ""
+  ]);
+
+  const csvContent = [
+    headers.join(","),
+    ...rows.map(row => row.map(cell =>
+      typeof cell === "string" && (cell.includes(",") || cell.includes('"'))
+        ? `"${cell.replace(/"/g, '""')}"`
+        : cell
+    ).join(","))
+  ].join("\n");
+
+  return csvContent;
+}
+
+export function downloadCsv(content: string, filename: string): void {
+  const blob = new Blob([content], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(link.href);
 }

@@ -67,6 +67,12 @@ export interface CarFilters {
   makes?: string[];
   minLegroom?: number;          // Minimum driver legroom in inches
   safetyRatings?: SafetyRating[]; // Filter by IIHS safety ratings
+  minYear?: number;             // Minimum model year
+  maxYear?: number;             // Maximum model year
+  minMpg?: number;              // Minimum combined MPG/MPGe
+  minEvRange?: number;          // Minimum EV range in miles
+  minCargo?: number;            // Minimum cargo volume in cubic feet
+  showFavoritesOnly?: boolean;  // Only show favorited vehicles
 }
 
 export interface CarDatabase {
