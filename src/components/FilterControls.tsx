@@ -1,6 +1,6 @@
 "use client";
 
-import { CarFilters, FuelType, PlugType, BodyType } from "@/types/car";
+import { CarFilters, FuelType, PlugType, BodyType, SafetyRating } from "@/types/car";
 
 interface FilterControlsProps {
   filters: CarFilters;
@@ -38,6 +38,14 @@ const BODY_TYPES: { value: BodyType; label: string }[] = [
 ];
 
 const DOOR_OPTIONS = [2, 4, 5];
+
+const SAFETY_RATINGS: { value: SafetyRating; label: string }[] = [
+  { value: "TSP+", label: "TSP+" },
+  { value: "TSP", label: "TSP" },
+  { value: "Good", label: "Good" },
+  { value: "Acceptable", label: "Acceptable" },
+  { value: "Not Rated", label: "Not Rated" },
+];
 
 export default function FilterControls({
   filters,
@@ -78,6 +86,12 @@ export default function FilterControls({
     const arr = filters.bodyTypes ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
     updateFilter("bodyTypes", newArr.length > 0 ? newArr : undefined);
+  };
+
+  const toggleSafetyFilter = (value: SafetyRating) => {
+    const arr = filters.safetyRatings ?? [];
+    const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
+    updateFilter("safetyRatings", newArr.length > 0 ? newArr : undefined);
   };
 
   return (
@@ -167,6 +181,44 @@ export default function FilterControls({
           className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
         />
         <p className="text-xs text-gray-500">Added to body width when mirror width unknown</p>
+      </div>
+
+      {/* Minimum Legroom */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">
+          Min Driver Legroom (inches)
+        </label>
+        <input
+          type="number"
+          min={35}
+          max={50}
+          step={0.5}
+          placeholder="e.g., 42"
+          value={filters.minLegroom ?? ""}
+          onChange={(e) => updateFilter("minLegroom", e.target.value ? parseFloat(e.target.value) : undefined)}
+          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+        />
+        <p className="text-xs text-gray-500">Filter for taller drivers</p>
+      </div>
+
+      {/* Safety Rating */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">IIHS Safety Rating</label>
+        <div className="flex gap-2 flex-wrap">
+          {SAFETY_RATINGS.map((sr) => (
+            <button
+              key={sr.value}
+              onClick={() => toggleSafetyFilter(sr.value)}
+              className={`px-3 py-1 rounded text-sm ${
+                filters.safetyRatings?.includes(sr.value)
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              }`}
+            >
+              {sr.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Doors */}

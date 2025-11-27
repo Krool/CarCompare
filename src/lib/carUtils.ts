@@ -1,4 +1,14 @@
-import { Car, CarFilters, SortConfig, SortField, SortDirection } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating } from "@/types/car";
+
+// Safety rating order for sorting (higher is better)
+const SAFETY_RATING_ORDER: Record<SafetyRating | "undefined", number> = {
+  "TSP+": 4,
+  "TSP": 3,
+  "Good": 2,
+  "Acceptable": 1,
+  "Not Rated": 0,
+  "undefined": -1,
+};
 
 export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: number): Car[] {
   return cars.filter((car) => {
@@ -40,6 +50,20 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
     // Make filter
     if (filters.makes && filters.makes.length > 0 && !filters.makes.includes(car.make)) {
       return false;
+    }
+
+    // Legroom filter
+    if (filters.minLegroom !== undefined) {
+      if (!car.driverLegroomInches || car.driverLegroomInches < filters.minLegroom) {
+        return false;
+      }
+    }
+
+    // Safety rating filter
+    if (filters.safetyRatings && filters.safetyRatings.length > 0) {
+      if (!car.safetyRating || !filters.safetyRatings.includes(car.safetyRating)) {
+        return false;
+      }
     }
 
     return true;
@@ -91,6 +115,14 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
       case "electricRangeMiles":
         aVal = a.electricRangeMiles ?? 0;
         bVal = b.electricRangeMiles ?? 0;
+        break;
+      case "driverLegroomInches":
+        aVal = a.driverLegroomInches ?? 0;
+        bVal = b.driverLegroomInches ?? 0;
+        break;
+      case "safetyRating":
+        aVal = SAFETY_RATING_ORDER[a.safetyRating ?? "undefined"];
+        bVal = SAFETY_RATING_ORDER[b.safetyRating ?? "undefined"];
         break;
       default:
         return 0;

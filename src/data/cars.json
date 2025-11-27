@@ -2162,7 +2162,8 @@
       ],
       "notes": "Subcompact crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.9
     },
     {
       "id": "hyundai-santa-fe-2025",
@@ -2461,7 +2462,8 @@
       ],
       "notes": "New 2-row wide-body crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7
     },
     {
       "id": "mazda-cx-90-2025",
@@ -2489,7 +2491,8 @@
       ],
       "notes": "3-row flagship with inline-6",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7
     },
     {
       "id": "ford-explorer-2025",
@@ -2518,7 +2521,8 @@
       "notes": "Refreshed for 2025. Wide body.",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "driverLegroomInches": 43
     },
     {
       "id": "ford-edge-2024",
@@ -2548,7 +2552,8 @@
       ],
       "notes": "Discontinued after 2024 - buy used",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.6
     },
     {
       "id": "ford-bronco-sport-2025",
@@ -2576,7 +2581,8 @@
       ],
       "notes": "Compact off-road capable crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.4
     },
     {
       "id": "chevrolet-blazer-ev-2025",
@@ -2603,7 +2609,8 @@
       ],
       "notes": "Sporty electric crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.2
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -2631,7 +2638,8 @@
       ],
       "notes": "Redesigned for 2025 - very spacious",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.3
     },
     {
       "id": "subaru-crosstrek-2025",
@@ -2659,7 +2667,8 @@
       ],
       "notes": "Compact crossover with standard AWD",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.9
     },
     {
       "id": "subaru-solterra-2025",
@@ -2686,7 +2695,8 @@
       ],
       "notes": "Subaru's first EV - Toyota bZ4X twin",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.1
     },
     {
       "id": "toyota-bz4x-2025",
@@ -2713,7 +2723,8 @@
       ],
       "notes": "Toyota's first dedicated EV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.1
     }
   ],
   "lastSyncDate": "2025-11-26",

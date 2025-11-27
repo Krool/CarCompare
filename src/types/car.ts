@@ -65,6 +65,8 @@ export interface CarFilters {
   bodyTypes?: BodyType[];
   maxWidthInches?: number;      // For garage fit
   makes?: string[];
+  minLegroom?: number;          // Minimum driver legroom in inches
+  safetyRatings?: SafetyRating[]; // Filter by IIHS safety ratings
 }
 
 export interface CarDatabase {
