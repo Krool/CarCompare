@@ -23,10 +23,15 @@
       "msrp": 22650,
       "usedPriceLow": 8000,
       "usedPriceHigh": 14000,
-      "standardFeatures": ["AC", "Power Windows", "CD Player"],
+      "standardFeatures": [
+        "AC",
+        "Power Windows",
+        "CD Player"
+      ],
       "notes": "Baseline vehicle - current car",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41
     },
     {
       "id": "toyota-rav4-2025",
@@ -36,9 +41,9 @@
       "trim": "LE",
       "bodyType": "crossover",
       "imageUrl": "/images/cars/toyota-rav4-2025.jpg",
-      "bodyWidthInches": 73.0,
+      "bodyWidthInches": 73,
       "lengthInches": 180.9,
-      "heightInches": 67.0,
+      "heightInches": 67,
       "seats": 5,
       "doors": 4,
       "cargoVolumesCuFt": 69.8,
@@ -48,10 +53,16 @@
       "mpgHighway": 35,
       "mpgCombined": 30,
       "msrp": 31380,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "Safety Sense 3.0"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "Safety Sense 3.0"
+      ],
       "notes": "2025 model year RAV4",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "toyota-rav4-hybrid-2025",
@@ -61,9 +72,9 @@
       "trim": "SE",
       "bodyType": "crossover",
       "imageUrl": "/images/cars/toyota-rav4-2025.jpg",
-      "bodyWidthInches": 73.0,
+      "bodyWidthInches": 73,
       "lengthInches": 180.9,
-      "heightInches": 67.0,
+      "heightInches": 67,
       "seats": 5,
       "doors": 4,
       "cargoVolumesCuFt": 69.8,
@@ -73,10 +84,17 @@
       "mpgHighway": 38,
       "mpgCombined": 40,
       "msrp": 35075,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "Safety Sense 3.0", "EV Mode"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "Safety Sense 3.0",
+        "EV Mode"
+      ],
       "notes": "Hybrid version, no plug needed",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "toyota-rav4-prime-2025",
@@ -86,9 +104,9 @@
       "trim": "SE",
       "bodyType": "crossover",
       "imageUrl": "/images/cars/toyota-rav4-2025.jpg",
-      "bodyWidthInches": 73.0,
+      "bodyWidthInches": 73,
       "lengthInches": 180.9,
-      "heightInches": 67.0,
+      "heightInches": 67,
       "seats": 5,
       "doors": 4,
       "cargoVolumesCuFt": 63.1,
@@ -100,10 +118,17 @@
       "mpge": 94,
       "electricRangeMiles": 42,
       "msrp": 47415,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "Safety Sense 3.0", "DC Fast Charge Ready"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "Safety Sense 3.0",
+        "DC Fast Charge Ready"
+      ],
       "notes": "Plug-in hybrid with 42 mile EV range",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "honda-crv-2025",
@@ -113,7 +138,7 @@
       "trim": "LX",
       "bodyType": "crossover",
       "imageUrl": "/images/cars/honda-crv-2025.jpg",
-      "bodyWidthInches": 73.0,
+      "bodyWidthInches": 73,
       "lengthInches": 184.8,
       "heightInches": 67.5,
       "seats": 5,
@@ -125,10 +150,16 @@
       "mpgHighway": 34,
       "mpgCombined": 30,
       "msrp": 30750,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "Honda Sensing"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "Honda Sensing"
+      ],
       "notes": "Popular RAV4 competitor",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "honda-crv-hybrid-2025",
@@ -138,7 +169,7 @@
       "trim": "Sport",
       "bodyType": "crossover",
       "imageUrl": "/images/cars/honda-crv-hybrid-2025.jpg",
-      "bodyWidthInches": 73.0,
+      "bodyWidthInches": 73,
       "lengthInches": 184.8,
       "heightInches": 67.5,
       "seats": 5,
@@ -150,10 +181,17 @@
       "mpgHighway": 36,
       "mpgCombined": 40,
       "msrp": 34750,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "Honda Sensing", "Sport Mode"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "Honda Sensing",
+        "Sport Mode"
+      ],
       "notes": "Hybrid CR-V with excellent MPG",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "tesla-model-y-2025",
@@ -165,20 +203,27 @@
       "imageUrl": "/images/cars/tesla-model-y-2025.jpg",
       "bodyWidthInches": 75.6,
       "mirrorWidthInches": 83.8,
-      "lengthInches": 187.0,
+      "lengthInches": 187,
       "heightInches": 63.9,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 76.0,
+      "cargoVolumesCuFt": 76,
       "fuelType": "electric",
       "plugType": "NACS",
       "mpge": 125,
       "electricRangeMiles": 320,
       "msrp": 47990,
-      "standardFeatures": ["Autopilot", "15in Touchscreen", "Glass Roof", "Premium Audio"],
+      "standardFeatures": [
+        "Autopilot",
+        "15in Touchscreen",
+        "Glass Roof",
+        "Premium Audio"
+      ],
       "notes": "Most popular EV in US. 2025 Juniper refresh.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.8,
+      "safetyRating": "TSP+"
     },
     {
       "id": "tesla-model-3-2025",
@@ -200,10 +245,16 @@
       "mpge": 134,
       "electricRangeMiles": 341,
       "msrp": 42990,
-      "standardFeatures": ["Autopilot", "15in Touchscreen", "Glass Roof"],
+      "standardFeatures": [
+        "Autopilot",
+        "15in Touchscreen",
+        "Glass Roof"
+      ],
       "notes": "Highland refresh. Sedan, less cargo than Model Y.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.7,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "chevrolet-equinox-ev-2025",
@@ -218,16 +269,22 @@
       "heightInches": 65.4,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 57.0,
+      "cargoVolumesCuFt": 57,
       "fuelType": "electric",
       "plugType": "CCS1",
       "mpge": 126,
       "electricRangeMiles": 319,
       "msrp": 43295,
-      "standardFeatures": ["17.7in Screen", "Super Cruise Ready", "V2L"],
+      "standardFeatures": [
+        "17.7in Screen",
+        "Super Cruise Ready",
+        "V2L"
+      ],
       "notes": "New affordable EV from Chevy. Great value.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "ford-mustang-mach-e-2025",
@@ -248,10 +305,17 @@
       "mpge": 105,
       "electricRangeMiles": 250,
       "msrp": 43995,
-      "standardFeatures": ["Ford Co-Pilot360", "Sync 4A", "15.5in Screen", "NACS Port"],
+      "standardFeatures": [
+        "Ford Co-Pilot360",
+        "Sync 4A",
+        "15.5in Screen",
+        "NACS Port"
+      ],
       "notes": "2025 models come with NACS port standard",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 43.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "hyundai-tucson-2025",
@@ -273,10 +337,16 @@
       "mpgHighway": 33,
       "mpgCombined": 29,
       "msrp": 30700,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "SmartSense Safety"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "SmartSense Safety"
+      ],
       "notes": "Great cargo space for the class",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.4,
+      "safetyRating": "TSP+"
     },
     {
       "id": "hyundai-ioniq-5-2025",
@@ -288,7 +358,7 @@
       "imageUrl": "/images/cars/hyundai-ioniq-5-2025.jpg",
       "bodyWidthInches": 74.4,
       "lengthInches": 182.5,
-      "heightInches": 63.0,
+      "heightInches": 63,
       "seats": 5,
       "doors": 4,
       "cargoVolumesCuFt": 59.3,
@@ -297,10 +367,16 @@
       "mpge": 114,
       "electricRangeMiles": 303,
       "msrp": 43350,
-      "standardFeatures": ["V2L", "800V Architecture", "Ultra-Fast Charging"],
+      "standardFeatures": [
+        "V2L",
+        "800V Architecture",
+        "Ultra-Fast Charging"
+      ],
       "notes": "800V platform allows 10-80% in 18 mins",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7,
+      "safetyRating": "TSP+"
     },
     {
       "id": "hyundai-ioniq-6-2025",
@@ -321,10 +397,16 @@
       "mpge": 140,
       "electricRangeMiles": 361,
       "msrp": 47700,
-      "standardFeatures": ["V2L", "800V Architecture", "Digital Side Mirrors Available"],
+      "standardFeatures": [
+        "V2L",
+        "800V Architecture",
+        "Digital Side Mirrors Available"
+      ],
       "notes": "Most efficient EV sedan. 361 mi range.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "kia-ev6-2025",
@@ -336,7 +418,7 @@
       "imageUrl": "/images/cars/kia-ev6-2025.jpg",
       "bodyWidthInches": 74.4,
       "lengthInches": 184.4,
-      "heightInches": 61.0,
+      "heightInches": 61,
       "seats": 5,
       "doors": 4,
       "cargoVolumesCuFt": 50.2,
@@ -345,10 +427,16 @@
       "mpge": 134,
       "electricRangeMiles": 310,
       "msrp": 44450,
-      "standardFeatures": ["V2L", "800V Architecture", "Remote Smart Parking"],
+      "standardFeatures": [
+        "V2L",
+        "800V Architecture",
+        "Remote Smart Parking"
+      ],
       "notes": "Shares platform with Ioniq 5. Ultra-fast charging.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.4,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "kia-ev9-2025",
@@ -360,7 +448,7 @@
       "imageUrl": "/images/cars/kia-ev9-2025.jpg",
       "bodyWidthInches": 77.9,
       "lengthInches": 197.2,
-      "heightInches": 69.0,
+      "heightInches": 69,
       "seats": 6,
       "doors": 4,
       "cargoVolumesCuFt": 82.8,
@@ -369,10 +457,16 @@
       "mpge": 101,
       "electricRangeMiles": 304,
       "msrp": 56395,
-      "standardFeatures": ["3-Row Seating", "V2L", "Highway Driving Pilot"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "V2L",
+        "Highway Driving Pilot"
+      ],
       "notes": "3-row electric SUV. Wider - check garage fit!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.8,
+      "safetyRating": "TSP"
     },
     {
       "id": "mazda-cx5-2025",
@@ -394,10 +488,16 @@
       "mpgHighway": 31,
       "mpgCombined": 28,
       "msrp": 31470,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "i-Activsense Safety"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "i-Activsense Safety"
+      ],
       "notes": "Known for upscale interior feel",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "mazda-cx50-2025",
@@ -419,10 +519,17 @@
       "mpgHighway": 31,
       "mpgCombined": 27,
       "msrp": 32970,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "i-Activsense Safety", "AWD Standard"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "i-Activsense Safety",
+        "AWD Standard"
+      ],
       "notes": "Wider/longer than CX-5. More rugged styling.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7,
+      "safetyRating": "TSP+"
     },
     {
       "id": "subaru-outback-2025",
@@ -432,8 +539,8 @@
       "trim": "Base",
       "bodyType": "wagon",
       "imageUrl": "/images/cars/subaru-outback-2025.jpg",
-      "bodyWidthInches": 73.0,
-      "mirrorWidthInches": 84.0,
+      "bodyWidthInches": 73,
+      "mirrorWidthInches": 84,
       "lengthInches": 191.3,
       "heightInches": 66.1,
       "seats": 5,
@@ -445,10 +552,17 @@
       "mpgHighway": 32,
       "mpgCombined": 29,
       "msrp": 32440,
-      "standardFeatures": ["EyeSight Safety", "Apple CarPlay", "Android Auto", "AWD Standard"],
+      "standardFeatures": [
+        "EyeSight Safety",
+        "Apple CarPlay",
+        "Android Auto",
+        "AWD Standard"
+      ],
       "notes": "Standard AWD, good for outdoors",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.8,
+      "safetyRating": "TSP"
     },
     {
       "id": "subaru-forester-2025",
@@ -470,10 +584,17 @@
       "mpgHighway": 33,
       "mpgCombined": 29,
       "msrp": 33695,
-      "standardFeatures": ["EyeSight Safety", "Apple CarPlay", "Android Auto", "AWD Standard"],
+      "standardFeatures": [
+        "EyeSight Safety",
+        "Apple CarPlay",
+        "Android Auto",
+        "AWD Standard"
+      ],
       "notes": "2025 redesign. Standard AWD.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 43.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "toyota-highlander-2025",
@@ -483,7 +604,7 @@
       "trim": "LE",
       "bodyType": "suv",
       "imageUrl": "/images/cars/toyota-highlander-2025.jpg",
-      "bodyWidthInches": 76.0,
+      "bodyWidthInches": 76,
       "lengthInches": 194.9,
       "heightInches": 68.1,
       "seats": 8,
@@ -495,10 +616,17 @@
       "mpgHighway": 35,
       "mpgCombined": 36,
       "msrp": 42070,
-      "standardFeatures": ["8 Seats", "Apple CarPlay", "Android Auto", "Safety Sense 3.0"],
+      "standardFeatures": [
+        "8 Seats",
+        "Apple CarPlay",
+        "Android Auto",
+        "Safety Sense 3.0"
+      ],
       "notes": "3-row SUV. 2025 is hybrid-only in base trim.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42,
+      "safetyRating": "TSP"
     },
     {
       "id": "toyota-grand-highlander-2025",
@@ -508,7 +636,7 @@
       "trim": "XLE",
       "bodyType": "suv",
       "imageUrl": "/images/cars/toyota-grand-highlander-2025.jpg",
-      "bodyWidthInches": 76.0,
+      "bodyWidthInches": 76,
       "lengthInches": 201.4,
       "heightInches": 68.5,
       "seats": 8,
@@ -520,10 +648,16 @@
       "mpgHighway": 28,
       "mpgCombined": 24,
       "msrp": 50920,
-      "standardFeatures": ["8 Seats", "Apple CarPlay", "Android Auto", "12.3in Screen"],
+      "standardFeatures": [
+        "8 Seats",
+        "Apple CarPlay",
+        "Android Auto",
+        "12.3in Screen"
+      ],
       "notes": "Longer than Highlander. More 3rd row space.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.2
     },
     {
       "id": "honda-odyssey-2025",
@@ -534,22 +668,28 @@
       "bodyType": "minivan",
       "imageUrl": "/images/cars/honda-odyssey-2025.jpg",
       "bodyWidthInches": 78.5,
-      "mirrorWidthInches": 87.0,
+      "mirrorWidthInches": 87,
       "lengthInches": 203.2,
       "heightInches": 68.9,
       "seats": 8,
       "doors": 4,
-      "cargoVolumesCuFt": 158.0,
+      "cargoVolumesCuFt": 158,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 19,
       "mpgHighway": 28,
       "mpgCombined": 22,
       "msrp": 42055,
-      "standardFeatures": ["Magic Slide Seats", "Honda Sensing", "Power Sliding Doors"],
+      "standardFeatures": [
+        "Magic Slide Seats",
+        "Honda Sensing",
+        "Power Sliding Doors"
+      ],
       "notes": "Minivan - widest option, check garage fit!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.9,
+      "safetyRating": "TSP"
     },
     {
       "id": "toyota-sienna-2025",
@@ -564,17 +704,24 @@
       "heightInches": 69.7,
       "seats": 8,
       "doors": 4,
-      "cargoVolumesCuFt": 101.0,
+      "cargoVolumesCuFt": 101,
       "fuelType": "hybrid",
       "plugType": "none",
       "mpgCity": 36,
       "mpgHighway": 36,
       "mpgCombined": 36,
       "msrp": 40735,
-      "standardFeatures": ["Hybrid Only", "Apple CarPlay", "Android Auto", "Safety Sense 2.0"],
+      "standardFeatures": [
+        "Hybrid Only",
+        "Apple CarPlay",
+        "Android Auto",
+        "Safety Sense 2.0"
+      ],
       "notes": "Hybrid-only minivan. Great MPG for size.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "kia-niro-ev-2025",
@@ -586,7 +733,7 @@
       "imageUrl": "/images/cars/kia-niro-ev-2025.jpg",
       "bodyWidthInches": 71.1,
       "lengthInches": 177.4,
-      "heightInches": 63.0,
+      "heightInches": 63,
       "seats": 5,
       "doors": 4,
       "cargoVolumesCuFt": 63.7,
@@ -595,10 +742,14 @@
       "mpge": 126,
       "electricRangeMiles": 253,
       "msrp": 41500,
-      "standardFeatures": ["10.25in Touchscreen", "Forward Collision Avoidance"],
+      "standardFeatures": [
+        "10.25in Touchscreen",
+        "Forward Collision Avoidance"
+      ],
       "notes": "Compact EV crossover, narrower body",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.5
     },
     {
       "id": "volkswagen-id4-2025",
@@ -619,10 +770,16 @@
       "mpge": 107,
       "electricRangeMiles": 209,
       "msrp": 38995,
-      "standardFeatures": ["IQ.Drive Safety", "Wireless Charging", "12in Touchscreen"],
+      "standardFeatures": [
+        "IQ.Drive Safety",
+        "Wireless Charging",
+        "12in Touchscreen"
+      ],
       "notes": "VW's main EV offering",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.1,
+      "safetyRating": "TSP"
     },
     {
       "id": "nissan-ariya-2025",
@@ -643,10 +800,16 @@
       "mpge": 117,
       "electricRangeMiles": 304,
       "msrp": 44900,
-      "standardFeatures": ["ProPILOT Assist 2.0", "12.3in Screens", "e-Pedal"],
+      "standardFeatures": [
+        "ProPILOT Assist 2.0",
+        "12.3in Screens",
+        "e-Pedal"
+      ],
       "notes": "Nissan's premium EV crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "rivian-r1s-2025",
@@ -657,21 +820,28 @@
       "bodyType": "suv",
       "imageUrl": "/images/cars/rivian-r1s-2025.jpg",
       "bodyWidthInches": 78.2,
-      "mirrorWidthInches": 86.0,
-      "lengthInches": 200.0,
+      "mirrorWidthInches": 86,
+      "lengthInches": 200,
       "heightInches": 75.6,
       "seats": 7,
       "doors": 4,
-      "cargoVolumesCuFt": 104.0,
+      "cargoVolumesCuFt": 104,
       "fuelType": "electric",
       "plugType": "CCS1",
       "mpge": 93,
       "electricRangeMiles": 321,
       "msrp": 75900,
-      "standardFeatures": ["Driver+", "Gear Guard", "Camp Mode", "Air Suspension"],
+      "standardFeatures": [
+        "Driver+",
+        "Gear Guard",
+        "Camp Mode",
+        "Air Suspension"
+      ],
       "notes": "Adventure-focused 3-row EV SUV. Very wide!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.4,
+      "safetyRating": "TSP+"
     },
     {
       "id": "toyota-camry-2025",
@@ -682,7 +852,7 @@
       "bodyType": "sedan",
       "imageUrl": "/images/cars/toyota-camry-2025.jpg",
       "bodyWidthInches": 72.4,
-      "lengthInches": 193.0,
+      "lengthInches": 193,
       "heightInches": 56.9,
       "seats": 5,
       "doors": 4,
@@ -693,10 +863,17 @@
       "mpgHighway": 53,
       "mpgCombined": 52,
       "msrp": 29495,
-      "standardFeatures": ["Hybrid Only", "Apple CarPlay", "Android Auto", "Safety Sense 3.0"],
+      "standardFeatures": [
+        "Hybrid Only",
+        "Apple CarPlay",
+        "Android Auto",
+        "Safety Sense 3.0"
+      ],
       "notes": "2025 redesign. Now hybrid-only. Great MPG!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.1,
+      "safetyRating": "TSP+"
     },
     {
       "id": "honda-accord-2025",
@@ -718,10 +895,16 @@
       "mpgHighway": 37,
       "mpgCombined": 32,
       "msrp": 29610,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "Honda Sensing"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "Honda Sensing"
+      ],
       "notes": "Midsize sedan. Hybrid available.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "honda-prologue-2025",
@@ -732,7 +915,7 @@
       "bodyType": "suv",
       "imageUrl": "/images/cars/honda-prologue-2025.jpg",
       "bodyWidthInches": 77.7,
-      "lengthInches": 192.0,
+      "lengthInches": 192,
       "heightInches": 64.7,
       "seats": 5,
       "doors": 4,
@@ -742,10 +925,16 @@
       "mpge": 91,
       "electricRangeMiles": 296,
       "msrp": 48795,
-      "standardFeatures": ["11.3in Screen", "Google Built-in", "Ultium Platform"],
+      "standardFeatures": [
+        "11.3in Screen",
+        "Google Built-in",
+        "Ultium Platform"
+      ],
       "notes": "Honda's first EV SUV. Built on GM Ultium.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.4,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "ford-escape-2025",
@@ -755,7 +944,7 @@
       "trim": "Active",
       "bodyType": "crossover",
       "imageUrl": "/images/cars/ford-escape-2025.jpg",
-      "bodyWidthInches": 72.0,
+      "bodyWidthInches": 72,
       "lengthInches": 180.5,
       "heightInches": 66.1,
       "seats": 5,
@@ -767,10 +956,16 @@
       "mpgHighway": 34,
       "mpgCombined": 30,
       "msrp": 32995,
-      "standardFeatures": ["Ford Co-Pilot360", "Sync 4", "8in Screen"],
+      "standardFeatures": [
+        "Ford Co-Pilot360",
+        "Sync 4",
+        "8in Screen"
+      ],
       "notes": "Compact crossover. PHEV also available.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 43.1,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "chevrolet-trax-2025",
@@ -781,7 +976,7 @@
       "bodyType": "crossover",
       "imageUrl": "/images/cars/chevrolet-trax-2025.jpg",
       "bodyWidthInches": 71.2,
-      "lengthInches": 178.0,
+      "lengthInches": 178,
       "heightInches": 64.3,
       "seats": 5,
       "doors": 4,
@@ -792,10 +987,15 @@
       "mpgHighway": 32,
       "mpgCombined": 30,
       "msrp": 23495,
-      "standardFeatures": ["Apple CarPlay", "Android Auto", "11in Screen"],
+      "standardFeatures": [
+        "Apple CarPlay",
+        "Android Auto",
+        "11in Screen"
+      ],
       "notes": "Budget-friendly subcompact crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.5
     },
     {
       "id": "bmw-x3-2025",
@@ -816,10 +1016,16 @@
       "mpgHighway": 29,
       "mpgCombined": 25,
       "msrp": 50675,
-      "standardFeatures": ["iDrive 9", "Parking Assistant", "Adaptive LED"],
+      "standardFeatures": [
+        "iDrive 9",
+        "Parking Assistant",
+        "Adaptive LED"
+      ],
       "notes": "Luxury compact crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.2,
+      "safetyRating": "TSP+"
     },
     {
       "id": "bmw-ix-2025",
@@ -829,7 +1035,7 @@
       "trim": "xDrive50",
       "bodyType": "suv",
       "bodyWidthInches": 77.4,
-      "lengthInches": 195.0,
+      "lengthInches": 195,
       "heightInches": 66.8,
       "seats": 5,
       "doors": 4,
@@ -839,10 +1045,15 @@
       "mpge": 99,
       "electricRangeMiles": 324,
       "msrp": 87100,
-      "standardFeatures": ["Curved Display", "Harman Kardon", "Air Suspension"],
+      "standardFeatures": [
+        "Curved Display",
+        "Harman Kardon",
+        "Air Suspension"
+      ],
       "notes": "BMW's flagship electric SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41
     },
     {
       "id": "mercedes-glc-2025",
@@ -852,21 +1063,27 @@
       "trim": "300 4MATIC",
       "bodyType": "crossover",
       "bodyWidthInches": 74.4,
-      "lengthInches": 187.0,
+      "lengthInches": 187,
       "heightInches": 64.7,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 54.0,
+      "cargoVolumesCuFt": 54,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 23,
       "mpgHighway": 30,
       "mpgCombined": 26,
       "msrp": 50400,
-      "standardFeatures": ["MBUX", "64-Color Ambient Light", "Burmester Audio"],
+      "standardFeatures": [
+        "MBUX",
+        "64-Color Ambient Light",
+        "Burmester Audio"
+      ],
       "notes": "Popular luxury crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41,
+      "safetyRating": "TSP+"
     },
     {
       "id": "mercedes-eqe-suv-2025",
@@ -886,10 +1103,15 @@
       "mpge": 83,
       "electricRangeMiles": 279,
       "msrp": 78800,
-      "standardFeatures": ["Hyperscreen Available", "Air Suspension", "MBUX"],
+      "standardFeatures": [
+        "Hyperscreen Available",
+        "Air Suspension",
+        "MBUX"
+      ],
       "notes": "Luxury electric SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.5
     },
     {
       "id": "audi-q5-2025",
@@ -910,10 +1132,15 @@
       "mpgHighway": 28,
       "mpgCombined": 25,
       "msrp": 46800,
-      "standardFeatures": ["MMI Touch", "Virtual Cockpit", "Quattro AWD"],
+      "standardFeatures": [
+        "MMI Touch",
+        "Virtual Cockpit",
+        "Quattro AWD"
+      ],
       "notes": "Redesigned for 2025",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.9
     },
     {
       "id": "audi-q4-etron-2025",
@@ -933,10 +1160,16 @@
       "mpge": 100,
       "electricRangeMiles": 265,
       "msrp": 45900,
-      "standardFeatures": ["Virtual Cockpit", "MMI Touch", "Quattro AWD"],
+      "standardFeatures": [
+        "Virtual Cockpit",
+        "MMI Touch",
+        "Quattro AWD"
+      ],
       "notes": "Audi's entry-level electric crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.2,
+      "safetyRating": "TSP"
     },
     {
       "id": "lexus-rx-2025",
@@ -945,7 +1178,7 @@
       "model": "RX",
       "trim": "350",
       "bodyType": "crossover",
-      "bodyWidthInches": 76.0,
+      "bodyWidthInches": 76,
       "lengthInches": 192.5,
       "heightInches": 67.5,
       "seats": 5,
@@ -957,10 +1190,15 @@
       "mpgHighway": 28,
       "mpgCombined": 24,
       "msrp": 50720,
-      "standardFeatures": ["14in Touchscreen", "Lexus Safety System+ 3.0"],
+      "standardFeatures": [
+        "14in Touchscreen",
+        "Lexus Safety System+ 3.0"
+      ],
       "notes": "Best-selling luxury crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.1,
+      "safetyRating": "TSP"
     },
     {
       "id": "lexus-rx-hybrid-2025",
@@ -969,7 +1207,7 @@
       "model": "RX Hybrid",
       "trim": "450h+",
       "bodyType": "crossover",
-      "bodyWidthInches": 76.0,
+      "bodyWidthInches": 76,
       "lengthInches": 192.5,
       "heightInches": 67.5,
       "seats": 5,
@@ -983,10 +1221,16 @@
       "mpge": 76,
       "electricRangeMiles": 37,
       "msrp": 70080,
-      "standardFeatures": ["14in Touchscreen", "EV Mode", "Lexus Safety System+ 3.0"],
+      "standardFeatures": [
+        "14in Touchscreen",
+        "EV Mode",
+        "Lexus Safety System+ 3.0"
+      ],
       "notes": "Plug-in hybrid luxury crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.1,
+      "safetyRating": "TSP"
     },
     {
       "id": "lexus-rz-2025",
@@ -996,7 +1240,7 @@
       "trim": "300e",
       "bodyType": "crossover",
       "bodyWidthInches": 73.6,
-      "lengthInches": 188.0,
+      "lengthInches": 188,
       "heightInches": 63.8,
       "seats": 5,
       "doors": 4,
@@ -1006,10 +1250,15 @@
       "mpge": 110,
       "electricRangeMiles": 266,
       "msrp": 55150,
-      "standardFeatures": ["14in Touchscreen", "Lexus Safety System+ 3.0"],
+      "standardFeatures": [
+        "14in Touchscreen",
+        "Lexus Safety System+ 3.0"
+      ],
       "notes": "Lexus's first dedicated EV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.1,
+      "safetyRating": "TSP"
     },
     {
       "id": "acura-mdx-2025",
@@ -1023,17 +1272,23 @@
       "heightInches": 67.6,
       "seats": 7,
       "doors": 4,
-      "cargoVolumesCuFt": 95.0,
+      "cargoVolumesCuFt": 95,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 19,
       "mpgHighway": 26,
       "mpgCombined": 22,
       "msrp": 51550,
-      "standardFeatures": ["AcuraWatch", "ELS Studio 3D", "Wireless CarPlay"],
+      "standardFeatures": [
+        "AcuraWatch",
+        "ELS Studio 3D",
+        "Wireless CarPlay"
+      ],
       "notes": "3-row luxury SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.6,
+      "safetyRating": "TSP+"
     },
     {
       "id": "acura-rdx-2025",
@@ -1054,10 +1309,16 @@
       "mpgHighway": 28,
       "mpgCombined": 24,
       "msrp": 43450,
-      "standardFeatures": ["AcuraWatch", "ELS Studio", "10.2in Screen"],
+      "standardFeatures": [
+        "AcuraWatch",
+        "ELS Studio",
+        "10.2in Screen"
+      ],
       "notes": "Compact luxury crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42,
+      "safetyRating": "TSP"
     },
     {
       "id": "volvo-xc60-2025",
@@ -1078,10 +1339,15 @@
       "mpgHighway": 30,
       "mpgCombined": 28,
       "msrp": 48350,
-      "standardFeatures": ["Google Built-in", "Pilot Assist", "Advanced Air Cleaner"],
+      "standardFeatures": [
+        "Google Built-in",
+        "Pilot Assist",
+        "Advanced Air Cleaner"
+      ],
       "notes": "Swedish safety-focused crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.5
     },
     {
       "id": "volvo-xc90-2025",
@@ -1093,7 +1359,7 @@
       "bodyWidthInches": 79.1,
       "mirrorWidthInches": 87.4,
       "lengthInches": 194.8,
-      "heightInches": 69.0,
+      "heightInches": 69,
       "seats": 7,
       "doors": 4,
       "cargoVolumesCuFt": 85.7,
@@ -1103,10 +1369,16 @@
       "mpgHighway": 28,
       "mpgCombined": 26,
       "msrp": 59650,
-      "standardFeatures": ["Google Built-in", "Pilot Assist", "3-Row Seating"],
+      "standardFeatures": [
+        "Google Built-in",
+        "Pilot Assist",
+        "3-Row Seating"
+      ],
       "notes": "3-row luxury SUV. Very wide!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.9,
+      "safetyRating": "TSP+"
     },
     {
       "id": "volvo-ex90-2025",
@@ -1126,10 +1398,15 @@
       "mpge": 87,
       "electricRangeMiles": 310,
       "msrp": 79995,
-      "standardFeatures": ["LiDAR", "Google Built-in", "Bi-directional Charging"],
+      "standardFeatures": [
+        "LiDAR",
+        "Google Built-in",
+        "Bi-directional Charging"
+      ],
       "notes": "3-row electric SUV with advanced safety",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.9
     },
     {
       "id": "genesis-gv70-2025",
@@ -1150,10 +1427,16 @@
       "mpgHighway": 28,
       "mpgCombined": 25,
       "msrp": 45950,
-      "standardFeatures": ["14.5in Screen", "Remote Parking", "Highway Driving Assist"],
+      "standardFeatures": [
+        "14.5in Screen",
+        "Remote Parking",
+        "Highway Driving Assist"
+      ],
       "notes": "Luxury crossover with great value",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "genesis-electrified-gv70-2025",
@@ -1173,10 +1456,16 @@
       "mpge": 97,
       "electricRangeMiles": 236,
       "msrp": 66450,
-      "standardFeatures": ["800V Architecture", "V2L", "Remote Parking"],
+      "standardFeatures": [
+        "800V Architecture",
+        "V2L",
+        "Remote Parking"
+      ],
       "notes": "Electric version of popular GV70",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "nissan-rogue-2025",
@@ -1197,10 +1486,15 @@
       "mpgHighway": 35,
       "mpgCombined": 30,
       "msrp": 31030,
-      "standardFeatures": ["ProPILOT Assist", "12.3in Screen", "Zero Gravity Seats"],
+      "standardFeatures": [
+        "ProPILOT Assist",
+        "12.3in Screen",
+        "Zero Gravity Seats"
+      ],
       "notes": "Nissan's best-selling model",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.5
     },
     {
       "id": "nissan-murano-2025",
@@ -1214,17 +1508,22 @@
       "heightInches": 68.1,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 67.0,
+      "cargoVolumesCuFt": 67,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 20,
       "mpgHighway": 28,
       "mpgCombined": 23,
       "msrp": 41020,
-      "standardFeatures": ["12.3in Screen", "ProPILOT Assist", "Zero Gravity Seats"],
+      "standardFeatures": [
+        "12.3in Screen",
+        "ProPILOT Assist",
+        "Zero Gravity Seats"
+      ],
       "notes": "Redesigned for 2025 - now 3 rows available",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.3
     },
     {
       "id": "nissan-pathfinder-2025",
@@ -1245,10 +1544,16 @@
       "mpgHighway": 27,
       "mpgCombined": 23,
       "msrp": 38060,
-      "standardFeatures": ["9in Screen", "Safety Shield 360", "3-Row Seating"],
+      "standardFeatures": [
+        "9in Screen",
+        "Safety Shield 360",
+        "3-Row Seating"
+      ],
       "notes": "3-row family SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42,
+      "safetyRating": "TSP+"
     },
     {
       "id": "jeep-grand-cherokee-2025",
@@ -1269,10 +1574,16 @@
       "mpgHighway": 26,
       "mpgCombined": 22,
       "msrp": 44815,
-      "standardFeatures": ["Uconnect 5", "Driver Assist", "Selec-Terrain"],
+      "standardFeatures": [
+        "Uconnect 5",
+        "Driver Assist",
+        "Selec-Terrain"
+      ],
       "notes": "Iconic American SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "jeep-grand-cherokee-4xe-2025",
@@ -1295,10 +1606,16 @@
       "mpge": 56,
       "electricRangeMiles": 25,
       "msrp": 65695,
-      "standardFeatures": ["Uconnect 5", "4xe Plug-in Hybrid", "Selec-Terrain"],
+      "standardFeatures": [
+        "Uconnect 5",
+        "4xe Plug-in Hybrid",
+        "Selec-Terrain"
+      ],
       "notes": "Plug-in hybrid Grand Cherokee",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "jeep-wrangler-2025",
@@ -1320,10 +1637,15 @@
       "mpgHighway": 23,
       "mpgCombined": 19,
       "msrp": 36495,
-      "standardFeatures": ["Removable Top", "Removable Doors", "Trail Rated"],
+      "standardFeatures": [
+        "Removable Top",
+        "Removable Doors",
+        "Trail Rated"
+      ],
       "notes": "Iconic off-road SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.2
     },
     {
       "id": "dodge-hornet-2025",
@@ -1332,8 +1654,8 @@
       "model": "Hornet",
       "trim": "GT",
       "bodyType": "crossover",
-      "bodyWidthInches": 72.0,
-      "lengthInches": 178.0,
+      "bodyWidthInches": 72,
+      "lengthInches": 178,
       "heightInches": 63.5,
       "seats": 5,
       "doors": 4,
@@ -1344,10 +1666,14 @@
       "mpgHighway": 29,
       "mpgCombined": 24,
       "msrp": 33995,
-      "standardFeatures": ["10.25in Screen", "Full-Speed Collision Warning"],
+      "standardFeatures": [
+        "10.25in Screen",
+        "Full-Speed Collision Warning"
+      ],
       "notes": "Sporty compact crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7
     },
     {
       "id": "gmc-terrain-2025",
@@ -1368,10 +1694,15 @@
       "mpgHighway": 30,
       "mpgCombined": 28,
       "msrp": 33300,
-      "standardFeatures": ["8in Touchscreen", "Teen Driver", "GMC Pro Safety"],
+      "standardFeatures": [
+        "8in Touchscreen",
+        "Teen Driver",
+        "GMC Pro Safety"
+      ],
       "notes": "Redesigned for 2025",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.6
     },
     {
       "id": "gmc-acadia-2025",
@@ -1385,17 +1716,22 @@
       "heightInches": 69.4,
       "seats": 7,
       "doors": 4,
-      "cargoVolumesCuFt": 79.0,
+      "cargoVolumesCuFt": 79,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 22,
       "mpgHighway": 28,
       "mpgCombined": 24,
       "msrp": 42400,
-      "standardFeatures": ["3-Row Seating", "GMC Pro Safety", "11in Screen"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "GMC Pro Safety",
+        "11in Screen"
+      ],
       "notes": "Redesigned 3-row SUV for 2025",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.3
     },
     {
       "id": "buick-envision-2025",
@@ -1416,10 +1752,15 @@
       "mpgHighway": 31,
       "mpgCombined": 26,
       "msrp": 38000,
-      "standardFeatures": ["10.2in Touchscreen", "QuietTuning", "Buick Driver Confidence"],
+      "standardFeatures": [
+        "10.2in Touchscreen",
+        "QuietTuning",
+        "Buick Driver Confidence"
+      ],
       "notes": "Quiet, comfortable crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.4
     },
     {
       "id": "buick-enclave-2025",
@@ -1440,10 +1781,15 @@
       "mpgHighway": 25,
       "mpgCombined": 20,
       "msrp": 49295,
-      "standardFeatures": ["3-Row Seating", "QuietTuning", "10.2in Screen"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "QuietTuning",
+        "10.2in Screen"
+      ],
       "notes": "Large luxury 3-row SUV. Very wide!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.3
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -1452,7 +1798,7 @@
       "model": "Lyriq",
       "trim": "Tech",
       "bodyType": "crossover",
-      "bodyWidthInches": 76.0,
+      "bodyWidthInches": 76,
       "lengthInches": 196.7,
       "heightInches": 63.9,
       "seats": 5,
@@ -1463,10 +1809,15 @@
       "mpge": 98,
       "electricRangeMiles": 314,
       "msrp": 58590,
-      "standardFeatures": ["33in Curved Display", "Super Cruise Ready", "AKG Audio"],
+      "standardFeatures": [
+        "33in Curved Display",
+        "Super Cruise Ready",
+        "AKG Audio"
+      ],
       "notes": "Cadillac's first electric crossover",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.3
     },
     {
       "id": "lincoln-nautilus-2025",
@@ -1487,10 +1838,15 @@
       "mpgHighway": 28,
       "mpgCombined": 24,
       "msrp": 48750,
-      "standardFeatures": ["48in Coast-to-Coast Display", "ActiveGlide 1.2"],
+      "standardFeatures": [
+        "48in Coast-to-Coast Display",
+        "ActiveGlide 1.2"
+      ],
       "notes": "Redesigned with huge display",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 43.5,
+      "safetyRating": "TSP+"
     },
     {
       "id": "lincoln-aviator-2025",
@@ -1511,10 +1867,15 @@
       "mpgHighway": 24,
       "mpgCombined": 20,
       "msrp": 57875,
-      "standardFeatures": ["3-Row Seating", "Revel Audio", "Lincoln Co-Pilot360"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "Revel Audio",
+        "Lincoln Co-Pilot360"
+      ],
       "notes": "3-row luxury SUV. Very wide!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 43
     },
     {
       "id": "polestar-2-2025",
@@ -1534,10 +1895,15 @@
       "mpge": 118,
       "electricRangeMiles": 320,
       "msrp": 46950,
-      "standardFeatures": ["Google Built-in", "Pilot Assist", "Pixel LED Headlights"],
+      "standardFeatures": [
+        "Google Built-in",
+        "Pilot Assist",
+        "Pixel LED Headlights"
+      ],
       "notes": "Performance electric sedan",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42
     },
     {
       "id": "polestar-3-2025",
@@ -1546,7 +1912,7 @@
       "model": "3",
       "trim": "Long Range Dual Motor",
       "bodyType": "suv",
-      "bodyWidthInches": 77.0,
+      "bodyWidthInches": 77,
       "lengthInches": 192.4,
       "heightInches": 64.4,
       "seats": 5,
@@ -1557,10 +1923,15 @@
       "mpge": 92,
       "electricRangeMiles": 315,
       "msrp": 74800,
-      "standardFeatures": ["Google Built-in", "LiDAR Ready", "Bowers & Wilkins Audio"],
+      "standardFeatures": [
+        "Google Built-in",
+        "LiDAR Ready",
+        "Bowers & Wilkins Audio"
+      ],
       "notes": "Performance electric SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.5
     },
     {
       "id": "lucid-air-2025",
@@ -1574,16 +1945,20 @@
       "heightInches": 55.5,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 32.0,
+      "cargoVolumesCuFt": 32,
       "fuelType": "electric",
       "plugType": "CCS1",
       "mpge": 136,
       "electricRangeMiles": 420,
       "msrp": 70800,
-      "standardFeatures": ["34in Curved Glass Display", "DreamDrive Pro"],
+      "standardFeatures": [
+        "34in Curved Glass Display",
+        "DreamDrive Pro"
+      ],
       "notes": "Longest range EV sedan (420+ mi)",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.5
     },
     {
       "id": "lucid-gravity-2025",
@@ -1597,16 +1972,21 @@
       "heightInches": 65.2,
       "seats": 7,
       "doors": 4,
-      "cargoVolumesCuFt": 120.0,
+      "cargoVolumesCuFt": 120,
       "fuelType": "electric",
       "plugType": "CCS1",
       "mpge": 90,
       "electricRangeMiles": 450,
       "msrp": 94900,
-      "standardFeatures": ["3-Row Seating", "Glass Canopy Roof", "DreamDrive Pro"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "Glass Canopy Roof",
+        "DreamDrive Pro"
+      ],
       "notes": "New 3-row EV with massive range",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 42.8
     },
     {
       "id": "rivian-r2-2026",
@@ -1615,21 +1995,26 @@
       "model": "R2",
       "trim": "Dual Motor",
       "bodyType": "crossover",
-      "bodyWidthInches": 75.0,
-      "lengthInches": 180.0,
-      "heightInches": 67.0,
+      "bodyWidthInches": 75,
+      "lengthInches": 180,
+      "heightInches": 67,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 65.0,
+      "cargoVolumesCuFt": 65,
       "fuelType": "electric",
       "plugType": "CCS1",
       "mpge": 110,
       "electricRangeMiles": 300,
       "msrp": 45000,
-      "standardFeatures": ["Adventure-Ready", "Gear Guard", "Camp Mode"],
+      "standardFeatures": [
+        "Adventure-Ready",
+        "Gear Guard",
+        "Camp Mode"
+      ],
       "notes": "More affordable Rivian crossover - coming 2026",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41
     },
     {
       "id": "toyota-4runner-2025",
@@ -1650,10 +2035,15 @@
       "mpgHighway": 26,
       "mpgCombined": 23,
       "msrp": 43415,
-      "standardFeatures": ["i-FORCE MAX Hybrid", "8in Screen", "Multi-Terrain Select"],
+      "standardFeatures": [
+        "i-FORCE MAX Hybrid",
+        "8in Screen",
+        "Multi-Terrain Select"
+      ],
       "notes": "All-new redesign for 2025 - now hybrid only",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7
     },
     {
       "id": "toyota-sequoia-2025",
@@ -1675,10 +2065,15 @@
       "mpgHighway": 24,
       "mpgCombined": 22,
       "msrp": 62900,
-      "standardFeatures": ["i-FORCE MAX Hybrid", "3-Row Seating", "14in Screen"],
+      "standardFeatures": [
+        "i-FORCE MAX Hybrid",
+        "3-Row Seating",
+        "14in Screen"
+      ],
       "notes": "Full-size 3-row SUV. Very wide!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.2
     },
     {
       "id": "toyota-crown-2025",
@@ -1699,10 +2094,16 @@
       "mpgHighway": 41,
       "mpgCombined": 41,
       "msrp": 43650,
-      "standardFeatures": ["12.3in Screen", "Hybrid Standard", "Toyota Safety Sense 3.0"],
+      "standardFeatures": [
+        "12.3in Screen",
+        "Hybrid Standard",
+        "Toyota Safety Sense 3.0"
+      ],
       "notes": "High-riding sedan, hybrid only",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.5,
+      "safetyRating": "TSP"
     },
     {
       "id": "honda-pilot-2025",
@@ -1717,17 +2118,23 @@
       "heightInches": 71.7,
       "seats": 8,
       "doors": 4,
-      "cargoVolumesCuFt": 87.0,
+      "cargoVolumesCuFt": 87,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 19,
       "mpgHighway": 27,
       "mpgCombined": 22,
       "msrp": 41350,
-      "standardFeatures": ["3-Row Seating", "Honda Sensing", "9in Screen"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "Honda Sensing",
+        "9in Screen"
+      ],
       "notes": "3-row family SUV. Wide!",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41,
+      "safetyRating": "TSP+"
     },
     {
       "id": "honda-hr-v-2025",
@@ -1748,7 +2155,11 @@
       "mpgHighway": 32,
       "mpgCombined": 28,
       "msrp": 26050,
-      "standardFeatures": ["7in Screen", "Honda Sensing", "Magic Seats"],
+      "standardFeatures": [
+        "7in Screen",
+        "Honda Sensing",
+        "Magic Seats"
+      ],
       "notes": "Subcompact crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -1772,10 +2183,16 @@
       "mpgHighway": 28,
       "mpgCombined": 25,
       "msrp": 38825,
-      "standardFeatures": ["12.3in Screen", "SmartSense", "3-Row Available"],
+      "standardFeatures": [
+        "12.3in Screen",
+        "SmartSense",
+        "3-Row Available"
+      ],
       "notes": "All-new boxy design for 2025",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.4,
+      "safetyRating": "TSP"
     },
     {
       "id": "hyundai-palisade-2025",
@@ -1796,10 +2213,16 @@
       "mpgHighway": 26,
       "mpgCombined": 22,
       "msrp": 40525,
-      "standardFeatures": ["3-Row Seating", "12.3in Screen", "SmartSense"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "12.3in Screen",
+        "SmartSense"
+      ],
       "notes": "Popular 3-row family SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.2,
+      "safetyRating": "TSP"
     },
     {
       "id": "kia-telluride-2025",
@@ -1813,17 +2236,23 @@
       "heightInches": 68.9,
       "seats": 8,
       "doors": 4,
-      "cargoVolumesCuFt": 87.0,
+      "cargoVolumesCuFt": 87,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 20,
       "mpgHighway": 26,
       "mpgCombined": 23,
       "msrp": 38590,
-      "standardFeatures": ["3-Row Seating", "8in Screen", "Drive Wise Safety"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "8in Screen",
+        "Drive Wise Safety"
+      ],
       "notes": "Award-winning 3-row SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 44.1,
+      "safetyRating": "TSP+"
     },
     {
       "id": "kia-sportage-2025",
@@ -1844,10 +2273,16 @@
       "mpgHighway": 32,
       "mpgCombined": 28,
       "msrp": 31290,
-      "standardFeatures": ["8in Screen", "Drive Wise Safety", "Wireless CarPlay"],
+      "standardFeatures": [
+        "8in Screen",
+        "Drive Wise Safety",
+        "Wireless CarPlay"
+      ],
       "notes": "Compact crossover with lots of cargo",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "kia-sorento-2025",
@@ -1868,10 +2303,16 @@
       "mpgHighway": 29,
       "mpgCombined": 26,
       "msrp": 34390,
-      "standardFeatures": ["3-Row Seating", "10.25in Screen", "Drive Wise Safety"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "10.25in Screen",
+        "Drive Wise Safety"
+      ],
       "notes": "Mid-size 3-row SUV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "volkswagen-tiguan-2025",
@@ -1892,10 +2333,16 @@
       "mpgHighway": 30,
       "mpgCombined": 26,
       "msrp": 32970,
-      "standardFeatures": ["8in Screen", "IQ.Drive", "Wireless CarPlay"],
+      "standardFeatures": [
+        "8in Screen",
+        "IQ.Drive",
+        "Wireless CarPlay"
+      ],
       "notes": "Redesigned for 2025",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 40.2,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "volkswagen-atlas-2025",
@@ -1916,10 +2363,16 @@
       "mpgHighway": 24,
       "mpgCombined": 21,
       "msrp": 42775,
-      "standardFeatures": ["3-Row Seating", "10.2in Screen", "IQ.Drive"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "10.2in Screen",
+        "IQ.Drive"
+      ],
       "notes": "3-row SUV for families",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7,
+      "safetyRating": "TSP"
     },
     {
       "id": "mitsubishi-outlander-2025",
@@ -1940,10 +2393,15 @@
       "mpgHighway": 30,
       "mpgCombined": 26,
       "msrp": 32290,
-      "standardFeatures": ["9in Screen", "MI-PILOT Assist", "3-Row Standard"],
+      "standardFeatures": [
+        "9in Screen",
+        "MI-PILOT Assist",
+        "3-Row Standard"
+      ],
       "notes": "Affordable 3-row option",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7
     },
     {
       "id": "mitsubishi-outlander-phev-2025",
@@ -1966,10 +2424,16 @@
       "mpge": 64,
       "electricRangeMiles": 38,
       "msrp": 43290,
-      "standardFeatures": ["9in Screen", "MI-PILOT Assist", "3-Row", "EV Mode"],
+      "standardFeatures": [
+        "9in Screen",
+        "MI-PILOT Assist",
+        "3-Row",
+        "EV Mode"
+      ],
       "notes": "Most affordable 3-row PHEV",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "driverLegroomInches": 41.7
     },
     {
       "id": "mazda-cx-70-2025",
@@ -1990,7 +2454,11 @@
       "mpgHighway": 28,
       "mpgCombined": 25,
       "msrp": 42450,
-      "standardFeatures": ["12.3in Screen", "i-Activsense", "Premium Interior"],
+      "standardFeatures": [
+        "12.3in Screen",
+        "i-Activsense",
+        "Premium Interior"
+      ],
       "notes": "New 2-row wide-body crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2014,7 +2482,11 @@
       "mpgHighway": 28,
       "mpgCombined": 25,
       "msrp": 43900,
-      "standardFeatures": ["3-Row Seating", "12.3in Screen", "i-Activsense"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "12.3in Screen",
+        "i-Activsense"
+      ],
       "notes": "3-row flagship with inline-6",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2038,10 +2510,15 @@
       "mpgHighway": 27,
       "mpgCombined": 23,
       "msrp": 38355,
-      "standardFeatures": ["3-Row Seating", "Ford Co-Pilot360", "8in Screen"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "Ford Co-Pilot360",
+        "8in Screen"
+      ],
       "notes": "Refreshed for 2025. Wide body.",
       "lastUpdated": "2025-01-26",
-      "dataSource": "manual"
+      "dataSource": "manual",
+      "safetyRating": "TSP+"
     },
     {
       "id": "ford-edge-2024",
@@ -2064,7 +2541,11 @@
       "msrp": 38775,
       "usedPriceLow": 28000,
       "usedPriceHigh": 36000,
-      "standardFeatures": ["Ford Co-Pilot360", "12in Screen", "Sync 4"],
+      "standardFeatures": [
+        "Ford Co-Pilot360",
+        "12in Screen",
+        "Sync 4"
+      ],
       "notes": "Discontinued after 2024 - buy used",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2088,7 +2569,11 @@
       "mpgHighway": 28,
       "mpgCombined": 26,
       "msrp": 32145,
-      "standardFeatures": ["GOAT Modes", "Ford Co-Pilot360", "8in Screen"],
+      "standardFeatures": [
+        "GOAT Modes",
+        "Ford Co-Pilot360",
+        "8in Screen"
+      ],
       "notes": "Compact off-road capable crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2100,18 +2585,22 @@
       "model": "Blazer EV",
       "trim": "LT",
       "bodyType": "crossover",
-      "bodyWidthInches": 76.0,
+      "bodyWidthInches": 76,
       "lengthInches": 192.7,
       "heightInches": 64.6,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 59.0,
+      "cargoVolumesCuFt": 59,
       "fuelType": "electric",
       "plugType": "CCS1",
       "mpge": 102,
       "electricRangeMiles": 293,
       "msrp": 51995,
-      "standardFeatures": ["17.7in Screen", "Super Cruise Ready", "One Pedal Driving"],
+      "standardFeatures": [
+        "17.7in Screen",
+        "Super Cruise Ready",
+        "One Pedal Driving"
+      ],
       "notes": "Sporty electric crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2135,7 +2624,11 @@
       "mpgHighway": 27,
       "mpgCombined": 21,
       "msrp": 37600,
-      "standardFeatures": ["3-Row Seating", "11in Screen", "Chevy Safety Assist"],
+      "standardFeatures": [
+        "3-Row Seating",
+        "11in Screen",
+        "Chevy Safety Assist"
+      ],
       "notes": "Redesigned for 2025 - very spacious",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2152,14 +2645,18 @@
       "heightInches": 63.6,
       "seats": 5,
       "doors": 4,
-      "cargoVolumesCuFt": 54.0,
+      "cargoVolumesCuFt": 54,
       "fuelType": "gasoline",
       "plugType": "none",
       "mpgCity": 28,
       "mpgHighway": 34,
       "mpgCombined": 30,
       "msrp": 28895,
-      "standardFeatures": ["EyeSight", "AWD Standard", "11.6in Screen"],
+      "standardFeatures": [
+        "EyeSight",
+        "AWD Standard",
+        "11.6in Screen"
+      ],
       "notes": "Compact crossover with standard AWD",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2182,7 +2679,11 @@
       "mpge": 111,
       "electricRangeMiles": 227,
       "msrp": 46340,
-      "standardFeatures": ["EyeSight", "AWD Standard", "12.3in Screen"],
+      "standardFeatures": [
+        "EyeSight",
+        "AWD Standard",
+        "12.3in Screen"
+      ],
       "notes": "Subaru's first EV - Toyota bZ4X twin",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
@@ -2196,7 +2697,7 @@
       "bodyType": "crossover",
       "bodyWidthInches": 73.2,
       "lengthInches": 184.6,
-      "heightInches": 65.0,
+      "heightInches": 65,
       "seats": 5,
       "doors": 4,
       "cargoVolumesCuFt": 56.5,
@@ -2205,12 +2706,16 @@
       "mpge": 119,
       "electricRangeMiles": 252,
       "msrp": 45355,
-      "standardFeatures": ["12.3in Screen", "Toyota Safety Sense 3.0", "AWD Available"],
+      "standardFeatures": [
+        "12.3in Screen",
+        "Toyota Safety Sense 3.0",
+        "AWD Available"
+      ],
       "notes": "Toyota's first dedicated EV",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual"
     }
   ],
-  "lastSyncDate": "2025-01-26",
+  "lastSyncDate": "2025-11-26",
   "mirrorBuffer": 8
 }

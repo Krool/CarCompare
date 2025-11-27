@@ -22,7 +22,13 @@
       "WebFetch(domain:www.imaginstudio.com)",
       "Bash(head -5 curl -sI \"https://cdn.imagin.studio/getImage?customer=img&make=honda&modelFamily=cr-v&paintId=pspc0001&angle=01\")",
       "Bash(head -5 curl -sI \"https://cdn.imagin.studio/getImage?customer=img&make=hyundai&modelFamily=ioniq-5&paintId=pspc0001&angle=01\")",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "WebFetch(domain:www.iihs.org)",
+      "Bash(findstr:*)",
+      "WebFetch(domain:www.caranddriver.com)",
+      "WebFetch(domain:www.edmunds.com)",
+      "WebFetch(domain:www.toyota.com)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []
