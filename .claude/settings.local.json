@@ -14,7 +14,15 @@
       "Bash(git push:*)",
       "Bash(gh api:*)",
       "Bash(gh run list:*)",
-      "Bash(gh run watch:*)"
+      "Bash(gh run watch:*)",
+      "Bash(curl:*)",
+      "Bash(npm run dev)",
+      "Bash(taskkill:*)",
+      "WebFetch(domain:www.imagin.studio)",
+      "WebFetch(domain:www.imaginstudio.com)",
+      "Bash(head -5 curl -sI \"https://cdn.imagin.studio/getImage?customer=img&make=honda&modelFamily=cr-v&paintId=pspc0001&angle=01\")",
+      "Bash(head -5 curl -sI \"https://cdn.imagin.studio/getImage?customer=img&make=hyundai&modelFamily=ioniq-5&paintId=pspc0001&angle=01\")",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

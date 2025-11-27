@@ -270,7 +270,7 @@ function getCarImageUrl(car: Car): string {
 
   const make = car.make.toLowerCase();
 
-  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=200`;
+  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=400`;
 }
 
 function CarImage({ car }: { car: Car }) {
@@ -281,14 +281,14 @@ function CarImage({ car }: { car: Car }) {
 
   if (hasError) {
     return (
-      <div className="w-16 h-10 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
+      <div className="w-28 h-16 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-sm">
         {car.bodyType.charAt(0).toUpperCase()}
       </div>
     );
   }
 
   return (
-    <div className="w-16 h-10 relative">
+    <div className="w-28 h-16 relative">
       {isLoading && (
         <div className="absolute inset-0 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
           ...
@@ -297,7 +297,7 @@ function CarImage({ car }: { car: Car }) {
       <img
         src={imageUrl}
         alt={`${car.year} ${car.make} ${car.model}`}
-        className={`w-16 h-10 object-cover rounded ${isLoading ? "opacity-0" : "opacity-100"}`}
+        className={`w-28 h-16 object-cover rounded ${isLoading ? "opacity-0" : "opacity-100"}`}
         onLoad={() => setIsLoading(false)}
         onError={() => {
           setHasError(true);
