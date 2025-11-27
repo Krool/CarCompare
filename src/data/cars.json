@@ -31,7 +31,8 @@
       "notes": "Baseline vehicle - current car",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41
+      "driverLegroomInches": 41,
+      "safetyRating": "Good"
     },
     {
       "id": "toyota-rav4-2025",
@@ -254,7 +255,7 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.7,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Acceptable"
     },
     {
       "id": "chevrolet-equinox-ev-2025",
@@ -436,7 +437,7 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.4,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Marginal"
     },
     {
       "id": "kia-ev9-2025",
@@ -497,7 +498,7 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Good"
     },
     {
       "id": "mazda-cx50-2025",
@@ -657,7 +658,8 @@
       "notes": "Longer than Highlander. More 3rd row space.",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.2
+      "driverLegroomInches": 42.2,
+      "safetyRating": "Marginal"
     },
     {
       "id": "honda-odyssey-2025",
@@ -749,7 +751,8 @@
       "notes": "Compact EV crossover, narrower body",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.5
+      "driverLegroomInches": 41.5,
+      "safetyRating": "Good"
     },
     {
       "id": "volkswagen-id4-2025",
@@ -934,7 +937,7 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.4,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Good"
     },
     {
       "id": "ford-escape-2025",
@@ -965,7 +968,7 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 43.1,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Marginal"
     },
     {
       "id": "chevrolet-trax-2025",
@@ -995,7 +998,8 @@
       "notes": "Budget-friendly subcompact crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.5
+      "driverLegroomInches": 41.5,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "bmw-x3-2025",
@@ -1053,7 +1057,8 @@
       "notes": "BMW's flagship electric SUV",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41
+      "driverLegroomInches": 41,
+      "safetyRating": "Good"
     },
     {
       "id": "mercedes-glc-2025",
@@ -1111,7 +1116,8 @@
       "notes": "Luxury electric SUV",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.5
+      "driverLegroomInches": 41.5,
+      "safetyRating": "Good"
     },
     {
       "id": "audi-q5-2025",
@@ -1140,7 +1146,8 @@
       "notes": "Redesigned for 2025",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 40.9
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Good"
     },
     {
       "id": "audi-q4-etron-2025",
@@ -1347,7 +1354,8 @@
       "notes": "Swedish safety-focused crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.5
+      "driverLegroomInches": 41.5,
+      "safetyRating": "Good"
     },
     {
       "id": "volvo-xc90-2025",
@@ -1406,7 +1414,8 @@
       "notes": "3-row electric SUV with advanced safety",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 40.9
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "genesis-gv70-2025",
@@ -1494,7 +1503,8 @@
       "notes": "Nissan's best-selling model",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.5
+      "driverLegroomInches": 41.5,
+      "safetyRating": "TSP"
     },
     {
       "id": "nissan-murano-2025",
@@ -1523,7 +1533,8 @@
       "notes": "Redesigned for 2025 - now 3 rows available",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 44.3
+      "driverLegroomInches": 44.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "nissan-pathfinder-2025",
@@ -1645,7 +1656,8 @@
       "notes": "Iconic off-road SUV",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.2
+      "driverLegroomInches": 41.2,
+      "safetyRating": "Marginal"
     },
     {
       "id": "dodge-hornet-2025",
@@ -1673,7 +1685,8 @@
       "notes": "Sporty compact crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.7
+      "driverLegroomInches": 41.7,
+      "safetyRating": "Marginal"
     },
     {
       "id": "gmc-terrain-2025",
@@ -1702,7 +1715,8 @@
       "notes": "Redesigned for 2025",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 40.6
+      "driverLegroomInches": 40.6,
+      "safetyRating": "Marginal"
     },
     {
       "id": "gmc-acadia-2025",
@@ -1731,7 +1745,8 @@
       "notes": "Redesigned 3-row SUV for 2025",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 44.3
+      "driverLegroomInches": 44.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "buick-envision-2025",
@@ -1760,7 +1775,8 @@
       "notes": "Quiet, comfortable crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 40.4
+      "driverLegroomInches": 40.4,
+      "safetyRating": "Marginal"
     },
     {
       "id": "buick-enclave-2025",
@@ -1789,7 +1805,8 @@
       "notes": "Large luxury 3-row SUV. Very wide!",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 44.3
+      "driverLegroomInches": 44.3,
+      "safetyRating": "TSP+"
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -1817,7 +1834,8 @@
       "notes": "Cadillac's first electric crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 44.3
+      "driverLegroomInches": 44.3,
+      "safetyRating": "Good"
     },
     {
       "id": "lincoln-nautilus-2025",
@@ -1875,7 +1893,8 @@
       "notes": "3-row luxury SUV. Very wide!",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 43
+      "driverLegroomInches": 43,
+      "safetyRating": "Good"
     },
     {
       "id": "polestar-2-2025",
@@ -1903,7 +1922,8 @@
       "notes": "Performance electric sedan",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42
+      "driverLegroomInches": 42,
+      "safetyRating": "Good"
     },
     {
       "id": "polestar-3-2025",
@@ -1931,7 +1951,8 @@
       "notes": "Performance electric SUV",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.5
+      "driverLegroomInches": 42.5,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "lucid-air-2025",
@@ -1958,7 +1979,8 @@
       "notes": "Longest range EV sedan (420+ mi)",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.5
+      "driverLegroomInches": 42.5,
+      "safetyRating": "Good"
     },
     {
       "id": "lucid-gravity-2025",
@@ -1986,7 +2008,8 @@
       "notes": "New 3-row EV with massive range",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.8
+      "driverLegroomInches": 42.8,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "rivian-r2-2026",
@@ -2014,7 +2037,8 @@
       "notes": "More affordable Rivian crossover - coming 2026",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41
+      "driverLegroomInches": 41,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "toyota-4runner-2025",
@@ -2043,7 +2067,8 @@
       "notes": "All-new redesign for 2025 - now hybrid only",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.7
+      "driverLegroomInches": 41.7,
+      "safetyRating": "Marginal"
     },
     {
       "id": "toyota-sequoia-2025",
@@ -2073,7 +2098,8 @@
       "notes": "Full-size 3-row SUV. Very wide!",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.2
+      "driverLegroomInches": 41.2,
+      "safetyRating": "Good"
     },
     {
       "id": "toyota-crown-2025",
@@ -2163,7 +2189,8 @@
       "notes": "Subcompact crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.9
+      "driverLegroomInches": 41.9,
+      "safetyRating": "TSP+"
     },
     {
       "id": "hyundai-santa-fe-2025",
@@ -2343,7 +2370,7 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.2,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Marginal"
     },
     {
       "id": "volkswagen-atlas-2025",
@@ -2402,7 +2429,8 @@
       "notes": "Affordable 3-row option",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.7
+      "driverLegroomInches": 41.7,
+      "safetyRating": "Good"
     },
     {
       "id": "mitsubishi-outlander-phev-2025",
@@ -2434,7 +2462,8 @@
       "notes": "Most affordable 3-row PHEV",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.7
+      "driverLegroomInches": 41.7,
+      "safetyRating": "Good"
     },
     {
       "id": "mazda-cx-70-2025",
@@ -2463,7 +2492,8 @@
       "notes": "New 2-row wide-body crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.7
+      "driverLegroomInches": 41.7,
+      "safetyRating": "TSP+"
     },
     {
       "id": "mazda-cx-90-2025",
@@ -2492,7 +2522,8 @@
       "notes": "3-row flagship with inline-6",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 41.7
+      "driverLegroomInches": 41.7,
+      "safetyRating": "TSP+"
     },
     {
       "id": "ford-explorer-2025",
@@ -2553,7 +2584,8 @@
       "notes": "Discontinued after 2024 - buy used",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.6
+      "driverLegroomInches": 42.6,
+      "safetyRating": "Good"
     },
     {
       "id": "ford-bronco-sport-2025",
@@ -2582,7 +2614,8 @@
       "notes": "Compact off-road capable crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.4
+      "driverLegroomInches": 42.4,
+      "safetyRating": "Marginal"
     },
     {
       "id": "chevrolet-blazer-ev-2025",
@@ -2610,7 +2643,8 @@
       "notes": "Sporty electric crossover",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 44.2
+      "driverLegroomInches": 44.2,
+      "safetyRating": "Not Rated"
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -2639,7 +2673,8 @@
       "notes": "Redesigned for 2025 - very spacious",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 44.3
+      "driverLegroomInches": 44.3,
+      "safetyRating": "TSP"
     },
     {
       "id": "subaru-crosstrek-2025",
@@ -2668,7 +2703,8 @@
       "notes": "Compact crossover with standard AWD",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.9
+      "driverLegroomInches": 42.9,
+      "safetyRating": "Good"
     },
     {
       "id": "subaru-solterra-2025",
@@ -2696,7 +2732,8 @@
       "notes": "Subaru's first EV - Toyota bZ4X twin",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.1
+      "driverLegroomInches": 42.1,
+      "safetyRating": "TSP+"
     },
     {
       "id": "toyota-bz4x-2025",
@@ -2724,7 +2761,8 @@
       "notes": "Toyota's first dedicated EV",
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
-      "driverLegroomInches": 42.1
+      "driverLegroomInches": 42.1,
+      "safetyRating": "TSP"
     },
     {
       "id": "toyota-rav4-hybrid-2026",
@@ -2889,29 +2927,6 @@
       "notes": "Updated for 2026 with improved range",
       "lastUpdated": "2025-11-27",
       "dataSource": "cadillac.com"
-    },
-    {
-      "id": "lucid-gravity-2025",
-      "year": 2025,
-      "make": "Lucid",
-      "model": "Gravity",
-      "bodyType": "suv",
-      "bodyWidthInches": 77.3,
-      "lengthInches": 200.6,
-      "heightInches": 65.1,
-      "seats": 7,
-      "doors": 4,
-      "driverLegroomInches": 42.8,
-      "cargoVolumesCuFt": 120,
-      "fuelType": "electric",
-      "plugType": "NACS",
-      "mpge": 126,
-      "electricRangeMiles": 440,
-      "msrp": 79900,
-      "safetyRating": "Not Rated",
-      "notes": "440mi range, 800hp, luxury 3-row SUV",
-      "lastUpdated": "2025-11-27",
-      "dataSource": "lucidmotors.com"
     }
   ],
   "lastSyncDate": "2025-11-27",
