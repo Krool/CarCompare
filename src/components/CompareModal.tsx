@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Car, SafetyRating } from "@/types/car";
 import { formatCurrency, getEffectiveWidth } from "@/lib/carUtils";
 
@@ -11,6 +12,15 @@ interface CompareModalProps {
 }
 
 export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer }: CompareModalProps) {
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top when modal opens
+  useEffect(() => {
+    if (overlayRef.current) {
+      overlayRef.current.scrollTop = 0;
+    }
+  }, []);
+
   if (cars.length === 0) return null;
 
   const getCarImageUrl = (car: Car, size: number = 400): string => {
@@ -83,6 +93,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
   return (
     <div
+      ref={overlayRef}
       className="fixed z-50 bg-black/80"
       style={{ top: 0, left: 0, right: 0, bottom: 0, overflowY: 'auto' }}
       onClick={onClose}
