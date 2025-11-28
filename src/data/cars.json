@@ -32,7 +32,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-rav4-2025",
@@ -63,7 +78,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-rav4-hybrid-2025",
@@ -95,7 +125,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-rav4-prime-2025",
@@ -129,7 +174,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "honda-crv-2025",
@@ -160,7 +220,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Honda Sensing",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "honda-crv-hybrid-2025",
@@ -192,7 +267,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Honda Sensing",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "tesla-model-y-2025",
@@ -224,7 +314,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.8,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      }
     },
     {
       "id": "tesla-model-3-2025",
@@ -255,7 +360,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.7,
-      "safetyRating": "Acceptable"
+      "safetyRating": "Acceptable",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      }
     },
     {
       "id": "chevrolet-equinox-ev-2025",
@@ -285,7 +405,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.9,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "ford-mustang-mach-e-2025",
@@ -316,7 +451,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 43.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "hands-free",
+      "adasName": "BlueCruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "hyundai-tucson-2025",
@@ -347,7 +497,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.4,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "SmartSense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "hyundai-ioniq-5-2025",
@@ -377,7 +542,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "SmartSense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "hyundai-ioniq-6-2025",
@@ -407,7 +587,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "SmartSense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "kia-ev6-2025",
@@ -437,7 +632,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.4,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "enhanced",
+      "adasName": "Drive Wise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "kia-ev9-2025",
@@ -467,7 +677,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.8,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Drive Wise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mazda-cx5-2025",
@@ -498,7 +723,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "basic",
+      "adasName": "i-Activsense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mazda-cx50-2025",
@@ -530,7 +770,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "basic",
+      "adasName": "i-Activsense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "subaru-outback-2025",
@@ -563,7 +818,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.8,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "EyeSight",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "subaru-forester-2025",
@@ -595,7 +865,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 43.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "EyeSight",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-highlander-2025",
@@ -627,7 +912,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-grand-highlander-2025",
@@ -659,7 +959,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.2,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "honda-odyssey-2025",
@@ -691,7 +1006,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.9,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Honda Sensing",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-sienna-2025",
@@ -723,7 +1053,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "kia-niro-ev-2025",
@@ -752,7 +1097,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Drive Wise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "volkswagen-id4-2025",
@@ -782,7 +1142,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.1,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "IQ.DRIVE",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "nissan-ariya-2025",
@@ -812,7 +1187,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "ProPILOT Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "rivian-r1s-2025",
@@ -844,7 +1234,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.4,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver+",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-camry-2025",
@@ -876,7 +1281,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.1,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "honda-accord-2025",
@@ -907,7 +1327,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Honda Sensing",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "honda-prologue-2025",
@@ -937,7 +1372,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.4,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Honda Sensing",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "ford-escape-2025",
@@ -968,7 +1418,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 43.1,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "hands-free",
+      "adasName": "BlueCruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "chevrolet-trax-2025",
@@ -999,7 +1464,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "bmw-x3-2025",
@@ -1029,7 +1509,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.2,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driving Assistance Professional",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "bmw-ix-2025",
@@ -1058,7 +1553,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driving Assistance Professional",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mercedes-glc-2025",
@@ -1088,7 +1598,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "hands-free",
+      "adasName": "Drive Pilot",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mercedes-eqe-suv-2025",
@@ -1117,7 +1642,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "hands-free",
+      "adasName": "Drive Pilot",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "audi-q5-2025",
@@ -1147,7 +1687,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.9,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Audi pre sense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "audi-q4-etron-2025",
@@ -1176,7 +1731,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.2,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Audi pre sense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "lexus-rx-2025",
@@ -1205,7 +1775,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.1,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Lexus Safety System+ 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "lexus-rx-hybrid-2025",
@@ -1237,7 +1822,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.1,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Lexus Safety System+ 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "lexus-rz-2025",
@@ -1265,7 +1865,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.1,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Lexus Safety System+ 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "acura-mdx-2025",
@@ -1295,7 +1910,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.6,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "AcuraWatch",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "acura-rdx-2025",
@@ -1325,7 +1955,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "AcuraWatch",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "volvo-xc60-2025",
@@ -1355,7 +2000,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Pilot Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "volvo-xc90-2025",
@@ -1386,7 +2046,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.9,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Pilot Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "volvo-ex90-2025",
@@ -1415,7 +2090,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.9,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Pilot Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "genesis-gv70-2025",
@@ -1445,7 +2135,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Highway Driving Assist II",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "genesis-electrified-gv70-2025",
@@ -1474,7 +2179,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Highway Driving Assist II",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "nissan-rogue-2025",
@@ -1504,7 +2224,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "ProPILOT Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "nissan-murano-2025",
@@ -1534,7 +2269,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "ProPILOT Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "nissan-pathfinder-2025",
@@ -1564,7 +2314,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "ProPILOT Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "jeep-grand-cherokee-2025",
@@ -1594,7 +2359,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "basic",
+      "adasName": "Active Driving Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "jeep-grand-cherokee-4xe-2025",
@@ -1626,7 +2406,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "basic",
+      "adasName": "Active Driving Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "jeep-wrangler-2025",
@@ -1657,7 +2452,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.2,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "basic",
+      "adasName": "Active Driving Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "dodge-hornet-2025",
@@ -1686,7 +2496,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "basic",
+      "adasName": "Safety & Security Group",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "gmc-terrain-2025",
@@ -1716,7 +2541,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.6,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "gmc-acadia-2025",
@@ -1746,7 +2586,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "buick-envision-2025",
@@ -1776,7 +2631,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.4,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "buick-enclave-2025",
@@ -1806,7 +2676,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -1835,7 +2720,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "lincoln-nautilus-2025",
@@ -1864,7 +2764,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 43.5,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "hands-free",
+      "adasName": "ActiveGlide",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "lincoln-aviator-2025",
@@ -1894,7 +2809,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 43,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "hands-free",
+      "adasName": "ActiveGlide",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "polestar-2-2025",
@@ -1923,7 +2853,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Pilot Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "polestar-3-2025",
@@ -1952,7 +2897,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.5,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Pilot Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "lucid-air-2025",
@@ -1980,7 +2940,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.5,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "DreamDrive Pro",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "lucid-gravity-2025",
@@ -2009,7 +2984,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.8,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "DreamDrive Pro",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "rivian-r2-2026",
@@ -2038,7 +3028,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver+",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-4runner-2025",
@@ -2068,7 +3073,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-sequoia-2025",
@@ -2099,7 +3119,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.2,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-crown-2025",
@@ -2129,7 +3164,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "honda-pilot-2025",
@@ -2160,7 +3210,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Honda Sensing",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "honda-hr-v-2025",
@@ -2190,7 +3255,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.9,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Honda Sensing",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "hyundai-santa-fe-2025",
@@ -2220,7 +3300,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.4,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "SmartSense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "hyundai-palisade-2025",
@@ -2250,7 +3345,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.2,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "SmartSense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "kia-telluride-2025",
@@ -2280,7 +3390,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.1,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Drive Wise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "kia-sportage-2025",
@@ -2310,7 +3435,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Drive Wise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "kia-sorento-2025",
@@ -2340,7 +3480,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Drive Wise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "volkswagen-tiguan-2025",
@@ -2370,7 +3525,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 40.2,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "enhanced",
+      "adasName": "IQ.DRIVE",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "volkswagen-atlas-2025",
@@ -2400,7 +3570,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "IQ.DRIVE",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mitsubishi-outlander-2025",
@@ -2430,7 +3615,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "basic",
+      "adasName": "MI-PILOT",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mitsubishi-outlander-phev-2025",
@@ -2463,7 +3663,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "basic",
+      "adasName": "MI-PILOT",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mazda-cx-70-2025",
@@ -2493,7 +3708,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "basic",
+      "adasName": "i-Activsense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "mazda-cx-90-2025",
@@ -2523,7 +3753,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "basic",
+      "adasName": "i-Activsense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "ford-explorer-2025",
@@ -2553,7 +3798,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "safetyRating": "TSP+",
-      "driverLegroomInches": 43
+      "driverLegroomInches": 43,
+      "autonomousLevel": "hands-free",
+      "adasName": "BlueCruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "ford-edge-2024",
@@ -2585,7 +3845,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.6,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "hands-free",
+      "adasName": "BlueCruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "ford-bronco-sport-2025",
@@ -2615,7 +3890,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.4,
-      "safetyRating": "Marginal"
+      "safetyRating": "Marginal",
+      "autonomousLevel": "hands-free",
+      "adasName": "BlueCruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "chevrolet-blazer-ev-2025",
@@ -2644,7 +3934,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.2,
-      "safetyRating": "Not Rated"
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -2674,7 +3979,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "subaru-crosstrek-2025",
@@ -2704,7 +4024,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.9,
-      "safetyRating": "Good"
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "EyeSight",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "subaru-solterra-2025",
@@ -2733,7 +4068,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.1,
-      "safetyRating": "TSP+"
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "EyeSight",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-bz4x-2025",
@@ -2762,7 +4112,22 @@
       "lastUpdated": "2025-01-26",
       "dataSource": "manual",
       "driverLegroomInches": 42.1,
-      "safetyRating": "TSP"
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-rav4-hybrid-2026",
@@ -2786,7 +4151,22 @@
       "safetyRating": "Not Rated",
       "notes": "All-new 6th gen, hybrid-only lineup",
       "lastUpdated": "2025-11-27",
-      "dataSource": "toyota.com"
+      "dataSource": "toyota.com",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "toyota-rav4-prime-2026",
@@ -2810,7 +4190,22 @@
       "safetyRating": "Not Rated",
       "notes": "PHEV with 50mi EV range, Spring 2026 arrival",
       "lastUpdated": "2025-11-27",
-      "dataSource": "toyota.com"
+      "dataSource": "toyota.com",
+      "autonomousLevel": "enhanced",
+      "adasName": "Toyota Safety Sense 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "chevrolet-bolt-ev-2026",
@@ -2833,7 +4228,22 @@
       "safetyRating": "Not Rated",
       "notes": "All-new, LFP battery, 150kW fast charging",
       "lastUpdated": "2025-11-27",
-      "dataSource": "chevrolet.com"
+      "dataSource": "chevrolet.com",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "nissan-leaf-2026",
@@ -2856,7 +4266,22 @@
       "safetyRating": "Not Rated",
       "notes": "All-new crossover design, 75kWh battery",
       "lastUpdated": "2025-11-27",
-      "dataSource": "nissanusa.com"
+      "dataSource": "nissanusa.com",
+      "autonomousLevel": "enhanced",
+      "adasName": "ProPILOT Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "jeep-wagoneer-s-2025",
@@ -2879,7 +4304,22 @@
       "safetyRating": "Not Rated",
       "notes": "600hp, 0-60 in 3.4s, Launch Edition",
       "lastUpdated": "2025-11-27",
-      "dataSource": "jeep.com"
+      "dataSource": "jeep.com",
+      "autonomousLevel": "basic",
+      "adasName": "Active Driving Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "subaru-forester-hybrid-2025",
@@ -2903,7 +4343,22 @@
       "safetyRating": "TSP+",
       "notes": "First US Forester Hybrid, 194hp combined",
       "lastUpdated": "2025-11-27",
-      "dataSource": "subaru.com"
+      "dataSource": "subaru.com",
+      "autonomousLevel": "enhanced",
+      "adasName": "EyeSight",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      }
     },
     {
       "id": "cadillac-lyriq-2026",
@@ -2926,9 +4381,1389 @@
       "safetyRating": "Not Rated",
       "notes": "Updated for 2026 with improved range",
       "lastUpdated": "2025-11-27",
-      "dataSource": "cadillac.com"
+      "dataSource": "cadillac.com",
+      "autonomousLevel": "hands-free",
+      "adasName": "Super Cruise",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      }
+    },
+    {
+      "id": "tesla-model-s-2025",
+      "year": 2025,
+      "make": "Tesla",
+      "model": "Model S",
+      "trim": "Long Range",
+      "bodyType": "sedan",
+      "bodyWidthInches": 77.3,
+      "mirrorWidthInches": 86.2,
+      "lengthInches": 197.7,
+      "heightInches": 56.9,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 28,
+      "fuelType": "electric",
+      "plugType": "NACS",
+      "mpge": 124,
+      "electricRangeMiles": 402,
+      "msrp": 74990,
+      "driverLegroomInches": 42.7,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      },
+      "standardFeatures": [
+        "Autopilot",
+        "17in Touchscreen",
+        "Gaming Computer",
+        "Premium Audio"
+      ],
+      "notes": "Flagship sedan. FSD capable ($8k option or $99/mo subscription).",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "tesla.com"
+    },
+    {
+      "id": "tesla-model-s-plaid-2025",
+      "year": 2025,
+      "make": "Tesla",
+      "model": "Model S",
+      "trim": "Plaid",
+      "bodyType": "sedan",
+      "bodyWidthInches": 77.3,
+      "mirrorWidthInches": 86.2,
+      "lengthInches": 197.7,
+      "heightInches": 56.9,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 28,
+      "fuelType": "electric",
+      "plugType": "NACS",
+      "mpge": 115,
+      "electricRangeMiles": 348,
+      "msrp": 89990,
+      "driverLegroomInches": 42.7,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      },
+      "standardFeatures": [
+        "Autopilot",
+        "17in Touchscreen",
+        "1,020 HP Tri-Motor"
+      ],
+      "notes": "0-60 in 1.99s. Fastest production car.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "tesla.com"
+    },
+    {
+      "id": "tesla-model-x-2025",
+      "year": 2025,
+      "make": "Tesla",
+      "model": "Model X",
+      "trim": "Long Range",
+      "bodyType": "suv",
+      "bodyWidthInches": 78.7,
+      "mirrorWidthInches": 89.4,
+      "lengthInches": 198.3,
+      "heightInches": 66.1,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 91,
+      "fuelType": "electric",
+      "plugType": "NACS",
+      "mpge": 106,
+      "electricRangeMiles": 335,
+      "msrp": 79990,
+      "driverLegroomInches": 41.4,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      },
+      "standardFeatures": [
+        "Autopilot",
+        "Falcon Wing Doors",
+        "17in Touchscreen"
+      ],
+      "notes": "Full-size SUV with 7 seats. Falcon wing doors for 2nd row.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "tesla.com"
+    },
+    {
+      "id": "tesla-model-x-plaid-2025",
+      "year": 2025,
+      "make": "Tesla",
+      "model": "Model X",
+      "trim": "Plaid",
+      "bodyType": "suv",
+      "bodyWidthInches": 78.7,
+      "mirrorWidthInches": 89.4,
+      "lengthInches": 198.3,
+      "heightInches": 66.1,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 91,
+      "fuelType": "electric",
+      "plugType": "NACS",
+      "mpge": 99,
+      "electricRangeMiles": 311,
+      "msrp": 94990,
+      "driverLegroomInches": 41.4,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      },
+      "standardFeatures": [
+        "Autopilot",
+        "Falcon Wing Doors",
+        "1,020 HP Tri-Motor"
+      ],
+      "notes": "Performance SUV. 0-60 in 2.5s with 1,020 HP.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "tesla.com"
+    },
+    {
+      "id": "tesla-cybertruck-2025",
+      "year": 2025,
+      "make": "Tesla",
+      "model": "Cybertruck",
+      "trim": "All-Wheel Drive",
+      "bodyType": "truck",
+      "bodyWidthInches": 79.8,
+      "mirrorWidthInches": 86.6,
+      "lengthInches": 223.7,
+      "heightInches": 70.5,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 68,
+      "fuelType": "electric",
+      "plugType": "NACS",
+      "mpge": 67,
+      "electricRangeMiles": 318,
+      "msrp": 79990,
+      "driverLegroomInches": 41,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      },
+      "standardFeatures": [
+        "Autopilot",
+        "Stainless Steel Exoskeleton",
+        "Vault Bed"
+      ],
+      "notes": "Stainless steel truck. 11,000 lb towing capacity.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "tesla.com"
+    },
+    {
+      "id": "tesla-cybertruck-cyberbeast-2025",
+      "year": 2025,
+      "make": "Tesla",
+      "model": "Cybertruck",
+      "trim": "Cyberbeast",
+      "bodyType": "truck",
+      "bodyWidthInches": 79.8,
+      "mirrorWidthInches": 86.6,
+      "lengthInches": 223.7,
+      "heightInches": 70.5,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 68,
+      "fuelType": "electric",
+      "plugType": "NACS",
+      "mpge": 67,
+      "electricRangeMiles": 256,
+      "msrp": 99990,
+      "driverLegroomInches": 41,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "full-self-driving",
+      "adasName": "Autopilot / FSD",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": false,
+        "cityAutopilot": true
+      },
+      "standardFeatures": [
+        "Autopilot",
+        "845 HP Tri-Motor",
+        "0-60 in 2.6s"
+      ],
+      "notes": "Performance Cybertruck. 845 HP, 0-60 in 2.6s.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "tesla.com"
+    },
+    {
+      "id": "rivian-r1t-2025",
+      "year": 2025,
+      "make": "Rivian",
+      "model": "R1T",
+      "trim": "Dual Motor",
+      "bodyType": "truck",
+      "bodyWidthInches": 79.3,
+      "mirrorWidthInches": 88,
+      "lengthInches": 217.1,
+      "heightInches": 71.3,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 68,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 66,
+      "electricRangeMiles": 352,
+      "msrp": 69900,
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver+",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Driver+",
+        "Gear Tunnel",
+        "Air Suspension"
+      ],
+      "notes": "Adventure truck. Gear tunnel storage between cab and bed.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "rivian.com"
+    },
+    {
+      "id": "rivian-r1t-quad-2025",
+      "year": 2025,
+      "make": "Rivian",
+      "model": "R1T",
+      "trim": "Quad Motor",
+      "bodyType": "truck",
+      "bodyWidthInches": 79.3,
+      "mirrorWidthInches": 88,
+      "lengthInches": 217.1,
+      "heightInches": 71.3,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 68,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 56,
+      "electricRangeMiles": 289,
+      "msrp": 84900,
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver+",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Driver+",
+        "Quad Motor AWD",
+        "Air Suspension"
+      ],
+      "notes": "Performance truck. 850 HP quad motor.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "rivian.com"
+    },
+    {
+      "id": "rivian-r1s-quad-2025",
+      "year": 2025,
+      "make": "Rivian",
+      "model": "R1S",
+      "trim": "Quad Motor",
+      "bodyType": "suv",
+      "bodyWidthInches": 79.3,
+      "mirrorWidthInches": 88,
+      "lengthInches": 200.8,
+      "heightInches": 72,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 104,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 56,
+      "electricRangeMiles": 260,
+      "msrp": 84900,
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver+",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Driver+",
+        "Quad Motor AWD",
+        "Air Suspension",
+        "3rd Row"
+      ],
+      "notes": "Performance SUV. 850 HP quad motor, 7 seats.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "rivian.com"
+    },
+    {
+      "id": "bmw-i4-2025",
+      "year": 2025,
+      "make": "BMW",
+      "model": "i4",
+      "trim": "eDrive40",
+      "bodyType": "sedan",
+      "bodyWidthInches": 72.9,
+      "mirrorWidthInches": 82.8,
+      "lengthInches": 188.3,
+      "heightInches": 57.1,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 14.8,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 109,
+      "electricRangeMiles": 318,
+      "msrp": 53500,
+      "driverLegroomInches": 42,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driving Assistance Professional",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "iDrive 8",
+        "Curved Display",
+        "Driving Assistant Professional"
+      ],
+      "notes": "Electric 4-series. 335 HP, sporty handling.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "bmwusa.com"
+    },
+    {
+      "id": "bmw-i5-2025",
+      "year": 2025,
+      "make": "BMW",
+      "model": "i5",
+      "trim": "eDrive40",
+      "bodyType": "sedan",
+      "bodyWidthInches": 74.8,
+      "mirrorWidthInches": 85.1,
+      "lengthInches": 197.5,
+      "heightInches": 59.2,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 14.3,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 112,
+      "electricRangeMiles": 295,
+      "msrp": 67795,
+      "driverLegroomInches": 42.1,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driving Assistance Professional",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "iDrive 8.5",
+        "Curved Display",
+        "Theater Screen Option"
+      ],
+      "notes": "Electric 5-series. Luxury electric sedan.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "bmwusa.com"
+    },
+    {
+      "id": "bmw-x5-2025",
+      "year": 2025,
+      "make": "BMW",
+      "model": "X5",
+      "trim": "xDrive40i",
+      "bodyType": "suv",
+      "bodyWidthInches": 78.9,
+      "mirrorWidthInches": 87.2,
+      "lengthInches": 194.3,
+      "heightInches": 69.1,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 72.3,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 21,
+      "mpgHighway": 26,
+      "mpgCombined": 23,
+      "msrp": 67600,
+      "driverLegroomInches": 40.4,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driving Assistance Professional",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "iDrive 8",
+        "Leather Seats",
+        "Panoramic Roof"
+      ],
+      "notes": "Best-selling BMW SUV. 3rd row optional.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "bmwusa.com"
+    },
+    {
+      "id": "mercedes-eqs-suv-2025",
+      "year": 2025,
+      "make": "Mercedes-Benz",
+      "model": "EQS SUV",
+      "trim": "450+",
+      "bodyType": "suv",
+      "bodyWidthInches": 77.5,
+      "mirrorWidthInches": 86.3,
+      "lengthInches": 201.8,
+      "heightInches": 67.1,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 74.2,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 85,
+      "electricRangeMiles": 305,
+      "msrp": 105550,
+      "driverLegroomInches": 41.8,
+      "safetyRating": "TSP",
+      "autonomousLevel": "hands-free",
+      "adasName": "Drive Pilot",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MBUX Hyperscreen",
+        "Drive Pilot Ready",
+        "Air Suspension"
+      ],
+      "notes": "Flagship EV SUV. Drive Pilot SAE Level 3 in select states.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "mbusa.com"
+    },
+    {
+      "id": "mercedes-eqe-2025",
+      "year": 2025,
+      "make": "Mercedes-Benz",
+      "model": "EQE",
+      "trim": "350+",
+      "bodyType": "sedan",
+      "bodyWidthInches": 74.2,
+      "mirrorWidthInches": 83.4,
+      "lengthInches": 196.1,
+      "heightInches": 59.2,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 14.2,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 107,
+      "electricRangeMiles": 305,
+      "msrp": 75900,
+      "driverLegroomInches": 41.1,
+      "safetyRating": "TSP",
+      "autonomousLevel": "hands-free",
+      "adasName": "Drive Pilot",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MBUX",
+        "Drive Pilot Ready",
+        "Burmester Audio"
+      ],
+      "notes": "Entry luxury electric sedan. Drive Pilot available.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "mbusa.com"
+    },
+    {
+      "id": "mercedes-s-class-2025",
+      "year": 2025,
+      "make": "Mercedes-Benz",
+      "model": "S-Class",
+      "trim": "S 500 4MATIC",
+      "bodyType": "sedan",
+      "bodyWidthInches": 76.9,
+      "mirrorWidthInches": 85.6,
+      "lengthInches": 208.2,
+      "heightInches": 59.2,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 12.8,
+      "fuelType": "hybrid",
+      "plugType": "none",
+      "mpgCity": 21,
+      "mpgHighway": 30,
+      "mpgCombined": 24,
+      "msrp": 118300,
+      "driverLegroomInches": 41.4,
+      "safetyRating": "TSP",
+      "autonomousLevel": "hands-free",
+      "adasName": "Drive Pilot",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": true,
+        "summonParking": true,
+        "handsFreeHighway": true,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MBUX",
+        "Drive Pilot Ready",
+        "Air Suspension",
+        "Burmester 4D"
+      ],
+      "notes": "Flagship luxury sedan. First SAE Level 3 in US.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "mbusa.com"
+    },
+    {
+      "id": "mercedes-gle-2025",
+      "year": 2025,
+      "make": "Mercedes-Benz",
+      "model": "GLE",
+      "trim": "450 4MATIC",
+      "bodyType": "suv",
+      "bodyWidthInches": 76.1,
+      "mirrorWidthInches": 84.9,
+      "lengthInches": 194.3,
+      "heightInches": 71.3,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 74.9,
+      "fuelType": "hybrid",
+      "plugType": "none",
+      "mpgCity": 19,
+      "mpgHighway": 26,
+      "mpgCombined": 22,
+      "msrp": 62450,
+      "driverLegroomInches": 40.3,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver Assistance Package",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MBUX",
+        "Premium Sound",
+        "4MATIC AWD"
+      ],
+      "notes": "Mid-size luxury SUV. 3rd row optional.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "mbusa.com"
+    },
+    {
+      "id": "audi-q8-etron-2025",
+      "year": 2025,
+      "make": "Audi",
+      "model": "Q8 e-tron",
+      "trim": "Premium Plus",
+      "bodyType": "suv",
+      "bodyWidthInches": 76.3,
+      "mirrorWidthInches": 85.4,
+      "lengthInches": 193.4,
+      "heightInches": 66.4,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 57,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 85,
+      "electricRangeMiles": 285,
+      "msrp": 75595,
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Good",
+      "autonomousLevel": "enhanced",
+      "adasName": "Audi pre sense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MMI touch",
+        "Virtual Cockpit",
+        "Quattro AWD"
+      ],
+      "notes": "Flagship electric SUV. Sportback version available.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "audiusa.com"
+    },
+    {
+      "id": "audi-q6-etron-2025",
+      "year": 2025,
+      "make": "Audi",
+      "model": "Q6 e-tron",
+      "trim": "Premium Plus",
+      "bodyType": "suv",
+      "bodyWidthInches": 75.6,
+      "mirrorWidthInches": 84.2,
+      "lengthInches": 184.6,
+      "heightInches": 64.2,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 64.1,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 102,
+      "electricRangeMiles": 321,
+      "msrp": 63800,
+      "driverLegroomInches": 41.2,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Audi pre sense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MMI Panoramic Display",
+        "Virtual Cockpit Plus",
+        "Quattro AWD"
+      ],
+      "notes": "New 2025 model on PPE platform. Fast 270kW charging.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "audiusa.com"
+    },
+    {
+      "id": "audi-a6-2025",
+      "year": 2025,
+      "make": "Audi",
+      "model": "A6",
+      "trim": "Premium 45 TFSI",
+      "bodyType": "sedan",
+      "bodyWidthInches": 73.8,
+      "mirrorWidthInches": 83.1,
+      "lengthInches": 194.4,
+      "heightInches": 57.4,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 13.7,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 24,
+      "mpgHighway": 32,
+      "mpgCombined": 27,
+      "msrp": 58200,
+      "driverLegroomInches": 41.3,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Audi pre sense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MMI Navigation",
+        "Virtual Cockpit",
+        "LED Headlights"
+      ],
+      "notes": "Luxury sport sedan. Allroad wagon and S6 variants available.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "audiusa.com"
+    },
+    {
+      "id": "audi-q7-2025",
+      "year": 2025,
+      "make": "Audi",
+      "model": "Q7",
+      "trim": "Premium 55 TFSI",
+      "bodyType": "suv",
+      "bodyWidthInches": 77.6,
+      "mirrorWidthInches": 86.4,
+      "lengthInches": 199.2,
+      "heightInches": 68.5,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 69.6,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 17,
+      "mpgHighway": 22,
+      "mpgCombined": 19,
+      "msrp": 62300,
+      "driverLegroomInches": 41.7,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Audi pre sense",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "MMI Navigation Plus",
+        "3rd Row Seating",
+        "Quattro AWD"
+      ],
+      "notes": "Full-size luxury SUV. Standard 3rd row seating.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "audiusa.com"
+    },
+    {
+      "id": "lexus-gx-2025",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "GX",
+      "trim": "550 Premium",
+      "bodyType": "suv",
+      "bodyWidthInches": 78.3,
+      "mirrorWidthInches": 87,
+      "lengthInches": 196.5,
+      "heightInches": 73,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 64.7,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 16,
+      "mpgHighway": 22,
+      "mpgCombined": 18,
+      "msrp": 65415,
+      "driverLegroomInches": 41.4,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Lexus Safety System+ 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "14in Touchscreen",
+        "Multi-Terrain Select",
+        "Crawl Control"
+      ],
+      "notes": "All-new 2024 redesign. Body-on-frame with hybrid option.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "lexus.com"
+    },
+    {
+      "id": "lexus-lx-2025",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "LX",
+      "trim": "600 Luxury",
+      "bodyType": "suv",
+      "bodyWidthInches": 78,
+      "mirrorWidthInches": 87.2,
+      "lengthInches": 200.4,
+      "heightInches": 74.2,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 66.5,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 17,
+      "mpgHighway": 22,
+      "mpgCombined": 19,
+      "msrp": 92350,
+      "driverLegroomInches": 41,
+      "safetyRating": "TSP+",
+      "autonomousLevel": "enhanced",
+      "adasName": "Lexus Safety System+ 3.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Twin-Turbo V6",
+        "Multi-Terrain Select",
+        "Adaptive Suspension"
+      ],
+      "notes": "Flagship luxury SUV. Based on Land Cruiser platform.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "lexus.com"
+    },
+    {
+      "id": "porsche-taycan-2025",
+      "year": 2025,
+      "make": "Porsche",
+      "model": "Taycan",
+      "trim": "4S",
+      "bodyType": "sedan",
+      "bodyWidthInches": 77.4,
+      "mirrorWidthInches": 86.5,
+      "lengthInches": 195.4,
+      "heightInches": 54.3,
+      "seats": 4,
+      "doors": 4,
+      "cargoVolumesCuFt": 15.8,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 84,
+      "electricRangeMiles": 318,
+      "msrp": 110950,
+      "driverLegroomInches": 42.2,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Porsche InnoDrive",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Sport Chrono Package",
+        "Porsche Active Suspension",
+        "800V Architecture"
+      ],
+      "notes": "Performance EV. 0-60 in 3.7s, 800V fast charging.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "porsche.com"
+    },
+    {
+      "id": "porsche-cayenne-2025",
+      "year": 2025,
+      "make": "Porsche",
+      "model": "Cayenne",
+      "trim": "Base",
+      "bodyType": "suv",
+      "bodyWidthInches": 78.1,
+      "mirrorWidthInches": 87.3,
+      "lengthInches": 194.5,
+      "heightInches": 66.2,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 60.3,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 17,
+      "mpgHighway": 22,
+      "mpgCombined": 19,
+      "msrp": 79500,
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Porsche InnoDrive",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "PCM 6.0",
+        "Air Suspension",
+        "Porsche Traction Management"
+      ],
+      "notes": "Luxury sport SUV. Multiple hybrid and performance variants.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "porsche.com"
+    },
+    {
+      "id": "porsche-macan-electric-2025",
+      "year": 2025,
+      "make": "Porsche",
+      "model": "Macan Electric",
+      "trim": "4",
+      "bodyType": "crossover",
+      "bodyWidthInches": 76.2,
+      "mirrorWidthInches": 84.9,
+      "lengthInches": 188.1,
+      "heightInches": 64.1,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 52.9,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 91,
+      "electricRangeMiles": 308,
+      "msrp": 75300,
+      "driverLegroomInches": 41.6,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Porsche InnoDrive",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": true,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "PCM 6.0",
+        "Air Suspension",
+        "800V Architecture"
+      ],
+      "notes": "All-new electric Macan. 800V architecture for fast charging.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "porsche.com"
+    },
+    {
+      "id": "jaguar-i-pace-2025",
+      "year": 2025,
+      "make": "Jaguar",
+      "model": "I-PACE",
+      "trim": "EV400",
+      "bodyType": "crossover",
+      "bodyWidthInches": 76.1,
+      "mirrorWidthInches": 84.2,
+      "lengthInches": 184.3,
+      "heightInches": 61.3,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 51,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 76,
+      "electricRangeMiles": 246,
+      "msrp": 73575,
+      "driverLegroomInches": 40.9,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "basic",
+      "adasName": "Clear Exit Monitor",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": false,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Pivi Pro",
+        "Air Suspension",
+        "Performance Brakes"
+      ],
+      "notes": "Jaguar's first EV. Sporty handling, unique styling.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "jaguarusa.com"
+    },
+    {
+      "id": "land-rover-range-rover-2025",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Range Rover",
+      "trim": "SE",
+      "bodyType": "suv",
+      "bodyWidthInches": 79.9,
+      "mirrorWidthInches": 88.4,
+      "lengthInches": 202.4,
+      "heightInches": 73.6,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 68.6,
+      "fuelType": "hybrid",
+      "plugType": "none",
+      "mpgCity": 18,
+      "mpgHighway": 24,
+      "mpgCombined": 21,
+      "msrp": 115375,
+      "driverLegroomInches": 42.5,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Pivi Pro",
+        "Terrain Response 2",
+        "Air Suspension"
+      ],
+      "notes": "Iconic luxury SUV. PHEV option with 48-mile EV range.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "landroverusa.com"
+    },
+    {
+      "id": "land-rover-defender-2025",
+      "year": 2025,
+      "make": "Land Rover",
+      "model": "Defender",
+      "trim": "110 S",
+      "bodyType": "suv",
+      "bodyWidthInches": 78.7,
+      "mirrorWidthInches": 87.1,
+      "lengthInches": 197.4,
+      "heightInches": 77.2,
+      "seats": 5,
+      "doors": 4,
+      "cargoVolumesCuFt": 78.8,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 17,
+      "mpgHighway": 22,
+      "mpgCombined": 19,
+      "msrp": 63250,
+      "driverLegroomInches": 38.2,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "Driver Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "Pivi Pro",
+        "Terrain Response 2",
+        "Wade Sensing"
+      ],
+      "notes": "Modern interpretation of classic Defender. Supreme off-road.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "landroverusa.com"
+    },
+    {
+      "id": "infiniti-qx80-2025",
+      "year": 2025,
+      "make": "Infiniti",
+      "model": "QX80",
+      "trim": "Luxe",
+      "bodyType": "suv",
+      "bodyWidthInches": 79.9,
+      "mirrorWidthInches": 88.2,
+      "lengthInches": 210.2,
+      "heightInches": 75.4,
+      "seats": 8,
+      "doors": 4,
+      "cargoVolumesCuFt": 95.1,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 14,
+      "mpgHighway": 19,
+      "mpgCombined": 16,
+      "msrp": 77625,
+      "driverLegroomInches": 42.6,
+      "safetyRating": "Not Rated",
+      "autonomousLevel": "enhanced",
+      "adasName": "ProPILOT Assist 2.0",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "driverMonitoring": true,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "ProPILOT 2.0",
+        "Semi-Aniline Leather",
+        "48in OLED Display"
+      ],
+      "notes": "All-new 2025 model. First with 48in OLED dashboard.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "infinitiusa.com"
+    },
+    {
+      "id": "infiniti-qx60-2025",
+      "year": 2025,
+      "make": "Infiniti",
+      "model": "QX60",
+      "trim": "Pure",
+      "bodyType": "suv",
+      "bodyWidthInches": 77.2,
+      "mirrorWidthInches": 85.8,
+      "lengthInches": 198.9,
+      "heightInches": 69.3,
+      "seats": 7,
+      "doors": 4,
+      "cargoVolumesCuFt": 75.4,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 20,
+      "mpgHighway": 25,
+      "mpgCombined": 22,
+      "msrp": 50875,
+      "driverLegroomInches": 42.2,
+      "safetyRating": "TSP",
+      "autonomousLevel": "enhanced",
+      "adasName": "ProPILOT Assist",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": false,
+        "driverMonitoring": false,
+        "autoLaneChange": false,
+        "summonParking": false,
+        "handsFreeHighway": false,
+        "cityAutopilot": false
+      },
+      "standardFeatures": [
+        "ProPILOT Assist",
+        "3rd Row Seating",
+        "Leather Seats"
+      ],
+      "notes": "3-row luxury SUV. Quiet cabin, comfortable ride.",
+      "lastUpdated": "2025-11-27",
+      "dataSource": "infinitiusa.com"
     }
   ],
-  "lastSyncDate": "2025-11-27",
+  "lastSyncDate": "2025-11-28",
   "mirrorBuffer": 8
 }

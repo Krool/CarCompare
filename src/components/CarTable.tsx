@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Car, SortConfig, SortField, SafetyRating } from "@/types/car";
+import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel } from "@/types/car";
 import {
   formatCurrency,
   formatMpg,
@@ -119,6 +119,7 @@ export default function CarTable({
             <SortableHeader field="model" label="Model" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="bodyType" label="Type" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="safetyRating" label="Safety" sortConfig={sortConfig} onSortChange={onSortChange} />
+            <SortableHeader field="autonomousLevel" label="ADAS" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="bodyWidthInches" label="Width (in)" sortConfig={sortConfig} onSortChange={onSortChange} />
@@ -198,6 +199,9 @@ export default function CarTable({
                 </td>
                 <td className="px-3 py-2 text-sm">
                   <SafetyBadge rating={car.safetyRating} />
+                </td>
+                <td className="px-3 py-2 text-sm">
+                  <AdasBadge level={car.autonomousLevel} name={car.adasName} />
                 </td>
                 <td className="px-3 py-2 text-sm text-white">
                   {car.seats}
@@ -342,6 +346,46 @@ function SafetyBadge({ rating }: { rating?: SafetyRating }) {
     >
       {rating}
     </span>
+  );
+}
+
+function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) {
+  if (!level || level === "none") {
+    return <span className="text-gray-500 text-xs">-</span>;
+  }
+
+  const colors: Record<AutonomousLevel, string> = {
+    "none": "bg-gray-700 text-gray-400",
+    "basic": "bg-gray-600 text-gray-200",
+    "enhanced": "bg-blue-800 text-blue-200",
+    "hands-free": "bg-purple-700 text-purple-200",
+    "full-self-driving": "bg-cyan-700 text-cyan-200",
+  };
+
+  const labels: Record<AutonomousLevel, string> = {
+    "none": "None",
+    "basic": "Basic",
+    "enhanced": "Enhanced",
+    "hands-free": "Hands-Free",
+    "full-self-driving": "FSD",
+  };
+
+  return (
+    <span
+      className={`px-2 py-0.5 rounded text-xs ${colors[level]}`}
+      title={name ?? level}
+    >
+      {labels[level]}
+    </span>
+  );
+}
+
+function FeatureCheck({ label, enabled }: { label: string; enabled?: boolean }) {
+  return (
+    <div className={`flex items-center gap-1 ${enabled ? "text-green-400" : "text-gray-500"}`}>
+      <span>{enabled ? "✓" : "✗"}</span>
+      <span>{label}</span>
+    </div>
   );
 }
 
@@ -566,6 +610,32 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
             )}
           </div>
         </div>
+
+        {/* Driver Assistance */}
+        {car.autonomousLevel && car.autonomousLevel !== "none" && (
+          <div className="mt-6 bg-gray-900 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Driver Assistance</h4>
+            <div className="flex items-center gap-2 mb-3">
+              <AdasBadge level={car.autonomousLevel} name={car.adasName} />
+              {car.adasName && <span className="text-gray-300 text-sm">{car.adasName}</span>}
+            </div>
+            {car.adasFeatures && (
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <FeatureCheck label="Adaptive Cruise Control" enabled={car.adasFeatures.adaptiveCruiseControl} />
+                <FeatureCheck label="Lane Keep Assist" enabled={car.adasFeatures.laneKeepAssist} />
+                <FeatureCheck label="Lane Centering" enabled={car.adasFeatures.laneCenteringAssist} />
+                <FeatureCheck label="Blind Spot Monitoring" enabled={car.adasFeatures.blindSpotMonitoring} />
+                <FeatureCheck label="Auto Emergency Braking" enabled={car.adasFeatures.automaticEmergencyBraking} />
+                <FeatureCheck label="Traffic Sign Recognition" enabled={car.adasFeatures.trafficSignRecognition} />
+                <FeatureCheck label="Driver Monitoring" enabled={car.adasFeatures.driverMonitoring} />
+                <FeatureCheck label="Auto Lane Change" enabled={car.adasFeatures.autoLaneChange} />
+                <FeatureCheck label="Summon/Remote Parking" enabled={car.adasFeatures.summonParking} />
+                <FeatureCheck label="Hands-Free Highway" enabled={car.adasFeatures.handsFreeHighway} />
+                <FeatureCheck label="City Autonomy" enabled={car.adasFeatures.cityAutopilot} />
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Features & Notes */}
         {(car.standardFeatures?.length || car.notes) && (

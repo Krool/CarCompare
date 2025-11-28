@@ -7,6 +7,14 @@ export type BodyType = "sedan" | "crossover" | "suv" | "truck" | "minivan" | "ha
 // IIHS Top Safety Pick ratings
 export type SafetyRating = "TSP+" | "TSP" | "Good" | "Acceptable" | "Not Rated";
 
+// Autonomous driving capability levels
+export type AutonomousLevel =
+  | "none"           // No driver assistance
+  | "basic"          // Basic ADAS (ACC, LKA)
+  | "enhanced"       // Enhanced ADAS (hands-on highway driving)
+  | "hands-free"     // Hands-free highway driving (BlueCruise, Super Cruise)
+  | "full-self-driving"; // Full autonomy capable (Tesla FSD, etc.)
+
 export interface Car {
   id: string;
   year: number;
@@ -45,6 +53,23 @@ export interface Car {
   // Safety
   safetyRating?: SafetyRating;    // IIHS rating: TSP+, TSP, Good, Acceptable, Not Rated
 
+  // Autonomous Driving Features
+  autonomousLevel?: AutonomousLevel;  // Level of autonomous capability
+  adasFeatures?: {
+    adaptiveCruiseControl?: boolean;   // ACC
+    laneKeepAssist?: boolean;          // LKA
+    laneCenteringAssist?: boolean;     // Active lane centering
+    blindSpotMonitoring?: boolean;     // BSM
+    automaticEmergencyBraking?: boolean; // AEB
+    trafficSignRecognition?: boolean;  // TSR
+    driverMonitoring?: boolean;        // Driver attention monitoring
+    autoLaneChange?: boolean;          // Automatic lane changes
+    summonParking?: boolean;           // Remote parking/summon
+    handsFreeHighway?: boolean;        // Hands-free highway driving
+    cityAutopilot?: boolean;           // City street autonomy
+  };
+  adasName?: string;  // Marketing name (e.g., "Autopilot", "BlueCruise", "Super Cruise")
+
   // Features/Notes
   standardFeatures?: string[];
   notes?: string;
@@ -73,6 +98,9 @@ export interface CarFilters {
   minEvRange?: number;          // Minimum EV range in miles
   minCargo?: number;            // Minimum cargo volume in cubic feet
   showFavoritesOnly?: boolean;  // Only show favorited vehicles
+  autonomousLevels?: AutonomousLevel[]; // Filter by autonomous capability
+  hasHandsFree?: boolean;       // Has hands-free driving
+  hasAutoLaneChange?: boolean;  // Has automatic lane change
 }
 
 export interface CarDatabase {
@@ -93,7 +121,8 @@ export type SortField =
   | "mpgCombined"
   | "electricRangeMiles"
   | "driverLegroomInches"
-  | "safetyRating";
+  | "safetyRating"
+  | "autonomousLevel";
 
 export type SortDirection = "asc" | "desc";
 

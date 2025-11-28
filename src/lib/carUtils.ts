@@ -1,4 +1,4 @@
-import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, AutonomousLevel } from "@/types/car";
 
 // Safety rating order for sorting (higher is better)
 const SAFETY_RATING_ORDER: Record<SafetyRating | "undefined", number> = {
@@ -7,6 +7,16 @@ const SAFETY_RATING_ORDER: Record<SafetyRating | "undefined", number> = {
   "Good": 2,
   "Acceptable": 1,
   "Not Rated": 0,
+  "undefined": -1,
+};
+
+// Autonomous level order for sorting (higher is better)
+const AUTONOMOUS_LEVEL_ORDER: Record<AutonomousLevel | "undefined", number> = {
+  "full-self-driving": 4,
+  "hands-free": 3,
+  "enhanced": 2,
+  "basic": 1,
+  "none": 0,
   "undefined": -1,
 };
 
@@ -96,6 +106,27 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       }
     }
 
+    // Autonomous level filter
+    if (filters.autonomousLevels && filters.autonomousLevels.length > 0) {
+      if (!car.autonomousLevel || !filters.autonomousLevels.includes(car.autonomousLevel)) {
+        return false;
+      }
+    }
+
+    // Hands-free driving filter
+    if (filters.hasHandsFree === true) {
+      if (!car.adasFeatures?.handsFreeHighway) {
+        return false;
+      }
+    }
+
+    // Auto lane change filter
+    if (filters.hasAutoLaneChange === true) {
+      if (!car.adasFeatures?.autoLaneChange) {
+        return false;
+      }
+    }
+
     return true;
   });
 }
@@ -153,6 +184,10 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
       case "safetyRating":
         aVal = SAFETY_RATING_ORDER[a.safetyRating ?? "undefined"];
         bVal = SAFETY_RATING_ORDER[b.safetyRating ?? "undefined"];
+        break;
+      case "autonomousLevel":
+        aVal = AUTONOMOUS_LEVEL_ORDER[a.autonomousLevel ?? "undefined"];
+        bVal = AUTONOMOUS_LEVEL_ORDER[b.autonomousLevel ?? "undefined"];
         break;
       default:
         return 0;
@@ -235,7 +270,9 @@ export function exportToCsv(cars: Car[], mirrorBuffer: number): string {
     "Seats", "Driver Legroom", "Width (w/ mirrors)", "Body Width",
     "Length", "Height", "Cargo Volume", "Fuel Type", "Plug Type",
     "City MPG", "Highway MPG", "Combined MPG", "MPGe", "EV Range",
-    "MSRP", "Used Price Low", "Used Price High", "Notes"
+    "MSRP", "Used Price Low", "Used Price High",
+    "ADAS Level", "ADAS Name", "Hands-Free Driving", "Auto Lane Change",
+    "Notes"
   ];
 
   const rows = cars.map(car => [
@@ -262,6 +299,10 @@ export function exportToCsv(cars: Car[], mirrorBuffer: number): string {
     car.msrp ?? "",
     car.usedPriceLow ?? "",
     car.usedPriceHigh ?? "",
+    car.autonomousLevel ?? "",
+    car.adasName ?? "",
+    car.adasFeatures?.handsFreeHighway ? "Yes" : "No",
+    car.adasFeatures?.autoLaneChange ? "Yes" : "No",
     car.notes ?? ""
   ]);
 

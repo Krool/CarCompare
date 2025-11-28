@@ -1,6 +1,6 @@
 "use client";
 
-import { CarFilters, FuelType, PlugType, BodyType, SafetyRating } from "@/types/car";
+import { CarFilters, FuelType, PlugType, BodyType, SafetyRating, AutonomousLevel } from "@/types/car";
 
 interface FilterControlsProps {
   filters: CarFilters;
@@ -48,6 +48,14 @@ const SAFETY_RATINGS: { value: SafetyRating; label: string }[] = [
   { value: "Not Rated", label: "Not Rated" },
 ];
 
+const AUTONOMOUS_LEVELS: { value: AutonomousLevel; label: string }[] = [
+  { value: "full-self-driving", label: "Full Self-Driving" },
+  { value: "hands-free", label: "Hands-Free Highway" },
+  { value: "enhanced", label: "Enhanced ADAS" },
+  { value: "basic", label: "Basic ADAS" },
+  { value: "none", label: "None" },
+];
+
 // Quick preset filter definitions
 const PRESETS = [
   { name: "EVs Under $50k", filters: { fuelTypes: ["electric" as FuelType], maxPrice: 50000 } },
@@ -55,6 +63,7 @@ const PRESETS = [
   { name: "Top Safety", filters: { safetyRatings: ["TSP+" as SafetyRating] } },
   { name: "Fuel Efficient", filters: { minMpg: 35 } },
   { name: "Long Range EVs", filters: { fuelTypes: ["electric" as FuelType], minEvRange: 300 } },
+  { name: "Hands-Free Driving", filters: { autonomousLevels: ["hands-free" as AutonomousLevel, "full-self-driving" as AutonomousLevel] } },
   { name: "Compact", filters: { bodyTypes: ["crossover" as BodyType, "hatchback" as BodyType, "sedan" as BodyType], maxPrice: 40000 } },
 ];
 
@@ -104,6 +113,12 @@ export default function FilterControls({
     const arr = filters.safetyRatings ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
     updateFilter("safetyRatings", newArr.length > 0 ? newArr : undefined);
+  };
+
+  const toggleAutonomousFilter = (value: AutonomousLevel) => {
+    const arr = filters.autonomousLevels ?? [];
+    const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
+    updateFilter("autonomousLevels", newArr.length > 0 ? newArr : undefined);
   };
 
   return (
@@ -336,6 +351,46 @@ export default function FilterControls({
               {sr.label}
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Driver Assistance Level */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">Driver Assistance (ADAS)</label>
+        <div className="flex gap-2 flex-wrap">
+          {AUTONOMOUS_LEVELS.map((al) => (
+            <button
+              key={al.value}
+              onClick={() => toggleAutonomousFilter(al.value)}
+              className={`px-3 py-1 rounded text-sm ${
+                filters.autonomousLevels?.includes(al.value)
+                  ? "bg-purple-600 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              }`}
+            >
+              {al.label}
+            </button>
+          ))}
+        </div>
+        <div className="flex gap-4 mt-2">
+          <label className="flex items-center gap-2 text-sm text-gray-300">
+            <input
+              type="checkbox"
+              checked={filters.hasHandsFree === true}
+              onChange={(e) => updateFilter("hasHandsFree", e.target.checked ? true : undefined)}
+              className="rounded border-gray-600 bg-gray-700 text-purple-600"
+            />
+            Hands-Free Highway
+          </label>
+          <label className="flex items-center gap-2 text-sm text-gray-300">
+            <input
+              type="checkbox"
+              checked={filters.hasAutoLaneChange === true}
+              onChange={(e) => updateFilter("hasAutoLaneChange", e.target.checked ? true : undefined)}
+              className="rounded border-gray-600 bg-gray-700 text-purple-600"
+            />
+            Auto Lane Change
+          </label>
         </div>
       </div>
 
