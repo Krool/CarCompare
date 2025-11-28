@@ -132,9 +132,6 @@ export default function CarTable({
             <SortableHeader field="mpgCombined" label="Efficiency" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="electricRangeMiles" label="EV Range" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="msrp" label="MSRP" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-              Used Price
-            </th>
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
               Notes
             </th>
@@ -244,11 +241,6 @@ export default function CarTable({
                   {baselineCar && !isBaseline && (
                     <DiffBadge diff={calculateDifference(baselineCar, car, "msrp", mirrorBuffer)} positive="lower" />
                   )}
-                </td>
-                <td className="px-3 py-2 text-sm text-gray-300">
-                  {car.usedPriceLow && car.usedPriceHigh
-                    ? `${formatCurrency(car.usedPriceLow)} - ${formatCurrency(car.usedPriceHigh)}`
-                    : "-"}
                 </td>
                 <td className="px-3 py-2 text-sm text-gray-400 max-w-xs truncate" title={car.notes}>
                   {car.notes ?? "-"}
@@ -446,11 +438,11 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         />
       )}
     <div
-      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="bg-gray-800 rounded-lg max-w-4xl w-full p-6 my-8"
+        className="bg-gray-800 rounded-lg max-w-4xl w-full p-6 mt-4 mb-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -518,12 +510,6 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               diff={baselineCar ? calculateDifference(baselineCar, car, "msrp", mirrorBuffer) : null}
               positive="lower"
             />
-            {(car.usedPriceLow || car.usedPriceHigh) && (
-              <DetailRow
-                label="Used Price Range"
-                value={`${formatCurrency(car.usedPriceLow)} - ${formatCurrency(car.usedPriceHigh)}`}
-              />
-            )}
           </div>
 
           {/* Dimensions */}
