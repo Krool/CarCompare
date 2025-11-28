@@ -83,11 +83,13 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 z-50 overflow-y-auto"
+      className="fixed z-50 bg-black/80"
+      style={{ top: 0, left: 0, right: 0, bottom: 0, overflowY: 'auto' }}
       onClick={onClose}
     >
       <div
-        className="bg-gray-800 rounded-lg max-w-6xl w-full p-6 mx-4 sm:mx-auto mt-8 mb-8"
+        className="bg-gray-800 rounded-lg max-w-6xl p-6"
+        style={{ margin: '20px auto', width: 'calc(100% - 32px)' }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-6">
