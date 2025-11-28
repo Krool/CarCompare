@@ -9,6 +9,7 @@ import {
   calculateDifference,
   getCarDisplayName,
 } from "@/lib/carUtils";
+import GarageFitVisualizer from "./GarageFitVisualizer";
 
 interface CarTableProps {
   cars: Car[];
@@ -344,7 +345,15 @@ function SafetyBadge({ rating }: { rating?: SafetyRating }) {
   );
 }
 
-function getCarImageUrl(car: Car, size: number = 400): string {
+// Available angles from IMAGIN.studio
+const CAR_ANGLES = [
+  { id: "01", label: "Front 3/4" },
+  { id: "09", label: "Rear 3/4" },
+  { id: "13", label: "Side" },
+  { id: "29", label: "Front" },
+] as const;
+
+function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): string {
   // Use IMAGIN.studio API for consistent car images
   // Format model name: "RAV4 Hybrid" -> "rav4", "Model Y" -> "model-y", "CR-V" -> "cr-v"
   const modelFamily = car.model
@@ -356,7 +365,7 @@ function getCarImageUrl(car: Car, size: number = 400): string {
 
   const make = car.make.toLowerCase();
 
-  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=${size}`;
+  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=${angle}&width=${size}`;
 }
 
 interface ImageModalProps {
@@ -367,7 +376,9 @@ interface ImageModalProps {
 }
 
 function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps) {
-  const imageUrl = getCarImageUrl(car, 800);
+  const [selectedAngle, setSelectedAngle] = useState("01");
+  const [showGarageFit, setShowGarageFit] = useState(false);
+  const imageUrl = getCarImageUrl(car, 800, selectedAngle);
   const isBaseline = baselineCar?.id === car.id;
   const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
 
@@ -382,6 +393,14 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
   );
 
   return (
+    <>
+      {showGarageFit && (
+        <GarageFitVisualizer
+          car={car}
+          mirrorBuffer={mirrorBuffer}
+          onClose={() => setShowGarageFit(false)}
+        />
+      )}
     <div
       className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
       onClick={onClose}
@@ -411,12 +430,38 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           </button>
         </div>
 
-        {/* Image */}
-        <img
-          src={imageUrl}
-          alt={`${car.year} ${car.make} ${car.model}`}
-          className="w-full h-auto rounded-lg mb-6"
-        />
+        {/* Image Gallery */}
+        <div className="mb-6">
+          {/* Main Image */}
+          <img
+            src={imageUrl}
+            alt={`${car.year} ${car.make} ${car.model} - ${CAR_ANGLES.find(a => a.id === selectedAngle)?.label}`}
+            className="w-full h-auto rounded-lg mb-3"
+          />
+          {/* Thumbnail Strip */}
+          <div className="flex gap-2 justify-center">
+            {CAR_ANGLES.map((angle) => (
+              <button
+                key={angle.id}
+                onClick={() => setSelectedAngle(angle.id)}
+                className={`relative rounded overflow-hidden border-2 transition-all ${
+                  selectedAngle === angle.id
+                    ? "border-blue-500 scale-105"
+                    : "border-gray-600 hover:border-gray-400"
+                }`}
+              >
+                <img
+                  src={getCarImageUrl(car, 150, angle.id)}
+                  alt={angle.label}
+                  className="w-20 h-12 object-cover"
+                />
+                <span className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs py-0.5 text-center">
+                  {angle.label}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Details Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -449,6 +494,12 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
             <DetailRow label="Body Width" value={car.bodyWidthInches ? `${car.bodyWidthInches}"` : undefined} />
             <DetailRow label="Length" value={car.lengthInches ? `${car.lengthInches}"` : undefined} />
             <DetailRow label="Height" value={car.heightInches ? `${car.heightInches}"` : undefined} />
+            <button
+              onClick={() => setShowGarageFit(true)}
+              className="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-sm font-medium transition-colors"
+            >
+              Check Garage Fit
+            </button>
           </div>
 
           {/* Capacity */}
@@ -602,6 +653,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         </div>
       </div>
     </div>
+    </>
   );
 }
 
