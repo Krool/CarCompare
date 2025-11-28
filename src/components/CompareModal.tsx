@@ -14,11 +14,26 @@ interface CompareModalProps {
 export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer }: CompareModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to top when modal opens
+  // Lock body scroll and reset modal scroll position when opened
   useEffect(() => {
+    // Save current scroll position and lock body
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+
+    // Reset modal scroll to top
     if (overlayRef.current) {
       overlayRef.current.scrollTop = 0;
     }
+
+    return () => {
+      // Restore body scroll
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    };
   }, []);
 
   if (cars.length === 0) return null;
