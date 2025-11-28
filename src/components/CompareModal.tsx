@@ -83,11 +83,11 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="bg-gray-800 rounded-lg max-w-6xl w-full p-6 my-8 max-h-[90vh] overflow-y-auto"
+        className="bg-gray-800 rounded-lg max-w-6xl w-full p-6 mt-4 mb-8 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-6">
@@ -142,12 +142,6 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               <CompareRow
                 label="MSRP"
                 values={cars.map(c => c.msrp)}
-                format={(v) => v ? formatCurrency(v as number) : "-"}
-                highlight="lower"
-              />
-              <CompareRow
-                label="Used Price (Low)"
-                values={cars.map(c => c.usedPriceLow)}
                 format={(v) => v ? formatCurrency(v as number) : "-"}
                 highlight="lower"
               />

@@ -182,11 +182,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <header className="bg-gray-800 border-b border-gray-700 px-6 py-4">
+      <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700 px-6 py-5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white">Car Compare</h1>
-            <p className="text-gray-400 text-sm">
+            <h1 className="text-3xl font-extrabold tracking-tight">
+              <span className="text-blue-400">Car</span>
+              <span className="text-white">Compare</span>
+            </h1>
+            <p className="text-gray-400 text-sm mt-1">
               Find the perfect car for your garage and family
             </p>
           </div>
@@ -289,10 +292,28 @@ export default function Home() {
       </main>
 
       <footer className="bg-gray-800 border-t border-gray-700 px-6 py-4 mt-8">
-        <p className="text-gray-500 text-sm text-center">
-          Data sourced from manufacturer specifications. Prices and availability may vary.
-          Width marked with * uses body width + {mirrorBuffer}" mirror buffer estimate.
-        </p>
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-gray-500 text-sm text-center">
+            Data sourced from manufacturer specifications. Prices and availability may vary.
+            Width marked with * uses body width + {mirrorBuffer}" mirror buffer estimate.
+          </p>
+          <p className="text-gray-500 text-sm">
+            Part of{' '}
+            <a
+              href="https://krool.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1"
+            >
+              Krool World
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </p>
+        </div>
       </footer>
 
       {/* Compare Modal */}
