@@ -35,6 +35,7 @@ export default function Home() {
   const [compareList, setCompareList] = useState<string[]>([]);
   const [showCompareModal, setShowCompareModal] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Load state from localStorage on mount
   useEffect(() => {
@@ -114,8 +115,17 @@ export default function Home() {
       cars = cars.filter(car => favorites.includes(car.id));
     }
 
+    // Apply search filter
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      cars = cars.filter(car => {
+        const searchString = `${car.year} ${car.make} ${car.model} ${car.trim ?? ""} ${car.bodyType} ${car.fuelType}`.toLowerCase();
+        return searchString.includes(query);
+      });
+    }
+
     return cars;
-  }, [allCars, filters, mirrorBuffer, favorites]);
+  }, [allCars, filters, mirrorBuffer, favorites, searchQuery]);
 
   const sortedCars = useMemo(() => {
     return sortCars(filteredCars, sortConfig);
@@ -242,20 +252,49 @@ export default function Home() {
 
           {/* Main content */}
           <div className="flex-1 min-w-0">
-            <div className="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div className="flex items-center gap-4">
-                <p className="text-gray-400">
-                  Showing {sortedCars.length} of {allCars.length} vehicles
-                </p>
-                {favorites.length > 0 && (
-                  <span className="text-yellow-400 text-sm">
-                    ★ {favorites.length} favorited
-                  </span>
+            <div className="mb-4 space-y-3">
+              {/* Search box */}
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search cars (e.g., Toyota, SUV, 2025, hybrid...)"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 py-2 pl-10 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                />
+                <svg
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
+                  >
+                    ×
+                  </button>
                 )}
               </div>
-              <p className="text-gray-500 text-sm">
-                Last updated: {carData.lastSyncDate}
-              </p>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-4">
+                  <p className="text-gray-400">
+                    Showing {sortedCars.length} of {allCars.length} vehicles
+                  </p>
+                  {favorites.length > 0 && (
+                    <span className="text-yellow-400 text-sm">
+                      ★ {favorites.length} favorited
+                    </span>
+                  )}
+                </div>
+                <p className="text-gray-500 text-sm">
+                  Last updated: {carData.lastSyncDate}
+                </p>
+              </div>
             </div>
 
             {/* Mobile: Card view */}
