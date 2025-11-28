@@ -83,13 +83,14 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/80 z-50 overflow-y-auto"
       onClick={onClose}
     >
-      <div
-        className="bg-gray-800 rounded-lg max-w-6xl w-full p-6 mt-4 mb-8 max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="min-h-full flex items-start justify-center p-4">
+        <div
+          className="bg-gray-800 rounded-lg max-w-6xl w-full p-6 my-4"
+          onClick={(e) => e.stopPropagation()}
+        >
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white">Compare Vehicles</h2>
           <button
@@ -251,6 +252,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
         <div className="mt-6 text-center text-gray-500 text-sm">
           Green highlighting indicates the best value in each category
+        </div>
         </div>
       </div>
     </div>
