@@ -79,7 +79,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -128,7 +128,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -179,7 +179,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -325,7 +325,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.8,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "full-self-driving",
       "adasName": "Autopilot / FSD",
       "adasFeatures": {
@@ -372,7 +372,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.7,
-      "safetyRating": "Acceptable",
+      "safetyRating": "Good",
       "autonomousLevel": "full-self-driving",
       "adasName": "Autopilot / FSD",
       "adasFeatures": {
@@ -466,7 +466,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 43.3,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "BlueCruise",
       "adasFeatures": {
@@ -655,7 +655,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.4,
-      "safetyRating": "Marginal",
+      "safetyRating": "TSP",
       "autonomousLevel": "enhanced",
       "adasName": "Drive Wise",
       "adasFeatures": {
@@ -702,7 +702,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.8,
-      "safetyRating": "TSP",
+      "safetyRating": "TSP+",
       "autonomousLevel": "enhanced",
       "adasName": "Drive Wise",
       "adasFeatures": {
@@ -750,7 +750,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "Good",
+      "safetyRating": "TSP+",
       "autonomousLevel": "basic",
       "adasName": "i-Activsense",
       "adasFeatures": {
@@ -897,7 +897,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 43.3,
-      "safetyRating": "TSP+",
+      "safetyRating": "TSP",
       "autonomousLevel": "enhanced",
       "adasName": "EyeSight",
       "adasFeatures": {
@@ -946,7 +946,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -995,7 +995,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.2,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -1044,7 +1044,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 40.9,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Honda Sensing",
       "adasFeatures": {
@@ -1092,7 +1092,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 40.3,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -1232,7 +1232,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.3,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "ProPILOT Assist",
       "adasFeatures": {
@@ -1281,7 +1281,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.4,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driver+",
       "adasFeatures": {
@@ -1472,7 +1472,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 43.1,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "BlueCruise",
       "adasFeatures": {
@@ -1567,7 +1567,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 40.2,
-      "safetyRating": "TSP+",
+      "safetyRating": "TSP",
       "autonomousLevel": "enhanced",
       "adasName": "Driving Assistance Professional",
       "adasFeatures": {
@@ -1799,7 +1799,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.2,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Audi pre sense",
       "adasFeatures": {
@@ -1939,7 +1939,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.1,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Lexus Safety System+ 3.0",
       "adasFeatures": {
@@ -1986,7 +1986,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.6,
-      "safetyRating": "TSP+",
+      "safetyRating": "TSP",
       "autonomousLevel": "enhanced",
       "adasName": "AcuraWatch",
       "adasFeatures": {
@@ -2080,7 +2080,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "Good",
+      "safetyRating": "TSP",
       "autonomousLevel": "enhanced",
       "adasName": "Pilot Assist",
       "adasFeatures": {
@@ -2313,7 +2313,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "ProPILOT Assist",
       "adasFeatures": {
@@ -2360,7 +2360,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "ProPILOT Assist",
       "adasFeatures": {
@@ -2407,7 +2407,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "ProPILOT Assist",
       "adasFeatures": {
@@ -2454,7 +2454,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "basic",
       "adasName": "Active Driving Assist",
       "adasFeatures": {
@@ -2503,7 +2503,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "basic",
       "adasName": "Active Driving Assist",
       "adasFeatures": {
@@ -2551,7 +2551,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.2,
-      "safetyRating": "Marginal",
+      "safetyRating": "Not Rated",
       "autonomousLevel": "basic",
       "adasName": "Active Driving Assist",
       "adasFeatures": {
@@ -2596,7 +2596,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "basic",
       "adasName": "Safety & Security Group",
       "adasFeatures": {
@@ -2643,7 +2643,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 40.6,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "Super Cruise",
       "adasFeatures": {
@@ -2690,7 +2690,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "Super Cruise",
       "adasFeatures": {
@@ -2737,7 +2737,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 40.4,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "Super Cruise",
       "adasFeatures": {
@@ -2784,7 +2784,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "Super Cruise",
       "adasFeatures": {
@@ -3199,7 +3199,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -3293,7 +3293,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.5,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -3341,7 +3341,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41,
-      "safetyRating": "TSP+",
+      "safetyRating": "TSP",
       "autonomousLevel": "enhanced",
       "adasName": "Honda Sensing",
       "adasFeatures": {
@@ -3434,7 +3434,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 44.4,
-      "safetyRating": "TSP",
+      "safetyRating": "TSP+",
       "autonomousLevel": "enhanced",
       "adasName": "SmartSense",
       "adasFeatures": {
@@ -3669,7 +3669,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 40.2,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "IQ.DRIVE",
       "adasFeatures": {
@@ -3716,7 +3716,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 41.7,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "IQ.DRIVE",
       "adasFeatures": {
@@ -3953,7 +3953,7 @@
       "notes": "Refreshed for 2025. Wide body.",
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "driverLegroomInches": 43,
       "autonomousLevel": "hands-free",
       "adasName": "BlueCruise",
@@ -4050,7 +4050,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.4,
-      "safetyRating": "Marginal",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "BlueCruise",
       "adasFeatures": {
@@ -4143,7 +4143,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 44.3,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "Super Cruise",
       "adasFeatures": {
@@ -4190,7 +4190,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.9,
-      "safetyRating": "Good",
+      "safetyRating": "TSP",
       "autonomousLevel": "enhanced",
       "adasName": "EyeSight",
       "adasFeatures": {
@@ -4282,7 +4282,7 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "manual",
       "driverLegroomInches": 42.1,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Toyota Safety Sense 3.0",
       "adasFeatures": {
@@ -4320,7 +4320,7 @@
       "mpgHighway": 41,
       "mpgCombined": 43,
       "msrp": 31900,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "notes": "All-new 6th gen, hybrid-only lineup",
       "lastUpdated": "2025-11-30",
       "dataSource": "toyota.com",
@@ -4361,7 +4361,7 @@
       "mpge": 94,
       "electricRangeMiles": 50,
       "msrp": 45000,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "notes": "PHEV with 50mi EV range, Spring 2026 arrival",
       "lastUpdated": "2025-11-30",
       "dataSource": "toyota.com",
@@ -4522,7 +4522,7 @@
       "mpgHighway": 34,
       "mpgCombined": 35,
       "msrp": 36595,
-      "safetyRating": "TSP+",
+      "safetyRating": "TSP",
       "notes": "First US Forester Hybrid, 194hp combined",
       "lastUpdated": "2025-11-30",
       "dataSource": "subaru.com",
@@ -4562,7 +4562,7 @@
       "mpge": 92,
       "electricRangeMiles": 314,
       "msrp": 58590,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "notes": "Updated for 2026 with improved range",
       "lastUpdated": "2025-11-30",
       "dataSource": "cadillac.com",
@@ -4604,7 +4604,7 @@
       "electricRangeMiles": 402,
       "msrp": 74990,
       "driverLegroomInches": 42.7,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "full-self-driving",
       "adasName": "Autopilot / FSD",
       "adasFeatures": {
@@ -4651,7 +4651,7 @@
       "electricRangeMiles": 348,
       "msrp": 89990,
       "driverLegroomInches": 42.7,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "full-self-driving",
       "adasName": "Autopilot / FSD",
       "adasFeatures": {
@@ -4697,7 +4697,7 @@
       "electricRangeMiles": 335,
       "msrp": 79990,
       "driverLegroomInches": 41.4,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "full-self-driving",
       "adasName": "Autopilot / FSD",
       "adasFeatures": {
@@ -4743,7 +4743,7 @@
       "electricRangeMiles": 311,
       "msrp": 94990,
       "driverLegroomInches": 41.4,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "full-self-driving",
       "adasName": "Autopilot / FSD",
       "adasFeatures": {
@@ -4881,7 +4881,7 @@
       "electricRangeMiles": 352,
       "msrp": 69900,
       "driverLegroomInches": 40.9,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driver+",
       "adasFeatures": {
@@ -4927,7 +4927,7 @@
       "electricRangeMiles": 289,
       "msrp": 84900,
       "driverLegroomInches": 40.9,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driver+",
       "adasFeatures": {
@@ -4973,7 +4973,7 @@
       "electricRangeMiles": 260,
       "msrp": 84900,
       "driverLegroomInches": 40.9,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driver+",
       "adasFeatures": {
@@ -5020,7 +5020,7 @@
       "electricRangeMiles": 318,
       "msrp": 53500,
       "driverLegroomInches": 42,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driving Assistance Professional",
       "adasFeatures": {
@@ -5066,7 +5066,7 @@
       "electricRangeMiles": 295,
       "msrp": 67795,
       "driverLegroomInches": 42.1,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driving Assistance Professional",
       "adasFeatures": {
@@ -5159,7 +5159,7 @@
       "electricRangeMiles": 305,
       "msrp": 105550,
       "driverLegroomInches": 41.8,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "Drive Pilot",
       "adasFeatures": {
@@ -5205,7 +5205,7 @@
       "electricRangeMiles": 305,
       "msrp": 75900,
       "driverLegroomInches": 41.1,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "hands-free",
       "adasName": "Drive Pilot",
       "adasFeatures": {
@@ -5252,7 +5252,7 @@
       "mpgCombined": 24,
       "msrp": 118300,
       "driverLegroomInches": 41.4,
-      "safetyRating": "TSP",
+      "safetyRating": "TSP+",
       "autonomousLevel": "hands-free",
       "adasName": "Drive Pilot",
       "adasFeatures": {
@@ -5392,7 +5392,7 @@
       "electricRangeMiles": 321,
       "msrp": 63800,
       "driverLegroomInches": 41.2,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Audi pre sense",
       "adasFeatures": {
@@ -5439,7 +5439,7 @@
       "mpgCombined": 27,
       "msrp": 58200,
       "driverLegroomInches": 41.3,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Audi pre sense",
       "adasFeatures": {
@@ -5486,7 +5486,7 @@
       "mpgCombined": 19,
       "msrp": 62300,
       "driverLegroomInches": 41.7,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Audi pre sense",
       "adasFeatures": {
@@ -5533,7 +5533,7 @@
       "mpgCombined": 18,
       "msrp": 65415,
       "driverLegroomInches": 41.4,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Lexus Safety System+ 3.0",
       "adasFeatures": {
@@ -5580,7 +5580,7 @@
       "mpgCombined": 19,
       "msrp": 92350,
       "driverLegroomInches": 41,
-      "safetyRating": "TSP+",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Lexus Safety System+ 3.0",
       "adasFeatures": {
@@ -5626,7 +5626,7 @@
       "electricRangeMiles": 318,
       "msrp": 110950,
       "driverLegroomInches": 42.2,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Porsche InnoDrive",
       "adasFeatures": {
@@ -5673,7 +5673,7 @@
       "mpgCombined": 19,
       "msrp": 79500,
       "driverLegroomInches": 40.9,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Porsche InnoDrive",
       "adasFeatures": {
@@ -5719,7 +5719,7 @@
       "electricRangeMiles": 308,
       "msrp": 75300,
       "driverLegroomInches": 41.6,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Porsche InnoDrive",
       "adasFeatures": {
@@ -5765,7 +5765,7 @@
       "electricRangeMiles": 246,
       "msrp": 73575,
       "driverLegroomInches": 40.9,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "basic",
       "adasName": "Clear Exit Monitor",
       "adasFeatures": {
@@ -5812,7 +5812,7 @@
       "mpgCombined": 21,
       "msrp": 115375,
       "driverLegroomInches": 42.5,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driver Assist",
       "adasFeatures": {
@@ -5859,7 +5859,7 @@
       "mpgCombined": 19,
       "msrp": 63250,
       "driverLegroomInches": 38.2,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "Driver Assist",
       "adasFeatures": {
@@ -5906,7 +5906,7 @@
       "mpgCombined": 16,
       "msrp": 77625,
       "driverLegroomInches": 42.6,
-      "safetyRating": "Not Rated",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "ProPILOT Assist 2.0",
       "adasFeatures": {
@@ -5953,7 +5953,7 @@
       "mpgCombined": 22,
       "msrp": 50875,
       "driverLegroomInches": 42.2,
-      "safetyRating": "TSP",
+      "safetyRating": "Good",
       "autonomousLevel": "enhanced",
       "adasName": "ProPILOT Assist",
       "adasFeatures": {
