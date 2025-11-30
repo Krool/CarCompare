@@ -51,6 +51,7 @@ const SAFETY_RATINGS: { value: SafetyRating; label: string }[] = [
   { value: "TSP", label: "TSP" },
   { value: "Good", label: "Good" },
   { value: "Acceptable", label: "Acceptable" },
+  { value: "Pending", label: "Pending" },
   { value: "Not Rated", label: "Not Rated" },
 ];
 

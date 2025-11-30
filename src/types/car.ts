@@ -5,7 +5,7 @@ export type PlugType = "J1772" | "CCS1" | "CHAdeMO" | "NACS" | "Tesla" | "none";
 export type BodyType = "sedan" | "crossover" | "suv" | "truck" | "minivan" | "hatchback" | "wagon" | "coupe";
 
 // IIHS Top Safety Pick ratings
-export type SafetyRating = "TSP+" | "TSP" | "Good" | "Acceptable" | "Not Rated";
+export type SafetyRating = "TSP+" | "TSP" | "Good" | "Acceptable" | "Pending" | "Not Rated";
 
 // Autonomous driving capability levels
 export type AutonomousLevel =

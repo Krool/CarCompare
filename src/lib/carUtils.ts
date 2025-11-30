@@ -2,10 +2,11 @@ import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, Au
 
 // Safety rating order for sorting (higher is better)
 const SAFETY_RATING_ORDER: Record<SafetyRating | "undefined", number> = {
-  "TSP+": 4,
-  "TSP": 3,
-  "Good": 2,
-  "Acceptable": 1,
+  "TSP+": 5,
+  "TSP": 4,
+  "Good": 3,
+  "Acceptable": 2,
+  "Pending": 1,
   "Not Rated": 0,
   "undefined": -1,
 };
