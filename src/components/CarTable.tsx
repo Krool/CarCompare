@@ -122,7 +122,10 @@ export default function CarTable({
             <SortableHeader field="autonomousLevel" label="ADAS" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="bodyWidthInches" label="Width (in)" sortConfig={sortConfig} onSortChange={onSortChange} />
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider" title="Width with mirrors folded">
+              Folded
+            </th>
+            <SortableHeader field="bodyWidthInches" label="Extended" sortConfig={sortConfig} onSortChange={onSortChange} />
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
               Fuel
             </th>
@@ -141,7 +144,6 @@ export default function CarTable({
           {cars.map((car) => {
             const isBaseline = baselineCar?.id === car.id;
             const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
-            const hasActualMirrorWidth = car.mirrorWidthInches !== undefined;
             const isFavorite = favorites.includes(car.id);
             const isInCompare = compareList.includes(car.id);
 
@@ -212,11 +214,11 @@ export default function CarTable({
                     <DiffBadge diff={calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer)} positive="higher" />
                   )}
                 </td>
-                <td className="px-3 py-2 text-sm text-white">
-                  <span title={hasActualMirrorWidth ? "Actual mirror width" : `Body: ${car.bodyWidthInches}" + ${mirrorBuffer}" buffer`}>
-                    {effectiveWidth.toFixed(1)}
-                    {!hasActualMirrorWidth && <span className="text-gray-500">*</span>}
-                  </span>
+                <td className="px-3 py-2 text-sm text-white" title="Width with mirrors folded">
+                  {car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : "-"}
+                </td>
+                <td className="px-3 py-2 text-sm text-white" title="Width with mirrors extended">
+                  {effectiveWidth.toFixed(1)}"
                   {baselineCar && !isBaseline && (
                     <DiffBadge diff={calculateDifference(baselineCar, car, "bodyWidthInches", mirrorBuffer)} positive="lower" />
                   )}
@@ -251,7 +253,7 @@ export default function CarTable({
         </tbody>
       </table>
       <div className="px-3 py-2 text-xs text-gray-500 border-t border-gray-700">
-        * Width estimated using body width + {mirrorBuffer}" mirror buffer
+        Folded = mirrors folded in, Extended = mirrors extended out
       </div>
     </div>
     </>
@@ -516,7 +518,11 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           <div className="bg-gray-900 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Dimensions</h4>
             <DetailRow
-              label="Width (w/ mirrors)"
+              label="Width (Mirrors Folded)"
+              value={car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : undefined}
+            />
+            <DetailRow
+              label="Width (Mirrors Extended)"
               value={`${effectiveWidth.toFixed(1)}"`}
               diff={baselineCar ? calculateDifference(baselineCar, car, "bodyWidthInches", mirrorBuffer) : null}
               positive="lower"

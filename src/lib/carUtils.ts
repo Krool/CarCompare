@@ -267,7 +267,7 @@ export function getCarDisplayName(car: Car): string {
 export function exportToCsv(cars: Car[], mirrorBuffer: number): string {
   const headers = [
     "Year", "Make", "Model", "Trim", "Body Type", "Safety Rating",
-    "Seats", "Driver Legroom", "Width (w/ mirrors)", "Body Width",
+    "Seats", "Driver Legroom", "Width (Mirrors Folded)", "Width (Mirrors Extended)", "Body Width",
     "Length", "Height", "Cargo Volume", "Fuel Type", "Plug Type",
     "City MPG", "Highway MPG", "Combined MPG", "MPGe", "EV Range",
     "MSRP", "Used Price Low", "Used Price High",
@@ -284,6 +284,7 @@ export function exportToCsv(cars: Car[], mirrorBuffer: number): string {
     car.safetyRating ?? "",
     car.seats,
     car.driverLegroomInches ?? "",
+    car.mirrorsFoldedWidthInches ?? "",
     getEffectiveWidth(car, mirrorBuffer).toFixed(1),
     car.bodyWidthInches,
     car.lengthInches ?? "",

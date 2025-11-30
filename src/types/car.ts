@@ -25,8 +25,9 @@ export interface Car {
   imageUrl?: string;            // URL to car image
 
   // Dimensions
-  bodyWidthInches: number;      // Width without mirrors
-  mirrorWidthInches?: number;   // Width with mirrors (if known)
+  bodyWidthInches: number;           // Width without mirrors (body only)
+  mirrorsFoldedWidthInches?: number; // Width with mirrors folded in
+  mirrorWidthInches?: number;        // Width with mirrors extended (unfolded)
   lengthInches?: number;
   heightInches?: number;
 

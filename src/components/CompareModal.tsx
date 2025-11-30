@@ -196,7 +196,13 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                 </td>
               </tr>
               <CompareRow
-                label="Width (w/ mirrors)"
+                label="Width (Mirrors Folded)"
+                values={cars.map(c => c.mirrorsFoldedWidthInches)}
+                format={(v) => v ? `${(v as number).toFixed(1)}"` : "-"}
+                highlight="lower"
+              />
+              <CompareRow
+                label="Width (Mirrors Extended)"
                 values={cars.map(c => getEffectiveWidth(c, mirrorBuffer))}
                 format={(v) => v ? `${(v as number).toFixed(1)}"` : "-"}
                 highlight="lower"
