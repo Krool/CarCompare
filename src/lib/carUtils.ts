@@ -51,10 +51,16 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       return false;
     }
 
-    // Width filter (garage fit) - use mirror width if available, otherwise body + buffer
+    // Width filter (garage fit) - can filter by folded or extended width
     if (filters.maxWidthInches !== undefined) {
-      const effectiveWidth = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
-      if (effectiveWidth > filters.maxWidthInches) return false;
+      const widthType = filters.widthFilterType ?? "extended";
+      let widthToCheck: number;
+      if (widthType === "folded") {
+        widthToCheck = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches + 2;
+      } else {
+        widthToCheck = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
+      }
+      if (widthToCheck > filters.maxWidthInches) return false;
     }
 
     // Make filter
@@ -156,6 +162,10 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
       case "bodyWidthInches":
         aVal = a.mirrorWidthInches ?? a.bodyWidthInches;
         bVal = b.mirrorWidthInches ?? b.bodyWidthInches;
+        break;
+      case "mirrorsFoldedWidthInches":
+        aVal = a.mirrorsFoldedWidthInches ?? a.bodyWidthInches;
+        bVal = b.mirrorsFoldedWidthInches ?? b.bodyWidthInches;
         break;
       case "seats":
         aVal = a.seats;

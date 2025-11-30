@@ -1,6 +1,6 @@
 "use client";
 
-import { CarFilters, FuelType, PlugType, BodyType, SafetyRating, AutonomousLevel } from "@/types/car";
+import { CarFilters, FuelType, PlugType, BodyType, SafetyRating, AutonomousLevel, WidthFilterType } from "@/types/car";
 
 interface FilterControlsProps {
   filters: CarFilters;
@@ -239,16 +239,31 @@ export default function FilterControls({
         <label className="block text-sm font-medium text-gray-300">
           Max Width for Garage (inches)
         </label>
-        <input
-          type="number"
-          min={60}
-          max={120}
-          placeholder="e.g., 90"
-          value={filters.maxWidthInches ?? ""}
-          onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
-          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
-        />
-        <p className="text-xs text-gray-500">Filters by width with mirrors</p>
+        <div className="flex gap-2">
+          <input
+            type="number"
+            min={60}
+            max={120}
+            placeholder="e.g., 90"
+            value={filters.maxWidthInches ?? ""}
+            onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
+            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+          />
+          <select
+            value={filters.widthFilterType ?? "extended"}
+            onChange={(e) => updateFilter("widthFilterType", e.target.value as WidthFilterType)}
+            className="px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+          >
+            <option value="extended">Mirrors Extended</option>
+            <option value="folded">Mirrors Folded</option>
+          </select>
+        </div>
+        <p className="text-xs text-gray-500">
+          {filters.widthFilterType === "folded"
+            ? "Filters by width with mirrors folded in"
+            : "Filters by width with mirrors extended out"
+          }
+        </p>
       </div>
 
       {/* Mirror Buffer */}
