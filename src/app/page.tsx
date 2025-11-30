@@ -244,8 +244,6 @@ export default function Home() {
               filters={filters}
               onFiltersChange={setFilters}
               availableMakes={availableMakes}
-              mirrorBuffer={mirrorBuffer}
-              onMirrorBufferChange={setMirrorBuffer}
               hasFavorites={favorites.length > 0}
             />
           </aside>
@@ -334,7 +332,6 @@ export default function Home() {
         <div className="flex flex-col items-center gap-2">
           <p className="text-gray-500 text-sm text-center">
             Data sourced from manufacturer specifications. Prices and availability may vary.
-            Width marked with * uses body width + {mirrorBuffer}" mirror buffer estimate.
           </p>
           <p className="text-gray-500 text-sm">
             Part of{' '}

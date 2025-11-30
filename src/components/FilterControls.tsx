@@ -14,8 +14,6 @@ interface FilterControlsProps {
   filters: CarFilters;
   onFiltersChange: (filters: CarFilters) => void;
   availableMakes: string[];
-  mirrorBuffer: number;
-  onMirrorBufferChange: (buffer: number) => void;
   hasFavorites: boolean;
 }
 
@@ -79,8 +77,6 @@ export default function FilterControls({
   filters,
   onFiltersChange,
   availableMakes,
-  mirrorBuffer,
-  onMirrorBufferChange,
   hasFavorites,
 }: FilterControlsProps) {
   const updateFilter = (key: keyof CarFilters, value: CarFilters[keyof CarFilters]) => {
@@ -275,22 +271,6 @@ export default function FilterControls({
             : "Filters by width with mirrors extended out"
           }
         </p>
-      </div>
-
-      {/* Mirror Buffer */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">
-          Mirror Buffer (inches)
-        </label>
-        <input
-          type="number"
-          min={0}
-          max={20}
-          value={mirrorBuffer}
-          onChange={(e) => onMirrorBufferChange(parseInt(e.target.value) || 0)}
-          className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
-        />
-        <p className="text-xs text-gray-500">Added to body width when mirror width unknown</p>
       </div>
 
       {/* Minimum Legroom */}

@@ -28,7 +28,8 @@
       "WebFetch(domain:www.caranddriver.com)",
       "WebFetch(domain:www.edmunds.com)",
       "WebFetch(domain:www.toyota.com)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npx gh-pages:*)"
     ],
     "deny": [],
     "ask": []
