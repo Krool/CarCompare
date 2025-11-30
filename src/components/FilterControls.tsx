@@ -1,6 +1,14 @@
 "use client";
 
-import { CarFilters, FuelType, PlugType, BodyType, SafetyRating, AutonomousLevel } from "@/types/car";
+import { CarFilters, FuelType, PlugType, BodyType, SafetyRating, AutonomousLevel, WidthFilterType } from "@/types/car";
+import InfoTooltip, {
+  AdasInfoContent,
+  AdasFeaturesInfoContent,
+  SafetyRatingInfoContent,
+  WidthInfoContent,
+  FuelTypeInfoContent,
+  PlugTypeInfoContent,
+} from "./InfoTooltip";
 
 interface FilterControlsProps {
   filters: CarFilters;
@@ -238,17 +246,35 @@ export default function FilterControls({
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Max Width for Garage (inches)
+          <InfoTooltip title="Vehicle Width">
+            <WidthInfoContent />
+          </InfoTooltip>
         </label>
-        <input
-          type="number"
-          min={60}
-          max={120}
-          placeholder="e.g., 90"
-          value={filters.maxWidthInches ?? ""}
-          onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
-          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
-        />
-        <p className="text-xs text-gray-500">Filters by width with mirrors</p>
+        <div className="flex gap-2">
+          <input
+            type="number"
+            min={60}
+            max={120}
+            placeholder="e.g., 90"
+            value={filters.maxWidthInches ?? ""}
+            onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
+            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+          />
+          <select
+            value={filters.widthFilterType ?? "extended"}
+            onChange={(e) => updateFilter("widthFilterType", e.target.value as WidthFilterType)}
+            className="px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+          >
+            <option value="extended">Mirrors Extended</option>
+            <option value="folded">Mirrors Folded</option>
+          </select>
+        </div>
+        <p className="text-xs text-gray-500">
+          {filters.widthFilterType === "folded"
+            ? "Filters by width with mirrors folded in"
+            : "Filters by width with mirrors extended out"
+          }
+        </p>
       </div>
 
       {/* Mirror Buffer */}
@@ -336,7 +362,12 @@ export default function FilterControls({
 
       {/* Safety Rating */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">IIHS Safety Rating</label>
+        <label className="block text-sm font-medium text-gray-300">
+          IIHS Safety Rating
+          <InfoTooltip title="IIHS Safety Ratings">
+            <SafetyRatingInfoContent />
+          </InfoTooltip>
+        </label>
         <div className="flex gap-2 flex-wrap">
           {SAFETY_RATINGS.map((sr) => (
             <button
@@ -356,7 +387,12 @@ export default function FilterControls({
 
       {/* Driver Assistance Level */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">Driver Assistance (ADAS)</label>
+        <label className="block text-sm font-medium text-gray-300">
+          Driver Assistance (ADAS)
+          <InfoTooltip title="Driver Assistance Levels">
+            <AdasInfoContent />
+          </InfoTooltip>
+        </label>
         <div className="flex gap-2 flex-wrap">
           {AUTONOMOUS_LEVELS.map((al) => (
             <button
@@ -372,7 +408,7 @@ export default function FilterControls({
             </button>
           ))}
         </div>
-        <div className="flex gap-4 mt-2">
+        <div className="flex items-center gap-4 mt-2">
           <label className="flex items-center gap-2 text-sm text-gray-300">
             <input
               type="checkbox"
@@ -391,6 +427,9 @@ export default function FilterControls({
             />
             Auto Lane Change
           </label>
+          <InfoTooltip title="ADAS Features">
+            <AdasFeaturesInfoContent />
+          </InfoTooltip>
         </div>
       </div>
 
@@ -436,7 +475,12 @@ export default function FilterControls({
 
       {/* Fuel Type */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">Fuel Type</label>
+        <label className="block text-sm font-medium text-gray-300">
+          Fuel Type
+          <InfoTooltip title="Fuel Types">
+            <FuelTypeInfoContent />
+          </InfoTooltip>
+        </label>
         <div className="flex gap-2 flex-wrap">
           {FUEL_TYPES.map((ft) => (
             <button
@@ -456,7 +500,12 @@ export default function FilterControls({
 
       {/* Plug Type */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">Plug Type</label>
+        <label className="block text-sm font-medium text-gray-300">
+          Plug Type
+          <InfoTooltip title="EV Plug Types">
+            <PlugTypeInfoContent />
+          </InfoTooltip>
+        </label>
         <div className="flex gap-2 flex-wrap">
           {PLUG_TYPES.map((pt) => (
             <button

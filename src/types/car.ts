@@ -25,8 +25,9 @@ export interface Car {
   imageUrl?: string;            // URL to car image
 
   // Dimensions
-  bodyWidthInches: number;      // Width without mirrors
-  mirrorWidthInches?: number;   // Width with mirrors (if known)
+  bodyWidthInches: number;           // Width without mirrors (body only)
+  mirrorsFoldedWidthInches?: number; // Width with mirrors folded in
+  mirrorWidthInches?: number;        // Width with mirrors extended (unfolded)
   lengthInches?: number;
   heightInches?: number;
 
@@ -79,6 +80,8 @@ export interface Car {
   dataSource?: string;          // Where we got the data
 }
 
+export type WidthFilterType = "extended" | "folded";
+
 export interface CarFilters {
   minSeats?: number;
   maxSeats?: number;
@@ -89,6 +92,7 @@ export interface CarFilters {
   plugTypes?: PlugType[];
   bodyTypes?: BodyType[];
   maxWidthInches?: number;      // For garage fit
+  widthFilterType?: WidthFilterType; // Which width to filter by (default: extended)
   makes?: string[];
   minLegroom?: number;          // Minimum driver legroom in inches
   safetyRatings?: SafetyRating[]; // Filter by IIHS safety ratings
@@ -115,6 +119,7 @@ export type SortField =
   | "model"
   | "bodyType"
   | "bodyWidthInches"
+  | "mirrorsFoldedWidthInches"
   | "seats"
   | "doors"
   | "msrp"

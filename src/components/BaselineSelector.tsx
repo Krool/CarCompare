@@ -48,7 +48,13 @@ export default function BaselineSelector({
           <h3 className="font-medium text-white">{getCarDisplayName(baselineCar)}</h3>
           <div className="grid grid-cols-2 gap-2 text-sm">
             <div>
-              <span className="text-gray-400">Width (w/ mirrors):</span>
+              <span className="text-gray-400">Width (Folded):</span>
+              <span className="text-white ml-1">
+                {baselineCar.mirrorsFoldedWidthInches ? `${baselineCar.mirrorsFoldedWidthInches}"` : "-"}
+              </span>
+            </div>
+            <div>
+              <span className="text-gray-400">Width (Extended):</span>
               <span className="text-white ml-1">
                 {getEffectiveWidth(baselineCar, mirrorBuffer).toFixed(1)}"
               </span>
