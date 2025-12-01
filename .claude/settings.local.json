@@ -30,7 +30,8 @@
       "WebFetch(domain:www.toyota.com)",
       "Bash(node:*)",
       "Bash(npx gh-pages:*)",
-      "WebFetch(domain:motormashup.com)"
+      "WebFetch(domain:motormashup.com)",
+      "Bash(sort:*)"
     ],
     "deny": [],
     "ask": []
