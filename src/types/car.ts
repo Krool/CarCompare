@@ -92,6 +92,7 @@ export type WidthFilterType = "extended" | "folded";
 export interface CarFilters {
   minSeats?: number;
   maxSeats?: number;
+  seats?: number[];             // Filter by specific seat counts (toggle buttons)
   minPrice?: number;
   maxPrice?: number;
   doors?: number[];
@@ -108,6 +109,7 @@ export interface CarFilters {
   minMpg?: number;              // Minimum combined MPG/MPGe
   minEvRange?: number;          // Minimum EV range in miles
   minCargo?: number;            // Minimum cargo volume in cubic feet
+  minReviewScore?: number;      // Minimum review score (0-100)
   showFavoritesOnly?: boolean;  // Only show favorited vehicles
   autonomousLevels?: AutonomousLevel[]; // Filter by autonomous capability
   hasHandsFree?: boolean;       // Has hands-free driving

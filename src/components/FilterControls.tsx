@@ -45,6 +45,7 @@ const BODY_TYPES: { value: BodyType; label: string }[] = [
 ];
 
 const DOOR_OPTIONS = [2, 4, 5];
+const SEAT_OPTIONS = [2, 4, 5, 6, 7, 8];
 
 const SAFETY_RATINGS: { value: SafetyRating; label: string }[] = [
   { value: "TSP+", label: "TSP+" },
@@ -88,6 +89,12 @@ export default function FilterControls({
     const arr = filters.doors ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
     updateFilter("doors", newArr.length > 0 ? newArr : undefined);
+  };
+
+  const toggleSeatsFilter = (value: number) => {
+    const arr = filters.seats ?? [];
+    const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
+    updateFilter("seats", newArr.length > 0 ? newArr : undefined);
   };
 
   const toggleFuelTypeFilter = (value: FuelType) => {
@@ -187,31 +194,6 @@ export default function FilterControls({
         </div>
       </div>
 
-      {/* Seats */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">Seats</label>
-        <div className="flex gap-2">
-          <input
-            type="number"
-            min={1}
-            max={12}
-            placeholder="Min"
-            value={filters.minSeats ?? ""}
-            onChange={(e) => updateFilter("minSeats", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
-          />
-          <span className="text-gray-400 self-center">to</span>
-          <input
-            type="number"
-            min={1}
-            max={12}
-            placeholder="Max"
-            value={filters.maxSeats ?? ""}
-            onChange={(e) => updateFilter("maxSeats", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
-          />
-        </div>
-      </div>
 
       {/* Price Range */}
       <div className="space-y-2">
@@ -366,6 +348,23 @@ export default function FilterControls({
         </div>
       </div>
 
+      {/* Review Score */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">
+          Min Review Score (0-100)
+        </label>
+        <input
+          type="number"
+          min={0}
+          max={100}
+          placeholder="e.g., 70"
+          value={filters.minReviewScore ?? ""}
+          onChange={(e) => updateFilter("minReviewScore", e.target.value ? parseInt(e.target.value) : undefined)}
+          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+        />
+        <p className="text-xs text-gray-500">Aggregated expert review scores from MotorMashup</p>
+      </div>
+
       {/* Driver Assistance Level */}
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
@@ -429,6 +428,26 @@ export default function FilterControls({
               }`}
             >
               {d}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Seats */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">Seats</label>
+        <div className="flex gap-2 flex-wrap">
+          {SEAT_OPTIONS.map((s) => (
+            <button
+              key={s}
+              onClick={() => toggleSeatsFilter(s)}
+              className={`px-3 py-1 rounded text-sm ${
+                filters.seats?.includes(s)
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              }`}
+            >
+              {s}
             </button>
           ))}
         </div>

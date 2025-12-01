@@ -23,7 +23,11 @@ const AUTONOMOUS_LEVEL_ORDER: Record<AutonomousLevel | "undefined", number> = {
 
 export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: number): Car[] {
   return cars.filter((car) => {
-    // Seats filter
+    // Seats filter (toggle buttons)
+    if (filters.seats && filters.seats.length > 0 && !filters.seats.includes(car.seats)) {
+      return false;
+    }
+    // Seats filter (min/max - for backwards compatibility)
     if (filters.minSeats !== undefined && car.seats < filters.minSeats) return false;
     if (filters.maxSeats !== undefined && car.seats > filters.maxSeats) return false;
 
@@ -130,6 +134,13 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
     // Auto lane change filter
     if (filters.hasAutoLaneChange === true) {
       if (!car.adasFeatures?.autoLaneChange) {
+        return false;
+      }
+    }
+
+    // Review score filter
+    if (filters.minReviewScore !== undefined) {
+      if (!car.reviewScore || car.reviewScore < filters.minReviewScore) {
         return false;
       }
     }
