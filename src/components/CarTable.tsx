@@ -119,6 +119,7 @@ export default function CarTable({
             <SortableHeader field="model" label="Model" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="bodyType" label="Type" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="safetyRating" label="Safety" sortConfig={sortConfig} onSortChange={onSortChange} />
+            <SortableHeader field="reviewScore" label="Score" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="autonomousLevel" label="ADAS" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />
             <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />
@@ -196,6 +197,9 @@ export default function CarTable({
                 </td>
                 <td className="px-3 py-2 text-sm">
                   <SafetyBadge rating={car.safetyRating} />
+                </td>
+                <td className="px-3 py-2 text-sm">
+                  <ReviewScoreBadge score={car.reviewScore} />
                 </td>
                 <td className="px-3 py-2 text-sm">
                   <AdasBadge level={car.autonomousLevel} name={car.adasName} />
@@ -325,6 +329,7 @@ function SafetyBadge({ rating }: { rating?: SafetyRating }) {
     "TSP": "bg-green-800 text-green-200",
     "Good": "bg-blue-800 text-blue-200",
     "Acceptable": "bg-yellow-800 text-yellow-200",
+    "Pending": "bg-gray-600 text-gray-300",
   };
 
   const titles: Record<string, string> = {
@@ -332,6 +337,7 @@ function SafetyBadge({ rating }: { rating?: SafetyRating }) {
     "TSP": "IIHS Top Safety Pick",
     "Good": "IIHS Good Rating",
     "Acceptable": "IIHS Acceptable Rating",
+    "Pending": "Awaiting IIHS testing",
   };
 
   return (
@@ -340,6 +346,43 @@ function SafetyBadge({ rating }: { rating?: SafetyRating }) {
       title={titles[rating]}
     >
       {rating}
+    </span>
+  );
+}
+
+function ReviewScoreBadge({ score }: { score?: number }) {
+  if (score === undefined || score === null) {
+    return <span className="text-gray-500 text-xs">-</span>;
+  }
+
+  // Heatmap colors based on score (0-100)
+  // Red (0-40) -> Orange (40-60) -> Yellow (60-75) -> Light Green (75-90) -> Green (90-100)
+  const getHeatmapColor = (s: number): string => {
+    if (s >= 90) return "bg-green-600 text-white";
+    if (s >= 80) return "bg-green-700 text-green-100";
+    if (s >= 70) return "bg-lime-700 text-lime-100";
+    if (s >= 60) return "bg-yellow-600 text-yellow-100";
+    if (s >= 50) return "bg-orange-600 text-orange-100";
+    if (s >= 40) return "bg-orange-700 text-orange-100";
+    return "bg-red-700 text-red-100";
+  };
+
+  const getScoreLabel = (s: number): string => {
+    if (s >= 90) return "Excellent";
+    if (s >= 80) return "Very Good";
+    if (s >= 70) return "Good";
+    if (s >= 60) return "Above Average";
+    if (s >= 50) return "Average";
+    if (s >= 40) return "Below Average";
+    return "Poor";
+  };
+
+  return (
+    <span
+      className={`px-2 py-0.5 rounded text-xs font-medium ${getHeatmapColor(score)}`}
+      title={`${getScoreLabel(score)} - Aggregated expert review score from MotorMashup`}
+    >
+      {score}
     </span>
   );
 }

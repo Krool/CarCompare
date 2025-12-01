@@ -200,6 +200,10 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
         aVal = AUTONOMOUS_LEVEL_ORDER[a.autonomousLevel ?? "undefined"];
         bVal = AUTONOMOUS_LEVEL_ORDER[b.autonomousLevel ?? "undefined"];
         break;
+      case "reviewScore":
+        aVal = a.reviewScore ?? 0;
+        bVal = b.reviewScore ?? 0;
+        break;
       default:
         return 0;
     }

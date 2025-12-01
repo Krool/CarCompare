@@ -52,7 +52,10 @@ export interface Car {
   usedPriceHigh?: number;
 
   // Safety
-  safetyRating?: SafetyRating;    // IIHS rating: TSP+, TSP, Good, Acceptable, Not Rated
+  safetyRating?: SafetyRating;    // IIHS rating: TSP+, TSP, Good, Acceptable, Pending, Not Rated
+
+  // Review Score
+  reviewScore?: number;           // Aggregated expert review score (0-100 scale, from MotorMashup)
 
   // Autonomous Driving Features
   autonomousLevel?: AutonomousLevel;  // Level of autonomous capability
@@ -127,7 +130,8 @@ export type SortField =
   | "electricRangeMiles"
   | "driverLegroomInches"
   | "safetyRating"
-  | "autonomousLevel";
+  | "autonomousLevel"
+  | "reviewScore";
 
 export type SortDirection = "asc" | "desc";
 
