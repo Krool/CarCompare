@@ -15,6 +15,12 @@ export type AutonomousLevel =
   | "hands-free"     // Hands-free highway driving (BlueCruise, Super Cruise)
   | "full-self-driving"; // Full autonomy capable (Tesla FSD, etc.)
 
+// Lease rating - how good of a lease deal the vehicle typically offers
+export type LeaseRating = "excellent" | "good" | "fair" | "poor";
+
+// Depreciation category - how fast the vehicle loses value
+export type DepreciationCategory = "low" | "medium" | "high" | "very-high";
+
 export interface Car {
   id: string;
   year: number;
@@ -78,6 +84,11 @@ export interface Car {
   };
   adasName?: string;  // Marketing name (e.g., "Autopilot", "BlueCruise", "Super Cruise")
 
+  // Lease & Depreciation
+  leaseRating?: LeaseRating;           // How good lease deals typically are
+  depreciationCategory?: DepreciationCategory;  // How fast it loses value
+  fiveYearResalePercent?: number;      // Estimated % of MSRP retained after 5 years
+
   // Features/Notes
   standardFeatures?: string[];
   notes?: string;
@@ -139,7 +150,10 @@ export type SortField =
   | "driverLegroomInches"
   | "safetyRating"
   | "autonomousLevel"
-  | "reviewScore";
+  | "reviewScore"
+  | "leaseRating"
+  | "depreciationCategory"
+  | "fiveYearResalePercent";
 
 // Column customization types
 export type ColumnId =
@@ -149,7 +163,7 @@ export type ColumnId =
   | "seats" | "driverLegroomInches"
   | "mirrorsFoldedWidthInches" | "bodyWidthInches" | "heightInches" | "groundClearanceInches"
   | "fuelType" | "plugType" | "mpgCombined" | "electricRangeMiles"
-  | "msrp" | "notes";
+  | "msrp" | "leaseRating" | "depreciationCategory" | "fiveYearResalePercent" | "notes";
 
 export interface ColumnConfig {
   id: ColumnId;

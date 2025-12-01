@@ -38,6 +38,9 @@ export const ALL_COLUMNS: ColumnConfig[] = [
 
   // Pricing columns
   { id: "msrp", label: "MSRP", sortField: "msrp", defaultVisible: true, category: "pricing" },
+  { id: "leaseRating", label: "Lease Rating", shortLabel: "Lease", sortField: "leaseRating", defaultVisible: false, category: "pricing" },
+  { id: "depreciationCategory", label: "Depreciation", shortLabel: "Deprec.", sortField: "depreciationCategory", defaultVisible: false, category: "pricing" },
+  { id: "fiveYearResalePercent", label: "5-Year Resale %", shortLabel: "Resale", sortField: "fiveYearResalePercent", defaultVisible: false, category: "pricing" },
   { id: "notes", label: "Notes", defaultVisible: true, category: "pricing" },
 ];
 
@@ -67,6 +70,10 @@ const PRESETS: { name: string; columns: ColumnId[] }[] = [
   {
     name: "EV Focus",
     columns: ["year", "make", "model", "fuelType", "plugType", "mpgCombined", "electricRangeMiles", "msrp"],
+  },
+  {
+    name: "Value Focus",
+    columns: ["year", "make", "model", "msrp", "leaseRating", "depreciationCategory", "fiveYearResalePercent"],
   },
 ];
 

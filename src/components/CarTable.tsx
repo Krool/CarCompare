@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, ColumnId } from "@/types/car";
+import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ColumnId } from "@/types/car";
 import {
   formatCurrency,
   formatMpg,
@@ -147,6 +147,9 @@ export default function CarTable({
             {isVisible("mpgCombined") && <SortableHeader field="mpgCombined" label="Efficiency" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("electricRangeMiles") && <SortableHeader field="electricRangeMiles" label="EV Range" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("msrp") && <SortableHeader field="msrp" label="MSRP" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("leaseRating") && <SortableHeader field="leaseRating" label="Lease" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("depreciationCategory") && <SortableHeader field="depreciationCategory" label="Deprec." sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("fiveYearResalePercent") && <SortableHeader field="fiveYearResalePercent" label="Resale" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("notes") && (
               <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
                 Notes
@@ -307,6 +310,21 @@ export default function CarTable({
                     {baselineCar && !isBaseline && (
                       <DiffBadge diff={calculateDifference(baselineCar, car, "msrp", mirrorBuffer)} positive="lower" />
                     )}
+                  </td>
+                )}
+                {isVisible("leaseRating") && (
+                  <td className="px-3 py-2 text-sm">
+                    <LeaseRatingBadge rating={car.leaseRating} />
+                  </td>
+                )}
+                {isVisible("depreciationCategory") && (
+                  <td className="px-3 py-2 text-sm">
+                    <DepreciationBadge category={car.depreciationCategory} />
+                  </td>
+                )}
+                {isVisible("fiveYearResalePercent") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.fiveYearResalePercent ? `${car.fiveYearResalePercent}%` : "-"}
                   </td>
                 )}
                 {isVisible("notes") && (
@@ -478,6 +496,71 @@ function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) 
       title={name ?? level}
     >
       {labels[level]}
+    </span>
+  );
+}
+
+function LeaseRatingBadge({ rating }: { rating?: LeaseRating }) {
+  if (!rating) {
+    return <span className="text-gray-500 text-xs">-</span>;
+  }
+
+  const colors: Record<LeaseRating, string> = {
+    "excellent": "bg-green-600 text-white",
+    "good": "bg-green-800 text-green-200",
+    "fair": "bg-yellow-700 text-yellow-100",
+    "poor": "bg-red-800 text-red-200",
+  };
+
+  const titles: Record<LeaseRating, string> = {
+    "excellent": "Excellent lease deals typically available",
+    "good": "Good lease deals often available",
+    "fair": "Fair lease deals - shop around",
+    "poor": "Poor lease deals - consider buying",
+  };
+
+  return (
+    <span
+      className={`px-2 py-0.5 rounded text-xs capitalize ${colors[rating]}`}
+      title={titles[rating]}
+    >
+      {rating}
+    </span>
+  );
+}
+
+function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
+  if (!category) {
+    return <span className="text-gray-500 text-xs">-</span>;
+  }
+
+  const colors: Record<DepreciationCategory, string> = {
+    "low": "bg-green-600 text-white",
+    "medium": "bg-yellow-700 text-yellow-100",
+    "high": "bg-orange-700 text-orange-100",
+    "very-high": "bg-red-700 text-red-100",
+  };
+
+  const labels: Record<DepreciationCategory, string> = {
+    "low": "Low",
+    "medium": "Med",
+    "high": "High",
+    "very-high": "V.High",
+  };
+
+  const titles: Record<DepreciationCategory, string> = {
+    "low": "Low depreciation - holds value well",
+    "medium": "Average depreciation",
+    "high": "High depreciation - loses value faster",
+    "very-high": "Very high depreciation - loses value quickly",
+  };
+
+  return (
+    <span
+      className={`px-2 py-0.5 rounded text-xs ${colors[category]}`}
+      title={titles[category]}
+    >
+      {labels[category]}
     </span>
   );
 }

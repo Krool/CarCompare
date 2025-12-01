@@ -41,7 +41,10 @@
       "mirrorWidthInches": 85.8,
       "reviewScore": 83,
       "groundClearanceInches": 6,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "chevrolet-bolt-ev-2026",
@@ -84,7 +87,10 @@
       "mirrorWidthInches": 78.7,
       "reviewScore": 75,
       "groundClearanceInches": 6.4,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "nissan-leaf-2026",
@@ -127,7 +133,10 @@
       "mirrorWidthInches": 80.7,
       "reviewScore": 65,
       "groundClearanceInches": 6.3,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "rivian-r2-2026",
@@ -176,7 +185,10 @@
       "mirrorWidthInches": 84.2,
       "reviewScore": 85,
       "groundClearanceInches": 8.5,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "toyota-rav4-hybrid-2026",
@@ -220,7 +232,10 @@
       "mirrorWidthInches": 82.6,
       "reviewScore": 85,
       "groundClearanceInches": 8.4,
-      "towingCapacityLbs": 2500
+      "towingCapacityLbs": 2500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-rav4-prime-2026",
@@ -264,7 +279,10 @@
       "mirrorWidthInches": 82.6,
       "reviewScore": 90,
       "groundClearanceInches": 8.1,
-      "towingCapacityLbs": 2500
+      "towingCapacityLbs": 2500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "acura-mdx-2025",
@@ -314,7 +332,10 @@
       "mirrorWidthInches": 87.1,
       "reviewScore": 82,
       "groundClearanceInches": 7.3,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "acura-rdx-2025",
@@ -364,7 +385,10 @@
       "mirrorWidthInches": 84.3,
       "reviewScore": 80,
       "groundClearanceInches": 8.2,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "audi-a4-allroad-2025",
@@ -409,7 +433,10 @@
       },
       "notes": "Raised suspension. Quattro AWD standard. Only Audi wagon in US.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "audi-a6-2025",
@@ -459,7 +486,10 @@
       "mirrorsFoldedWidthInches": 75.8,
       "reviewScore": 78,
       "groundClearanceInches": 5.8,
-      "towingCapacityLbs": 4400
+      "towingCapacityLbs": 4400,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "audi-q4-etron-2025",
@@ -508,7 +538,10 @@
       "mirrorWidthInches": 82.7,
       "reviewScore": 78,
       "groundClearanceInches": 6.9,
-      "towingCapacityLbs": 2400
+      "towingCapacityLbs": 2400,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "audi-q5-2025",
@@ -558,7 +591,10 @@
       "mirrorWidthInches": 84.3,
       "reviewScore": 82,
       "groundClearanceInches": 8.2,
-      "towingCapacityLbs": 4400
+      "towingCapacityLbs": 4400,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "audi-q6-etron-2025",
@@ -607,7 +643,10 @@
       "mirrorsFoldedWidthInches": 77.6,
       "reviewScore": 80,
       "groundClearanceInches": 7.3,
-      "towingCapacityLbs": 4400
+      "towingCapacityLbs": 4400,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "audi-q7-2025",
@@ -657,7 +696,10 @@
       "mirrorsFoldedWidthInches": 79.6,
       "reviewScore": 80,
       "groundClearanceInches": 9.2,
-      "towingCapacityLbs": 7700
+      "towingCapacityLbs": 7700,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "audi-q8-etron-2025",
@@ -706,7 +748,10 @@
       "mirrorsFoldedWidthInches": 78.3,
       "reviewScore": 75,
       "groundClearanceInches": 7.1,
-      "towingCapacityLbs": 4000
+      "towingCapacityLbs": 4000,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "bmw-i4-2025",
@@ -755,7 +800,10 @@
       "mirrorsFoldedWidthInches": 74.9,
       "reviewScore": 85,
       "groundClearanceInches": 5.1,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "bmw-i5-2025",
@@ -804,7 +852,10 @@
       "mirrorsFoldedWidthInches": 76.8,
       "reviewScore": 82,
       "groundClearanceInches": 5.2,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "bmw-ix-2025",
@@ -853,7 +904,10 @@
       "mirrorWidthInches": 86.6,
       "reviewScore": 82,
       "groundClearanceInches": 6.9,
-      "towingCapacityLbs": 6000
+      "towingCapacityLbs": 6000,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "bmw-ix-2025",
@@ -897,7 +951,10 @@
       },
       "notes": "Flagship BMW EV. Crystal iDrive controller. Lounge seating.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "bmw-x3-2025",
@@ -947,7 +1004,10 @@
       "mirrorWidthInches": 84.5,
       "reviewScore": 83,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 4400
+      "towingCapacityLbs": 4400,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "bmw-x5-2025",
@@ -997,7 +1057,10 @@
       "mirrorsFoldedWidthInches": 80.9,
       "reviewScore": 85,
       "groundClearanceInches": 8.7,
-      "towingCapacityLbs": 7200
+      "towingCapacityLbs": 7200,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "buick-enclave-2025",
@@ -1047,7 +1110,10 @@
       "mirrorWidthInches": 88,
       "reviewScore": 65,
       "groundClearanceInches": 7,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "buick-encore-gx-2025",
@@ -1092,7 +1158,10 @@
       },
       "notes": "Luxury feel at mainstream price. Quiet cabin.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "buick-envision-2025",
@@ -1142,7 +1211,10 @@
       "mirrorWidthInches": 81.8,
       "reviewScore": 62,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -1191,7 +1263,10 @@
       "mirrorWidthInches": 85.2,
       "reviewScore": 83,
       "groundClearanceInches": 6,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -1235,7 +1310,10 @@
       },
       "notes": "Luxury American EV. 33\" LED display. Super Cruise hands-free.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "chevrolet-blazer-ev-2025",
@@ -1284,7 +1362,10 @@
       "mirrorWidthInches": 85.2,
       "reviewScore": 65,
       "groundClearanceInches": 6.5,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "chevrolet-camaro-2025",
@@ -1329,7 +1410,10 @@
       },
       "notes": "Final year! 275hp turbo-4. SS has 455hp V8. ZL1 has 650hp!",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "chevrolet-colorado-2025",
@@ -1374,7 +1458,10 @@
       },
       "notes": "Mid-size truck with available ZR2 off-road trim.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 55
     },
     {
       "id": "chevrolet-equinox-2025",
@@ -1419,7 +1506,10 @@
       },
       "notes": "All-new 2025. Now shares platform with Equinox EV.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "chevrolet-equinox-ev-2025",
@@ -1469,7 +1559,10 @@
       "mirrorWidthInches": 83.3,
       "reviewScore": 58,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -1519,7 +1612,10 @@
       "mirrorWidthInches": 87.8,
       "reviewScore": 66,
       "groundClearanceInches": 7.7,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -1564,7 +1660,10 @@
       },
       "notes": "All-new 2024. Most cargo in class. RS and Z71 trims.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "chevrolet-trax-2025",
@@ -1615,7 +1714,10 @@
       "mirrorWidthInches": 80.4,
       "reviewScore": 7,
       "groundClearanceInches": 6.7,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "dodge-hornet-2025",
@@ -1664,7 +1766,10 @@
       "mirrorWidthInches": 81.6,
       "reviewScore": 55,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 2000
+      "towingCapacityLbs": 2000,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 44
     },
     {
       "id": "ford-bronco-sport-2025",
@@ -1714,7 +1819,10 @@
       "mirrorWidthInches": 83.5,
       "reviewScore": 72,
       "groundClearanceInches": 8.8,
-      "towingCapacityLbs": 2200
+      "towingCapacityLbs": 2200,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "ford-escape-2025",
@@ -1765,7 +1873,10 @@
       "mirrorWidthInches": 81.2,
       "reviewScore": 76,
       "groundClearanceInches": 7.8,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "ford-escape-2025",
@@ -1810,7 +1921,10 @@
       },
       "notes": "Refreshed 2025. Hybrid and PHEV available.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "ford-explorer-2025",
@@ -1860,7 +1974,10 @@
       "mirrorWidthInches": 88.2,
       "reviewScore": 64,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 5600
+      "towingCapacityLbs": 5600,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "ford-explorer-2025",
@@ -1905,7 +2022,10 @@
       },
       "notes": "Refreshed 2025. RWD-based platform. ST available.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "ford-mustang-2025",
@@ -1950,7 +2070,10 @@
       },
       "notes": "7th gen redesign. 315hp turbo-4. GT has 480hp V8. Dark Horse!",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "ford-mustang-mach-e-2025",
@@ -2001,7 +2124,10 @@
       "mirrorWidthInches": 84.4,
       "reviewScore": 88,
       "groundClearanceInches": 5.8,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "ford-ranger-2025",
@@ -2046,7 +2172,10 @@
       },
       "notes": "Mid-size truck. Available Tremor off-road package.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 55
     },
     {
       "id": "genesis-electrified-gv70-2025",
@@ -2095,7 +2224,10 @@
       "mirrorWidthInches": 84.4,
       "reviewScore": 84,
       "groundClearanceInches": 7.3,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "genesis-gv70-2025",
@@ -2145,7 +2277,10 @@
       "mirrorWidthInches": 84.4,
       "reviewScore": 90,
       "groundClearanceInches": 7.3,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "gmc-acadia-2025",
@@ -2195,7 +2330,10 @@
       "mirrorWidthInches": 84.8,
       "reviewScore": 56,
       "groundClearanceInches": 7.2,
-      "towingCapacityLbs": 4000
+      "towingCapacityLbs": 4000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "gmc-sierra-1500-2025",
@@ -2240,7 +2378,10 @@
       },
       "notes": "Available Super Cruise hands-free driving on 400,000+ miles of roads.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 55
     },
     {
       "id": "gmc-terrain-2025",
@@ -2290,7 +2431,10 @@
       "mirrorWidthInches": 81.6,
       "reviewScore": 44,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "honda-accord-2025",
@@ -2341,7 +2485,10 @@
       "mirrorWidthInches": 82.4,
       "reviewScore": 100,
       "groundClearanceInches": 5.3,
-      "towingCapacityLbs": 1000
+      "towingCapacityLbs": 1000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-civic-2025",
@@ -2386,7 +2533,10 @@
       },
       "notes": "Best-selling car in America. Excellent reliability.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-civic-hatchback-2025",
@@ -2431,7 +2581,10 @@
       },
       "notes": "More cargo than sedan. Available 6-speed manual.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-crv-2025",
@@ -2482,7 +2635,10 @@
       "mirrorWidthInches": 82.5,
       "reviewScore": 100,
       "groundClearanceInches": 7.8,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-crv-hybrid-2025",
@@ -2534,7 +2690,10 @@
       "mirrorWidthInches": 82.5,
       "reviewScore": 92,
       "groundClearanceInches": 7.8,
-      "towingCapacityLbs": 1000
+      "towingCapacityLbs": 1000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-hr-v-2025",
@@ -2584,7 +2743,10 @@
       "mirrorWidthInches": 81.5,
       "reviewScore": 62,
       "groundClearanceInches": 7.3,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-odyssey-2025",
@@ -2635,7 +2797,10 @@
       "mirrorsFoldedWidthInches": 80.5,
       "reviewScore": 95,
       "groundClearanceInches": 4.8,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-odyssey-2025",
@@ -2680,7 +2845,10 @@
       },
       "notes": "Class-leading reliability. Magic Slide 2nd-row seats. CabinWatch camera.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-pilot-2025",
@@ -2730,7 +2898,10 @@
       "mirrorsFoldedWidthInches": 80.5,
       "reviewScore": 80,
       "groundClearanceInches": 7.3,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-pilot-2025",
@@ -2775,7 +2946,10 @@
       },
       "notes": "4th gen redesign. TrailSport for off-road. Excellent resale.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "honda-prologue-2025",
@@ -2825,7 +2999,10 @@
       "mirrorWidthInches": 86.5,
       "reviewScore": 82,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "hyundai-elantra-2025",
@@ -2870,7 +3047,10 @@
       },
       "notes": "Sharp styling. Great value. 5yr/60k warranty.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "hyundai-elantra-n-2025",
@@ -2915,7 +3095,10 @@
       },
       "notes": "276hp turbo. Track-focused N mode. Fake pops and crackles.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "hyundai-ioniq-5-2025",
@@ -2965,7 +3148,10 @@
       "mirrorWidthInches": 84.4,
       "reviewScore": 92,
       "groundClearanceInches": 6.1,
-      "towingCapacityLbs": 2300
+      "towingCapacityLbs": 2300,
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "hyundai-ioniq-6-2025",
@@ -3015,7 +3201,10 @@
       "mirrorWidthInches": 83.2,
       "reviewScore": 90,
       "groundClearanceInches": 4.9,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "hyundai-ioniq6-2025",
@@ -3059,7 +3248,10 @@
       },
       "notes": "World Car of the Year 2023. Most efficient EV. 800V fast charging.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "hyundai-palisade-2025",
@@ -3109,7 +3301,10 @@
       "mirrorWidthInches": 86.9,
       "reviewScore": 93,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "hyundai-palisade-2025",
@@ -3154,7 +3349,10 @@
       },
       "notes": "Best value 3-row. Telluride twin. 5yr/60k warranty.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "hyundai-santa-fe-2025",
@@ -3204,7 +3402,10 @@
       "mirrorWidthInches": 86.8,
       "reviewScore": 80,
       "groundClearanceInches": 8.6,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "hyundai-sonata-2025",
@@ -3249,7 +3450,10 @@
       },
       "notes": "Best rear legroom in class. Sharp styling.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "hyundai-tucson-2025",
@@ -3300,7 +3504,10 @@
       "mirrorWidthInches": 83.1,
       "reviewScore": 67,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 2000
+      "towingCapacityLbs": 2000,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "infiniti-qx60-2025",
@@ -3350,7 +3557,10 @@
       "mirrorsFoldedWidthInches": 79.2,
       "reviewScore": 58,
       "groundClearanceInches": 7,
-      "towingCapacityLbs": 6000
+      "towingCapacityLbs": 6000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "infiniti-qx80-2025",
@@ -3400,7 +3610,10 @@
       "mirrorsFoldedWidthInches": 81.9,
       "reviewScore": 55,
       "groundClearanceInches": 9.2,
-      "towingCapacityLbs": 8500
+      "towingCapacityLbs": 8500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "jaguar-i-pace-2025",
@@ -3449,7 +3662,10 @@
       "mirrorsFoldedWidthInches": 78.1,
       "reviewScore": 72,
       "groundClearanceInches": 6.5,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "jeep-compass-2025",
@@ -3494,7 +3710,10 @@
       },
       "notes": "Smallest Jeep SUV. Trail Rated 4x4 available.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 44
     },
     {
       "id": "jeep-grand-cherokee-2025",
@@ -3544,7 +3763,10 @@
       "mirrorWidthInches": 86.7,
       "reviewScore": 60,
       "groundClearanceInches": 8.6,
-      "towingCapacityLbs": 7200
+      "towingCapacityLbs": 7200,
+      "leaseRating": "fair",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 44
     },
     {
       "id": "jeep-grand-cherokee-4xe-2025",
@@ -3596,7 +3818,10 @@
       "mirrorWidthInches": 86.7,
       "reviewScore": 65,
       "groundClearanceInches": 10.9,
-      "towingCapacityLbs": 6000
+      "towingCapacityLbs": 6000,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 44
     },
     {
       "id": "jeep-wagoneer-s-2025",
@@ -3639,7 +3864,10 @@
       "mirrorWidthInches": 84.5,
       "reviewScore": 70,
       "groundClearanceInches": 6.4,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 44
     },
     {
       "id": "jeep-wrangler-2025",
@@ -3689,7 +3917,10 @@
       "mirrorsFoldedWidthInches": 75.8,
       "reviewScore": 53,
       "groundClearanceInches": 10,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 44
     },
     {
       "id": "kia-carnival-2025",
@@ -3734,7 +3965,10 @@
       },
       "notes": "SUV-like styling. 10-year/100k warranty. Dual sunroofs available.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "kia-ev6-2025",
@@ -3784,7 +4018,10 @@
       "mirrorWidthInches": 84.4,
       "reviewScore": 93,
       "groundClearanceInches": 6.1,
-      "towingCapacityLbs": 2300
+      "towingCapacityLbs": 2300,
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "kia-ev6-2025",
@@ -3828,7 +4065,10 @@
       },
       "notes": "10-80% in 18 mins. GT does 0-60 in 3.4s. 800V platform.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "kia-ev9-2025",
@@ -3878,7 +4118,10 @@
       "mirrorWidthInches": 87.5,
       "reviewScore": 90,
       "groundClearanceInches": 7.8,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "kia-forte-2025",
@@ -3923,7 +4166,10 @@
       },
       "notes": "Best warranty in class. 10yr/100k powertrain.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "kia-k5-2025",
@@ -3968,7 +4214,10 @@
       },
       "notes": "Sportiest mid-size. GT available with 290hp.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "kia-niro-ev-2025",
@@ -4017,7 +4266,10 @@
       "mirrorWidthInches": 80.5,
       "reviewScore": 80,
       "groundClearanceInches": 6.3,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "kia-rio-2025",
@@ -4062,7 +4314,10 @@
       },
       "notes": "10yr/100k warranty on budget car. Great value.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "kia-sorento-2025",
@@ -4112,7 +4367,10 @@
       "mirrorWidthInches": 84.4,
       "reviewScore": 78,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "kia-sportage-2025",
@@ -4162,7 +4420,10 @@
       "mirrorWidthInches": 83,
       "reviewScore": 65,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 2500
+      "towingCapacityLbs": 2500,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "kia-telluride-2025",
@@ -4212,7 +4473,10 @@
       "mirrorWidthInches": 87.5,
       "reviewScore": 100,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 5500
+      "towingCapacityLbs": 5500,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "land-rover-defender-2025",
@@ -4262,7 +4526,10 @@
       "mirrorsFoldedWidthInches": 80.7,
       "reviewScore": 70,
       "groundClearanceInches": 11.5,
-      "towingCapacityLbs": 8201
+      "towingCapacityLbs": 8201,
+      "leaseRating": "poor",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "land-rover-range-rover-2025",
@@ -4312,7 +4579,10 @@
       "mirrorsFoldedWidthInches": 81.9,
       "reviewScore": 75,
       "groundClearanceInches": 11.6,
-      "towingCapacityLbs": 7716
+      "towingCapacityLbs": 7716,
+      "leaseRating": "poor",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "lexus-gx-2025",
@@ -4362,7 +4632,10 @@
       "mirrorsFoldedWidthInches": 80.3,
       "reviewScore": 72,
       "groundClearanceInches": 8.9,
-      "towingCapacityLbs": 9100
+      "towingCapacityLbs": 9100,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 56
     },
     {
       "id": "lexus-lx-2025",
@@ -4412,7 +4685,10 @@
       "mirrorsFoldedWidthInches": 80,
       "reviewScore": 70,
       "groundClearanceInches": 8.9,
-      "towingCapacityLbs": 8000
+      "towingCapacityLbs": 8000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 56
     },
     {
       "id": "lexus-rx-2025",
@@ -4461,7 +4737,10 @@
       "mirrorWidthInches": 85.3,
       "reviewScore": 85,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 56
     },
     {
       "id": "lexus-rx-hybrid-2025",
@@ -4513,7 +4792,10 @@
       "mirrorWidthInches": 85.3,
       "reviewScore": 85,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 56
     },
     {
       "id": "lexus-rz-2025",
@@ -4561,7 +4843,10 @@
       "mirrorWidthInches": 83,
       "reviewScore": 68,
       "groundClearanceInches": 6.1,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "good",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "lincoln-aviator-2025",
@@ -4611,7 +4896,10 @@
       "mirrorWidthInches": 88.1,
       "reviewScore": 78,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 6700
+      "towingCapacityLbs": 6700,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "lincoln-nautilus-2025",
@@ -4660,7 +4948,10 @@
       "mirrorWidthInches": 85.5,
       "reviewScore": 75,
       "groundClearanceInches": 7.8,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "lucid-air-2025",
@@ -4708,7 +4999,10 @@
       "mirrorWidthInches": 85.8,
       "reviewScore": 85,
       "groundClearanceInches": 5.3,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 35
     },
     {
       "id": "lucid-gravity-2025",
@@ -4757,7 +5051,10 @@
       "mirrorWidthInches": 87.2,
       "reviewScore": 82,
       "groundClearanceInches": 6.4,
-      "towingCapacityLbs": 6000
+      "towingCapacityLbs": 6000,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 35
     },
     {
       "id": "mazda-cx5-2025",
@@ -4808,7 +5105,10 @@
       "mirrorWidthInches": 82,
       "reviewScore": 96,
       "groundClearanceInches": 7.5,
-      "towingCapacityLbs": 2000
+      "towingCapacityLbs": 2000,
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mazda-cx50-2025",
@@ -4860,7 +5160,10 @@
       "mirrorWidthInches": 85.2,
       "reviewScore": 90,
       "groundClearanceInches": 8.6,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mazda-cx-70-2025",
@@ -4910,7 +5213,10 @@
       "mirrorWidthInches": 86,
       "reviewScore": 78,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mazda-cx-90-2025",
@@ -4960,7 +5266,10 @@
       "mirrorWidthInches": 86,
       "reviewScore": 75,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mazda-cx90-2025",
@@ -5005,7 +5314,10 @@
       },
       "notes": "Premium feel. Inline-6 turbo. PHEV available.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mazda3-sedan-2025",
@@ -5050,7 +5362,10 @@
       },
       "notes": "Premium feel at mainstream price. Fun to drive.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mazda3-hatchback-2025",
@@ -5095,7 +5410,10 @@
       },
       "notes": "Premium interior. Available AWD and turbo.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mazda-miata-2025",
@@ -5140,7 +5458,10 @@
       },
       "notes": "Best roadster value. 2,341 lbs. 6-speed manual. Jinba ittai.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "mercedes-eqe-2025",
@@ -5189,7 +5510,10 @@
       "mirrorsFoldedWidthInches": 76.2,
       "reviewScore": 78,
       "groundClearanceInches": 5,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "mercedes-eqe-suv-2025",
@@ -5238,7 +5562,10 @@
       "mirrorWidthInches": 85.5,
       "reviewScore": 75,
       "groundClearanceInches": 6.7,
-      "towingCapacityLbs": 4000
+      "towingCapacityLbs": 4000,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "mercedes-eqs-suv-2025",
@@ -5287,7 +5614,10 @@
       "mirrorsFoldedWidthInches": 79.5,
       "reviewScore": 78,
       "groundClearanceInches": 7.1,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "mercedes-eqs-suv-2025",
@@ -5331,7 +5661,10 @@
       },
       "notes": "56\" Hyperscreen optional. 3-row luxury EV. MBUX voice AI.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 36
     },
     {
       "id": "mercedes-glc-2025",
@@ -5381,7 +5714,10 @@
       "mirrorWidthInches": 84.1,
       "reviewScore": 80,
       "groundClearanceInches": 7.8,
-      "towingCapacityLbs": 4000
+      "towingCapacityLbs": 4000,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "mercedes-gle-2025",
@@ -5431,7 +5767,10 @@
       "mirrorsFoldedWidthInches": 78.1,
       "reviewScore": 82,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 7700
+      "towingCapacityLbs": 7700,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "mercedes-s-class-2025",
@@ -5482,7 +5821,10 @@
       "mirrorsFoldedWidthInches": 78.9,
       "reviewScore": 85,
       "groundClearanceInches": 4.5,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "mitsubishi-mirage-2025",
@@ -5527,7 +5869,10 @@
       },
       "notes": "Best MPG non-hybrid. 10yr/100k warranty. Very basic.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "mitsubishi-outlander-2025",
@@ -5577,7 +5922,10 @@
       "mirrorWidthInches": 84,
       "reviewScore": 40,
       "groundClearanceInches": 8.5,
-      "towingCapacityLbs": 2000
+      "towingCapacityLbs": 2000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "mitsubishi-outlander-phev-2025",
@@ -5630,7 +5978,10 @@
       "mirrorWidthInches": 84,
       "reviewScore": 40,
       "groundClearanceInches": 8.5,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42
     },
     {
       "id": "nissan-altima-2025",
@@ -5675,7 +6026,10 @@
       },
       "notes": "Standard AWD available. Good value mid-size.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "nissan-ariya-2025",
@@ -5725,7 +6079,10 @@
       "mirrorWidthInches": 84.5,
       "reviewScore": 75,
       "groundClearanceInches": 7,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "nissan-murano-2025",
@@ -5775,7 +6132,10 @@
       "mirrorWidthInches": 84.8,
       "reviewScore": 50,
       "groundClearanceInches": 7.1,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "nissan-pathfinder-2025",
@@ -5825,7 +6185,10 @@
       "mirrorWidthInches": 86.5,
       "reviewScore": 42,
       "groundClearanceInches": 7.1,
-      "towingCapacityLbs": 6000
+      "towingCapacityLbs": 6000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "nissan-rogue-2025",
@@ -5875,7 +6238,10 @@
       "mirrorWidthInches": 82,
       "reviewScore": 79,
       "groundClearanceInches": 8.4,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "nissan-rogue-2025",
@@ -5920,7 +6286,10 @@
       },
       "notes": "Best-selling Nissan. Excellent cargo space.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "nissan-sentra-2025",
@@ -5965,7 +6334,10 @@
       },
       "notes": "Best-in-class rear legroom. Good value.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "nissan-versa-2025",
@@ -6010,7 +6382,10 @@
       },
       "notes": "Cheapest new car in America. Best rear legroom in class.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "nissan-z-2025",
@@ -6055,7 +6430,10 @@
       },
       "notes": "400hp twin-turbo V6. 6-speed manual. Classic Z styling.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "polestar-2-2025",
@@ -6104,7 +6482,10 @@
       "mirrorWidthInches": 82.1,
       "reviewScore": 82,
       "groundClearanceInches": 5.9,
-      "towingCapacityLbs": 2000
+      "towingCapacityLbs": 2000,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 35
     },
     {
       "id": "polestar-3-2025",
@@ -6153,7 +6534,10 @@
       "mirrorWidthInches": 86.2,
       "reviewScore": 80,
       "groundClearanceInches": 7.7,
-      "towingCapacityLbs": 4409
+      "towingCapacityLbs": 4409,
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 35
     },
     {
       "id": "porsche-cayenne-2025",
@@ -6203,7 +6587,10 @@
       "mirrorsFoldedWidthInches": 80.1,
       "reviewScore": 88,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 7716
+      "towingCapacityLbs": 7716,
+      "leaseRating": "fair",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "porsche-macan-electric-2025",
@@ -6252,7 +6639,10 @@
       "mirrorsFoldedWidthInches": 78.2,
       "reviewScore": 85,
       "groundClearanceInches": 6.9,
-      "towingCapacityLbs": 4409
+      "towingCapacityLbs": 4409,
+      "leaseRating": "fair",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "porsche-taycan-2025",
@@ -6301,7 +6691,10 @@
       "mirrorsFoldedWidthInches": 79.4,
       "reviewScore": 90,
       "groundClearanceInches": 5.1,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "ram-1500-2025",
@@ -6346,7 +6739,10 @@
       },
       "notes": "Best-in-class towing capacity. Coil spring rear suspension for smooth ride.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 55
     },
     {
       "id": "rivian-r1s-2025",
@@ -6397,7 +6793,10 @@
       "mirrorsFoldedWidthInches": 80.2,
       "reviewScore": 87,
       "groundClearanceInches": 14.9,
-      "towingCapacityLbs": 7700
+      "towingCapacityLbs": 7700,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "rivian-r1s-quad-2025",
@@ -6447,7 +6846,10 @@
       "mirrorsFoldedWidthInches": 81.3,
       "reviewScore": 87,
       "groundClearanceInches": 14.9,
-      "towingCapacityLbs": 7700
+      "towingCapacityLbs": 7700,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "rivian-r1t-2025",
@@ -6496,7 +6898,10 @@
       "mirrorsFoldedWidthInches": 81.3,
       "reviewScore": 88,
       "groundClearanceInches": 14.9,
-      "towingCapacityLbs": 11000
+      "towingCapacityLbs": 11000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "rivian-r1t-quad-2025",
@@ -6545,7 +6950,10 @@
       "mirrorsFoldedWidthInches": 81.3,
       "reviewScore": 88,
       "groundClearanceInches": 14.9,
-      "towingCapacityLbs": 11000
+      "towingCapacityLbs": 11000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "subaru-brz-2025",
@@ -6590,7 +6998,10 @@
       },
       "notes": "GR86 twin. 228hp boxer-4. EyeSight on automatic only.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "subaru-crosstrek-2025",
@@ -6640,7 +7051,10 @@
       "mirrorWidthInches": 81.2,
       "reviewScore": 87,
       "groundClearanceInches": 8.7,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "subaru-forester-2025",
@@ -6692,7 +7106,10 @@
       "mirrorWidthInches": 81.5,
       "reviewScore": 85,
       "groundClearanceInches": 8.7,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "subaru-forester-hybrid-2025",
@@ -6736,7 +7153,10 @@
       "mirrorWidthInches": 81.3,
       "reviewScore": 85,
       "groundClearanceInches": 8.7,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "subaru-outback-2025",
@@ -6788,7 +7208,10 @@
       "mirrorsFoldedWidthInches": 75,
       "reviewScore": 82,
       "groundClearanceInches": 8.7,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "subaru-outback-2025",
@@ -6833,7 +7256,10 @@
       },
       "notes": "Standard AWD. Excellent ground clearance for a wagon.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "subaru-solterra-2025",
@@ -6882,7 +7308,10 @@
       "mirrorWidthInches": 82.9,
       "reviewScore": 65,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "tesla-cybertruck-2025",
@@ -6931,7 +7360,10 @@
       "mirrorsFoldedWidthInches": 79.8,
       "reviewScore": 65,
       "groundClearanceInches": 17,
-      "towingCapacityLbs": 11000
+      "towingCapacityLbs": 11000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "tesla-cybertruck-cyberbeast-2025",
@@ -6980,7 +7412,10 @@
       "mirrorsFoldedWidthInches": 79.8,
       "reviewScore": 65,
       "groundClearanceInches": 17,
-      "towingCapacityLbs": 11000
+      "towingCapacityLbs": 11000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "tesla-model-3-2025",
@@ -7030,7 +7465,10 @@
       "mirrorsFoldedWidthInches": 73.2,
       "reviewScore": 90,
       "groundClearanceInches": 5.5,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "tesla-model-s-2025",
@@ -7080,7 +7518,10 @@
       "mirrorsFoldedWidthInches": 77.7,
       "reviewScore": 85,
       "groundClearanceInches": 4.6,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "tesla-model-s-plaid-2025",
@@ -7129,7 +7570,10 @@
       "mirrorsFoldedWidthInches": 77.7,
       "reviewScore": 85,
       "groundClearanceInches": 4.6,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "tesla-model-x-2025",
@@ -7178,7 +7622,10 @@
       "mirrorsFoldedWidthInches": 79.1,
       "reviewScore": 80,
       "groundClearanceInches": 6.5,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "tesla-model-x-plaid-2025",
@@ -7227,7 +7674,10 @@
       "mirrorsFoldedWidthInches": 79.1,
       "reviewScore": 80,
       "groundClearanceInches": 6.5,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "tesla-model-y-2025",
@@ -7278,7 +7728,10 @@
       "mirrorsFoldedWidthInches": 76,
       "reviewScore": 88,
       "groundClearanceInches": 6.6,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "toyota-4runner-2025",
@@ -7328,7 +7781,10 @@
       "mirrorWidthInches": 86.8,
       "reviewScore": 32,
       "groundClearanceInches": 9.6,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-bz4x-2025",
@@ -7377,7 +7833,10 @@
       "mirrorWidthInches": 82.9,
       "reviewScore": 65,
       "groundClearanceInches": 8.3,
-      "towingCapacityLbs": 0
+      "towingCapacityLbs": 0,
+      "leaseRating": "good",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "toyota-camry-2025",
@@ -7429,7 +7888,10 @@
       "mirrorWidthInches": 82.1,
       "reviewScore": 73,
       "groundClearanceInches": 5.7,
-      "towingCapacityLbs": 1000
+      "towingCapacityLbs": 1000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-corolla-2025",
@@ -7474,7 +7936,10 @@
       },
       "notes": "World's best-selling car. Legendary reliability.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-crown-2025",
@@ -7524,7 +7989,10 @@
       "mirrorWidthInches": 81.9,
       "reviewScore": 75,
       "groundClearanceInches": 6.3,
-      "towingCapacityLbs": 1000
+      "towingCapacityLbs": 1000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-gr86-2025",
@@ -7569,7 +8037,10 @@
       },
       "notes": "228hp boxer-4. 6-speed manual standard. Perfect balance.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-grand-highlander-2025",
@@ -7621,7 +8092,10 @@
       "mirrorWidthInches": 85.2,
       "reviewScore": 78,
       "groundClearanceInches": 8.2,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-grand-highlander-2025",
@@ -7666,7 +8140,10 @@
       },
       "notes": "New for 2024. Larger than Highlander. Hybrid standard.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-highlander-2025",
@@ -7718,7 +8195,10 @@
       "mirrorWidthInches": 85.2,
       "reviewScore": 79,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-rav4-2025",
@@ -7769,7 +8249,10 @@
       "mirrorWidthInches": 82.6,
       "reviewScore": 83,
       "groundClearanceInches": 8.4,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-rav4-hybrid-2025",
@@ -7821,7 +8304,10 @@
       "mirrorWidthInches": 82.6,
       "reviewScore": 85,
       "groundClearanceInches": 8.4,
-      "towingCapacityLbs": 2500
+      "towingCapacityLbs": 2500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-rav4-prime-2025",
@@ -7875,7 +8361,10 @@
       "mirrorWidthInches": 82.6,
       "reviewScore": 90,
       "groundClearanceInches": 8.1,
-      "towingCapacityLbs": 2500
+      "towingCapacityLbs": 2500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-sequoia-2025",
@@ -7925,7 +8414,10 @@
       "mirrorsFoldedWidthInches": 81.9,
       "reviewScore": 55,
       "groundClearanceInches": 9.5,
-      "towingCapacityLbs": 9520
+      "towingCapacityLbs": 9520,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-sienna-2025",
@@ -7977,7 +8469,10 @@
       "mirrorWidthInches": 87.7,
       "reviewScore": 88,
       "groundClearanceInches": 6.1,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-tundra-2025",
@@ -8022,7 +8517,10 @@
       },
       "notes": "Standard hybrid powertrain. Only full-size truck with standard hybrid.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 62
     },
     {
       "id": "volkswagen-atlas-2025",
@@ -8072,7 +8570,10 @@
       "mirrorWidthInches": 87.6,
       "reviewScore": 63,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "volkswagen-golf-gti-2025",
@@ -8117,7 +8618,10 @@
       },
       "notes": "The hot hatch benchmark. 241hp turbo. Available manual.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "volkswagen-id4-2025",
@@ -8167,7 +8671,10 @@
       "mirrorWidthInches": 82.3,
       "reviewScore": 72,
       "groundClearanceInches": 8,
-      "towingCapacityLbs": 2700
+      "towingCapacityLbs": 2700,
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "volkswagen-id4-2025",
@@ -8211,7 +8718,10 @@
       },
       "notes": "Made in Tennessee. Good value EV. AWD available.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "volkswagen-jetta-2025",
@@ -8256,7 +8766,10 @@
       },
       "notes": "German engineering at budget price. GLI is the hot one.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "volkswagen-tiguan-2025",
@@ -8306,7 +8819,10 @@
       "mirrorWidthInches": 81.8,
       "reviewScore": 58,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 1500
+      "towingCapacityLbs": 1500,
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 45
     },
     {
       "id": "volvo-ex90-2025",
@@ -8355,7 +8871,10 @@
       "mirrorWidthInches": 86.5,
       "reviewScore": 80,
       "groundClearanceInches": 9.3,
-      "towingCapacityLbs": 5500
+      "towingCapacityLbs": 5500,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "volvo-v60-cross-country-2025",
@@ -8400,7 +8919,10 @@
       },
       "notes": "Scandinavian design. Mild hybrid. All-road capability.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "volvo-xc60-2025",
@@ -8450,7 +8972,10 @@
       "mirrorWidthInches": 84.5,
       "reviewScore": 83,
       "groundClearanceInches": 9.4,
-      "towingCapacityLbs": 4400
+      "towingCapacityLbs": 4400,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "volvo-xc90-2025",
@@ -8500,7 +9025,10 @@
       "mirrorsFoldedWidthInches": 81.1,
       "reviewScore": 85,
       "groundClearanceInches": 9.3,
-      "towingCapacityLbs": 5000
+      "towingCapacityLbs": 5000,
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "chevrolet-equinox-ev-2024",
@@ -8544,7 +9072,10 @@
       },
       "notes": "Most affordable EV crossover with 300+ miles range.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "ford-edge-2024",
@@ -8596,7 +9127,10 @@
       "mirrorWidthInches": 85.1,
       "reviewScore": 67,
       "groundClearanceInches": 7.9,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 46
     },
     {
       "id": "honda-accord-2024",
@@ -8641,7 +9175,10 @@
       },
       "notes": "All-new 11th gen. Larger than ever. Used: $26,000-$33,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "hyundai-tucson-2024",
@@ -8686,7 +9223,10 @@
       },
       "notes": "Sharp styling. Best cargo in class. Used: $27,000-$33,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "mazda-cx5-2024",
@@ -8731,7 +9271,10 @@
       },
       "notes": "Premium feel. Standard AWD. Used: $25,000-$32,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52
     },
     {
       "id": "nissan-ariya-2024",
@@ -8775,7 +9318,10 @@
       },
       "notes": "Japanese design. Lounge-like interior.",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 40
     },
     {
       "id": "toyota-camry-2024",
@@ -8820,7 +9366,10 @@
       },
       "notes": "Last gas-only Camry. 2025 is hybrid-only. Used: $24,000-$30,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "ford-mach-e-2023",
@@ -8864,7 +9413,10 @@
       },
       "notes": "Ford's first mainstream EV. Used: $28,000-$38,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 38
     },
     {
       "id": "honda-crv-2023",
@@ -8909,7 +9461,10 @@
       },
       "notes": "All-new 2023 redesign. Used: $28,000-$35,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 54
     },
     {
       "id": "kia-telluride-2023",
@@ -8954,7 +9509,10 @@
       },
       "notes": "Best 3-row value. Used: $35,000-$45,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48
     },
     {
       "id": "tesla-model3-2022",
@@ -8998,7 +9556,10 @@
       },
       "notes": "Pre-Highland refresh. Used: $30,000-$42,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "fair",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50
     },
     {
       "id": "toyota-rav4-2022",
@@ -9043,7 +9604,10 @@
       },
       "notes": "Best-selling SUV. Used: $26,000-$32,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "manufacturer"
+      "dataSource": "manufacturer",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58
     },
     {
       "id": "toyota-rav4-2011",
@@ -10241,6 +10805,630 @@
       "notes": "Most valuable car ever sold. Only 36 built. 3.0L V12. Current value: $50,000,000-$80,000,000+",
       "lastUpdated": "2025-12-01",
       "dataSource": "historical"
+    },
+    {
+      "id": "vw-id-buzz-2024",
+      "year": 2024,
+      "make": "Volkswagen",
+      "model": "ID. Buzz",
+      "trim": "Pro S",
+      "bodyType": "minivan",
+      "bodyWidthInches": 78.1,
+      "mirrorWidthInches": 86.5,
+      "mirrorsFoldedWidthInches": 78.5,
+      "lengthInches": 185.5,
+      "heightInches": 77.4,
+      "groundClearanceInches": 7,
+      "seats": 7,
+      "doors": 5,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 89,
+      "electricRangeMiles": 234,
+      "cargoVolumesCuFt": 117.1,
+      "driverLegroomInches": 41,
+      "msrp": 59995,
+      "safetyRating": "TSP",
+      "reviewScore": 78,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true
+      },
+      "adasName": "IQ.DRIVE",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42,
+      "notes": "Retro-styled electric microbus revival",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "vw.com"
+    },
+    {
+      "id": "vw-taos-2025",
+      "year": 2025,
+      "make": "Volkswagen",
+      "model": "Taos",
+      "trim": "SE",
+      "bodyType": "crossover",
+      "bodyWidthInches": 72.5,
+      "mirrorWidthInches": 80.4,
+      "mirrorsFoldedWidthInches": 73,
+      "lengthInches": 175.8,
+      "heightInches": 64.2,
+      "groundClearanceInches": 7.5,
+      "seats": 5,
+      "doors": 5,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 28,
+      "mpgHighway": 36,
+      "mpgCombined": 31,
+      "cargoVolumesCuFt": 65.9,
+      "driverLegroomInches": 41.1,
+      "msrp": 26995,
+      "safetyRating": "TSP",
+      "reviewScore": 72,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true
+      },
+      "adasName": "IQ.DRIVE",
+      "leaseRating": "excellent",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 52,
+      "notes": "Sign & Drive $339/mo deals available",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "vw.com"
+    },
+    {
+      "id": "ford-maverick-2025",
+      "year": 2025,
+      "make": "Ford",
+      "model": "Maverick",
+      "trim": "XLT Hybrid",
+      "bodyType": "truck",
+      "bodyWidthInches": 72.6,
+      "mirrorWidthInches": 83.5,
+      "mirrorsFoldedWidthInches": 73.2,
+      "lengthInches": 199.7,
+      "heightInches": 68.7,
+      "groundClearanceInches": 8.6,
+      "seats": 5,
+      "doors": 4,
+      "fuelType": "hybrid",
+      "plugType": "none",
+      "mpgCity": 42,
+      "mpgHighway": 33,
+      "mpgCombined": 37,
+      "cargoVolumesCuFt": 33.3,
+      "driverLegroomInches": 42.8,
+      "towingCapacityLbs": 2000,
+      "msrp": 28995,
+      "safetyRating": "TSP",
+      "reviewScore": 88,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true
+      },
+      "adasName": "Ford Co-Pilot360",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58,
+      "notes": "Hybrid standard, excellent value compact truck",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "ford.com"
+    },
+    {
+      "id": "hyundai-santa-cruz-2025",
+      "year": 2025,
+      "make": "Hyundai",
+      "model": "Santa Cruz",
+      "trim": "SEL",
+      "bodyType": "truck",
+      "bodyWidthInches": 75,
+      "mirrorWidthInches": 85,
+      "mirrorsFoldedWidthInches": 75.5,
+      "lengthInches": 195.7,
+      "heightInches": 66.7,
+      "groundClearanceInches": 8.6,
+      "seats": 5,
+      "doors": 4,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 21,
+      "mpgHighway": 27,
+      "mpgCombined": 23,
+      "cargoVolumesCuFt": 27,
+      "driverLegroomInches": 42.4,
+      "towingCapacityLbs": 5000,
+      "msrp": 30435,
+      "safetyRating": "TSP",
+      "reviewScore": 76,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "driverMonitoring": true
+      },
+      "adasName": "SmartSense",
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 50,
+      "notes": "Unibody sport adventure truck",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "hyundai.com"
+    },
+    {
+      "id": "chrysler-pacifica-2025",
+      "year": 2025,
+      "make": "Chrysler",
+      "model": "Pacifica",
+      "trim": "Touring L",
+      "bodyType": "minivan",
+      "bodyWidthInches": 79.6,
+      "mirrorWidthInches": 89.5,
+      "mirrorsFoldedWidthInches": 80.2,
+      "lengthInches": 203.8,
+      "heightInches": 69.9,
+      "groundClearanceInches": 5.1,
+      "seats": 8,
+      "doors": 5,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 19,
+      "mpgHighway": 28,
+      "mpgCombined": 22,
+      "cargoVolumesCuFt": 140.5,
+      "driverLegroomInches": 41.1,
+      "towingCapacityLbs": 3600,
+      "msrp": 42340,
+      "safetyRating": "TSP",
+      "reviewScore": 80,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true
+      },
+      "adasName": "Full Speed Forward Collision Warning",
+      "leaseRating": "good",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 43,
+      "notes": "Best-in-class cargo, Stow 'n Go seats",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "chrysler.com"
+    },
+    {
+      "id": "chrysler-pacifica-phev-2025",
+      "year": 2025,
+      "make": "Chrysler",
+      "model": "Pacifica Hybrid",
+      "trim": "Pinnacle",
+      "bodyType": "minivan",
+      "bodyWidthInches": 79.6,
+      "mirrorWidthInches": 89.5,
+      "mirrorsFoldedWidthInches": 80.2,
+      "lengthInches": 203.8,
+      "heightInches": 69.9,
+      "groundClearanceInches": 5.1,
+      "seats": 7,
+      "doors": 5,
+      "fuelType": "plug-in-hybrid",
+      "plugType": "J1772",
+      "mpgCity": 30,
+      "mpgHighway": 28,
+      "mpgCombined": 30,
+      "mpge": 82,
+      "electricRangeMiles": 32,
+      "cargoVolumesCuFt": 125,
+      "driverLegroomInches": 41.1,
+      "msrp": 58840,
+      "safetyRating": "TSP",
+      "reviewScore": 82,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true
+      },
+      "adasName": "Full Speed Forward Collision Warning",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 40,
+      "notes": "Only plug-in hybrid minivan available",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "chrysler.com"
+    },
+    {
+      "id": "gmc-hummer-ev-2024",
+      "year": 2024,
+      "make": "GMC",
+      "model": "Hummer EV",
+      "trim": "Edition 1",
+      "bodyType": "truck",
+      "bodyWidthInches": 86.7,
+      "mirrorWidthInches": 93.5,
+      "mirrorsFoldedWidthInches": 87,
+      "lengthInches": 216.8,
+      "heightInches": 79.1,
+      "groundClearanceInches": 16,
+      "seats": 5,
+      "doors": 4,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 47,
+      "electricRangeMiles": 329,
+      "cargoVolumesCuFt": 11,
+      "driverLegroomInches": 44.3,
+      "towingCapacityLbs": 7500,
+      "msrp": 108700,
+      "safetyRating": "Not Rated",
+      "reviewScore": 70,
+      "autonomousLevel": "hands-free",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "handsFreeHighway": true,
+        "autoLaneChange": true
+      },
+      "adasName": "Super Cruise",
+      "leaseRating": "poor",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 35,
+      "notes": "1000hp, CrabWalk mode, extreme capability",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "gmc.com"
+    },
+    {
+      "id": "lexus-tx-2024",
+      "year": 2024,
+      "make": "Lexus",
+      "model": "TX",
+      "trim": "350",
+      "bodyType": "suv",
+      "bodyWidthInches": 78,
+      "mirrorWidthInches": 87.4,
+      "mirrorsFoldedWidthInches": 78.5,
+      "lengthInches": 199,
+      "heightInches": 69.4,
+      "groundClearanceInches": 8.1,
+      "seats": 7,
+      "doors": 5,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 21,
+      "mpgHighway": 28,
+      "mpgCombined": 24,
+      "cargoVolumesCuFt": 65.4,
+      "driverLegroomInches": 42,
+      "towingCapacityLbs": 5000,
+      "msrp": 55050,
+      "safetyRating": "TSP+",
+      "reviewScore": 83,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true
+      },
+      "adasName": "Lexus Safety System+ 3.0",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 58,
+      "notes": "New 3-row luxury SUV on Grand Highlander platform",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "lexus.com"
+    },
+    {
+      "id": "lexus-nx-2025",
+      "year": 2025,
+      "make": "Lexus",
+      "model": "NX",
+      "trim": "350",
+      "bodyType": "crossover",
+      "bodyWidthInches": 73.4,
+      "mirrorWidthInches": 83.1,
+      "mirrorsFoldedWidthInches": 73.9,
+      "lengthInches": 183.5,
+      "heightInches": 65.1,
+      "groundClearanceInches": 8.1,
+      "seats": 5,
+      "doors": 5,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 22,
+      "mpgHighway": 28,
+      "mpgCombined": 25,
+      "cargoVolumesCuFt": 54,
+      "driverLegroomInches": 41.4,
+      "msrp": 43550,
+      "safetyRating": "TSP+",
+      "reviewScore": 81,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true
+      },
+      "adasName": "Lexus Safety System+ 3.0",
+      "leaseRating": "good",
+      "depreciationCategory": "low",
+      "fiveYearResalePercent": 56,
+      "notes": "Best-selling Lexus SUV",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "lexus.com"
+    },
+    {
+      "id": "acura-zdx-2024",
+      "year": 2024,
+      "make": "Acura",
+      "model": "ZDX",
+      "trim": "A-Spec",
+      "bodyType": "suv",
+      "bodyWidthInches": 77.4,
+      "mirrorWidthInches": 86,
+      "mirrorsFoldedWidthInches": 78,
+      "lengthInches": 197.9,
+      "heightInches": 67.2,
+      "groundClearanceInches": 7.8,
+      "seats": 5,
+      "doors": 5,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 94,
+      "electricRangeMiles": 313,
+      "cargoVolumesCuFt": 59,
+      "driverLegroomInches": 44.5,
+      "msrp": 64500,
+      "safetyRating": "Pending",
+      "reviewScore": 77,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true
+      },
+      "adasName": "AcuraWatch",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42,
+      "notes": "Acura's first EV, on GM Ultium platform",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "acura.com"
+    },
+    {
+      "id": "honda-prologue-2024",
+      "year": 2024,
+      "make": "Honda",
+      "model": "Prologue",
+      "trim": "EX",
+      "bodyType": "suv",
+      "bodyWidthInches": 77.4,
+      "mirrorWidthInches": 85.9,
+      "mirrorsFoldedWidthInches": 78,
+      "lengthInches": 192.1,
+      "heightInches": 65.4,
+      "groundClearanceInches": 7.9,
+      "seats": 5,
+      "doors": 5,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 91,
+      "electricRangeMiles": 296,
+      "cargoVolumesCuFt": 60,
+      "driverLegroomInches": 44.5,
+      "msrp": 48795,
+      "safetyRating": "TSP+",
+      "reviewScore": 79,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true
+      },
+      "adasName": "Honda Sensing",
+      "leaseRating": "good",
+      "depreciationCategory": "medium",
+      "fiveYearResalePercent": 48,
+      "notes": "Honda's first mainstream EV, GM Ultium platform",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "honda.com"
+    },
+    {
+      "id": "mini-cooper-se-2024",
+      "year": 2024,
+      "make": "Mini",
+      "model": "Cooper SE",
+      "trim": "Classic",
+      "bodyType": "hatchback",
+      "bodyWidthInches": 68,
+      "mirrorWidthInches": 76.4,
+      "mirrorsFoldedWidthInches": 68.5,
+      "lengthInches": 151.7,
+      "heightInches": 56.7,
+      "groundClearanceInches": 5.5,
+      "seats": 4,
+      "doors": 2,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 114,
+      "electricRangeMiles": 114,
+      "cargoVolumesCuFt": 34,
+      "driverLegroomInches": 41.4,
+      "msrp": 30900,
+      "safetyRating": "Good",
+      "reviewScore": 72,
+      "autonomousLevel": "basic",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": false,
+        "blindSpotMonitoring": false,
+        "automaticEmergencyBraking": true
+      },
+      "adasName": "Driving Assistant",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42,
+      "notes": "Fun city EV, limited range",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "miniusa.com"
+    },
+    {
+      "id": "mini-countryman-2025",
+      "year": 2025,
+      "make": "Mini",
+      "model": "Countryman",
+      "trim": "S ALL4",
+      "bodyType": "crossover",
+      "bodyWidthInches": 72.8,
+      "mirrorWidthInches": 82,
+      "mirrorsFoldedWidthInches": 73.4,
+      "lengthInches": 173.7,
+      "heightInches": 63.6,
+      "groundClearanceInches": 7.6,
+      "seats": 5,
+      "doors": 5,
+      "fuelType": "gasoline",
+      "plugType": "none",
+      "mpgCity": 25,
+      "mpgHighway": 33,
+      "mpgCombined": 28,
+      "cargoVolumesCuFt": 48,
+      "driverLegroomInches": 40.4,
+      "msrp": 42900,
+      "safetyRating": "Good",
+      "reviewScore": 74,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true
+      },
+      "adasName": "Driving Assistant Professional",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 44,
+      "notes": "All-new 2025, biggest Mini ever",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "miniusa.com"
+    },
+    {
+      "id": "fiat-500e-2024",
+      "year": 2024,
+      "make": "Fiat",
+      "model": "500e",
+      "trim": "Inspired By Music",
+      "bodyType": "hatchback",
+      "bodyWidthInches": 66.7,
+      "mirrorWidthInches": 75.4,
+      "mirrorsFoldedWidthInches": 67.2,
+      "lengthInches": 142.7,
+      "heightInches": 62,
+      "groundClearanceInches": 5.9,
+      "seats": 4,
+      "doors": 2,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 115,
+      "electricRangeMiles": 149,
+      "cargoVolumesCuFt": 14,
+      "driverLegroomInches": 41.7,
+      "msrp": 34095,
+      "safetyRating": "Good",
+      "reviewScore": 68,
+      "autonomousLevel": "enhanced",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true
+      },
+      "adasName": "Level 2 Autonomy",
+      "leaseRating": "poor",
+      "depreciationCategory": "very-high",
+      "fiveYearResalePercent": 32,
+      "notes": "Stylish Italian city EV, retro design",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "fiat.com"
+    },
+    {
+      "id": "kia-ev9-2024",
+      "year": 2024,
+      "make": "Kia",
+      "model": "EV9",
+      "trim": "Wind",
+      "bodyType": "suv",
+      "bodyWidthInches": 77.9,
+      "mirrorWidthInches": 87,
+      "mirrorsFoldedWidthInches": 78.4,
+      "lengthInches": 197.2,
+      "heightInches": 70.1,
+      "groundClearanceInches": 7.8,
+      "seats": 6,
+      "doors": 5,
+      "fuelType": "electric",
+      "plugType": "CCS1",
+      "mpge": 101,
+      "electricRangeMiles": 304,
+      "cargoVolumesCuFt": 82.8,
+      "driverLegroomInches": 41.4,
+      "towingCapacityLbs": 5000,
+      "msrp": 56395,
+      "safetyRating": "TSP+",
+      "reviewScore": 86,
+      "autonomousLevel": "hands-free",
+      "adasFeatures": {
+        "adaptiveCruiseControl": true,
+        "laneKeepAssist": true,
+        "laneCenteringAssist": true,
+        "blindSpotMonitoring": true,
+        "automaticEmergencyBraking": true,
+        "trafficSignRecognition": true,
+        "handsFreeHighway": true
+      },
+      "adasName": "Highway Driving Pilot",
+      "leaseRating": "fair",
+      "depreciationCategory": "high",
+      "fiveYearResalePercent": 42,
+      "notes": "3-row electric SUV, World Car of the Year 2024",
+      "lastUpdated": "2024-12-01",
+      "dataSource": "kia.com"
     }
   ],
   "lastSyncDate": "2025-12-01",

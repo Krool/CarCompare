@@ -1,4 +1,4 @@
-import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, AutonomousLevel } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory } from "@/types/car";
 
 // Safety rating order for sorting (higher is better)
 const SAFETY_RATING_ORDER: Record<SafetyRating | "undefined", number> = {
@@ -19,6 +19,24 @@ const AUTONOMOUS_LEVEL_ORDER: Record<AutonomousLevel | "undefined", number> = {
   "basic": 1,
   "none": 0,
   "undefined": -1,
+};
+
+// Lease rating order for sorting (higher is better)
+const LEASE_RATING_ORDER: Record<LeaseRating | "undefined", number> = {
+  "excellent": 4,
+  "good": 3,
+  "fair": 2,
+  "poor": 1,
+  "undefined": 0,
+};
+
+// Depreciation category order for sorting (lower depreciation is better)
+const DEPRECIATION_ORDER: Record<DepreciationCategory | "undefined", number> = {
+  "low": 4,
+  "medium": 3,
+  "high": 2,
+  "very-high": 1,
+  "undefined": 0,
 };
 
 export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: number): Car[] {
@@ -222,6 +240,18 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
       case "groundClearanceInches":
         aVal = a.groundClearanceInches ?? 0;
         bVal = b.groundClearanceInches ?? 0;
+        break;
+      case "leaseRating":
+        aVal = LEASE_RATING_ORDER[a.leaseRating ?? "undefined"];
+        bVal = LEASE_RATING_ORDER[b.leaseRating ?? "undefined"];
+        break;
+      case "depreciationCategory":
+        aVal = DEPRECIATION_ORDER[a.depreciationCategory ?? "undefined"];
+        bVal = DEPRECIATION_ORDER[b.depreciationCategory ?? "undefined"];
+        break;
+      case "fiveYearResalePercent":
+        aVal = a.fiveYearResalePercent ?? 0;
+        bVal = b.fiveYearResalePercent ?? 0;
         break;
       default:
         return 0;
