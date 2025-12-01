@@ -58,6 +58,7 @@ export default function Home() {
           if (car) setBaselineCar(car);
         }
         if (decoded.compare) setCompareList(decoded.compare);
+        if (decoded.columns) setVisibleColumns(decoded.columns);
       } catch (e) {
         console.error("Failed to parse shared state:", e);
       }
@@ -184,12 +185,17 @@ export default function Home() {
     downloadCsv(csv, `car-compare-${new Date().toISOString().split('T')[0]}.csv`);
   }, [sortedCars, mirrorBuffer]);
 
+  const handlePrint = useCallback(() => {
+    window.print();
+  }, []);
+
   const handleShareUrl = useCallback(() => {
     const state = {
       filters,
       sort: sortConfig,
       baseline: baselineCar?.id,
       compare: compareList,
+      columns: visibleColumns,
     };
     const encoded = btoa(JSON.stringify(state));
     const url = `${window.location.origin}${window.location.pathname}?state=${encoded}`;
@@ -200,7 +206,7 @@ export default function Home() {
       // Fallback for older browsers
       prompt("Copy this link to share:", url);
     });
-  }, [filters, sortConfig, baselineCar, compareList]);
+  }, [filters, sortConfig, baselineCar, compareList, visibleColumns]);
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -230,14 +236,21 @@ export default function Home() {
             />
             <button
               onClick={handleExportCsv}
-              className="px-4 py-2 bg-green-700 hover:bg-green-600 text-white rounded text-sm font-medium"
+              className="px-4 py-2 bg-green-700 hover:bg-green-600 text-white rounded text-sm font-medium btn-hover no-print"
               title="Export filtered results to CSV"
             >
               Export CSV
             </button>
             <button
+              onClick={handlePrint}
+              className="px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded text-sm font-medium btn-hover no-print"
+              title="Print current view"
+            >
+              Print
+            </button>
+            <button
               onClick={handleShareUrl}
-              className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded text-sm font-medium"
+              className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded text-sm font-medium btn-hover no-print"
               title="Copy shareable link with current filters"
             >
               Share
@@ -249,7 +262,7 @@ export default function Home() {
       <main className="p-6">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Sidebar */}
-          <aside className="lg:w-80 flex-shrink-0 space-y-4">
+          <aside className="lg:w-80 flex-shrink-0 space-y-4 no-print">
             <BaselineSelector
               cars={allCars}
               baselineCar={baselineCar}

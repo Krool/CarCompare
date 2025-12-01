@@ -21,6 +21,15 @@ export type LeaseRating = "excellent" | "good" | "fair" | "poor";
 // Depreciation category - how fast the vehicle loses value
 export type DepreciationCategory = "low" | "medium" | "high" | "very-high";
 
+// Reliability rating based on JD Power/Consumer Reports
+export type ReliabilityRating = "excellent" | "good" | "average" | "below-average" | "poor";
+
+// Insurance cost category (annual full coverage)
+export type InsuranceCostCategory = "low" | "average" | "high" | "very-high";
+
+// Maintenance cost category (annual)
+export type MaintenanceCostCategory = "low" | "average" | "high" | "very-high";
+
 export interface Car {
   id: string;
   year: number;
@@ -89,6 +98,18 @@ export interface Car {
   depreciationCategory?: DepreciationCategory;  // How fast it loses value
   fiveYearResalePercent?: number;      // Estimated % of MSRP retained after 5 years
 
+  // Ownership Costs
+  reliabilityRating?: ReliabilityRating;  // JD Power / Consumer Reports based
+  insuranceCostCategory?: InsuranceCostCategory;  // Annual insurance (low/avg/high/very-high)
+  insuranceCostAnnual?: number;           // Estimated annual insurance cost
+  maintenanceCostCategory?: MaintenanceCostCategory;  // Annual maintenance (low/avg/high/very-high)
+  maintenanceCostAnnual?: number;         // Estimated annual maintenance cost
+
+  // Performance
+  zeroToSixtySeconds?: number;  // 0-60 mph time in seconds
+  horsepower?: number;          // Engine horsepower
+  torqueLbFt?: number;          // Torque in lb-ft
+
   // Features/Notes
   standardFeatures?: string[];
   notes?: string;
@@ -153,7 +174,12 @@ export type SortField =
   | "reviewScore"
   | "leaseRating"
   | "depreciationCategory"
-  | "fiveYearResalePercent";
+  | "fiveYearResalePercent"
+  | "reliabilityRating"
+  | "insuranceCostAnnual"
+  | "maintenanceCostAnnual"
+  | "zeroToSixtySeconds"
+  | "horsepower";
 
 // Column customization types
 export type ColumnId =
@@ -163,7 +189,10 @@ export type ColumnId =
   | "seats" | "driverLegroomInches"
   | "mirrorsFoldedWidthInches" | "bodyWidthInches" | "heightInches" | "groundClearanceInches"
   | "fuelType" | "plugType" | "mpgCombined" | "electricRangeMiles"
-  | "msrp" | "leaseRating" | "depreciationCategory" | "fiveYearResalePercent" | "notes";
+  | "msrp" | "leaseRating" | "depreciationCategory" | "fiveYearResalePercent"
+  | "reliabilityRating" | "insuranceCostAnnual" | "maintenanceCostAnnual"
+  | "zeroToSixtySeconds" | "horsepower"
+  | "notes";
 
 export interface ColumnConfig {
   id: ColumnId;

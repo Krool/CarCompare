@@ -36,11 +36,19 @@ export const ALL_COLUMNS: ColumnConfig[] = [
   { id: "mpgCombined", label: "Efficiency", sortField: "mpgCombined", defaultVisible: true, category: "powertrain" },
   { id: "electricRangeMiles", label: "EV Range", sortField: "electricRangeMiles", defaultVisible: true, category: "powertrain" },
 
-  // Pricing columns
+  // Pricing & Ownership columns
   { id: "msrp", label: "MSRP", sortField: "msrp", defaultVisible: true, category: "pricing" },
   { id: "leaseRating", label: "Lease Rating", shortLabel: "Lease", sortField: "leaseRating", defaultVisible: false, category: "pricing" },
   { id: "depreciationCategory", label: "Depreciation", shortLabel: "Deprec.", sortField: "depreciationCategory", defaultVisible: false, category: "pricing" },
   { id: "fiveYearResalePercent", label: "5-Year Resale %", shortLabel: "Resale", sortField: "fiveYearResalePercent", defaultVisible: false, category: "pricing" },
+  { id: "reliabilityRating", label: "Reliability", sortField: "reliabilityRating", defaultVisible: false, category: "pricing" },
+  { id: "insuranceCostAnnual", label: "Insurance/yr", shortLabel: "Insure", sortField: "insuranceCostAnnual", defaultVisible: false, category: "pricing" },
+  { id: "maintenanceCostAnnual", label: "Maintenance/yr", shortLabel: "Maint", sortField: "maintenanceCostAnnual", defaultVisible: false, category: "pricing" },
+
+  // Performance columns
+  { id: "zeroToSixtySeconds", label: "0-60 mph", shortLabel: "0-60", sortField: "zeroToSixtySeconds", defaultVisible: false, category: "powertrain" },
+  { id: "horsepower", label: "Horsepower", shortLabel: "HP", sortField: "horsepower", defaultVisible: false, category: "powertrain" },
+
   { id: "notes", label: "Notes", defaultVisible: true, category: "pricing" },
 ];
 
@@ -73,7 +81,11 @@ const PRESETS: { name: string; columns: ColumnId[] }[] = [
   },
   {
     name: "Value Focus",
-    columns: ["year", "make", "model", "msrp", "leaseRating", "depreciationCategory", "fiveYearResalePercent"],
+    columns: ["year", "make", "model", "msrp", "leaseRating", "depreciationCategory", "fiveYearResalePercent", "reliabilityRating", "insuranceCostAnnual", "maintenanceCostAnnual"],
+  },
+  {
+    name: "Performance",
+    columns: ["year", "make", "model", "zeroToSixtySeconds", "horsepower", "fuelType", "msrp"],
   },
 ];
 

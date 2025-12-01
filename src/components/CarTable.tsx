@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ColumnId } from "@/types/car";
+import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating, ColumnId } from "@/types/car";
 import {
   formatCurrency,
   formatMpg,
@@ -150,6 +150,11 @@ export default function CarTable({
             {isVisible("leaseRating") && <SortableHeader field="leaseRating" label="Lease" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("depreciationCategory") && <SortableHeader field="depreciationCategory" label="Deprec." sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("fiveYearResalePercent") && <SortableHeader field="fiveYearResalePercent" label="Resale" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("reliabilityRating") && <SortableHeader field="reliabilityRating" label="Reliability" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("insuranceCostAnnual") && <SortableHeader field="insuranceCostAnnual" label="Insure/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("maintenanceCostAnnual") && <SortableHeader field="maintenanceCostAnnual" label="Maint/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("zeroToSixtySeconds") && <SortableHeader field="zeroToSixtySeconds" label="0-60" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("horsepower") && <SortableHeader field="horsepower" label="HP" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("notes") && (
               <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
                 Notes
@@ -158,7 +163,7 @@ export default function CarTable({
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-700">
-          {cars.map((car) => {
+          {cars.map((car, index) => {
             const isBaseline = baselineCar?.id === car.id;
             const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
             const isFavorite = favorites.includes(car.id);
@@ -167,7 +172,7 @@ export default function CarTable({
             return (
               <tr
                 key={car.id}
-                className={`${isBaseline ? "bg-blue-900/30" : isFavorite ? "bg-yellow-900/20" : "hover:bg-gray-700/50"}`}
+                className={`table-row-hover ${isBaseline ? "bg-blue-900/30" : isFavorite ? "bg-yellow-900/20" : "hover:bg-gray-700/50"}`}
               >
                 <td className="px-2 py-2 text-center">
                   <button
@@ -325,6 +330,31 @@ export default function CarTable({
                 {isVisible("fiveYearResalePercent") && (
                   <td className="px-3 py-2 text-sm text-white">
                     {car.fiveYearResalePercent ? `${car.fiveYearResalePercent}%` : "-"}
+                  </td>
+                )}
+                {isVisible("reliabilityRating") && (
+                  <td className="px-3 py-2 text-sm">
+                    <ReliabilityBadge rating={car.reliabilityRating} />
+                  </td>
+                )}
+                {isVisible("insuranceCostAnnual") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.insuranceCostAnnual ? formatCurrency(car.insuranceCostAnnual) : "-"}
+                  </td>
+                )}
+                {isVisible("maintenanceCostAnnual") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.maintenanceCostAnnual ? formatCurrency(car.maintenanceCostAnnual) : "-"}
+                  </td>
+                )}
+                {isVisible("zeroToSixtySeconds") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.zeroToSixtySeconds ? `${car.zeroToSixtySeconds}s` : "-"}
+                  </td>
+                )}
+                {isVisible("horsepower") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.horsepower ? `${car.horsepower}` : "-"}
                   </td>
                 )}
                 {isVisible("notes") && (
@@ -561,6 +591,45 @@ function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
       title={titles[category]}
     >
       {labels[category]}
+    </span>
+  );
+}
+
+function ReliabilityBadge({ rating }: { rating?: ReliabilityRating }) {
+  if (!rating) {
+    return <span className="text-gray-500 text-xs">-</span>;
+  }
+
+  const colors: Record<ReliabilityRating, string> = {
+    "excellent": "bg-green-600 text-white",
+    "good": "bg-green-800 text-green-200",
+    "average": "bg-yellow-700 text-yellow-100",
+    "below-average": "bg-orange-700 text-orange-100",
+    "poor": "bg-red-700 text-red-100",
+  };
+
+  const labels: Record<ReliabilityRating, string> = {
+    "excellent": "Excellent",
+    "good": "Good",
+    "average": "Avg",
+    "below-average": "Below",
+    "poor": "Poor",
+  };
+
+  const titles: Record<ReliabilityRating, string> = {
+    "excellent": "Excellent reliability (JD Power top tier)",
+    "good": "Good reliability",
+    "average": "Average reliability",
+    "below-average": "Below average reliability",
+    "poor": "Poor reliability - expect more issues",
+  };
+
+  return (
+    <span
+      className={`px-2 py-0.5 rounded text-xs ${colors[rating]}`}
+      title={titles[rating]}
+    >
+      {labels[rating]}
     </span>
   );
 }
@@ -910,6 +979,11 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               url={`https://www.google.com/search?q=${encodeURIComponent(`${car.year} ${car.make} ${car.model} for sale`)}`}
               color="bg-gray-600"
             />
+            <SearchLink
+              name="Images"
+              url={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}`}
+              color="bg-pink-700"
+            />
           </div>
         </div>
 
@@ -951,8 +1025,11 @@ function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void })
       onClick={onImageClick}
     >
       {isLoading && (
-        <div className="absolute inset-0 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-xs">
-          ...
+        <div className="absolute inset-0 skeleton rounded flex items-center justify-center">
+          <svg className="w-6 h-6 text-gray-500 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
         </div>
       )}
       <img

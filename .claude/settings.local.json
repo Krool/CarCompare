@@ -31,7 +31,8 @@
       "Bash(node:*)",
       "Bash(npx gh-pages:*)",
       "WebFetch(domain:motormashup.com)",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,4 +1,4 @@
-import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating } from "@/types/car";
 
 // Safety rating order for sorting (higher is better)
 const SAFETY_RATING_ORDER: Record<SafetyRating | "undefined", number> = {
@@ -36,6 +36,16 @@ const DEPRECIATION_ORDER: Record<DepreciationCategory | "undefined", number> = {
   "medium": 3,
   "high": 2,
   "very-high": 1,
+  "undefined": 0,
+};
+
+// Reliability rating order for sorting (higher is better)
+const RELIABILITY_ORDER: Record<ReliabilityRating | "undefined", number> = {
+  "excellent": 5,
+  "good": 4,
+  "average": 3,
+  "below-average": 2,
+  "poor": 1,
   "undefined": 0,
 };
 
@@ -252,6 +262,26 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
       case "fiveYearResalePercent":
         aVal = a.fiveYearResalePercent ?? 0;
         bVal = b.fiveYearResalePercent ?? 0;
+        break;
+      case "reliabilityRating":
+        aVal = RELIABILITY_ORDER[a.reliabilityRating ?? "undefined"];
+        bVal = RELIABILITY_ORDER[b.reliabilityRating ?? "undefined"];
+        break;
+      case "insuranceCostAnnual":
+        aVal = a.insuranceCostAnnual ?? Infinity;
+        bVal = b.insuranceCostAnnual ?? Infinity;
+        break;
+      case "maintenanceCostAnnual":
+        aVal = a.maintenanceCostAnnual ?? Infinity;
+        bVal = b.maintenanceCostAnnual ?? Infinity;
+        break;
+      case "zeroToSixtySeconds":
+        aVal = a.zeroToSixtySeconds ?? Infinity;
+        bVal = b.zeroToSixtySeconds ?? Infinity;
+        break;
+      case "horsepower":
+        aVal = a.horsepower ?? 0;
+        bVal = b.horsepower ?? 0;
         break;
       default:
         return 0;

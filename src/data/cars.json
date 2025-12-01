@@ -44,7 +44,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3400,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.8,
+      "horsepower": 340,
+      "torqueLbFt": 325
     },
     {
       "id": "chevrolet-bolt-ev-2026",
@@ -90,7 +98,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 288,
+      "torqueLbFt": 333
     },
     {
       "id": "nissan-leaf-2026",
@@ -136,7 +152,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "rivian-r2-2026",
@@ -188,7 +212,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 835,
+      "torqueLbFt": 908
     },
     {
       "id": "toyota-rav4-hybrid-2026",
@@ -235,7 +267,15 @@
       "towingCapacityLbs": 2500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 8,
+      "horsepower": 230,
+      "torqueLbFt": 175
     },
     {
       "id": "toyota-rav4-prime-2026",
@@ -282,7 +322,15 @@
       "towingCapacityLbs": 2500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "acura-mdx-2025",
@@ -335,7 +383,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "acura-rdx-2025",
@@ -388,7 +444,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "audi-a4-allroad-2025",
@@ -436,7 +500,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3300,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 6.8,
+      "horsepower": 200,
+      "torqueLbFt": 190
     },
     {
       "id": "audi-a6-2025",
@@ -489,7 +561,15 @@
       "towingCapacityLbs": 4400,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3700,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 6.8,
+      "horsepower": 200,
+      "torqueLbFt": 190
     },
     {
       "id": "audi-q4-etron-2025",
@@ -541,7 +621,15 @@
       "towingCapacityLbs": 2400,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3800,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "audi-q5-2025",
@@ -594,7 +682,15 @@
       "towingCapacityLbs": 4400,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3300,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "audi-q6-etron-2025",
@@ -646,7 +742,15 @@
       "towingCapacityLbs": 4400,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "audi-q7-2025",
@@ -699,7 +803,15 @@
       "towingCapacityLbs": 7700,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3900,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 4.2,
+      "horsepower": 450,
+      "torqueLbFt": 480
     },
     {
       "id": "audi-q8-etron-2025",
@@ -751,7 +863,15 @@
       "towingCapacityLbs": 4000,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "bmw-i4-2025",
@@ -803,7 +923,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 5.3,
+      "horsepower": 335,
+      "torqueLbFt": 317
     },
     {
       "id": "bmw-i5-2025",
@@ -855,7 +983,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 5.3,
+      "horsepower": 335,
+      "torqueLbFt": 317
     },
     {
       "id": "bmw-ix-2025",
@@ -907,7 +1043,15 @@
       "towingCapacityLbs": 6000,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 5.3,
+      "horsepower": 335,
+      "torqueLbFt": 317
     },
     {
       "id": "bmw-ix-2025",
@@ -954,7 +1098,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 5.3,
+      "horsepower": 335,
+      "torqueLbFt": 317
     },
     {
       "id": "bmw-x3-2025",
@@ -1007,7 +1159,15 @@
       "towingCapacityLbs": 4400,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3900,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "bmw-x5-2025",
@@ -1060,7 +1220,15 @@
       "towingCapacityLbs": 7200,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3900,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 4.2,
+      "horsepower": 450,
+      "torqueLbFt": 480
     },
     {
       "id": "buick-enclave-2025",
@@ -1113,7 +1281,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "buick-encore-gx-2025",
@@ -1161,7 +1337,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "buick-envision-2025",
@@ -1214,7 +1398,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -1266,7 +1458,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3400,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.8,
+      "horsepower": 340,
+      "torqueLbFt": 325
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -1313,7 +1513,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3400,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.8,
+      "horsepower": 340,
+      "torqueLbFt": 325
     },
     {
       "id": "chevrolet-blazer-ev-2025",
@@ -1365,7 +1573,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3400,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 288,
+      "torqueLbFt": 333
     },
     {
       "id": "chevrolet-camaro-2025",
@@ -1413,7 +1629,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 4.2,
+      "horsepower": 480,
+      "torqueLbFt": 420
     },
     {
       "id": "chevrolet-colorado-2025",
@@ -1461,7 +1685,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 55
+      "fiveYearResalePercent": 55,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 355,
+      "torqueLbFt": 383
     },
     {
       "id": "chevrolet-equinox-2025",
@@ -1509,7 +1741,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "chevrolet-equinox-ev-2025",
@@ -1562,7 +1802,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 288,
+      "torqueLbFt": 333
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -1615,7 +1863,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -1663,7 +1919,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "chevrolet-trax-2025",
@@ -1717,7 +1981,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "dodge-hornet-2025",
@@ -1769,7 +2041,15 @@
       "towingCapacityLbs": 2000,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 44
+      "fiveYearResalePercent": 44,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "ford-bronco-sport-2025",
@@ -1822,7 +2102,15 @@
       "towingCapacityLbs": 2200,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "ford-escape-2025",
@@ -1876,7 +2164,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "ford-escape-2025",
@@ -1924,7 +2220,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "ford-explorer-2025",
@@ -1977,7 +2281,15 @@
       "towingCapacityLbs": 5600,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "ford-explorer-2025",
@@ -2025,7 +2337,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "ford-mustang-2025",
@@ -2073,7 +2393,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 4.2,
+      "horsepower": 480,
+      "torqueLbFt": 420
     },
     {
       "id": "ford-mustang-mach-e-2025",
@@ -2127,7 +2455,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.2,
+      "horsepower": 346,
+      "torqueLbFt": 428
     },
     {
       "id": "ford-ranger-2025",
@@ -2175,7 +2511,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 55
+      "fiveYearResalePercent": 55,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 400,
+      "torqueLbFt": 410
     },
     {
       "id": "genesis-electrified-gv70-2025",
@@ -2227,7 +2571,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 700,
+      "zeroToSixtySeconds": 7.5,
+      "horsepower": 225,
+      "torqueLbFt": 258
     },
     {
       "id": "genesis-gv70-2025",
@@ -2280,7 +2632,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "gmc-acadia-2025",
@@ -2333,7 +2693,15 @@
       "towingCapacityLbs": 4000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "gmc-sierra-1500-2025",
@@ -2381,7 +2749,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 55
+      "fiveYearResalePercent": 55,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 355,
+      "torqueLbFt": 383
     },
     {
       "id": "gmc-terrain-2025",
@@ -2434,7 +2810,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "honda-accord-2025",
@@ -2488,7 +2872,15 @@
       "towingCapacityLbs": 1000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "honda-civic-2025",
@@ -2536,7 +2928,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "honda-civic-hatchback-2025",
@@ -2584,7 +2984,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "honda-crv-2025",
@@ -2638,7 +3046,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "honda-crv-hybrid-2025",
@@ -2693,7 +3109,15 @@
       "towingCapacityLbs": 1000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 8,
+      "horsepower": 230,
+      "torqueLbFt": 175
     },
     {
       "id": "honda-hr-v-2025",
@@ -2746,7 +3170,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "honda-odyssey-2025",
@@ -2800,7 +3232,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 7.2,
+      "horsepower": 280,
+      "torqueLbFt": 262
     },
     {
       "id": "honda-odyssey-2025",
@@ -2848,7 +3288,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 7.2,
+      "horsepower": 280,
+      "torqueLbFt": 262
     },
     {
       "id": "honda-pilot-2025",
@@ -2901,7 +3349,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "honda-pilot-2025",
@@ -2949,7 +3405,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "honda-prologue-2025",
@@ -3002,7 +3466,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "hyundai-elantra-2025",
@@ -3050,7 +3522,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1800,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "hyundai-elantra-n-2025",
@@ -3098,7 +3578,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 6.8,
+      "horsepower": 200,
+      "torqueLbFt": 190
     },
     {
       "id": "hyundai-ioniq-5-2025",
@@ -3151,7 +3639,15 @@
       "towingCapacityLbs": 2300,
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2800,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 5.1,
+      "horsepower": 320,
+      "torqueLbFt": 446
     },
     {
       "id": "hyundai-ioniq-6-2025",
@@ -3204,7 +3700,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 7.5,
+      "horsepower": 225,
+      "torqueLbFt": 258
     },
     {
       "id": "hyundai-ioniq6-2025",
@@ -3251,7 +3755,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 7.5,
+      "horsepower": 225,
+      "torqueLbFt": 258
     },
     {
       "id": "hyundai-palisade-2025",
@@ -3304,7 +3816,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "hyundai-palisade-2025",
@@ -3352,7 +3872,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "hyundai-santa-fe-2025",
@@ -3405,7 +3933,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "hyundai-sonata-2025",
@@ -3453,7 +3989,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "hyundai-tucson-2025",
@@ -3507,7 +4051,15 @@
       "towingCapacityLbs": 2000,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "infiniti-qx60-2025",
@@ -3560,7 +4112,15 @@
       "towingCapacityLbs": 6000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "infiniti-qx80-2025",
@@ -3613,7 +4173,15 @@
       "towingCapacityLbs": 8500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3500,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "jaguar-i-pace-2025",
@@ -3665,7 +4233,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "jeep-compass-2025",
@@ -3713,7 +4289,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 44
+      "fiveYearResalePercent": 44,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "jeep-grand-cherokee-2025",
@@ -3766,7 +4350,15 @@
       "towingCapacityLbs": 7200,
       "leaseRating": "fair",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 44
+      "fiveYearResalePercent": 44,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "jeep-grand-cherokee-4xe-2025",
@@ -3821,7 +4413,15 @@
       "towingCapacityLbs": 6000,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 44
+      "fiveYearResalePercent": 44,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "jeep-wagoneer-s-2025",
@@ -3867,7 +4467,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 44
+      "fiveYearResalePercent": 44,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "jeep-wrangler-2025",
@@ -3920,7 +4528,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 44
+      "fiveYearResalePercent": 44,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "kia-carnival-2025",
@@ -3968,7 +4584,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 7.2,
+      "horsepower": 280,
+      "torqueLbFt": 262
     },
     {
       "id": "kia-ev6-2025",
@@ -4021,7 +4645,15 @@
       "towingCapacityLbs": 2300,
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2800,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 5.1,
+      "horsepower": 320,
+      "torqueLbFt": 446
     },
     {
       "id": "kia-ev6-2025",
@@ -4068,7 +4700,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2800,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 5.1,
+      "horsepower": 320,
+      "torqueLbFt": 446
     },
     {
       "id": "kia-ev9-2025",
@@ -4121,7 +4761,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 5.1,
+      "horsepower": 320,
+      "torqueLbFt": 446
     },
     {
       "id": "kia-forte-2025",
@@ -4169,7 +4817,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1800,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "kia-k5-2025",
@@ -4217,7 +4873,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "kia-niro-ev-2025",
@@ -4269,7 +4933,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2800,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 7.5,
+      "horsepower": 225,
+      "torqueLbFt": 258
     },
     {
       "id": "kia-rio-2025",
@@ -4317,7 +4989,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1800,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "kia-sorento-2025",
@@ -4370,7 +5050,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "kia-sportage-2025",
@@ -4423,7 +5111,15 @@
       "towingCapacityLbs": 2500,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "kia-telluride-2025",
@@ -4476,7 +5172,15 @@
       "towingCapacityLbs": 5500,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "land-rover-defender-2025",
@@ -4529,7 +5233,15 @@
       "towingCapacityLbs": 8201,
       "leaseRating": "poor",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3900,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "land-rover-range-rover-2025",
@@ -4582,7 +5294,15 @@
       "towingCapacityLbs": 7716,
       "leaseRating": "poor",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5400,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1200,
+      "zeroToSixtySeconds": 4,
+      "horsepower": 450,
+      "torqueLbFt": 420
     },
     {
       "id": "lexus-gx-2025",
@@ -4635,7 +5355,15 @@
       "towingCapacityLbs": 9100,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 56
+      "fiveYearResalePercent": 56,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "lexus-lx-2025",
@@ -4688,7 +5416,15 @@
       "towingCapacityLbs": 8000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 56
+      "fiveYearResalePercent": 56,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3500,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 4.5,
+      "horsepower": 400,
+      "torqueLbFt": 420
     },
     {
       "id": "lexus-rx-2025",
@@ -4740,7 +5476,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 56
+      "fiveYearResalePercent": 56,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "lexus-rx-hybrid-2025",
@@ -4795,7 +5539,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 56
+      "fiveYearResalePercent": 56,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "lexus-rz-2025",
@@ -4846,7 +5598,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "good",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 700,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "lincoln-aviator-2025",
@@ -4899,7 +5659,15 @@
       "towingCapacityLbs": 6700,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "lincoln-nautilus-2025",
@@ -4951,7 +5719,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "lucid-air-2025",
@@ -5002,7 +5778,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 35
+      "fiveYearResalePercent": 35,
+      "reliabilityRating": "poor",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 620,
+      "torqueLbFt": 620
     },
     {
       "id": "lucid-gravity-2025",
@@ -5054,7 +5838,15 @@
       "towingCapacityLbs": 6000,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 35
+      "fiveYearResalePercent": 35,
+      "reliabilityRating": "poor",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 620,
+      "torqueLbFt": 620
     },
     {
       "id": "mazda-cx5-2025",
@@ -5108,7 +5900,15 @@
       "towingCapacityLbs": 2000,
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "mazda-cx50-2025",
@@ -5163,7 +5963,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "mazda-cx-70-2025",
@@ -5216,7 +6024,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "mazda-cx-90-2025",
@@ -5269,7 +6085,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "mazda-cx90-2025",
@@ -5317,7 +6141,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "mazda3-sedan-2025",
@@ -5365,7 +6197,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "mazda3-hatchback-2025",
@@ -5413,7 +6253,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "mazda-miata-2025",
@@ -5461,7 +6309,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 5.8,
+      "horsepower": 181,
+      "torqueLbFt": 151
     },
     {
       "id": "mercedes-eqe-2025",
@@ -5513,7 +6369,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4900,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "mercedes-eqe-suv-2025",
@@ -5565,7 +6429,15 @@
       "towingCapacityLbs": 4000,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "mercedes-eqs-suv-2025",
@@ -5617,7 +6489,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 6200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "mercedes-eqs-suv-2025",
@@ -5664,7 +6544,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 36
+      "fiveYearResalePercent": 36,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 6200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 950,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "mercedes-glc-2025",
@@ -5717,7 +6605,15 @@
       "towingCapacityLbs": 4000,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3900,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1450,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "mercedes-gle-2025",
@@ -5770,7 +6666,15 @@
       "towingCapacityLbs": 7700,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3900,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1200,
+      "zeroToSixtySeconds": 3.7,
+      "horsepower": 500,
+      "torqueLbFt": 480
     },
     {
       "id": "mercedes-s-class-2025",
@@ -5824,7 +6728,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5100,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1200,
+      "zeroToSixtySeconds": 4.3,
+      "horsepower": 365,
+      "torqueLbFt": 330
     },
     {
       "id": "mitsubishi-mirage-2025",
@@ -5872,7 +6784,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "mitsubishi-outlander-2025",
@@ -5925,7 +6845,15 @@
       "towingCapacityLbs": 2000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "mitsubishi-outlander-phev-2025",
@@ -5981,7 +6909,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 42
+      "fiveYearResalePercent": 42,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 700,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "nissan-altima-2025",
@@ -6029,7 +6965,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "nissan-ariya-2025",
@@ -6082,7 +7026,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "nissan-murano-2025",
@@ -6135,7 +7087,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "nissan-pathfinder-2025",
@@ -6188,7 +7148,15 @@
       "towingCapacityLbs": 6000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "nissan-rogue-2025",
@@ -6241,7 +7209,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "nissan-rogue-2025",
@@ -6289,7 +7265,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "nissan-sentra-2025",
@@ -6337,7 +7321,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1900,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "nissan-versa-2025",
@@ -6385,7 +7377,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1900,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "nissan-z-2025",
@@ -6433,7 +7433,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 800,
+      "zeroToSixtySeconds": 5.5,
+      "horsepower": 300,
+      "torqueLbFt": 280
     },
     {
       "id": "polestar-2-2025",
@@ -6485,7 +7493,15 @@
       "towingCapacityLbs": 2000,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 35
+      "fiveYearResalePercent": 35,
+      "reliabilityRating": "poor",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2800,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "polestar-3-2025",
@@ -6537,7 +7553,15 @@
       "towingCapacityLbs": 4409,
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 35
+      "fiveYearResalePercent": 35,
+      "reliabilityRating": "poor",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "porsche-cayenne-2025",
@@ -6590,7 +7614,15 @@
       "towingCapacityLbs": 7716,
       "leaseRating": "fair",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 6900,
+      "maintenanceCostCategory": "very-high",
+      "maintenanceCostAnnual": 2250,
+      "zeroToSixtySeconds": 4.2,
+      "horsepower": 450,
+      "torqueLbFt": 480
     },
     {
       "id": "porsche-macan-electric-2025",
@@ -6642,7 +7674,15 @@
       "towingCapacityLbs": 4409,
       "leaseRating": "fair",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 7900,
+      "maintenanceCostCategory": "very-high",
+      "maintenanceCostAnnual": 1500,
+      "zeroToSixtySeconds": 4.8,
+      "horsepower": 402,
+      "torqueLbFt": 254
     },
     {
       "id": "porsche-taycan-2025",
@@ -6694,7 +7734,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 9000,
+      "maintenanceCostCategory": "very-high",
+      "maintenanceCostAnnual": 1500,
+      "zeroToSixtySeconds": 4.8,
+      "horsepower": 402,
+      "torqueLbFt": 254
     },
     {
       "id": "ram-1500-2025",
@@ -6742,7 +7790,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 55
+      "fiveYearResalePercent": 55,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 6.3,
+      "horsepower": 395,
+      "torqueLbFt": 410
     },
     {
       "id": "rivian-r1s-2025",
@@ -6796,7 +7852,15 @@
       "towingCapacityLbs": 7700,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 835,
+      "torqueLbFt": 908
     },
     {
       "id": "rivian-r1s-quad-2025",
@@ -6849,7 +7913,15 @@
       "towingCapacityLbs": 7700,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 835,
+      "torqueLbFt": 908
     },
     {
       "id": "rivian-r1t-2025",
@@ -6901,7 +7973,15 @@
       "towingCapacityLbs": 11000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4800,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 835,
+      "torqueLbFt": 908
     },
     {
       "id": "rivian-r1t-quad-2025",
@@ -6953,7 +8033,15 @@
       "towingCapacityLbs": 11000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 835,
+      "torqueLbFt": 908
     },
     {
       "id": "subaru-brz-2025",
@@ -7001,7 +8089,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 6.1,
+      "horsepower": 228,
+      "torqueLbFt": 184
     },
     {
       "id": "subaru-crosstrek-2025",
@@ -7054,7 +8150,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "subaru-forester-2025",
@@ -7109,7 +8213,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "subaru-forester-hybrid-2025",
@@ -7156,7 +8268,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 300,
+      "torqueLbFt": 260
     },
     {
       "id": "subaru-outback-2025",
@@ -7211,7 +8331,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "subaru-outback-2025",
@@ -7259,7 +8387,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "subaru-solterra-2025",
@@ -7311,7 +8447,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "tesla-cybertruck-2025",
@@ -7363,7 +8507,15 @@
       "towingCapacityLbs": 11000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 6000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 5.9,
+      "horsepower": 250,
+      "torqueLbFt": 310
     },
     {
       "id": "tesla-cybertruck-cyberbeast-2025",
@@ -7415,7 +8567,15 @@
       "towingCapacityLbs": 11000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 6000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 5.9,
+      "horsepower": 250,
+      "torqueLbFt": 310
     },
     {
       "id": "tesla-model-3-2025",
@@ -7468,7 +8628,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 4.8,
+      "horsepower": 346,
+      "torqueLbFt": 389
     },
     {
       "id": "tesla-model-s-2025",
@@ -7521,7 +8689,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5700,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3.1,
+      "horsepower": 670,
+      "torqueLbFt": 713
     },
     {
       "id": "tesla-model-s-plaid-2025",
@@ -7573,7 +8749,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 5700,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3.1,
+      "horsepower": 670,
+      "torqueLbFt": 713
     },
     {
       "id": "tesla-model-x-2025",
@@ -7625,7 +8809,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 6000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3.1,
+      "horsepower": 670,
+      "torqueLbFt": 713
     },
     {
       "id": "tesla-model-x-plaid-2025",
@@ -7677,7 +8869,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 6000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 3.1,
+      "horsepower": 670,
+      "torqueLbFt": 713
     },
     {
       "id": "tesla-model-y-2025",
@@ -7731,7 +8931,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4400,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 4.8,
+      "horsepower": 346,
+      "torqueLbFt": 389
     },
     {
       "id": "toyota-4runner-2025",
@@ -7784,7 +8992,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 300,
+      "torqueLbFt": 260
     },
     {
       "id": "toyota-bz4x-2025",
@@ -7836,7 +9052,15 @@
       "towingCapacityLbs": 0,
       "leaseRating": "good",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "toyota-camry-2025",
@@ -7891,7 +9115,15 @@
       "towingCapacityLbs": 1000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 8,
+      "horsepower": 188,
+      "torqueLbFt": 138
     },
     {
       "id": "toyota-corolla-2025",
@@ -7939,7 +9171,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1700,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "toyota-crown-2025",
@@ -7992,7 +9232,15 @@
       "towingCapacityLbs": 1000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 6.3,
+      "horsepower": 230,
+      "torqueLbFt": 190
     },
     {
       "id": "toyota-gr86-2025",
@@ -8040,7 +9288,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 6.1,
+      "horsepower": 228,
+      "torqueLbFt": 184
     },
     {
       "id": "toyota-grand-highlander-2025",
@@ -8095,7 +9351,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2700,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "toyota-grand-highlander-2025",
@@ -8143,7 +9407,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 300,
+      "torqueLbFt": 260
     },
     {
       "id": "toyota-highlander-2025",
@@ -8198,7 +9470,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 300,
+      "torqueLbFt": 260
     },
     {
       "id": "toyota-rav4-2025",
@@ -8252,7 +9532,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "toyota-rav4-hybrid-2025",
@@ -8307,7 +9595,15 @@
       "towingCapacityLbs": 2500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 300,
+      "torqueLbFt": 260
     },
     {
       "id": "toyota-rav4-prime-2025",
@@ -8364,7 +9660,15 @@
       "towingCapacityLbs": 2500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "toyota-sequoia-2025",
@@ -8417,7 +9721,15 @@
       "towingCapacityLbs": 9520,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2700,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 5.5,
+      "horsepower": 350,
+      "torqueLbFt": 310
     },
     {
       "id": "toyota-sienna-2025",
@@ -8472,7 +9784,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 7.2,
+      "horsepower": 280,
+      "torqueLbFt": 262
     },
     {
       "id": "toyota-tundra-2025",
@@ -8520,7 +9840,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 62
+      "fiveYearResalePercent": 62,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 6.8,
+      "horsepower": 278,
+      "torqueLbFt": 265
     },
     {
       "id": "volkswagen-atlas-2025",
@@ -8573,7 +9901,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "volkswagen-golf-gti-2025",
@@ -8621,7 +9957,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "volkswagen-id4-2025",
@@ -8674,7 +10018,15 @@
       "towingCapacityLbs": 2700,
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.7,
+      "horsepower": 282,
+      "torqueLbFt": 406
     },
     {
       "id": "volkswagen-id4-2025",
@@ -8721,7 +10073,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.7,
+      "horsepower": 282,
+      "torqueLbFt": 406
     },
     {
       "id": "volkswagen-jetta-2025",
@@ -8769,7 +10129,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "low",
+      "insuranceCostAnnual": 1900,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "volkswagen-tiguan-2025",
@@ -8822,7 +10190,15 @@
       "towingCapacityLbs": 1500,
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 45
+      "fiveYearResalePercent": 45,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "volvo-ex90-2025",
@@ -8874,7 +10250,15 @@
       "towingCapacityLbs": 5500,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4000,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "volvo-v60-cross-country-2025",
@@ -8922,7 +10306,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1150,
+      "zeroToSixtySeconds": 6.3,
+      "horsepower": 230,
+      "torqueLbFt": 190
     },
     {
       "id": "volvo-xc60-2025",
@@ -8975,7 +10367,15 @@
       "towingCapacityLbs": 4400,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1150,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 300,
+      "torqueLbFt": 260
     },
     {
       "id": "volvo-xc90-2025",
@@ -9028,7 +10428,15 @@
       "towingCapacityLbs": 5000,
       "leaseRating": "fair",
       "depreciationCategory": "high",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1150,
+      "zeroToSixtySeconds": 5.5,
+      "horsepower": 350,
+      "torqueLbFt": 310
     },
     {
       "id": "chevrolet-equinox-ev-2024",
@@ -9075,7 +10483,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 6.5,
+      "horsepower": 288,
+      "torqueLbFt": 333
     },
     {
       "id": "ford-edge-2024",
@@ -9130,7 +10546,15 @@
       "towingCapacityLbs": 3500,
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 46
+      "fiveYearResalePercent": 46,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "honda-accord-2024",
@@ -9178,7 +10602,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "hyundai-tucson-2024",
@@ -9226,7 +10658,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "mazda-cx5-2024",
@@ -9274,7 +10714,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 52
+      "fiveYearResalePercent": 52,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "nissan-ariya-2024",
@@ -9321,7 +10769,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "very-high",
-      "fiveYearResalePercent": 40
+      "fiveYearResalePercent": 40,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 550,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "toyota-camry-2024",
@@ -9369,7 +10825,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2000,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "ford-mach-e-2023",
@@ -9416,7 +10880,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 38
+      "fiveYearResalePercent": 38,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.2,
+      "horsepower": 346,
+      "torqueLbFt": 428
     },
     {
       "id": "honda-crv-2023",
@@ -9464,7 +10936,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 54
+      "fiveYearResalePercent": 54,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "kia-telluride-2023",
@@ -9512,7 +10992,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "excellent",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 48
+      "fiveYearResalePercent": 48,
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "tesla-model3-2022",
@@ -9559,7 +11047,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "fair",
       "depreciationCategory": "medium",
-      "fiveYearResalePercent": 50
+      "fiveYearResalePercent": 50,
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 4.8,
+      "horsepower": 346,
+      "torqueLbFt": 389
     },
     {
       "id": "toyota-rav4-2022",
@@ -9607,7 +11103,15 @@
       "dataSource": "manufacturer",
       "leaseRating": "good",
       "depreciationCategory": "low",
-      "fiveYearResalePercent": 58
+      "fiveYearResalePercent": 58,
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2100,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 650,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "toyota-rav4-2011",
@@ -9660,7 +11164,10 @@
       "mirrorsFoldedWidthInches": 73.5,
       "reviewScore": 83,
       "groundClearanceInches": 8.4,
-      "towingCapacityLbs": 3500
+      "towingCapacityLbs": 3500,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "nissan-gtr-r35-2009",
@@ -9704,7 +11211,10 @@
       },
       "notes": "VR38DETT twin-turbo V6. 480hp. Launch control. Beat supercars at half the price. Current value: $50,000-$80,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 5.5,
+      "horsepower": 300,
+      "torqueLbFt": 280
     },
     {
       "id": "ford-gt-2005",
@@ -9748,7 +11258,10 @@
       },
       "notes": "GT40 revival. 550hp supercharged V8. Only 4,038 built. Current value: $400,000-$700,000+",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 4.2,
+      "horsepower": 480,
+      "torqueLbFt": 420
     },
     {
       "id": "subaru-wrx-sti-2004",
@@ -9792,7 +11305,10 @@
       },
       "notes": "Blobeye generation. First US STI. 300hp EJ257. Rally legend. Current value: $25,000-$45,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 158,
+      "torqueLbFt": 138
     },
     {
       "id": "nissan-silvia-s15-2002",
@@ -9836,7 +11352,10 @@
       },
       "notes": "SR20DET turbo. 250hp. Ultimate drift car. Never sold in US. Current value: $40,000-$80,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 5.5,
+      "horsepower": 300,
+      "torqueLbFt": 280
     },
     {
       "id": "bmw-m3-e46-2001",
@@ -9880,7 +11399,10 @@
       },
       "notes": "S54 inline-6. 333hp, 8000 RPM redline. Peak analog M car. Track day legend. Current value: $30,000-$80,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 5.5,
+      "horsepower": 300,
+      "torqueLbFt": 280
     },
     {
       "id": "honda-s2000-2000",
@@ -9924,7 +11446,10 @@
       },
       "notes": "F20C revs to 9000 RPM. Highest specific output NA engine of its time. Perfect 50/50 weight. Current value: $35,000-$70,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 5.5,
+      "horsepower": 300,
+      "torqueLbFt": 280
     },
     {
       "id": "nissan-skyline-gtr-r34-1999",
@@ -9968,7 +11493,10 @@
       },
       "notes": "RB26DETT + ATTESA AWD. Paul Walker's iconic car. Finally US legal in 2024. Current value: $150,000-$500,000+",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 4.9,
+      "horsepower": 276,
+      "torqueLbFt": 293
     },
     {
       "id": "toyota-supra-turbo-1998",
@@ -10012,7 +11540,10 @@
       },
       "notes": "Final year. VVT-i 2JZ-GTE. Last of the legends. Current value: $100,000-$250,000+",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 4.6,
+      "horsepower": 320,
+      "torqueLbFt": 315
     },
     {
       "id": "mclaren-f1-1995",
@@ -10144,7 +11675,10 @@
       },
       "notes": "2JZ-GTE legend. 320hp stock, 1000+hp capable. Fast & Furious icon. Current value: $80,000-$200,000+",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 4.6,
+      "horsepower": 320,
+      "torqueLbFt": 315
     },
     {
       "id": "mazda-rx7-1993",
@@ -10364,7 +11898,10 @@
       },
       "notes": "Nicknamed 'Widowmaker' for turbo lag snap oversteer. Whale tail. 282hp 3.3L flat-6. Current value: $150,000-$300,000",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 4.6,
+      "horsepower": 296,
+      "torqueLbFt": 258
     },
     {
       "id": "toyota-corolla-ae86-1985",
@@ -10496,7 +12033,10 @@
       },
       "notes": "Ducktail spoiler. 210hp. Only 1,580 built. Current value: $800,000-$2,000,000+",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 4.6,
+      "horsepower": 296,
+      "torqueLbFt": 258
     },
     {
       "id": "plymouth-cuda-hemi-1970",
@@ -10760,7 +12300,10 @@
       },
       "notes": "One-year-only split rear window. Bill Mitchell design. 327/360hp fuel-injected option. Current value: $150,000-$300,000+",
       "lastUpdated": "2025-12-01",
-      "dataSource": "historical"
+      "dataSource": "historical",
+      "zeroToSixtySeconds": 4.5,
+      "horsepower": 405,
+      "torqueLbFt": 400
     },
     {
       "id": "ferrari-250-gto-1962",
@@ -10845,7 +12388,15 @@
       "fiveYearResalePercent": 42,
       "notes": "Retro-styled electric microbus revival",
       "lastUpdated": "2024-12-01",
-      "dataSource": "vw.com"
+      "dataSource": "vw.com",
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 2900,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 5.7,
+      "horsepower": 282,
+      "torqueLbFt": 406
     },
     {
       "id": "vw-taos-2025",
@@ -10886,7 +12437,15 @@
       "fiveYearResalePercent": 52,
       "notes": "Sign & Drive $339/mo deals available",
       "lastUpdated": "2024-12-01",
-      "dataSource": "vw.com"
+      "dataSource": "vw.com",
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 180,
+      "torqueLbFt": 175
     },
     {
       "id": "ford-maverick-2025",
@@ -10928,7 +12487,15 @@
       "fiveYearResalePercent": 58,
       "notes": "Hybrid standard, excellent value compact truck",
       "lastUpdated": "2024-12-01",
-      "dataSource": "ford.com"
+      "dataSource": "ford.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2300,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 400,
+      "torqueLbFt": 410
     },
     {
       "id": "hyundai-santa-cruz-2025",
@@ -10971,7 +12538,15 @@
       "fiveYearResalePercent": 50,
       "notes": "Unibody sport adventure truck",
       "lastUpdated": "2024-12-01",
-      "dataSource": "hyundai.com"
+      "dataSource": "hyundai.com",
+      "reliabilityRating": "good",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 8.5,
+      "horsepower": 191,
+      "torqueLbFt": 155
     },
     {
       "id": "chrysler-pacifica-2025",
@@ -11013,7 +12588,15 @@
       "fiveYearResalePercent": 43,
       "notes": "Best-in-class cargo, Stow 'n Go seats",
       "lastUpdated": "2024-12-01",
-      "dataSource": "chrysler.com"
+      "dataSource": "chrysler.com",
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2200,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7.2,
+      "horsepower": 280,
+      "torqueLbFt": 262
     },
     {
       "id": "chrysler-pacifica-phev-2025",
@@ -11056,7 +12639,15 @@
       "fiveYearResalePercent": 40,
       "notes": "Only plug-in hybrid minivan available",
       "lastUpdated": "2024-12-01",
-      "dataSource": "chrysler.com"
+      "dataSource": "chrysler.com",
+      "reliabilityRating": "below-average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 750,
+      "zeroToSixtySeconds": 7.2,
+      "horsepower": 280,
+      "torqueLbFt": 262
     },
     {
       "id": "gmc-hummer-ev-2024",
@@ -11099,7 +12690,15 @@
       "fiveYearResalePercent": 35,
       "notes": "1000hp, CrabWalk mode, extreme capability",
       "lastUpdated": "2024-12-01",
-      "dataSource": "gmc.com"
+      "dataSource": "gmc.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "very-high",
+      "insuranceCostAnnual": 4800,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 3,
+      "horsepower": 1000,
+      "torqueLbFt": 1200
     },
     {
       "id": "lexus-tx-2024",
@@ -11142,7 +12741,15 @@
       "fiveYearResalePercent": 58,
       "notes": "New 3-row luxury SUV on Grand Highlander platform",
       "lastUpdated": "2024-12-01",
-      "dataSource": "lexus.com"
+      "dataSource": "lexus.com",
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3000,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 6,
+      "horsepower": 300,
+      "torqueLbFt": 310
     },
     {
       "id": "lexus-nx-2025",
@@ -11184,7 +12791,15 @@
       "fiveYearResalePercent": 56,
       "notes": "Best-selling Lexus SUV",
       "lastUpdated": "2024-12-01",
-      "dataSource": "lexus.com"
+      "dataSource": "lexus.com",
+      "reliabilityRating": "excellent",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1100,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "acura-zdx-2024",
@@ -11225,7 +12840,15 @@
       "fiveYearResalePercent": 42,
       "notes": "Acura's first EV, on GM Ultium platform",
       "lastUpdated": "2024-12-01",
-      "dataSource": "acura.com"
+      "dataSource": "acura.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3400,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 700,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "honda-prologue-2024",
@@ -11266,7 +12889,15 @@
       "fiveYearResalePercent": 48,
       "notes": "Honda's first mainstream EV, GM Ultium platform",
       "lastUpdated": "2024-12-01",
-      "dataSource": "honda.com"
+      "dataSource": "honda.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 400,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "mini-cooper-se-2024",
@@ -11305,7 +12936,15 @@
       "fiveYearResalePercent": 42,
       "notes": "Fun city EV, limited range",
       "lastUpdated": "2024-12-01",
-      "dataSource": "miniusa.com"
+      "dataSource": "miniusa.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "average",
+      "maintenanceCostAnnual": 900,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "mini-countryman-2025",
@@ -11345,7 +12984,15 @@
       "fiveYearResalePercent": 44,
       "notes": "All-new 2025, biggest Mini ever",
       "lastUpdated": "2024-12-01",
-      "dataSource": "miniusa.com"
+      "dataSource": "miniusa.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2500,
+      "maintenanceCostCategory": "high",
+      "maintenanceCostAnnual": 1350,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 260
     },
     {
       "id": "fiat-500e-2024",
@@ -11385,7 +13032,15 @@
       "fiveYearResalePercent": 32,
       "notes": "Stylish Italian city EV, retro design",
       "lastUpdated": "2024-12-01",
-      "dataSource": "fiat.com"
+      "dataSource": "fiat.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "average",
+      "insuranceCostAnnual": 2600,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 600,
+      "zeroToSixtySeconds": 7,
+      "horsepower": 250,
+      "torqueLbFt": 280
     },
     {
       "id": "kia-ev9-2024",
@@ -11428,7 +13083,15 @@
       "fiveYearResalePercent": 42,
       "notes": "3-row electric SUV, World Car of the Year 2024",
       "lastUpdated": "2024-12-01",
-      "dataSource": "kia.com"
+      "dataSource": "kia.com",
+      "reliabilityRating": "average",
+      "insuranceCostCategory": "high",
+      "insuranceCostAnnual": 3300,
+      "maintenanceCostCategory": "low",
+      "maintenanceCostAnnual": 500,
+      "zeroToSixtySeconds": 5.1,
+      "horsepower": 320,
+      "torqueLbFt": 446
     }
   ],
   "lastSyncDate": "2025-12-01",
