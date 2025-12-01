@@ -49,7 +49,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 73.5,
-      "reviewScore": 83
+      "reviewScore": 83,
+      "groundClearanceInches": 8.4,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "toyota-rav4-2025",
@@ -98,7 +100,9 @@
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
-      "reviewScore": 83
+      "reviewScore": 83,
+      "groundClearanceInches": 8.4,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "toyota-rav4-hybrid-2025",
@@ -148,7 +152,9 @@
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8.4,
+      "towingCapacityLbs": 2500
     },
     {
       "id": "toyota-rav4-prime-2025",
@@ -200,7 +206,9 @@
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 8.1,
+      "towingCapacityLbs": 2500
     },
     {
       "id": "honda-crv-2025",
@@ -249,7 +257,9 @@
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.5,
-      "reviewScore": 100
+      "reviewScore": 100,
+      "groundClearanceInches": 7.8,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "honda-crv-hybrid-2025",
@@ -299,7 +309,9 @@
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.5,
-      "reviewScore": 92
+      "reviewScore": 92,
+      "groundClearanceInches": 7.8,
+      "towingCapacityLbs": 1000
     },
     {
       "id": "tesla-model-y-2025",
@@ -348,7 +360,9 @@
         "cityAutopilot": true
       },
       "mirrorsFoldedWidthInches": 76,
-      "reviewScore": 88
+      "reviewScore": 88,
+      "groundClearanceInches": 6.6,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "tesla-model-3-2025",
@@ -396,7 +410,9 @@
         "cityAutopilot": true
       },
       "mirrorsFoldedWidthInches": 73.2,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 5.5,
+      "towingCapacityLbs": 0
     },
     {
       "id": "chevrolet-equinox-ev-2025",
@@ -444,7 +460,9 @@
       },
       "mirrorsFoldedWidthInches": 75.1,
       "mirrorWidthInches": 83.3,
-      "reviewScore": 58
+      "reviewScore": 58,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "ford-mustang-mach-e-2025",
@@ -493,7 +511,9 @@
       },
       "mirrorsFoldedWidthInches": 76.1,
       "mirrorWidthInches": 84.4,
-      "reviewScore": 88
+      "reviewScore": 88,
+      "groundClearanceInches": 5.8,
+      "towingCapacityLbs": 0
     },
     {
       "id": "hyundai-tucson-2025",
@@ -542,7 +562,9 @@
       },
       "mirrorsFoldedWidthInches": 75.4,
       "mirrorWidthInches": 83.1,
-      "reviewScore": 67
+      "reviewScore": 67,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 2000
     },
     {
       "id": "hyundai-ioniq-5-2025",
@@ -590,7 +612,9 @@
       },
       "mirrorsFoldedWidthInches": 76.4,
       "mirrorWidthInches": 84.4,
-      "reviewScore": 92
+      "reviewScore": 92,
+      "groundClearanceInches": 6.1,
+      "towingCapacityLbs": 2300
     },
     {
       "id": "hyundai-ioniq-6-2025",
@@ -638,7 +662,9 @@
       },
       "mirrorsFoldedWidthInches": 75.6,
       "mirrorWidthInches": 83.2,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 4.9,
+      "towingCapacityLbs": 0
     },
     {
       "id": "kia-ev6-2025",
@@ -686,7 +712,9 @@
       },
       "mirrorsFoldedWidthInches": 76.4,
       "mirrorWidthInches": 84.4,
-      "reviewScore": 93
+      "reviewScore": 93,
+      "groundClearanceInches": 6.1,
+      "towingCapacityLbs": 2300
     },
     {
       "id": "kia-ev9-2025",
@@ -734,7 +762,9 @@
       },
       "mirrorsFoldedWidthInches": 79.9,
       "mirrorWidthInches": 87.5,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 7.8,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "mazda-cx5-2025",
@@ -783,7 +813,9 @@
       },
       "mirrorsFoldedWidthInches": 74.5,
       "mirrorWidthInches": 82,
-      "reviewScore": 96
+      "reviewScore": 96,
+      "groundClearanceInches": 7.5,
+      "towingCapacityLbs": 2000
     },
     {
       "id": "mazda-cx50-2025",
@@ -833,7 +865,9 @@
       },
       "mirrorsFoldedWidthInches": 77.7,
       "mirrorWidthInches": 85.2,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 8.6,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "subaru-outback-2025",
@@ -883,7 +917,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 75,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 8.7,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "subaru-forester-2025",
@@ -933,7 +969,9 @@
       },
       "mirrorsFoldedWidthInches": 74.2,
       "mirrorWidthInches": 81.5,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8.7,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "toyota-highlander-2025",
@@ -983,7 +1021,9 @@
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
-      "reviewScore": 79
+      "reviewScore": 79,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "toyota-grand-highlander-2025",
@@ -1033,7 +1073,9 @@
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 8.2,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "honda-odyssey-2025",
@@ -1082,7 +1124,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 80.5,
-      "reviewScore": 95
+      "reviewScore": 95,
+      "groundClearanceInches": 4.8,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "toyota-sienna-2025",
@@ -1132,7 +1176,9 @@
       },
       "mirrorsFoldedWidthInches": 80.5,
       "mirrorWidthInches": 87.7,
-      "reviewScore": 88
+      "reviewScore": 88,
+      "groundClearanceInches": 6.1,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "kia-niro-ev-2025",
@@ -1179,7 +1225,9 @@
       },
       "mirrorsFoldedWidthInches": 73.1,
       "mirrorWidthInches": 80.5,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 6.3,
+      "towingCapacityLbs": 0
     },
     {
       "id": "volkswagen-id4-2025",
@@ -1227,7 +1275,9 @@
       },
       "mirrorsFoldedWidthInches": 74.9,
       "mirrorWidthInches": 82.3,
-      "reviewScore": 72
+      "reviewScore": 72,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 2700
     },
     {
       "id": "nissan-ariya-2025",
@@ -1275,7 +1325,9 @@
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.5,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 7,
+      "towingCapacityLbs": 0
     },
     {
       "id": "rivian-r1s-2025",
@@ -1324,7 +1376,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 80.2,
-      "reviewScore": 87
+      "reviewScore": 87,
+      "groundClearanceInches": 14.9,
+      "towingCapacityLbs": 7700
     },
     {
       "id": "toyota-camry-2025",
@@ -1374,7 +1428,9 @@
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 82.1,
-      "reviewScore": 73
+      "reviewScore": 73,
+      "groundClearanceInches": 5.7,
+      "towingCapacityLbs": 1000
     },
     {
       "id": "honda-accord-2025",
@@ -1423,7 +1479,9 @@
       },
       "mirrorsFoldedWidthInches": 75.3,
       "mirrorWidthInches": 82.4,
-      "reviewScore": 100
+      "reviewScore": 100,
+      "groundClearanceInches": 5.3,
+      "towingCapacityLbs": 1000
     },
     {
       "id": "honda-prologue-2025",
@@ -1471,7 +1529,9 @@
       },
       "mirrorsFoldedWidthInches": 79.7,
       "mirrorWidthInches": 86.5,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "ford-escape-2025",
@@ -1520,7 +1580,9 @@
       },
       "mirrorsFoldedWidthInches": 74,
       "mirrorWidthInches": 81.2,
-      "reviewScore": 76
+      "reviewScore": 76,
+      "groundClearanceInches": 7.8,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "chevrolet-trax-2025",
@@ -1569,7 +1631,9 @@
       },
       "mirrorsFoldedWidthInches": 73.2,
       "mirrorWidthInches": 80.4,
-      "reviewScore": 7
+      "reviewScore": 7,
+      "groundClearanceInches": 6.7,
+      "towingCapacityLbs": 0
     },
     {
       "id": "bmw-x3-2025",
@@ -1617,7 +1681,9 @@
       },
       "mirrorsFoldedWidthInches": 76.7,
       "mirrorWidthInches": 84.5,
-      "reviewScore": 83
+      "reviewScore": 83,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 4400
     },
     {
       "id": "bmw-ix-2025",
@@ -1664,7 +1730,9 @@
       },
       "mirrorsFoldedWidthInches": 79.4,
       "mirrorWidthInches": 86.6,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 6.9,
+      "towingCapacityLbs": 6000
     },
     {
       "id": "mercedes-glc-2025",
@@ -1712,7 +1780,9 @@
       },
       "mirrorsFoldedWidthInches": 76.4,
       "mirrorWidthInches": 84.1,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 7.8,
+      "towingCapacityLbs": 4000
     },
     {
       "id": "mercedes-eqe-suv-2025",
@@ -1759,7 +1829,9 @@
       },
       "mirrorsFoldedWidthInches": 78.2,
       "mirrorWidthInches": 85.5,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 6.7,
+      "towingCapacityLbs": 4000
     },
     {
       "id": "audi-q5-2025",
@@ -1807,7 +1879,9 @@
       },
       "mirrorsFoldedWidthInches": 76.5,
       "mirrorWidthInches": 84.3,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 8.2,
+      "towingCapacityLbs": 4400
     },
     {
       "id": "audi-q4-etron-2025",
@@ -1854,7 +1928,9 @@
       },
       "mirrorsFoldedWidthInches": 75.2,
       "mirrorWidthInches": 82.7,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 6.9,
+      "towingCapacityLbs": 2400
     },
     {
       "id": "lexus-rx-2025",
@@ -1901,7 +1977,9 @@
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.3,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "lexus-rx-hybrid-2025",
@@ -1951,7 +2029,9 @@
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.3,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "lexus-rz-2025",
@@ -1997,7 +2077,9 @@
       },
       "mirrorsFoldedWidthInches": 75.6,
       "mirrorWidthInches": 83,
-      "reviewScore": 68
+      "reviewScore": 68,
+      "groundClearanceInches": 6.1,
+      "towingCapacityLbs": 0
     },
     {
       "id": "acura-mdx-2025",
@@ -2045,7 +2127,9 @@
       },
       "mirrorsFoldedWidthInches": 80.4,
       "mirrorWidthInches": 87.1,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 7.3,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "acura-rdx-2025",
@@ -2093,7 +2177,9 @@
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.3,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 8.2,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "volvo-xc60-2025",
@@ -2141,7 +2227,9 @@
       },
       "mirrorsFoldedWidthInches": 76.9,
       "mirrorWidthInches": 84.5,
-      "reviewScore": 83
+      "reviewScore": 83,
+      "groundClearanceInches": 9.4,
+      "towingCapacityLbs": 4400
     },
     {
       "id": "volvo-xc90-2025",
@@ -2189,7 +2277,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 81.1,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 9.3,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "volvo-ex90-2025",
@@ -2236,7 +2326,9 @@
       },
       "mirrorsFoldedWidthInches": 79.3,
       "mirrorWidthInches": 86.5,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 9.3,
+      "towingCapacityLbs": 5500
     },
     {
       "id": "genesis-gv70-2025",
@@ -2284,7 +2376,9 @@
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.4,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 7.3,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "genesis-electrified-gv70-2025",
@@ -2331,7 +2425,9 @@
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.4,
-      "reviewScore": 84
+      "reviewScore": 84,
+      "groundClearanceInches": 7.3,
+      "towingCapacityLbs": 0
     },
     {
       "id": "nissan-rogue-2025",
@@ -2379,7 +2475,9 @@
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 82,
-      "reviewScore": 79
+      "reviewScore": 79,
+      "groundClearanceInches": 8.4,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "nissan-murano-2025",
@@ -2427,7 +2525,9 @@
       },
       "mirrorsFoldedWidthInches": 77.4,
       "mirrorWidthInches": 84.8,
-      "reviewScore": 50
+      "reviewScore": 50,
+      "groundClearanceInches": 7.1,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "nissan-pathfinder-2025",
@@ -2475,7 +2575,9 @@
       },
       "mirrorsFoldedWidthInches": 79.2,
       "mirrorWidthInches": 86.5,
-      "reviewScore": 42
+      "reviewScore": 42,
+      "groundClearanceInches": 7.1,
+      "towingCapacityLbs": 6000
     },
     {
       "id": "jeep-grand-cherokee-2025",
@@ -2523,7 +2625,9 @@
       },
       "mirrorsFoldedWidthInches": 79.7,
       "mirrorWidthInches": 86.7,
-      "reviewScore": 60
+      "reviewScore": 60,
+      "groundClearanceInches": 8.6,
+      "towingCapacityLbs": 7200
     },
     {
       "id": "jeep-grand-cherokee-4xe-2025",
@@ -2573,7 +2677,9 @@
       },
       "mirrorsFoldedWidthInches": 79.7,
       "mirrorWidthInches": 86.7,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 10.9,
+      "towingCapacityLbs": 6000
     },
     {
       "id": "jeep-wrangler-2025",
@@ -2621,7 +2727,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 75.8,
-      "reviewScore": 53
+      "reviewScore": 53,
+      "groundClearanceInches": 10,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "dodge-hornet-2025",
@@ -2668,7 +2776,9 @@
       },
       "mirrorsFoldedWidthInches": 74,
       "mirrorWidthInches": 81.6,
-      "reviewScore": 55
+      "reviewScore": 55,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 2000
     },
     {
       "id": "gmc-terrain-2025",
@@ -2716,7 +2826,9 @@
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.6,
-      "reviewScore": 44
+      "reviewScore": 44,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "gmc-acadia-2025",
@@ -2764,7 +2876,9 @@
       },
       "mirrorsFoldedWidthInches": 77.4,
       "mirrorWidthInches": 84.8,
-      "reviewScore": 56
+      "reviewScore": 56,
+      "groundClearanceInches": 7.2,
+      "towingCapacityLbs": 4000
     },
     {
       "id": "buick-envision-2025",
@@ -2812,7 +2926,9 @@
       },
       "mirrorsFoldedWidthInches": 74.6,
       "mirrorWidthInches": 81.8,
-      "reviewScore": 62
+      "reviewScore": 62,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "buick-enclave-2025",
@@ -2860,7 +2976,9 @@
       },
       "mirrorsFoldedWidthInches": 80.8,
       "mirrorWidthInches": 88,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 7,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "cadillac-lyriq-2025",
@@ -2907,7 +3025,9 @@
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
-      "reviewScore": 83
+      "reviewScore": 83,
+      "groundClearanceInches": 6,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "lincoln-nautilus-2025",
@@ -2954,7 +3074,9 @@
       },
       "mirrorsFoldedWidthInches": 78.3,
       "mirrorWidthInches": 85.5,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 7.8,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "lincoln-aviator-2025",
@@ -3002,7 +3124,9 @@
       },
       "mirrorsFoldedWidthInches": 80.9,
       "mirrorWidthInches": 88.1,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 6700
     },
     {
       "id": "polestar-2-2025",
@@ -3049,7 +3173,9 @@
       },
       "mirrorsFoldedWidthInches": 74.8,
       "mirrorWidthInches": 82.1,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 5.9,
+      "towingCapacityLbs": 2000
     },
     {
       "id": "polestar-3-2025",
@@ -3096,7 +3222,9 @@
       },
       "mirrorsFoldedWidthInches": 79,
       "mirrorWidthInches": 86.2,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 7.7,
+      "towingCapacityLbs": 4409
     },
     {
       "id": "lucid-air-2025",
@@ -3142,7 +3270,9 @@
       },
       "mirrorsFoldedWidthInches": 78.3,
       "mirrorWidthInches": 85.8,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 5.3,
+      "towingCapacityLbs": 0
     },
     {
       "id": "lucid-gravity-2025",
@@ -3189,7 +3319,9 @@
       },
       "mirrorsFoldedWidthInches": 79.9,
       "mirrorWidthInches": 87.2,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 6.4,
+      "towingCapacityLbs": 6000
     },
     {
       "id": "rivian-r2-2026",
@@ -3236,7 +3368,9 @@
       },
       "mirrorsFoldedWidthInches": 77,
       "mirrorWidthInches": 84.2,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8.5,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "toyota-4runner-2025",
@@ -3284,7 +3418,9 @@
       },
       "mirrorsFoldedWidthInches": 79.8,
       "mirrorWidthInches": 86.8,
-      "reviewScore": 32
+      "reviewScore": 32,
+      "groundClearanceInches": 9.6,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "toyota-sequoia-2025",
@@ -3332,7 +3468,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 81.9,
-      "reviewScore": 55
+      "reviewScore": 55,
+      "groundClearanceInches": 9.5,
+      "towingCapacityLbs": 9520
     },
     {
       "id": "toyota-crown-2025",
@@ -3380,7 +3518,9 @@
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.9,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 6.3,
+      "towingCapacityLbs": 1000
     },
     {
       "id": "honda-pilot-2025",
@@ -3428,7 +3568,9 @@
         "cityAutopilot": false
       },
       "mirrorsFoldedWidthInches": 80.5,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 7.3,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "honda-hr-v-2025",
@@ -3476,7 +3618,9 @@
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.5,
-      "reviewScore": 62
+      "reviewScore": 62,
+      "groundClearanceInches": 7.3,
+      "towingCapacityLbs": 0
     },
     {
       "id": "hyundai-santa-fe-2025",
@@ -3524,7 +3668,9 @@
       },
       "mirrorsFoldedWidthInches": 79.8,
       "mirrorWidthInches": 86.8,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 8.6,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "hyundai-palisade-2025",
@@ -3572,7 +3718,9 @@
       },
       "mirrorsFoldedWidthInches": 79.8,
       "mirrorWidthInches": 86.9,
-      "reviewScore": 93
+      "reviewScore": 93,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "kia-telluride-2025",
@@ -3620,7 +3768,9 @@
       },
       "mirrorsFoldedWidthInches": 80.3,
       "mirrorWidthInches": 87.5,
-      "reviewScore": 100
+      "reviewScore": 100,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 5500
     },
     {
       "id": "kia-sportage-2025",
@@ -3668,7 +3818,9 @@
       },
       "mirrorsFoldedWidthInches": 75.4,
       "mirrorWidthInches": 83,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 2500
     },
     {
       "id": "kia-sorento-2025",
@@ -3716,7 +3868,9 @@
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.4,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "volkswagen-tiguan-2025",
@@ -3764,7 +3918,9 @@
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.8,
-      "reviewScore": 58
+      "reviewScore": 58,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "volkswagen-atlas-2025",
@@ -3812,7 +3968,9 @@
       },
       "mirrorsFoldedWidthInches": 80.3,
       "mirrorWidthInches": 87.6,
-      "reviewScore": 63
+      "reviewScore": 63,
+      "groundClearanceInches": 8,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "mitsubishi-outlander-2025",
@@ -3860,7 +4018,9 @@
       },
       "mirrorsFoldedWidthInches": 76.6,
       "mirrorWidthInches": 84,
-      "reviewScore": 40
+      "reviewScore": 40,
+      "groundClearanceInches": 8.5,
+      "towingCapacityLbs": 2000
     },
     {
       "id": "mitsubishi-outlander-phev-2025",
@@ -3911,7 +4071,9 @@
       },
       "mirrorsFoldedWidthInches": 76.6,
       "mirrorWidthInches": 84,
-      "reviewScore": 40
+      "reviewScore": 40,
+      "groundClearanceInches": 8.5,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "mazda-cx-70-2025",
@@ -3959,7 +4121,9 @@
       },
       "mirrorsFoldedWidthInches": 78.4,
       "mirrorWidthInches": 86,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "mazda-cx-90-2025",
@@ -4007,7 +4171,9 @@
       },
       "mirrorsFoldedWidthInches": 78.4,
       "mirrorWidthInches": 86,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "ford-explorer-2025",
@@ -4055,7 +4221,9 @@
       },
       "mirrorsFoldedWidthInches": 80.9,
       "mirrorWidthInches": 88.2,
-      "reviewScore": 64
+      "reviewScore": 64,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 5600
     },
     {
       "id": "ford-edge-2024",
@@ -4105,7 +4273,9 @@
       },
       "mirrorsFoldedWidthInches": 77.9,
       "mirrorWidthInches": 85.1,
-      "reviewScore": 67
+      "reviewScore": 67,
+      "groundClearanceInches": 7.9,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "ford-bronco-sport-2025",
@@ -4153,7 +4323,9 @@
       },
       "mirrorsFoldedWidthInches": 76.3,
       "mirrorWidthInches": 83.5,
-      "reviewScore": 72
+      "reviewScore": 72,
+      "groundClearanceInches": 8.8,
+      "towingCapacityLbs": 2200
     },
     {
       "id": "chevrolet-blazer-ev-2025",
@@ -4200,7 +4372,9 @@
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 6.5,
+      "towingCapacityLbs": 0
     },
     {
       "id": "chevrolet-traverse-2025",
@@ -4248,7 +4422,9 @@
       },
       "mirrorsFoldedWidthInches": 80.6,
       "mirrorWidthInches": 87.8,
-      "reviewScore": 66
+      "reviewScore": 66,
+      "groundClearanceInches": 7.7,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "subaru-crosstrek-2025",
@@ -4296,7 +4472,9 @@
       },
       "mirrorsFoldedWidthInches": 73.9,
       "mirrorWidthInches": 81.2,
-      "reviewScore": 87
+      "reviewScore": 87,
+      "groundClearanceInches": 8.7,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "subaru-solterra-2025",
@@ -4343,7 +4521,9 @@
       },
       "mirrorsFoldedWidthInches": 75.2,
       "mirrorWidthInches": 82.9,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 0
     },
     {
       "id": "toyota-bz4x-2025",
@@ -4390,7 +4570,9 @@
       },
       "mirrorsFoldedWidthInches": 75.2,
       "mirrorWidthInches": 82.9,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 0
     },
     {
       "id": "toyota-rav4-hybrid-2026",
@@ -4432,7 +4614,9 @@
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8.4,
+      "towingCapacityLbs": 2500
     },
     {
       "id": "toyota-rav4-prime-2026",
@@ -4474,7 +4658,9 @@
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 8.1,
+      "towingCapacityLbs": 2500
     },
     {
       "id": "chevrolet-bolt-ev-2026",
@@ -4515,7 +4701,9 @@
       },
       "mirrorsFoldedWidthInches": 71.5,
       "mirrorWidthInches": 78.7,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 6.4,
+      "towingCapacityLbs": 0
     },
     {
       "id": "nissan-leaf-2026",
@@ -4556,7 +4744,9 @@
       },
       "mirrorsFoldedWidthInches": 73.3,
       "mirrorWidthInches": 80.7,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 6.3,
+      "towingCapacityLbs": 0
     },
     {
       "id": "jeep-wagoneer-s-2025",
@@ -4597,7 +4787,9 @@
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.5,
-      "reviewScore": 70
+      "reviewScore": 70,
+      "groundClearanceInches": 6.4,
+      "towingCapacityLbs": 0
     },
     {
       "id": "subaru-forester-hybrid-2025",
@@ -4639,7 +4831,9 @@
       },
       "mirrorsFoldedWidthInches": 74,
       "mirrorWidthInches": 81.3,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8.7,
+      "towingCapacityLbs": 1500
     },
     {
       "id": "cadillac-lyriq-2026",
@@ -4680,7 +4874,9 @@
       },
       "mirrorsFoldedWidthInches": 78.8,
       "mirrorWidthInches": 85.8,
-      "reviewScore": 83
+      "reviewScore": 83,
+      "groundClearanceInches": 6,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "tesla-model-s-2025",
@@ -4728,7 +4924,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "tesla.com",
       "mirrorsFoldedWidthInches": 77.7,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 4.6,
+      "towingCapacityLbs": 0
     },
     {
       "id": "tesla-model-s-plaid-2025",
@@ -4775,7 +4973,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "tesla.com",
       "mirrorsFoldedWidthInches": 77.7,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 4.6,
+      "towingCapacityLbs": 0
     },
     {
       "id": "tesla-model-x-2025",
@@ -4822,7 +5022,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "tesla.com",
       "mirrorsFoldedWidthInches": 79.1,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 6.5,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "tesla-model-x-plaid-2025",
@@ -4869,7 +5071,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "tesla.com",
       "mirrorsFoldedWidthInches": 79.1,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 6.5,
+      "towingCapacityLbs": 5000
     },
     {
       "id": "tesla-cybertruck-2025",
@@ -4916,7 +5120,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "tesla.com",
       "mirrorsFoldedWidthInches": 79.8,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 17,
+      "towingCapacityLbs": 11000
     },
     {
       "id": "tesla-cybertruck-cyberbeast-2025",
@@ -4963,7 +5169,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "tesla.com",
       "mirrorsFoldedWidthInches": 79.8,
-      "reviewScore": 65
+      "reviewScore": 65,
+      "groundClearanceInches": 17,
+      "towingCapacityLbs": 11000
     },
     {
       "id": "rivian-r1t-2025",
@@ -5010,7 +5218,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "rivian.com",
       "mirrorsFoldedWidthInches": 81.3,
-      "reviewScore": 88
+      "reviewScore": 88,
+      "groundClearanceInches": 14.9,
+      "towingCapacityLbs": 11000
     },
     {
       "id": "rivian-r1t-quad-2025",
@@ -5057,7 +5267,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "rivian.com",
       "mirrorsFoldedWidthInches": 81.3,
-      "reviewScore": 88
+      "reviewScore": 88,
+      "groundClearanceInches": 14.9,
+      "towingCapacityLbs": 11000
     },
     {
       "id": "rivian-r1s-quad-2025",
@@ -5105,7 +5317,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "rivian.com",
       "mirrorsFoldedWidthInches": 81.3,
-      "reviewScore": 87
+      "reviewScore": 87,
+      "groundClearanceInches": 14.9,
+      "towingCapacityLbs": 7700
     },
     {
       "id": "bmw-i4-2025",
@@ -5152,7 +5366,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "bmwusa.com",
       "mirrorsFoldedWidthInches": 74.9,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 5.1,
+      "towingCapacityLbs": 0
     },
     {
       "id": "bmw-i5-2025",
@@ -5199,7 +5415,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "bmwusa.com",
       "mirrorsFoldedWidthInches": 76.8,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 5.2,
+      "towingCapacityLbs": 0
     },
     {
       "id": "bmw-x5-2025",
@@ -5247,7 +5465,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "bmwusa.com",
       "mirrorsFoldedWidthInches": 80.9,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 8.7,
+      "towingCapacityLbs": 7200
     },
     {
       "id": "mercedes-eqs-suv-2025",
@@ -5294,7 +5514,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "mbusa.com",
       "mirrorsFoldedWidthInches": 79.5,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 7.1,
+      "towingCapacityLbs": 3500
     },
     {
       "id": "mercedes-eqe-2025",
@@ -5341,7 +5563,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "mbusa.com",
       "mirrorsFoldedWidthInches": 76.2,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 5,
+      "towingCapacityLbs": 0
     },
     {
       "id": "mercedes-s-class-2025",
@@ -5390,7 +5614,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "mbusa.com",
       "mirrorsFoldedWidthInches": 78.9,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 4.5,
+      "towingCapacityLbs": 0
     },
     {
       "id": "mercedes-gle-2025",
@@ -5438,7 +5664,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "mbusa.com",
       "mirrorsFoldedWidthInches": 78.1,
-      "reviewScore": 82
+      "reviewScore": 82,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 7700
     },
     {
       "id": "audi-q8-etron-2025",
@@ -5485,7 +5713,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "audiusa.com",
       "mirrorsFoldedWidthInches": 78.3,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 7.1,
+      "towingCapacityLbs": 4000
     },
     {
       "id": "audi-q6-etron-2025",
@@ -5532,7 +5762,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "audiusa.com",
       "mirrorsFoldedWidthInches": 77.6,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 7.3,
+      "towingCapacityLbs": 4400
     },
     {
       "id": "audi-a6-2025",
@@ -5580,7 +5812,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "audiusa.com",
       "mirrorsFoldedWidthInches": 75.8,
-      "reviewScore": 78
+      "reviewScore": 78,
+      "groundClearanceInches": 5.8,
+      "towingCapacityLbs": 4400
     },
     {
       "id": "audi-q7-2025",
@@ -5628,7 +5862,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "audiusa.com",
       "mirrorsFoldedWidthInches": 79.6,
-      "reviewScore": 80
+      "reviewScore": 80,
+      "groundClearanceInches": 9.2,
+      "towingCapacityLbs": 7700
     },
     {
       "id": "lexus-gx-2025",
@@ -5676,7 +5912,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "lexus.com",
       "mirrorsFoldedWidthInches": 80.3,
-      "reviewScore": 72
+      "reviewScore": 72,
+      "groundClearanceInches": 8.9,
+      "towingCapacityLbs": 9100
     },
     {
       "id": "lexus-lx-2025",
@@ -5724,7 +5962,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "lexus.com",
       "mirrorsFoldedWidthInches": 80,
-      "reviewScore": 70
+      "reviewScore": 70,
+      "groundClearanceInches": 8.9,
+      "towingCapacityLbs": 8000
     },
     {
       "id": "porsche-taycan-2025",
@@ -5771,7 +6011,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "porsche.com",
       "mirrorsFoldedWidthInches": 79.4,
-      "reviewScore": 90
+      "reviewScore": 90,
+      "groundClearanceInches": 5.1,
+      "towingCapacityLbs": 0
     },
     {
       "id": "porsche-cayenne-2025",
@@ -5819,7 +6061,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "porsche.com",
       "mirrorsFoldedWidthInches": 80.1,
-      "reviewScore": 88
+      "reviewScore": 88,
+      "groundClearanceInches": 8.3,
+      "towingCapacityLbs": 7716
     },
     {
       "id": "porsche-macan-electric-2025",
@@ -5866,7 +6110,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "porsche.com",
       "mirrorsFoldedWidthInches": 78.2,
-      "reviewScore": 85
+      "reviewScore": 85,
+      "groundClearanceInches": 6.9,
+      "towingCapacityLbs": 4409
     },
     {
       "id": "jaguar-i-pace-2025",
@@ -5913,7 +6159,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "jaguarusa.com",
       "mirrorsFoldedWidthInches": 78.1,
-      "reviewScore": 72
+      "reviewScore": 72,
+      "groundClearanceInches": 6.5,
+      "towingCapacityLbs": 0
     },
     {
       "id": "land-rover-range-rover-2025",
@@ -5961,7 +6209,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "landroverusa.com",
       "mirrorsFoldedWidthInches": 81.9,
-      "reviewScore": 75
+      "reviewScore": 75,
+      "groundClearanceInches": 11.6,
+      "towingCapacityLbs": 7716
     },
     {
       "id": "land-rover-defender-2025",
@@ -6009,7 +6259,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "landroverusa.com",
       "mirrorsFoldedWidthInches": 80.7,
-      "reviewScore": 70
+      "reviewScore": 70,
+      "groundClearanceInches": 11.5,
+      "towingCapacityLbs": 8201
     },
     {
       "id": "infiniti-qx80-2025",
@@ -6057,7 +6309,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "infinitiusa.com",
       "mirrorsFoldedWidthInches": 81.9,
-      "reviewScore": 55
+      "reviewScore": 55,
+      "groundClearanceInches": 9.2,
+      "towingCapacityLbs": 8500
     },
     {
       "id": "infiniti-qx60-2025",
@@ -6105,7 +6359,9 @@
       "lastUpdated": "2025-11-30",
       "dataSource": "infinitiusa.com",
       "mirrorsFoldedWidthInches": 79.2,
-      "reviewScore": 58
+      "reviewScore": 58,
+      "groundClearanceInches": 7,
+      "towingCapacityLbs": 6000
     }
   ],
   "lastSyncDate": "2025-11-30",

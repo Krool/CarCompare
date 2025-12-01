@@ -204,6 +204,14 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
         aVal = a.reviewScore ?? 0;
         bVal = b.reviewScore ?? 0;
         break;
+      case "heightInches":
+        aVal = a.heightInches ?? 0;
+        bVal = b.heightInches ?? 0;
+        break;
+      case "groundClearanceInches":
+        aVal = a.groundClearanceInches ?? 0;
+        bVal = b.groundClearanceInches ?? 0;
+        break;
       default:
         return 0;
     }

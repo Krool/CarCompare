@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { Car, CarFilters, SortConfig, SortField } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, ColumnId } from "@/types/car";
 import carData from "@/data/cars.json";
 import FilterControls from "@/components/FilterControls";
 import CarTable from "@/components/CarTable";
 import BaselineSelector from "@/components/BaselineSelector";
 import CompareModal from "@/components/CompareModal";
+import ColumnSettings, { DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
 import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv } from "@/lib/carUtils";
 
 // LocalStorage keys
@@ -15,6 +16,7 @@ const STORAGE_KEYS = {
   filters: "carcompare_filters",
   mirrorBuffer: "carcompare_mirrorBuffer",
   baseline: "carcompare_baseline",
+  columns: "carcompare_columns",
 };
 
 export default function Home() {
@@ -36,6 +38,7 @@ export default function Home() {
   const [showCompareModal, setShowCompareModal] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [visibleColumns, setVisibleColumns] = useState<ColumnId[]>(DEFAULT_VISIBLE_COLUMNS);
 
   // Load state from localStorage on mount
   useEffect(() => {
@@ -74,6 +77,9 @@ export default function Home() {
         const car = allCars.find(c => c.id === savedBaseline);
         if (car) setBaselineCar(car);
       }
+
+      const savedColumns = localStorage.getItem(STORAGE_KEYS.columns);
+      if (savedColumns) setVisibleColumns(JSON.parse(savedColumns));
     }
 
     setIsInitialized(true);
@@ -104,6 +110,12 @@ export default function Home() {
       localStorage.setItem(STORAGE_KEYS.baseline, baselineCar.id);
     }
   }, [baselineCar, isInitialized]);
+
+  // Save columns to localStorage
+  useEffect(() => {
+    if (!isInitialized) return;
+    localStorage.setItem(STORAGE_KEYS.columns, JSON.stringify(visibleColumns));
+  }, [visibleColumns, isInitialized]);
 
   const availableMakes = useMemo(() => getUniqueMakes(allCars), [allCars]);
 
@@ -212,6 +224,10 @@ export default function Home() {
                 Compare ({compareList.length})
               </button>
             )}
+            <ColumnSettings
+              visibleColumns={visibleColumns}
+              onColumnsChange={setVisibleColumns}
+            />
             <button
               onClick={handleExportCsv}
               className="px-4 py-2 bg-green-700 hover:bg-green-600 text-white rounded text-sm font-medium"
@@ -322,6 +338,7 @@ export default function Home() {
                 onToggleCompare={toggleCompare}
                 favorites={favorites}
                 onToggleFavorite={toggleFavorite}
+                visibleColumns={visibleColumns}
               />
             </div>
           </div>

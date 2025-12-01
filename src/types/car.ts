@@ -30,6 +30,10 @@ export interface Car {
   mirrorWidthInches?: number;        // Width with mirrors extended (unfolded)
   lengthInches?: number;
   heightInches?: number;
+  groundClearanceInches?: number;    // Ground clearance in inches
+
+  // Capability
+  towingCapacityLbs?: number;        // Max towing capacity in pounds
 
   // Capacity
   seats: number;
@@ -123,6 +127,8 @@ export type SortField =
   | "bodyType"
   | "bodyWidthInches"
   | "mirrorsFoldedWidthInches"
+  | "heightInches"
+  | "groundClearanceInches"
   | "seats"
   | "doors"
   | "msrp"
@@ -132,6 +138,25 @@ export type SortField =
   | "safetyRating"
   | "autonomousLevel"
   | "reviewScore";
+
+// Column customization types
+export type ColumnId =
+  | "favorite" | "compare" | "baseline" | "image"
+  | "year" | "make" | "model" | "bodyType"
+  | "safetyRating" | "reviewScore" | "autonomousLevel"
+  | "seats" | "driverLegroomInches"
+  | "mirrorsFoldedWidthInches" | "bodyWidthInches" | "heightInches" | "groundClearanceInches"
+  | "fuelType" | "plugType" | "mpgCombined" | "electricRangeMiles"
+  | "msrp" | "notes";
+
+export interface ColumnConfig {
+  id: ColumnId;
+  label: string;
+  shortLabel?: string;
+  sortField?: SortField;
+  defaultVisible: boolean;
+  category: "action" | "identity" | "safety" | "dimensions" | "powertrain" | "pricing";
+}
 
 export type SortDirection = "asc" | "desc";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel } from "@/types/car";
+import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, ColumnId } from "@/types/car";
 import {
   formatCurrency,
   formatMpg,
@@ -22,6 +22,7 @@ interface CarTableProps {
   onToggleCompare: (carId: string) => void;
   favorites: string[];
   onToggleFavorite: (carId: string) => void;
+  visibleColumns: ColumnId[];
 }
 
 interface SortableHeaderProps {
@@ -77,8 +78,12 @@ export default function CarTable({
   onToggleCompare,
   favorites,
   onToggleFavorite,
+  visibleColumns,
 }: CarTableProps) {
   const [modalCar, setModalCar] = useState<Car | null>(null);
+
+  // Helper to check if a column is visible
+  const isVisible = (columnId: ColumnId) => visibleColumns.includes(columnId);
 
   if (cars.length === 0) {
     return (
@@ -102,6 +107,7 @@ export default function CarTable({
       <table className="min-w-full divide-y divide-gray-700">
         <thead className="bg-gray-900 sticky top-0 z-10">
           <tr>
+            {/* Action columns - always visible */}
             <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10">
               <span title="Add to favorites">★</span>
             </th>
@@ -114,29 +120,38 @@ export default function CarTable({
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
               Image
             </th>
-            <SortableHeader field="year" label="Year" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="make" label="Make" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="model" label="Model" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="bodyType" label="Type" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="safetyRating" label="Safety" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="reviewScore" label="Score" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="autonomousLevel" label="ADAS" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="mirrorsFoldedWidthInches" label="Folded" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="bodyWidthInches" label="Extended" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-              Fuel
-            </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-              Plug
-            </th>
-            <SortableHeader field="mpgCombined" label="Efficiency" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="electricRangeMiles" label="EV Range" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <SortableHeader field="msrp" label="MSRP" sortConfig={sortConfig} onSortChange={onSortChange} />
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
-              Notes
-            </th>
+            {/* Configurable columns */}
+            {isVisible("year") && <SortableHeader field="year" label="Year" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("make") && <SortableHeader field="make" label="Make" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("model") && <SortableHeader field="model" label="Model" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("bodyType") && <SortableHeader field="bodyType" label="Type" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("safetyRating") && <SortableHeader field="safetyRating" label="Safety" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("reviewScore") && <SortableHeader field="reviewScore" label="Score" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("autonomousLevel") && <SortableHeader field="autonomousLevel" label="ADAS" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("seats") && <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("driverLegroomInches") && <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("mirrorsFoldedWidthInches") && <SortableHeader field="mirrorsFoldedWidthInches" label="Folded" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("bodyWidthInches") && <SortableHeader field="bodyWidthInches" label="Extended" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("heightInches") && <SortableHeader field="heightInches" label="Height" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("groundClearanceInches") && <SortableHeader field="groundClearanceInches" label="Clearance" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("fuelType") && (
+              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                Fuel
+              </th>
+            )}
+            {isVisible("plugType") && (
+              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                Plug
+              </th>
+            )}
+            {isVisible("mpgCombined") && <SortableHeader field="mpgCombined" label="Efficiency" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("electricRangeMiles") && <SortableHeader field="electricRangeMiles" label="EV Range" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("msrp") && <SortableHeader field="msrp" label="MSRP" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("notes") && (
+              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
+                Notes
+              </th>
+            )}
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-700">
@@ -186,80 +201,129 @@ export default function CarTable({
                 <td className="px-3 py-2">
                   <CarImage car={car} onImageClick={() => setModalCar(car)} />
                 </td>
-                <td className="px-3 py-2 text-sm text-white">{car.year}</td>
-                <td className="px-3 py-2 text-sm text-white">{car.make}</td>
-                <td className="px-3 py-2 text-sm text-white">
-                  {car.model}
-                  {car.trim && <span className="text-gray-400 text-xs ml-1">{car.trim}</span>}
-                </td>
-                <td className="px-3 py-2 text-sm">
-                  <BodyTypeBadge bodyType={car.bodyType} />
-                </td>
-                <td className="px-3 py-2 text-sm">
-                  <SafetyBadge rating={car.safetyRating} />
-                </td>
-                <td className="px-3 py-2 text-sm">
-                  <ReviewScoreBadge score={car.reviewScore} />
-                </td>
-                <td className="px-3 py-2 text-sm">
-                  <AdasBadge level={car.autonomousLevel} name={car.adasName} />
-                </td>
-                <td className="px-3 py-2 text-sm text-white">
-                  {car.seats}
-                  {baselineCar && !isBaseline && (
-                    <DiffBadge diff={calculateDifference(baselineCar, car, "seats", mirrorBuffer)} positive="higher" />
-                  )}
-                </td>
-                <td className="px-3 py-2 text-sm text-white">
-                  {car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}
-                  {baselineCar && !isBaseline && car.driverLegroomInches && (
-                    <DiffBadge diff={calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer)} positive="higher" />
-                  )}
-                </td>
-                <td className="px-3 py-2 text-sm text-white" title="Width with mirrors folded">
-                  {car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : "-"}
-                  {baselineCar && !isBaseline && car.mirrorsFoldedWidthInches && baselineCar.mirrorsFoldedWidthInches && (
-                    <DiffBadge diff={calculateDifference(baselineCar, car, "mirrorsFoldedWidthInches", mirrorBuffer)} positive="lower" />
-                  )}
-                </td>
-                <td className="px-3 py-2 text-sm text-white" title="Width with mirrors extended">
-                  {effectiveWidth.toFixed(1)}"
-                  {baselineCar && !isBaseline && (
-                    <DiffBadge diff={calculateDifference(baselineCar, car, "bodyWidthInches", mirrorBuffer)} positive="lower" />
-                  )}
-                </td>
-                <td className="px-3 py-2 text-sm">
-                  <FuelTypeBadge fuelType={car.fuelType} />
-                </td>
-                <td className="px-3 py-2 text-sm text-gray-300">
-                  {car.plugType === "none" ? "-" : car.plugType}
-                </td>
-                <td className="px-3 py-2 text-sm text-white">
-                  {formatMpg(car)}
-                  {baselineCar && !isBaseline && car.mpgCombined && baselineCar.mpgCombined && (
-                    <DiffBadge diff={calculateDifference(baselineCar, car, "mpgCombined", mirrorBuffer)} positive="higher" />
-                  )}
-                </td>
-                <td className="px-3 py-2 text-sm text-white">
-                  {car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}
-                </td>
-                <td className="px-3 py-2 text-sm text-white">
-                  {formatCurrency(car.msrp)}
-                  {baselineCar && !isBaseline && (
-                    <DiffBadge diff={calculateDifference(baselineCar, car, "msrp", mirrorBuffer)} positive="lower" />
-                  )}
-                </td>
-                <td className="px-3 py-2 text-sm text-gray-400 max-w-xs truncate" title={car.notes}>
-                  {car.notes ?? "-"}
-                </td>
+                {/* Configurable columns */}
+                {isVisible("year") && <td className="px-3 py-2 text-sm text-white">{car.year}</td>}
+                {isVisible("make") && <td className="px-3 py-2 text-sm text-white">{car.make}</td>}
+                {isVisible("model") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.model}
+                    {car.trim && <span className="text-gray-400 text-xs ml-1">{car.trim}</span>}
+                  </td>
+                )}
+                {isVisible("bodyType") && (
+                  <td className="px-3 py-2 text-sm">
+                    <BodyTypeBadge bodyType={car.bodyType} />
+                  </td>
+                )}
+                {isVisible("safetyRating") && (
+                  <td className="px-3 py-2 text-sm">
+                    <SafetyBadge rating={car.safetyRating} />
+                  </td>
+                )}
+                {isVisible("reviewScore") && (
+                  <td className="px-3 py-2 text-sm">
+                    <ReviewScoreBadge score={car.reviewScore} />
+                  </td>
+                )}
+                {isVisible("autonomousLevel") && (
+                  <td className="px-3 py-2 text-sm">
+                    <AdasBadge level={car.autonomousLevel} name={car.adasName} />
+                  </td>
+                )}
+                {isVisible("seats") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.seats}
+                    {baselineCar && !isBaseline && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "seats", mirrorBuffer)} positive="higher" />
+                    )}
+                  </td>
+                )}
+                {isVisible("driverLegroomInches") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}
+                    {baselineCar && !isBaseline && car.driverLegroomInches && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer)} positive="higher" />
+                    )}
+                  </td>
+                )}
+                {isVisible("mirrorsFoldedWidthInches") && (
+                  <td className="px-3 py-2 text-sm text-white" title="Width with mirrors folded">
+                    {car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : "-"}
+                    {baselineCar && !isBaseline && car.mirrorsFoldedWidthInches && baselineCar.mirrorsFoldedWidthInches && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "mirrorsFoldedWidthInches", mirrorBuffer)} positive="lower" />
+                    )}
+                  </td>
+                )}
+                {isVisible("bodyWidthInches") && (
+                  <td className="px-3 py-2 text-sm text-white" title="Width with mirrors extended">
+                    {effectiveWidth.toFixed(1)}"
+                    {baselineCar && !isBaseline && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "bodyWidthInches", mirrorBuffer)} positive="lower" />
+                    )}
+                  </td>
+                )}
+                {isVisible("heightInches") && (
+                  <td className="px-3 py-2 text-sm text-white" title="Overall height">
+                    {car.heightInches ? `${car.heightInches}"` : "-"}
+                    {baselineCar && !isBaseline && car.heightInches && baselineCar.heightInches && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "heightInches", mirrorBuffer)} positive="lower" />
+                    )}
+                  </td>
+                )}
+                {isVisible("groundClearanceInches") && (
+                  <td className="px-3 py-2 text-sm text-white" title="Ground clearance">
+                    {car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}
+                    {baselineCar && !isBaseline && car.groundClearanceInches && baselineCar.groundClearanceInches && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "groundClearanceInches", mirrorBuffer)} positive="higher" />
+                    )}
+                  </td>
+                )}
+                {isVisible("fuelType") && (
+                  <td className="px-3 py-2 text-sm">
+                    <FuelTypeBadge fuelType={car.fuelType} />
+                  </td>
+                )}
+                {isVisible("plugType") && (
+                  <td className="px-3 py-2 text-sm text-gray-300">
+                    {car.plugType === "none" ? "-" : car.plugType}
+                  </td>
+                )}
+                {isVisible("mpgCombined") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {formatMpg(car)}
+                    {baselineCar && !isBaseline && car.mpgCombined && baselineCar.mpgCombined && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "mpgCombined", mirrorBuffer)} positive="higher" />
+                    )}
+                  </td>
+                )}
+                {isVisible("electricRangeMiles") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}
+                  </td>
+                )}
+                {isVisible("msrp") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {formatCurrency(car.msrp)}
+                    {baselineCar && !isBaseline && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "msrp", mirrorBuffer)} positive="lower" />
+                    )}
+                  </td>
+                )}
+                {isVisible("notes") && (
+                  <td className="px-3 py-2 text-sm text-gray-400 max-w-xs truncate" title={car.notes}>
+                    {car.notes ?? "-"}
+                  </td>
+                )}
               </tr>
             );
           })}
         </tbody>
       </table>
-      <div className="px-3 py-2 text-xs text-gray-500 border-t border-gray-700">
-        Folded = mirrors folded in, Extended = mirrors extended out
-      </div>
+      {(isVisible("mirrorsFoldedWidthInches") || isVisible("bodyWidthInches")) && (
+        <div className="px-3 py-2 text-xs text-gray-500 border-t border-gray-700">
+          Folded = mirrors folded in, Extended = mirrors extended out
+        </div>
+      )}
     </div>
     </>
   );
@@ -575,7 +639,18 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
             />
             <DetailRow label="Body Width" value={car.bodyWidthInches ? `${car.bodyWidthInches}"` : undefined} />
             <DetailRow label="Length" value={car.lengthInches ? `${car.lengthInches}"` : undefined} />
-            <DetailRow label="Height" value={car.heightInches ? `${car.heightInches}"` : undefined} />
+            <DetailRow
+              label="Height"
+              value={car.heightInches ? `${car.heightInches}"` : undefined}
+              diff={baselineCar && car.heightInches && baselineCar.heightInches ? calculateDifference(baselineCar, car, "heightInches", mirrorBuffer) : null}
+              positive="lower"
+            />
+            <DetailRow
+              label="Ground Clearance"
+              value={car.groundClearanceInches ? `${car.groundClearanceInches}"` : undefined}
+              diff={baselineCar && car.groundClearanceInches && baselineCar.groundClearanceInches ? calculateDifference(baselineCar, car, "groundClearanceInches", mirrorBuffer) : null}
+              positive="higher"
+            />
             <button
               onClick={() => setShowGarageFit(true)}
               className="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-sm font-medium transition-colors"
@@ -635,6 +710,14 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
             <DetailRow label="Fuel Type" value={car.fuelType} />
             <DetailRow label="Plug Type" value={car.plugType === "none" ? "N/A" : car.plugType} />
           </div>
+
+          {/* Capability */}
+          {car.towingCapacityLbs && (
+            <div className="bg-gray-900 rounded-lg p-4">
+              <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Capability</h4>
+              <DetailRow label="Towing Capacity" value={`${car.towingCapacityLbs.toLocaleString()} lbs`} />
+            </div>
+          )}
 
           {/* Safety */}
           <div className="bg-gray-900 rounded-lg p-4">
