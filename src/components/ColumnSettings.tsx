@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { ColumnId, ColumnConfig } from "@/types/car";
 
 // Define all available columns
+// Default columns are chosen to fit on a 1920px monitor: year, make, model, type, safety, seats, fuel, mpg, msrp
 export const ALL_COLUMNS: ColumnConfig[] = [
   // Action columns (always visible, not configurable)
   { id: "favorite", label: "Favorite", defaultVisible: true, category: "action" },
@@ -19,22 +20,25 @@ export const ALL_COLUMNS: ColumnConfig[] = [
 
   // Safety columns
   { id: "safetyRating", label: "Safety Rating", shortLabel: "Safety", sortField: "safetyRating", defaultVisible: true, category: "safety" },
-  { id: "reviewScore", label: "Review Score", shortLabel: "Score", sortField: "reviewScore", defaultVisible: true, category: "safety" },
-  { id: "autonomousLevel", label: "ADAS Level", shortLabel: "ADAS", sortField: "autonomousLevel", defaultVisible: true, category: "safety" },
+  { id: "reviewScore", label: "Review Score", shortLabel: "Score", sortField: "reviewScore", defaultVisible: false, category: "safety" },
+  { id: "autonomousLevel", label: "ADAS Level", shortLabel: "ADAS", sortField: "autonomousLevel", defaultVisible: false, category: "safety" },
 
   // Dimensions columns
   { id: "seats", label: "Seats", sortField: "seats", defaultVisible: true, category: "dimensions" },
-  { id: "driverLegroomInches", label: "Legroom", sortField: "driverLegroomInches", defaultVisible: true, category: "dimensions" },
-  { id: "mirrorsFoldedWidthInches", label: "Width (Folded)", shortLabel: "Folded", sortField: "mirrorsFoldedWidthInches", defaultVisible: true, category: "dimensions" },
-  { id: "bodyWidthInches", label: "Width (Extended)", shortLabel: "Extended", sortField: "bodyWidthInches", defaultVisible: true, category: "dimensions" },
-  { id: "heightInches", label: "Height", sortField: "heightInches", defaultVisible: true, category: "dimensions" },
-  { id: "groundClearanceInches", label: "Ground Clearance", shortLabel: "Clearance", sortField: "groundClearanceInches", defaultVisible: true, category: "dimensions" },
+  { id: "driverLegroomInches", label: "Legroom", sortField: "driverLegroomInches", defaultVisible: false, category: "dimensions" },
+  { id: "mirrorsFoldedWidthInches", label: "Width (Folded)", shortLabel: "Folded", sortField: "mirrorsFoldedWidthInches", defaultVisible: false, category: "dimensions" },
+  { id: "oneMirrorWidthInches", label: "Width (1 Mirror)", shortLabel: "1 Mirror", defaultVisible: false, category: "dimensions" },
+  { id: "bodyWidthInches", label: "Width (Extended)", shortLabel: "Extended", sortField: "bodyWidthInches", defaultVisible: false, category: "dimensions" },
+  { id: "heightInches", label: "Height", sortField: "heightInches", defaultVisible: false, category: "dimensions" },
+  { id: "groundClearanceInches", label: "Ground Clearance", shortLabel: "Clearance", sortField: "groundClearanceInches", defaultVisible: false, category: "dimensions" },
 
   // Powertrain columns
   { id: "fuelType", label: "Fuel Type", shortLabel: "Fuel", defaultVisible: true, category: "powertrain" },
-  { id: "plugType", label: "Plug Type", shortLabel: "Plug", defaultVisible: true, category: "powertrain" },
+  { id: "plugType", label: "Plug Type", shortLabel: "Plug", defaultVisible: false, category: "powertrain" },
   { id: "mpgCombined", label: "Efficiency", sortField: "mpgCombined", defaultVisible: true, category: "powertrain" },
-  { id: "electricRangeMiles", label: "EV Range", sortField: "electricRangeMiles", defaultVisible: true, category: "powertrain" },
+  { id: "electricRangeMiles", label: "EV Range", sortField: "electricRangeMiles", defaultVisible: false, category: "powertrain" },
+  { id: "zeroToSixtySeconds", label: "0-60 mph", shortLabel: "0-60", sortField: "zeroToSixtySeconds", defaultVisible: false, category: "powertrain" },
+  { id: "horsepower", label: "Horsepower", shortLabel: "HP", sortField: "horsepower", defaultVisible: false, category: "powertrain" },
 
   // Pricing & Ownership columns
   { id: "msrp", label: "MSRP", sortField: "msrp", defaultVisible: true, category: "pricing" },
@@ -44,12 +48,7 @@ export const ALL_COLUMNS: ColumnConfig[] = [
   { id: "reliabilityRating", label: "Reliability", sortField: "reliabilityRating", defaultVisible: false, category: "pricing" },
   { id: "insuranceCostAnnual", label: "Insurance/yr", shortLabel: "Insure", sortField: "insuranceCostAnnual", defaultVisible: false, category: "pricing" },
   { id: "maintenanceCostAnnual", label: "Maintenance/yr", shortLabel: "Maint", sortField: "maintenanceCostAnnual", defaultVisible: false, category: "pricing" },
-
-  // Performance columns
-  { id: "zeroToSixtySeconds", label: "0-60 mph", shortLabel: "0-60", sortField: "zeroToSixtySeconds", defaultVisible: false, category: "powertrain" },
-  { id: "horsepower", label: "Horsepower", shortLabel: "HP", sortField: "horsepower", defaultVisible: false, category: "powertrain" },
-
-  { id: "notes", label: "Notes", defaultVisible: true, category: "pricing" },
+  { id: "notes", label: "Notes", defaultVisible: false, category: "pricing" },
 ];
 
 // Default visible columns (all non-action columns)
@@ -69,7 +68,7 @@ const PRESETS: { name: string; columns: ColumnId[] }[] = [
   },
   {
     name: "Garage Fit",
-    columns: ["year", "make", "model", "mirrorsFoldedWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"],
+    columns: ["year", "make", "model", "mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"],
   },
   {
     name: "Safety Focus",

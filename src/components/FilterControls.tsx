@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useCallback } from "react";
 import { CarFilters, FuelType, PlugType, BodyType, SafetyRating, AutonomousLevel, WidthFilterType } from "@/types/car";
 import InfoTooltip, {
   AdasInfoContent,
@@ -75,63 +76,63 @@ const PRESETS = [
   { name: "Compact", filters: { bodyTypes: ["crossover" as BodyType, "hatchback" as BodyType, "sedan" as BodyType], maxPrice: 40000 } },
 ];
 
-export default function FilterControls({
+function FilterControlsComponent({
   filters,
   onFiltersChange,
   availableMakes,
   hasFavorites,
 }: FilterControlsProps) {
-  const updateFilter = (key: keyof CarFilters, value: CarFilters[keyof CarFilters]) => {
+  const updateFilter = useCallback((key: keyof CarFilters, value: CarFilters[keyof CarFilters]) => {
     onFiltersChange({ ...filters, [key]: value });
-  };
+  }, [onFiltersChange, filters]);
 
-  const toggleDoorsFilter = (value: number) => {
+  const toggleDoorsFilter = useCallback((value: number) => {
     const arr = filters.doors ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("doors", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, doors: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
-  const toggleSeatsFilter = (value: number) => {
+  const toggleSeatsFilter = useCallback((value: number) => {
     const arr = filters.seats ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("seats", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, seats: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
-  const toggleFuelTypeFilter = (value: FuelType) => {
+  const toggleFuelTypeFilter = useCallback((value: FuelType) => {
     const arr = filters.fuelTypes ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("fuelTypes", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, fuelTypes: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
-  const togglePlugTypeFilter = (value: PlugType) => {
+  const togglePlugTypeFilter = useCallback((value: PlugType) => {
     const arr = filters.plugTypes ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("plugTypes", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, plugTypes: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
-  const toggleMakeFilter = (value: string) => {
+  const toggleMakeFilter = useCallback((value: string) => {
     const arr = filters.makes ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("makes", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, makes: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
-  const toggleBodyTypeFilter = (value: BodyType) => {
+  const toggleBodyTypeFilter = useCallback((value: BodyType) => {
     const arr = filters.bodyTypes ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("bodyTypes", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, bodyTypes: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
-  const toggleSafetyFilter = (value: SafetyRating) => {
+  const toggleSafetyFilter = useCallback((value: SafetyRating) => {
     const arr = filters.safetyRatings ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("safetyRatings", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, safetyRatings: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
-  const toggleAutonomousFilter = (value: AutonomousLevel) => {
+  const toggleAutonomousFilter = useCallback((value: AutonomousLevel) => {
     const arr = filters.autonomousLevels ?? [];
     const newArr = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
-    updateFilter("autonomousLevels", newArr.length > 0 ? newArr : undefined);
-  };
+    onFiltersChange({ ...filters, autonomousLevels: newArr.length > 0 ? newArr : undefined });
+  }, [onFiltersChange, filters]);
 
   return (
     <div className="bg-gray-800 rounded-lg p-4 space-y-4">
@@ -553,3 +554,6 @@ export default function FilterControls({
     </div>
   );
 }
+
+const FilterControls = React.memo(FilterControlsComponent);
+export default FilterControls;

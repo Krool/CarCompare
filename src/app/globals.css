@@ -152,7 +152,17 @@ body {
 
 /* Print styles */
 @media print {
-  .no-print {
+  /* Hide non-printable elements */
+  .no-print,
+  aside,
+  header,
+  nav,
+  footer,
+  button,
+  input[type="checkbox"],
+  .skeleton,
+  .animate-spin,
+  svg.animate-spin {
     display: none !important;
   }
 
@@ -160,27 +170,101 @@ body {
     display: block !important;
   }
 
+  /* Reset backgrounds and colors */
+  *, *::before, *::after {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   body {
     background: white !important;
     color: black !important;
+    font-size: 10pt !important;
+    line-height: 1.3 !important;
   }
 
-  .bg-gray-800, .bg-gray-900 {
-    background: white !important;
+  /* Make images grayscale */
+  img {
+    filter: grayscale(100%) !important;
+    -webkit-filter: grayscale(100%) !important;
+    max-width: 60px !important;
+    max-height: 40px !important;
   }
 
-  .text-white, .text-gray-300, .text-gray-400 {
-    color: black !important;
+  /* Hide favorite stars and checkboxes columns */
+  td:first-child,
+  th:first-child,
+  td:nth-child(2),
+  th:nth-child(2),
+  td:nth-child(3),
+  th:nth-child(3) {
+    display: none !important;
   }
 
+  /* Compact table layout */
   table {
-    border-collapse: collapse;
-    width: 100%;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    font-size: 8pt !important;
+    page-break-inside: auto !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
   }
 
   th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
+    border: 1px solid #999 !important;
+    padding: 3px 5px !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100px !important;
+  }
+
+  th {
+    font-weight: bold !important;
+    background: #eee !important;
+  }
+
+  /* Remove any colored badges - make them plain text */
+  span[class*="bg-"] {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  /* Page settings */
+  @page {
+    size: landscape;
+    margin: 0.5cm;
+  }
+
+  /* Hide overflow containers */
+  .overflow-x-auto,
+  .overflow-y-auto {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* Main container should be full width */
+  .flex-1,
+  .min-w-0 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Hide the image column for even more compact layout */
+  td:nth-child(4),
+  th:nth-child(4) {
+    display: none !important;
   }
 }

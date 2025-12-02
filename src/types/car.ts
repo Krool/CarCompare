@@ -187,7 +187,7 @@ export type ColumnId =
   | "year" | "make" | "model" | "bodyType"
   | "safetyRating" | "reviewScore" | "autonomousLevel"
   | "seats" | "driverLegroomInches"
-  | "mirrorsFoldedWidthInches" | "bodyWidthInches" | "heightInches" | "groundClearanceInches"
+  | "mirrorsFoldedWidthInches" | "oneMirrorWidthInches" | "bodyWidthInches" | "heightInches" | "groundClearanceInches"
   | "fuelType" | "plugType" | "mpgCombined" | "electricRangeMiles"
   | "msrp" | "leaseRating" | "depreciationCategory" | "fiveYearResalePercent"
   | "reliabilityRating" | "insuranceCostAnnual" | "maintenanceCostAnnual"

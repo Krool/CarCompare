@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { Car, CarFilters, SortConfig, SortField, ColumnId } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, ColumnId, BodyType, FuelType } from "@/types/car";
 import carData from "@/data/cars.json";
 import FilterControls from "@/components/FilterControls";
 import CarTable from "@/components/CarTable";
 import BaselineSelector from "@/components/BaselineSelector";
 import CompareModal from "@/components/CompareModal";
 import ColumnSettings, { DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
+import SetupWizard from "@/components/SetupWizard";
 import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv } from "@/lib/carUtils";
 
 // LocalStorage keys
@@ -17,6 +18,7 @@ const STORAGE_KEYS = {
   mirrorBuffer: "carcompare_mirrorBuffer",
   baseline: "carcompare_baseline",
   columns: "carcompare_columns",
+  hasSeenWizard: "carcompare_hasSeenWizard",
 };
 
 export default function Home() {
@@ -37,8 +39,10 @@ export default function Home() {
   const [compareList, setCompareList] = useState<string[]>([]);
   const [showCompareModal, setShowCompareModal] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleColumns, setVisibleColumns] = useState<ColumnId[]>(DEFAULT_VISIBLE_COLUMNS);
+  const [showWizard, setShowWizard] = useState(false);
 
   // Load state from localStorage on mount
   useEffect(() => {
@@ -51,17 +55,37 @@ export default function Home() {
     if (sharedState) {
       try {
         const decoded = JSON.parse(atob(sharedState));
-        if (decoded.filters) setFilters(decoded.filters);
-        if (decoded.sort) setSortConfig(decoded.sort);
-        if (decoded.baseline) {
-          const car = allCars.find(c => c.id === decoded.baseline);
+        // Support both old format (filters, sort, baseline, compare, columns) and new short format (f, s, b, c, v)
+        const filters = decoded.f || decoded.filters;
+        const sort = decoded.s || decoded.sort;
+        const baseline = decoded.b || decoded.baseline;
+        const compare = decoded.c || decoded.compare;
+        const columns = decoded.v || decoded.columns;
+
+        if (filters) setFilters(filters);
+        if (sort) {
+          // Handle new format [field, isDesc] or old format {field, direction}
+          if (Array.isArray(sort)) {
+            setSortConfig({ field: sort[0], direction: sort[1] ? "desc" : "asc" });
+          } else {
+            setSortConfig(sort);
+          }
+        }
+        if (baseline) {
+          const car = allCars.find(c => c.id === baseline);
           if (car) setBaselineCar(car);
         }
-        if (decoded.compare) setCompareList(decoded.compare);
-        if (decoded.columns) setVisibleColumns(decoded.columns);
+        if (compare) setCompareList(compare);
+        if (columns) setVisibleColumns(columns);
+
+        // Clear the URL params after loading shared state
+        window.history.replaceState({}, "", window.location.pathname);
       } catch (e) {
         console.error("Failed to parse shared state:", e);
       }
+      // Don't load localStorage when we have shared state
+      setIsInitialized(true);
+      return;
     } else {
       // Load from localStorage
       const savedFavorites = localStorage.getItem(STORAGE_KEYS.favorites);
@@ -81,6 +105,12 @@ export default function Home() {
 
       const savedColumns = localStorage.getItem(STORAGE_KEYS.columns);
       if (savedColumns) setVisibleColumns(JSON.parse(savedColumns));
+
+      // Check if first-time user (no wizard seen)
+      const hasSeenWizard = localStorage.getItem(STORAGE_KEYS.hasSeenWizard);
+      if (!hasSeenWizard) {
+        setShowWizard(true);
+      }
     }
 
     setIsInitialized(true);
@@ -118,6 +148,14 @@ export default function Home() {
     localStorage.setItem(STORAGE_KEYS.columns, JSON.stringify(visibleColumns));
   }, [visibleColumns, isInitialized]);
 
+  // Debounce search input
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchQuery(searchInput);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [searchInput]);
+
   const availableMakes = useMemo(() => getUniqueMakes(allCars), [allCars]);
 
   const filteredCars = useMemo(() => {
@@ -148,12 +186,14 @@ export default function Home() {
     return allCars.filter(car => compareList.includes(car.id));
   }, [allCars, compareList]);
 
-  const handleSortChange = (field: SortField) => {
-    setSortConfig((prev) => ({
-      field,
-      direction: prev.field === field && prev.direction === "asc" ? "desc" : "asc",
-    }));
-  };
+  const handleSortChange = useCallback((field: SortField) => {
+    console.log("[SORT DEBUG] handleSortChange called with:", field);
+    setSortConfig((prev) => {
+      const newDir = prev.field === field && prev.direction === "asc" ? "desc" : "asc";
+      console.log("[SORT DEBUG] State change:", prev, "->", { field, direction: newDir });
+      return { field, direction: newDir };
+    });
+  }, []);
 
   const toggleFavorite = useCallback((carId: string) => {
     setFavorites(prev =>
@@ -190,13 +230,33 @@ export default function Home() {
   }, []);
 
   const handleShareUrl = useCallback(() => {
-    const state = {
-      filters,
-      sort: sortConfig,
-      baseline: baselineCar?.id,
-      compare: compareList,
-      columns: visibleColumns,
-    };
+    // Only include non-default/non-empty values to keep URLs short
+    const state: Record<string, unknown> = {};
+
+    // Only add filters if there are any active
+    const activeFilters = Object.fromEntries(
+      Object.entries(filters).filter(([, v]) => v !== undefined && v !== null && (Array.isArray(v) ? v.length > 0 : true))
+    );
+    if (Object.keys(activeFilters).length > 0) state.f = activeFilters;
+
+    // Only add sort if not default
+    if (sortConfig.field !== "msrp" || sortConfig.direction !== "asc") {
+      state.s = [sortConfig.field, sortConfig.direction === "desc" ? 1 : 0];
+    }
+
+    // Only add baseline if set and not default
+    if (baselineCar && baselineCar.id !== "toyota-rav4-2011") state.b = baselineCar.id;
+
+    // Only add compare list if not empty
+    if (compareList.length > 0) state.c = compareList;
+
+    // Only add columns if different from default (compare sorted arrays)
+    const defaultCols = [...DEFAULT_VISIBLE_COLUMNS].sort();
+    const currentCols = [...visibleColumns].sort();
+    if (JSON.stringify(defaultCols) !== JSON.stringify(currentCols)) {
+      state.v = visibleColumns;
+    }
+
     const encoded = btoa(JSON.stringify(state));
     const url = `${window.location.origin}${window.location.pathname}?state=${encoded}`;
 
@@ -207,6 +267,34 @@ export default function Home() {
       prompt("Copy this link to share:", url);
     });
   }, [filters, sortConfig, baselineCar, compareList, visibleColumns]);
+
+  const handleWizardComplete = useCallback((settings: {
+    columns: ColumnId[];
+    baseline: Car | null;
+    filters: {
+      bodyTypes?: BodyType[];
+      fuelTypes?: FuelType[];
+      minYear?: number;
+    };
+  }) => {
+    setVisibleColumns(settings.columns);
+    if (settings.baseline) {
+      setBaselineCar(settings.baseline);
+    }
+    setFilters(prev => ({
+      ...prev,
+      bodyTypes: settings.filters.bodyTypes,
+      fuelTypes: settings.filters.fuelTypes,
+      minYear: settings.filters.minYear,
+    }));
+    localStorage.setItem(STORAGE_KEYS.hasSeenWizard, "true");
+    setShowWizard(false);
+  }, []);
+
+  const handleWizardSkip = useCallback(() => {
+    localStorage.setItem(STORAGE_KEYS.hasSeenWizard, "true");
+    setShowWizard(false);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -255,6 +343,13 @@ export default function Home() {
             >
               Share
             </button>
+            <button
+              onClick={() => setShowWizard(true)}
+              className="px-4 py-2 bg-indigo-700 hover:bg-indigo-600 text-white rounded text-sm font-medium btn-hover no-print"
+              title="Run the quick setup wizard"
+            >
+              Setup
+            </button>
           </div>
         </div>
       </header>
@@ -285,8 +380,8 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Search cars (e.g., Toyota, SUV, 2025, hybrid...)"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
                   className="w-full px-4 py-2 pl-10 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
                 />
                 <svg
@@ -297,9 +392,9 @@ export default function Home() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                {searchQuery && (
+                {searchInput && (
                   <button
-                    onClick={() => setSearchQuery("")}
+                    onClick={() => setSearchInput("")}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
                   >
                     ×
@@ -389,6 +484,15 @@ export default function Home() {
           onClose={() => setShowCompareModal(false)}
           onRemoveCar={removeFromCompare}
           mirrorBuffer={mirrorBuffer}
+        />
+      )}
+
+      {/* Setup Wizard for first-time users */}
+      {showWizard && (
+        <SetupWizard
+          cars={allCars}
+          onComplete={handleWizardComplete}
+          onSkip={handleWizardSkip}
         />
       )}
     </div>

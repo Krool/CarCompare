@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating, ColumnId } from "@/types/car";
 import {
   formatCurrency,
@@ -34,10 +34,16 @@ interface SortableHeaderProps {
 
 function SortableHeader({ field, label, sortConfig, onSortChange }: SortableHeaderProps) {
   const isActive = sortConfig.field === field;
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("[SORT DEBUG] Clicked:", field, "Current:", sortConfig);
+    onSortChange(field);
+  };
   return (
     <th
-      onClick={() => onSortChange(field)}
       className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-700 select-none"
+      onClick={handleClick}
     >
       <div className="flex items-center gap-1">
         {label}
@@ -131,6 +137,11 @@ export default function CarTable({
             {isVisible("seats") && <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("driverLegroomInches") && <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("mirrorsFoldedWidthInches") && <SortableHeader field="mirrorsFoldedWidthInches" label="Folded" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("oneMirrorWidthInches") && (
+              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                1 Mirror
+              </th>
+            )}
             {isVisible("bodyWidthInches") && <SortableHeader field="bodyWidthInches" label="Extended" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("heightInches") && <SortableHeader field="heightInches" label="Height" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("groundClearanceInches") && <SortableHeader field="groundClearanceInches" label="Clearance" sortConfig={sortConfig} onSortChange={onSortChange} />}
@@ -146,6 +157,9 @@ export default function CarTable({
             )}
             {isVisible("mpgCombined") && <SortableHeader field="mpgCombined" label="Efficiency" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("electricRangeMiles") && <SortableHeader field="electricRangeMiles" label="EV Range" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("zeroToSixtySeconds") && <SortableHeader field="zeroToSixtySeconds" label="0-60" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("horsepower") && <SortableHeader field="horsepower" label="HP" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {/* Pricing & Ownership */}
             {isVisible("msrp") && <SortableHeader field="msrp" label="MSRP" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("leaseRating") && <SortableHeader field="leaseRating" label="Lease" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("depreciationCategory") && <SortableHeader field="depreciationCategory" label="Deprec." sortConfig={sortConfig} onSortChange={onSortChange} />}
@@ -153,8 +167,6 @@ export default function CarTable({
             {isVisible("reliabilityRating") && <SortableHeader field="reliabilityRating" label="Reliability" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("insuranceCostAnnual") && <SortableHeader field="insuranceCostAnnual" label="Insure/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("maintenanceCostAnnual") && <SortableHeader field="maintenanceCostAnnual" label="Maint/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
-            {isVisible("zeroToSixtySeconds") && <SortableHeader field="zeroToSixtySeconds" label="0-60" sortConfig={sortConfig} onSortChange={onSortChange} />}
-            {isVisible("horsepower") && <SortableHeader field="horsepower" label="HP" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("notes") && (
               <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
                 Notes
@@ -163,7 +175,7 @@ export default function CarTable({
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-700">
-          {cars.map((car, index) => {
+          {cars.map((car) => {
             const isBaseline = baselineCar?.id === car.id;
             const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
             const isFavorite = favorites.includes(car.id);
@@ -209,11 +221,31 @@ export default function CarTable({
                 <td className="px-3 py-2">
                   <CarImage car={car} onImageClick={() => setModalCar(car)} />
                 </td>
-                {/* Configurable columns */}
-                {isVisible("year") && <td className="px-3 py-2 text-sm text-white">{car.year}</td>}
-                {isVisible("make") && <td className="px-3 py-2 text-sm text-white">{car.make}</td>}
+                {/* Configurable columns - Year/Make/Model are clickable to open details */}
+                {isVisible("year") && (
+                  <td
+                    className="px-3 py-2 text-sm text-white cursor-pointer hover:text-blue-400"
+                    onClick={() => setModalCar(car)}
+                    title="Click for details"
+                  >
+                    {car.year}
+                  </td>
+                )}
+                {isVisible("make") && (
+                  <td
+                    className="px-3 py-2 text-sm text-white cursor-pointer hover:text-blue-400"
+                    onClick={() => setModalCar(car)}
+                    title="Click for details"
+                  >
+                    {car.make}
+                  </td>
+                )}
                 {isVisible("model") && (
-                  <td className="px-3 py-2 text-sm text-white">
+                  <td
+                    className="px-3 py-2 text-sm text-white cursor-pointer hover:text-blue-400"
+                    onClick={() => setModalCar(car)}
+                    title="Click for details"
+                  >
                     {car.model}
                     {car.trim && <span className="text-gray-400 text-xs ml-1">{car.trim}</span>}
                   </td>
@@ -262,6 +294,28 @@ export default function CarTable({
                     )}
                   </td>
                 )}
+                {isVisible("oneMirrorWidthInches") && (() => {
+                  // Calculate 1 mirror width: (extended - folded) / 2 + folded
+                  const folded = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches;
+                  const extended = effectiveWidth;
+                  const oneMirror = ((extended - folded) / 2) + folded;
+                  const baseOneMirror = baselineCar ? (() => {
+                    const baseFolded = baselineCar.mirrorsFoldedWidthInches ?? baselineCar.bodyWidthInches;
+                    const baseExtended = getEffectiveWidth(baselineCar, mirrorBuffer);
+                    return ((baseExtended - baseFolded) / 2) + baseFolded;
+                  })() : null;
+                  const diff = baseOneMirror && !isBaseline ? (oneMirror - baseOneMirror).toFixed(1) : null;
+                  const diffStr = diff ? (parseFloat(diff) > 0 ? `+${diff}` : diff === "0.0" ? "same" : diff) : null;
+                  return (
+                    <td className="px-3 py-2 text-sm text-white" title="Width with 1 mirror extended (passenger side folded)">
+                      {oneMirror.toFixed(1)}"
+                      {diffStr && diffStr !== "same" && (
+                        <span className={`text-xs ml-1 ${parseFloat(diff!) > 0 ? "text-red-400" : "text-green-400"}`}>({diffStr})</span>
+                      )}
+                      {diffStr === "same" && <span className="text-gray-500 text-xs ml-1">(=)</span>}
+                    </td>
+                  );
+                })()}
                 {isVisible("bodyWidthInches") && (
                   <td className="px-3 py-2 text-sm text-white" title="Width with mirrors extended">
                     {effectiveWidth.toFixed(1)}"
@@ -309,6 +363,17 @@ export default function CarTable({
                     {car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}
                   </td>
                 )}
+                {isVisible("zeroToSixtySeconds") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.zeroToSixtySeconds ? `${car.zeroToSixtySeconds}s` : "-"}
+                  </td>
+                )}
+                {isVisible("horsepower") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.horsepower ? `${car.horsepower}` : "-"}
+                  </td>
+                )}
+                {/* Pricing & Ownership */}
                 {isVisible("msrp") && (
                   <td className="px-3 py-2 text-sm text-white">
                     {formatCurrency(car.msrp)}
@@ -347,16 +412,6 @@ export default function CarTable({
                     {car.maintenanceCostAnnual ? formatCurrency(car.maintenanceCostAnnual) : "-"}
                   </td>
                 )}
-                {isVisible("zeroToSixtySeconds") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.zeroToSixtySeconds ? `${car.zeroToSixtySeconds}s` : "-"}
-                  </td>
-                )}
-                {isVisible("horsepower") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.horsepower ? `${car.horsepower}` : "-"}
-                  </td>
-                )}
                 {isVisible("notes") && (
                   <td className="px-3 py-2 text-sm text-gray-400 max-w-xs truncate" title={car.notes}>
                     {car.notes ?? "-"}
@@ -367,9 +422,9 @@ export default function CarTable({
           })}
         </tbody>
       </table>
-      {(isVisible("mirrorsFoldedWidthInches") || isVisible("bodyWidthInches")) && (
+      {(isVisible("mirrorsFoldedWidthInches") || isVisible("oneMirrorWidthInches") || isVisible("bodyWidthInches")) && (
         <div className="px-3 py-2 text-xs text-gray-500 border-t border-gray-700">
-          Folded = mirrors folded in, Extended = mirrors extended out
+          Folded = both mirrors folded, 1 Mirror = driver mirror extended only, Extended = both mirrors extended
         </div>
       )}
     </div>
@@ -377,7 +432,7 @@ export default function CarTable({
   );
 }
 
-function FuelTypeBadge({ fuelType }: { fuelType: string }) {
+const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType: string }) {
   const colors: Record<string, string> = {
     gasoline: "bg-gray-600 text-gray-200",
     diesel: "bg-yellow-800 text-yellow-200",
@@ -399,9 +454,9 @@ function FuelTypeBadge({ fuelType }: { fuelType: string }) {
       {labels[fuelType] ?? fuelType}
     </span>
   );
-}
+});
 
-function BodyTypeBadge({ bodyType }: { bodyType: string }) {
+const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType: string }) {
   const colors: Record<string, string> = {
     sedan: "bg-purple-800 text-purple-200",
     crossover: "bg-orange-800 text-orange-200",
@@ -429,9 +484,9 @@ function BodyTypeBadge({ bodyType }: { bodyType: string }) {
       {labels[bodyType] ?? bodyType}
     </span>
   );
-}
+});
 
-function SafetyBadge({ rating }: { rating?: SafetyRating }) {
+const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: SafetyRating }) {
   if (!rating || rating === "Not Rated") {
     return <span className="text-gray-500 text-xs">-</span>;
   }
@@ -460,15 +515,14 @@ function SafetyBadge({ rating }: { rating?: SafetyRating }) {
       {rating}
     </span>
   );
-}
+});
 
-function ReviewScoreBadge({ score }: { score?: number }) {
+const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score?: number }) {
   if (score === undefined || score === null) {
     return <span className="text-gray-500 text-xs">-</span>;
   }
 
   // Heatmap colors based on score (0-100)
-  // Red (0-40) -> Orange (40-60) -> Yellow (60-75) -> Light Green (75-90) -> Green (90-100)
   const getHeatmapColor = (s: number): string => {
     if (s >= 90) return "bg-green-600 text-white";
     if (s >= 80) return "bg-green-700 text-green-100";
@@ -497,9 +551,9 @@ function ReviewScoreBadge({ score }: { score?: number }) {
       {score}
     </span>
   );
-}
+});
 
-function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) {
+const AdasBadge = React.memo(function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) {
   if (!level || level === "none") {
     return <span className="text-gray-500 text-xs">-</span>;
   }
@@ -528,9 +582,9 @@ function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) 
       {labels[level]}
     </span>
   );
-}
+});
 
-function LeaseRatingBadge({ rating }: { rating?: LeaseRating }) {
+const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rating?: LeaseRating }) {
   if (!rating) {
     return <span className="text-gray-500 text-xs">-</span>;
   }
@@ -557,9 +611,9 @@ function LeaseRatingBadge({ rating }: { rating?: LeaseRating }) {
       {rating}
     </span>
   );
-}
+});
 
-function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
+const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
   if (!category) {
     return <span className="text-gray-500 text-xs">-</span>;
   }
@@ -593,9 +647,9 @@ function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
       {labels[category]}
     </span>
   );
-}
+});
 
-function ReliabilityBadge({ rating }: { rating?: ReliabilityRating }) {
+const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rating?: ReliabilityRating }) {
   if (!rating) {
     return <span className="text-gray-500 text-xs">-</span>;
   }
@@ -632,16 +686,16 @@ function ReliabilityBadge({ rating }: { rating?: ReliabilityRating }) {
       {labels[rating]}
     </span>
   );
-}
+});
 
-function FeatureCheck({ label, enabled }: { label: string; enabled?: boolean }) {
+const FeatureCheck = React.memo(function FeatureCheck({ label, enabled }: { label: string; enabled?: boolean }) {
   return (
     <div className={`flex items-center gap-1 ${enabled ? "text-green-400" : "text-gray-500"}`}>
       <span>{enabled ? "✓" : "✗"}</span>
       <span>{label}</span>
     </div>
   );
-}
+});
 
 // Available angles from IMAGIN.studio
 const CAR_ANGLES = [
@@ -1005,15 +1059,38 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
   );
 }
 
-function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void }) {
+// Memoized car image component to prevent unnecessary re-renders
+const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void }) {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const imgRef = React.useRef<HTMLImageElement>(null);
 
-  const imageUrl = getCarImageUrl(car);
+  // Memoize the image URL to prevent recalculation
+  const imageUrl = useMemo(() => getCarImageUrl(car), [car.make, car.model]);
+
+  // Add timeout to stop loading animation after 5 seconds
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isLoading) {
+        setIsLoading(false);
+      }
+    }, 5000);
+
+    // Also check if image is already loaded (cached)
+    if (imgRef.current?.complete) {
+      setIsLoading(false);
+    }
+
+    return () => clearTimeout(timer);
+  }, [imageUrl, isLoading]);
 
   if (hasError) {
     return (
-      <div className="w-28 h-16 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-sm">
+      <div
+        className="w-36 h-16 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-sm cursor-pointer"
+        onClick={onImageClick}
+        title="Click for details"
+      >
         {car.bodyType.charAt(0).toUpperCase()}
       </div>
     );
@@ -1021,8 +1098,9 @@ function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void })
 
   return (
     <div
-      className="w-28 h-16 relative cursor-pointer hover:opacity-80 transition-opacity"
+      className="w-36 h-16 relative cursor-pointer hover:opacity-80 transition-opacity"
       onClick={onImageClick}
+      title="Click for details"
     >
       {isLoading && (
         <div className="absolute inset-0 skeleton rounded flex items-center justify-center">
@@ -1033,9 +1111,11 @@ function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void })
         </div>
       )}
       <img
+        ref={imgRef}
         src={imageUrl}
         alt={`${car.year} ${car.make} ${car.model}`}
-        className={`w-28 h-16 object-cover rounded ${isLoading ? "opacity-0" : "opacity-100"}`}
+        className={`w-36 h-16 object-cover rounded transition-opacity duration-200 ${isLoading ? "opacity-0" : "opacity-100"}`}
+        loading="lazy"
         onLoad={() => setIsLoading(false)}
         onError={() => {
           setHasError(true);
@@ -1044,7 +1124,7 @@ function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void })
       />
     </div>
   );
-}
+});
 
 function SearchLink({ name, url, color }: { name: string; url: string; color: string }) {
   return (
