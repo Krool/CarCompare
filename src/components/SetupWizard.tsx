@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Car, ColumnId, BodyType, FuelType } from "@/types/car";
 import { ALL_COLUMNS } from "./ColumnSettings";
 
@@ -20,51 +20,48 @@ interface SetupWizardProps {
 
 type WizardStep = "welcome" | "use-case" | "baseline" | "preferences" | "complete";
 
-// Preset configurations based on use case
+// Preset configurations based on use case - can select multiple
 const USE_CASE_PRESETS = {
   "garage-fit": {
     label: "Garage Fit",
-    description: "Find cars that fit your garage or parking space",
-    columns: ["year", "make", "model", "bodyType", "mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches", "msrp"] as ColumnId[],
+    description: "Dimensions for parking spaces",
+    columns: ["mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"] as ColumnId[],
     icon: "🏠",
   },
   "family": {
-    label: "Family Car Shopping",
-    description: "Find safe, reliable cars for your family",
-    columns: ["year", "make", "model", "bodyType", "safetyRating", "seats", "reliabilityRating", "msrp"] as ColumnId[],
+    label: "Family Safety",
+    description: "Safety ratings and seating",
+    columns: ["safetyRating", "seats", "reliabilityRating"] as ColumnId[],
     icon: "👨‍👩‍👧‍👦",
   },
   "budget": {
-    label: "Budget-Conscious",
-    description: "Find the best value with low ownership costs",
-    columns: ["year", "make", "model", "msrp", "mpgCombined", "reliabilityRating", "insuranceCostAnnual", "maintenanceCostAnnual"] as ColumnId[],
+    label: "Budget & Costs",
+    description: "Ownership and running costs",
+    columns: ["mpgCombined", "reliabilityRating", "insuranceCostAnnual", "maintenanceCostAnnual", "depreciationCategory"] as ColumnId[],
     icon: "💰",
   },
   "ev-shopping": {
-    label: "EV Shopping",
-    description: "Compare electric vehicles",
-    columns: ["year", "make", "model", "electricRangeMiles", "mpgCombined", "plugType", "msrp", "depreciationCategory"] as ColumnId[],
+    label: "EV / Electric",
+    description: "Range and charging info",
+    columns: ["electricRangeMiles", "plugType", "fuelType"] as ColumnId[],
     icon: "⚡",
   },
   "performance": {
-    label: "Performance Enthusiast",
-    description: "Find fast, powerful cars",
-    columns: ["year", "make", "model", "zeroToSixtySeconds", "horsepower", "bodyType", "fuelType", "msrp"] as ColumnId[],
+    label: "Performance",
+    description: "Speed and power stats",
+    columns: ["zeroToSixtySeconds", "horsepower"] as ColumnId[],
     icon: "🏎️",
-  },
-  "all-data": {
-    label: "Show Me Everything",
-    description: "See all available data columns",
-    columns: ALL_COLUMNS.filter(c => c.category !== "action" && c.defaultVisible).map(c => c.id),
-    icon: "📊",
   },
 };
 
 type UseCaseKey = keyof typeof USE_CASE_PRESETS;
 
+// Base columns always included
+const BASE_COLUMNS: ColumnId[] = ["year", "make", "model", "bodyType", "msrp"];
+
 export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardProps) {
   const [step, setStep] = useState<WizardStep>("welcome");
-  const [selectedUseCase, setSelectedUseCase] = useState<UseCaseKey | null>(null);
+  const [selectedUseCases, setSelectedUseCases] = useState<UseCaseKey[]>([]);
   const [selectedBaseline, setSelectedBaseline] = useState<Car | null>(null);
   const [baselineSearch, setBaselineSearch] = useState("");
   const [preferences, setPreferences] = useState({
@@ -72,6 +69,32 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
     fuelTypes: [] as FuelType[],
     newOnly: false,
   });
+
+  // Combine columns from all selected use cases
+  const combinedColumns = useMemo(() => {
+    if (selectedUseCases.length === 0) {
+      // Default: show all columns
+      return ALL_COLUMNS.filter(c => c.category !== "action" && c.defaultVisible).map(c => c.id);
+    }
+
+    const columnsSet = new Set<ColumnId>(BASE_COLUMNS);
+    selectedUseCases.forEach(key => {
+      USE_CASE_PRESETS[key].columns.forEach(col => columnsSet.add(col));
+    });
+
+    // Return in a logical order based on ALL_COLUMNS order
+    return ALL_COLUMNS
+      .filter(c => c.category !== "action" && columnsSet.has(c.id))
+      .map(c => c.id);
+  }, [selectedUseCases]);
+
+  const toggleUseCase = (key: UseCaseKey) => {
+    setSelectedUseCases(prev =>
+      prev.includes(key)
+        ? prev.filter(k => k !== key)
+        : [...prev, key]
+    );
+  };
 
   // Filter cars for baseline selection
   const filteredCars = cars.filter(car => {
@@ -90,10 +113,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
   ].filter(Boolean) as Car[];
 
   const handleComplete = () => {
-    const useCase = selectedUseCase ? USE_CASE_PRESETS[selectedUseCase] : USE_CASE_PRESETS["all-data"];
-
     onComplete({
-      columns: useCase.columns,
+      columns: combinedColumns,
       baseline: selectedBaseline,
       filters: {
         bodyTypes: preferences.bodyTypes.length > 0 ? preferences.bodyTypes : undefined,
@@ -178,25 +199,56 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               What brings you here?
             </h2>
             <p className="text-gray-400 mb-6 text-center">
-              This helps us show the most relevant columns for your needs.
+              Select all that apply. We&apos;ll show columns relevant to your needs.
             </p>
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {(Object.entries(USE_CASE_PRESETS) as [UseCaseKey, typeof USE_CASE_PRESETS[UseCaseKey]][]).map(([key, preset]) => (
-                <button
-                  key={key}
-                  onClick={() => setSelectedUseCase(key)}
-                  className={`p-4 rounded-lg text-left transition-all ${
-                    selectedUseCase === key
-                      ? "bg-blue-600 border-2 border-blue-400"
-                      : "bg-gray-700 border-2 border-transparent hover:border-gray-500"
-                  }`}
-                >
-                  <span className="text-2xl mb-2 block">{preset.icon}</span>
-                  <span className="text-white font-medium block">{preset.label}</span>
-                  <span className="text-gray-400 text-sm">{preset.description}</span>
-                </button>
-              ))}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+              {(Object.entries(USE_CASE_PRESETS) as [UseCaseKey, typeof USE_CASE_PRESETS[UseCaseKey]][]).map(([key, preset]) => {
+                const isSelected = selectedUseCases.includes(key);
+                return (
+                  <button
+                    key={key}
+                    onClick={() => toggleUseCase(key)}
+                    className={`p-3 rounded-lg text-left transition-all ${
+                      isSelected
+                        ? "bg-blue-600 border-2 border-blue-400"
+                        : "bg-gray-700 border-2 border-transparent hover:border-gray-500"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl">{preset.icon}</span>
+                      {isSelected && <span className="text-green-400 text-sm">✓</span>}
+                    </div>
+                    <span className="text-white font-medium text-sm block">{preset.label}</span>
+                    <span className="text-gray-400 text-xs">{preset.description}</span>
+                  </button>
+                );
+              })}
             </div>
+
+            {/* Preview of selected columns */}
+            {selectedUseCases.length > 0 && (
+              <div className="bg-gray-900 rounded-lg p-3 mb-6">
+                <p className="text-gray-400 text-xs mb-2">
+                  Columns: <span className="text-white">{combinedColumns.length}</span> selected
+                </p>
+                <div className="flex flex-wrap gap-1">
+                  {combinedColumns.slice(0, 12).map(col => {
+                    const colConfig = ALL_COLUMNS.find(c => c.id === col);
+                    return (
+                      <span key={col} className="px-2 py-0.5 bg-gray-700 text-gray-300 text-xs rounded">
+                        {colConfig?.shortLabel || colConfig?.label || col}
+                      </span>
+                    );
+                  })}
+                  {combinedColumns.length > 12 && (
+                    <span className="px-2 py-0.5 text-gray-500 text-xs">
+                      +{combinedColumns.length - 12} more
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+
             <div className="flex justify-between">
               <button
                 onClick={() => setStep("welcome")}
@@ -206,14 +258,9 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </button>
               <button
                 onClick={() => setStep("baseline")}
-                disabled={!selectedUseCase}
-                className={`px-8 py-3 rounded-lg font-medium ${
-                  selectedUseCase
-                    ? "bg-blue-600 hover:bg-blue-500 text-white btn-hover"
-                    : "bg-gray-700 text-gray-500 cursor-not-allowed"
-                }`}
+                className="px-8 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white btn-hover"
               >
-                Next
+                {selectedUseCases.length === 0 ? "Show All Columns" : "Next"}
               </button>
             </div>
           </div>

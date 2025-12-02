@@ -34,16 +34,10 @@ interface SortableHeaderProps {
 
 function SortableHeader({ field, label, sortConfig, onSortChange }: SortableHeaderProps) {
   const isActive = sortConfig.field === field;
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log("[SORT DEBUG] Clicked:", field, "Current:", sortConfig);
-    onSortChange(field);
-  };
   return (
     <th
       className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-700 select-none"
-      onClick={handleClick}
+      onClick={() => onSortChange(field)}
     >
       <div className="flex items-center gap-1">
         {label}

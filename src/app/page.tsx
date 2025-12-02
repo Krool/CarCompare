@@ -187,12 +187,10 @@ export default function Home() {
   }, [allCars, compareList]);
 
   const handleSortChange = useCallback((field: SortField) => {
-    console.log("[SORT DEBUG] handleSortChange called with:", field);
-    setSortConfig((prev) => {
-      const newDir = prev.field === field && prev.direction === "asc" ? "desc" : "asc";
-      console.log("[SORT DEBUG] State change:", prev, "->", { field, direction: newDir });
-      return { field, direction: newDir };
-    });
+    setSortConfig((prev) => ({
+      field,
+      direction: prev.field === field && prev.direction === "asc" ? "desc" : "asc",
+    }));
   }, []);
 
   const toggleFavorite = useCallback((carId: string) => {
