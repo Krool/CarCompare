@@ -9,6 +9,14 @@ import InfoTooltip, {
   WidthInfoContent,
   FuelTypeInfoContent,
   PlugTypeInfoContent,
+  ReviewScoreInfoContent,
+  BodyTypeInfoContent,
+  EfficiencyInfoContent,
+  EvRangeInfoContent,
+  TowingInfoContent,
+  GroundClearanceInfoContent,
+  LegroomInfoContent,
+  CargoInfoContent,
 } from "./InfoTooltip";
 
 interface FilterControlsProps {
@@ -290,6 +298,9 @@ function FilterControlsComponent({
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Min Ground Clearance (inches)
+          <InfoTooltip title="Ground Clearance">
+            <GroundClearanceInfoContent />
+          </InfoTooltip>
         </label>
         <input
           type="number"
@@ -301,13 +312,15 @@ function FilterControlsComponent({
           onChange={(e) => updateFilter("minGroundClearance", e.target.value ? parseFloat(e.target.value) : undefined)}
           className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
         />
-        <p className="text-xs text-gray-500">For off-road or rough terrain</p>
       </div>
 
       {/* Towing Capacity */}
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Min Towing Capacity (lbs)
+          <InfoTooltip title="Towing Capacity">
+            <TowingInfoContent />
+          </InfoTooltip>
         </label>
         <input
           type="number"
@@ -319,13 +332,15 @@ function FilterControlsComponent({
           onChange={(e) => updateFilter("minTowingCapacity", e.target.value ? parseInt(e.target.value) : undefined)}
           className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
         />
-        <p className="text-xs text-gray-500">For trailers, boats, etc.</p>
       </div>
 
       {/* Minimum Legroom */}
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Min Driver Legroom (inches)
+          <InfoTooltip title="Driver Legroom">
+            <LegroomInfoContent />
+          </InfoTooltip>
         </label>
         <input
           type="number"
@@ -337,13 +352,15 @@ function FilterControlsComponent({
           onChange={(e) => updateFilter("minLegroom", e.target.value ? parseFloat(e.target.value) : undefined)}
           className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
         />
-        <p className="text-xs text-gray-500">Filter for taller drivers</p>
       </div>
 
       {/* Min Cargo Volume */}
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Min Cargo Volume (cu ft)
+          <InfoTooltip title="Cargo Volume">
+            <CargoInfoContent />
+          </InfoTooltip>
         </label>
         <input
           type="number"
@@ -360,6 +377,9 @@ function FilterControlsComponent({
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Min MPG/MPGe
+          <InfoTooltip title="Fuel Efficiency">
+            <EfficiencyInfoContent />
+          </InfoTooltip>
         </label>
         <input
           type="number"
@@ -376,6 +396,9 @@ function FilterControlsComponent({
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Min EV Range (miles)
+          <InfoTooltip title="Electric Range">
+            <EvRangeInfoContent />
+          </InfoTooltip>
         </label>
         <input
           type="number"
@@ -418,6 +441,9 @@ function FilterControlsComponent({
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-300">
           Min Review Score (0-100)
+          <InfoTooltip title="Review Score">
+            <ReviewScoreInfoContent />
+          </InfoTooltip>
         </label>
         <input
           type="number"
@@ -428,7 +454,6 @@ function FilterControlsComponent({
           onChange={(e) => updateFilter("minReviewScore", e.target.value ? parseInt(e.target.value) : undefined)}
           className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
         />
-        <p className="text-xs text-gray-500">Aggregated expert review scores from MotorMashup</p>
       </div>
 
       {/* Driver Assistance Level */}
@@ -530,7 +555,12 @@ function FilterControlsComponent({
 
       {/* Body Type */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">Body Type</label>
+        <label className="block text-sm font-medium text-gray-300">
+          Body Type
+          <InfoTooltip title="Body Types">
+            <BodyTypeInfoContent />
+          </InfoTooltip>
+        </label>
         <div className="flex gap-2 flex-wrap">
           {BODY_TYPES.map((bt) => (
             <button
