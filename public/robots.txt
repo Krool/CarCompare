@@ -1,0 +1,5 @@
+# Robots.txt for CarCompare
+User-agent: *
+Allow: /
+
+Sitemap: https://krool.github.io/CarCompare/sitemap.xml
