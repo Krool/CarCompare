@@ -84,12 +84,17 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       return false;
     }
 
-    // Width filter (garage fit) - can filter by folded or extended width
+    // Width filter (garage fit) - can filter by folded, one-mirror, or extended width
     if (filters.maxWidthInches !== undefined) {
       const widthType = filters.widthFilterType ?? "extended";
       let widthToCheck: number;
       if (widthType === "folded") {
         widthToCheck = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches + 2;
+      } else if (widthType === "one-mirror") {
+        // One mirror = folded + half the difference between extended and folded
+        const extended = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
+        const folded = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches + 2;
+        widthToCheck = folded + (extended - folded) / 2;
       } else {
         widthToCheck = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
       }

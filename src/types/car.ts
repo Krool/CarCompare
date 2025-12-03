@@ -119,7 +119,7 @@ export interface Car {
   dataSource?: string;          // Where we got the data
 }
 
-export type WidthFilterType = "extended" | "folded";
+export type WidthFilterType = "extended" | "folded" | "one-mirror";
 
 export interface CarFilters {
   minSeats?: number;

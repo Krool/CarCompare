@@ -264,6 +264,7 @@ function FilterControlsComponent({
               className="px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
             >
               <option value="extended">Mirrors Out</option>
+              <option value="one-mirror">1 Mirror</option>
               <option value="folded">Folded</option>
             </select>
           </div>
