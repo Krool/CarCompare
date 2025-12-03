@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { Car, CarFilters, SortConfig, SortField, ColumnId, BodyType, FuelType } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, ColumnId, BodyType, FuelType, SafetyRating, AutonomousLevel, PlugType } from "@/types/car";
 import carData from "@/data/cars.json";
 import FilterControls from "@/components/FilterControls";
 import CarTable from "@/components/CarTable";
@@ -52,7 +52,69 @@ export default function Home() {
     const urlParams = new URLSearchParams(window.location.search);
     const sharedState = urlParams.get("state");
 
-    if (sharedState) {
+    // Check for new wizard-style URL params (simpler format)
+    const urlColumns = urlParams.get("c");
+    const urlBodyTypes = urlParams.get("bt");
+    const urlFuelTypes = urlParams.get("ft");
+    const urlYear = urlParams.get("y");
+    const urlSeats = urlParams.get("s");
+    const urlPrice = urlParams.get("p");
+    const urlSafetyRating = urlParams.get("sr");
+    const urlSortField = urlParams.get("sf");
+    const urlSortDir = urlParams.get("sd");
+    const urlBaseline = urlParams.get("b");
+
+    const hasNewFormatParams = urlColumns || urlBodyTypes || urlFuelTypes || urlYear || urlSeats || urlPrice || urlSafetyRating || urlSortField || urlBaseline;
+
+    if (hasNewFormatParams) {
+      // Parse new wizard-style URL format
+      if (urlColumns) {
+        setVisibleColumns(urlColumns.split(",") as ColumnId[]);
+      }
+
+      const newFilters: CarFilters = {};
+      if (urlBodyTypes) {
+        newFilters.bodyTypes = urlBodyTypes.split(",") as BodyType[];
+      }
+      if (urlFuelTypes) {
+        newFilters.fuelTypes = urlFuelTypes.split(",") as FuelType[];
+      }
+      if (urlYear) {
+        newFilters.minYear = parseInt(urlYear);
+      }
+      if (urlSeats) {
+        newFilters.minSeats = parseInt(urlSeats);
+      }
+      if (urlPrice) {
+        newFilters.maxPrice = parseInt(urlPrice);
+      }
+      if (urlSafetyRating) {
+        newFilters.safetyRatings = urlSafetyRating.split(",") as SafetyRating[];
+      }
+      if (Object.keys(newFilters).length > 0) {
+        setFilters(newFilters);
+      }
+
+      if (urlSortField && urlSortDir) {
+        setSortConfig({
+          field: urlSortField as SortField,
+          direction: urlSortDir as "asc" | "desc",
+        });
+      }
+
+      if (urlBaseline) {
+        const car = allCars.find(c => c.id === urlBaseline);
+        if (car) setBaselineCar(car);
+      }
+
+      // Mark wizard as seen and don't show it
+      localStorage.setItem(STORAGE_KEYS.hasSeenWizard, "true");
+
+      // Clear the URL params after loading shared state
+      window.history.replaceState({}, "", window.location.pathname);
+      setIsInitialized(true);
+      return;
+    } else if (sharedState) {
       try {
         const decoded = JSON.parse(atob(sharedState));
         // Support both old format (filters, sort, baseline, compare, columns) and new short format (f, s, b, c, v)
@@ -273,18 +335,46 @@ export default function Home() {
       bodyTypes?: BodyType[];
       fuelTypes?: FuelType[];
       minYear?: number;
+      maxYear?: number;
+      minSeats?: number;
+      seats?: number[];
+      minPrice?: number;
+      maxPrice?: number;
+      safetyRatings?: SafetyRating[];
+      autonomousLevels?: AutonomousLevel[];
+      hasHandsFree?: boolean;
+      minMpg?: number;
+      minEvRange?: number;
+      plugTypes?: PlugType[];
+      makes?: string[];
     };
+    sortConfig?: { field: SortField; direction: "asc" | "desc" };
   }) => {
     setVisibleColumns(settings.columns);
     if (settings.baseline) {
       setBaselineCar(settings.baseline);
     }
-    setFilters(prev => ({
-      ...prev,
+    // Apply ALL filters from wizard, replacing any existing filters
+    setFilters({
       bodyTypes: settings.filters.bodyTypes,
       fuelTypes: settings.filters.fuelTypes,
       minYear: settings.filters.minYear,
-    }));
+      maxYear: settings.filters.maxYear,
+      minSeats: settings.filters.minSeats,
+      seats: settings.filters.seats,
+      minPrice: settings.filters.minPrice,
+      maxPrice: settings.filters.maxPrice,
+      safetyRatings: settings.filters.safetyRatings,
+      autonomousLevels: settings.filters.autonomousLevels,
+      hasHandsFree: settings.filters.hasHandsFree,
+      minMpg: settings.filters.minMpg,
+      minEvRange: settings.filters.minEvRange,
+      plugTypes: settings.filters.plugTypes,
+      makes: settings.filters.makes,
+    });
+    if (settings.sortConfig) {
+      setSortConfig(settings.sortConfig);
+    }
     localStorage.setItem(STORAGE_KEYS.hasSeenWizard, "true");
     setShowWizard(false);
   }, []);
