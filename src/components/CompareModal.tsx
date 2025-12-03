@@ -277,7 +277,77 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               />
               <CompareRow
                 label="Plug Type"
-                values={cars.map(c => c.plugType === "none" ? "N/A" : c.plugType)}
+                values={cars.map(c => c.plugType === "none" ? "-" : c.plugType)}
+              />
+              <CompareRow
+                label="Horsepower"
+                values={cars.map(c => c.horsepower)}
+                format={(v) => v ? `${v} hp` : "-"}
+                highlight="higher"
+              />
+              <CompareRow
+                label="0-60 mph"
+                values={cars.map(c => c.zeroToSixtySeconds)}
+                format={(v) => v ? `${v}s` : "-"}
+                highlight="lower"
+              />
+
+              {/* Driver Assistance Section */}
+              <tr className="bg-gray-900">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+                  Driver Assistance
+                </td>
+              </tr>
+              <CompareRow
+                label="ADAS Level"
+                values={cars.map(c => c.autonomousLevel ?? "-")}
+              />
+              <tr className="border-b border-gray-700">
+                <td className="px-4 py-2 text-gray-400 font-medium">Hands-Free Highway</td>
+                {cars.map((car) => (
+                  <td key={car.id} className="px-4 py-2 text-center">
+                    {car.autonomousLevel === "hands-free" || car.autonomousLevel === "full-self-driving" ? (
+                      <span className="text-green-400">✓</span>
+                    ) : (
+                      <span className="text-gray-500">-</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b border-gray-700">
+                <td className="px-4 py-2 text-gray-400 font-medium">Auto-Folding Mirrors</td>
+                {cars.map((car) => (
+                  <td key={car.id} className="px-4 py-2 text-center">
+                    {car.adasFeatures?.autoFoldingMirrors ? (
+                      <span className="text-green-400">✓</span>
+                    ) : (
+                      <span className="text-gray-500">-</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+
+              {/* Ownership Costs Section */}
+              <tr className="bg-gray-900">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+                  Ownership
+                </td>
+              </tr>
+              <CompareRow
+                label="Reliability"
+                values={cars.map(c => c.reliabilityRating)}
+              />
+              <CompareRow
+                label="Towing Capacity"
+                values={cars.map(c => c.towingCapacityLbs)}
+                format={(v) => v ? `${(v as number).toLocaleString()} lbs` : "-"}
+                highlight="higher"
+              />
+              <CompareRow
+                label="Ground Clearance"
+                values={cars.map(c => c.groundClearanceInches)}
+                format={(v) => v ? `${v}"` : "-"}
+                highlight="higher"
               />
             </tbody>
           </table>

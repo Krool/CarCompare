@@ -25,6 +25,15 @@ const DEFAULT_GARAGE: GarageDimensions = {
   height: 96, // 8 feet in inches
 };
 
+// Common garage size presets
+const GARAGE_PRESETS: { name: string; dimensions: GarageDimensions }[] = [
+  { name: "Small 1-Car", dimensions: { width: 120, length: 240, height: 84 } }, // 10x20x7
+  { name: "Standard 1-Car", dimensions: { width: 144, length: 240, height: 96 } }, // 12x20x8
+  { name: "Large 1-Car", dimensions: { width: 168, length: 264, height: 108 } }, // 14x22x9
+  { name: "Standard 2-Car", dimensions: { width: 240, length: 240, height: 96 } }, // 20x20x8
+  { name: "Large 2-Car", dimensions: { width: 288, length: 264, height: 108 } }, // 24x22x9
+];
+
 export default function GarageFitVisualizer({
   car,
   mirrorBuffer,
@@ -128,6 +137,23 @@ export default function GarageFitVisualizer({
         {/* Garage Dimensions Input */}
         <div className="bg-gray-900 rounded-lg p-4 mb-6">
           <h4 className="text-white font-medium mb-3">Your Garage Dimensions</h4>
+
+          {/* Quick Presets */}
+          <div className="mb-4">
+            <label className="text-gray-400 text-xs block mb-2">Quick Presets:</label>
+            <div className="flex flex-wrap gap-2">
+              {GARAGE_PRESETS.map((preset) => (
+                <button
+                  key={preset.name}
+                  onClick={() => setGarage(preset.dimensions)}
+                  className="px-2 py-1 bg-gray-700 hover:bg-gray-600 text-gray-300 text-xs rounded transition-colors"
+                >
+                  {preset.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="text-gray-400 text-sm block mb-1">Width (ft)</label>

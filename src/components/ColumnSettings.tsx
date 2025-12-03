@@ -62,35 +62,42 @@ export const DEFAULT_VISIBLE_COLUMNS: ColumnId[] = ALL_COLUMNS
   .filter(c => c.defaultVisible && c.category !== "action")
   .map(c => c.id);
 
-// Presets
-const PRESETS: { name: string; columns: ColumnId[] }[] = [
+// Presets with descriptions
+const PRESETS: { name: string; columns: ColumnId[]; description: string }[] = [
   {
     name: "All Columns",
     columns: ALL_COLUMNS.filter(c => c.category !== "action").map(c => c.id),
+    description: "Show every available data column",
   },
   {
     name: "Minimal",
     columns: ["year", "make", "model", "bodyType", "msrp"],
+    description: "Basic vehicle identification and price",
   },
   {
     name: "Garage Fit",
     columns: ["year", "make", "model", "lengthInches", "mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"],
+    description: "All dimension columns for parking",
   },
   {
     name: "Safety Focus",
     columns: ["year", "make", "model", "safetyRating", "reviewScore", "autonomousLevel"],
+    description: "IIHS ratings and driver assistance",
   },
   {
     name: "EV Focus",
     columns: ["year", "make", "model", "fuelType", "plugType", "mpgCombined", "electricRangeMiles", "msrp"],
+    description: "Range, charging, and efficiency",
   },
   {
     name: "Value Focus",
     columns: ["year", "make", "model", "msrp", "leaseRating", "depreciationCategory", "fiveYearResalePercent", "reliabilityRating", "insuranceCostAnnual", "maintenanceCostAnnual"],
+    description: "Ownership costs and resale value",
   },
   {
     name: "Performance",
     columns: ["year", "make", "model", "zeroToSixtySeconds", "horsepower", "fuelType", "msrp"],
+    description: "Speed, power, and drivetrain",
   },
 ];
 
@@ -167,9 +174,13 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
                   <button
                     key={preset.name}
                     onClick={() => applyPreset(preset)}
-                    className="px-2 py-1 bg-gray-700 hover:bg-gray-600 text-gray-300 text-xs rounded transition-colors"
+                    className="px-2 py-1 bg-gray-700 hover:bg-gray-600 text-gray-300 text-xs rounded transition-colors group relative"
+                    title={preset.description}
                   >
-                    {preset.name}
+                    {preset.name} ({preset.columns.length})
+                    <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-gray-300 text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                      {preset.description}
+                    </span>
                   </button>
                 ))}
               </div>

@@ -30,17 +30,41 @@ interface SortableHeaderProps {
   label: string;
   sortConfig: SortConfig;
   onSortChange: (field: SortField) => void;
+  tooltip?: string;
 }
 
-function SortableHeader({ field, label, sortConfig, onSortChange }: SortableHeaderProps) {
+// Header tooltips for columns that need explanation
+const HEADER_TOOLTIPS: Partial<Record<SortField, string>> = {
+  safetyRating: "IIHS Top Safety Pick rating",
+  autonomousLevel: "Driver Assistance (ADAS) capability level",
+  mirrorsFoldedWidthInches: "Width with mirrors folded",
+  bodyWidthInches: "Width with mirrors extended",
+  groundClearanceInches: "Height from ground to undercarriage",
+  mpgCombined: "MPG for gas cars, MPGe for electric",
+  electricRangeMiles: "Battery-only driving range",
+  leaseRating: "Our lease value score (A=best)",
+  depreciationCategory: "Expected 5-year value loss",
+  fiveYearResalePercent: "% of value retained after 5 years",
+  reliabilityRating: "Expected reliability score",
+};
+
+function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: SortableHeaderProps) {
   const isActive = sortConfig.field === field;
+  const headerTooltip = tooltip || HEADER_TOOLTIPS[field];
+
   return (
     <th
-      className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-700 select-none"
+      className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-700 select-none group relative"
       onClick={() => onSortChange(field)}
+      title={headerTooltip}
     >
       <div className="flex items-center gap-1">
         {label}
+        {headerTooltip && (
+          <svg className="w-3 h-3 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        )}
         {isActive && (
           <span className="text-blue-400">
             {sortConfig.direction === "asc" ? "▲" : "▼"}
@@ -87,8 +111,20 @@ export default function CarTable({
 
   if (cars.length === 0) {
     return (
-      <div className="bg-gray-800 rounded-lg p-8 text-center text-gray-400">
-        No cars match your filters. Try adjusting the filter criteria.
+      <div className="bg-gray-800 rounded-lg p-8 text-center">
+        <div className="text-gray-400 mb-4">
+          <svg className="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <p className="text-lg font-medium text-gray-300 mb-2">No cars match your filters</p>
+          <p className="text-sm">Try these suggestions:</p>
+        </div>
+        <ul className="text-gray-500 text-sm space-y-1 max-w-md mx-auto text-left list-disc list-inside">
+          <li>Expand the price range or year range</li>
+          <li>Remove dimension constraints (length, width, height)</li>
+          <li>Select more body types or fuel types</li>
+          <li>Clear specific filters in the sidebar</li>
+        </ul>
       </div>
     );
   }
@@ -119,6 +155,9 @@ export default function CarTable({
             </th>
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
               Image
+            </th>
+            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10">
+              <span title="View full details">Info</span>
             </th>
             {/* Configurable columns */}
             {isVisible("year") && <SortableHeader field="year" label="Year" sortConfig={sortConfig} onSortChange={onSortChange} />}
@@ -219,31 +258,30 @@ export default function CarTable({
                 <td className="px-3 py-2">
                   <CarImage car={car} onImageClick={() => setModalCar(car)} />
                 </td>
-                {/* Configurable columns - Year/Make/Model are clickable to open details */}
-                {isVisible("year") && (
-                  <td
-                    className="px-3 py-2 text-sm text-white cursor-pointer hover:text-blue-400"
+                <td className="px-2 py-2 text-center">
+                  <button
                     onClick={() => setModalCar(car)}
-                    title="Click for details"
+                    className="p-1.5 rounded bg-gray-700 hover:bg-blue-600 text-gray-300 hover:text-white transition-colors"
+                    title="View full details"
                   >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </button>
+                </td>
+                {/* Configurable columns */}
+                {isVisible("year") && (
+                  <td className="px-3 py-2 text-sm text-white">
                     {car.year}
                   </td>
                 )}
                 {isVisible("make") && (
-                  <td
-                    className="px-3 py-2 text-sm text-white cursor-pointer hover:text-blue-400"
-                    onClick={() => setModalCar(car)}
-                    title="Click for details"
-                  >
+                  <td className="px-3 py-2 text-sm text-white">
                     {car.make}
                   </td>
                 )}
                 {isVisible("model") && (
-                  <td
-                    className="px-3 py-2 text-sm text-white cursor-pointer hover:text-blue-400"
-                    onClick={() => setModalCar(car)}
-                    title="Click for details"
-                  >
+                  <td className="px-3 py-2 text-sm text-white">
                     {car.model}
                     {car.trim && <span className="text-gray-400 text-xs ml-1">{car.trim}</span>}
                   </td>
@@ -941,7 +979,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           <div className="bg-gray-900 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Powertrain</h4>
             <DetailRow label="Fuel Type" value={car.fuelType} />
-            <DetailRow label="Plug Type" value={car.plugType === "none" ? "N/A" : car.plugType} />
+            <DetailRow label="Plug Type" value={car.plugType === "none" ? "-" : car.plugType} />
           </div>
 
           {/* Capability */}

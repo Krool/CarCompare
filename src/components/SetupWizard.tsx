@@ -453,22 +453,34 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
   return (
     <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 modal-backdrop">
       <div className="bg-gray-800 rounded-xl max-w-2xl w-full p-8 modal-content max-h-[90vh] overflow-y-auto">
-        {/* Progress indicator */}
+        {/* Progress indicator - clickable steps */}
         <div className="flex justify-center mb-8">
           <div className="flex items-center gap-2">
-            {["welcome", "use-case", "baseline", "preferences", "complete"].map((s, i) => (
-              <div key={s} className="flex items-center">
-                <div
-                  className={`w-3 h-3 rounded-full ${
-                    step === s ? "bg-blue-500" :
-                    ["welcome", "use-case", "baseline", "preferences", "complete"].indexOf(step) > i
-                      ? "bg-green-500"
-                      : "bg-gray-600"
-                  }`}
-                />
-                {i < 4 && <div className="w-8 h-0.5 bg-gray-600" />}
-              </div>
-            ))}
+            {(["welcome", "use-case", "baseline", "preferences", "complete"] as WizardStep[]).map((s, i) => {
+              const stepNames = ["Welcome", "Use Case", "Baseline", "Filters", "Done"];
+              const currentIndex = ["welcome", "use-case", "baseline", "preferences", "complete"].indexOf(step);
+              const isCompleted = currentIndex > i;
+              const isCurrent = step === s;
+              const canNavigate = isCompleted; // Can only go back to completed steps
+
+              return (
+                <div key={s} className="flex items-center">
+                  <button
+                    onClick={() => canNavigate && setStep(s)}
+                    disabled={!canNavigate}
+                    className={`w-3 h-3 rounded-full transition-all ${
+                      isCurrent ? "bg-blue-500 ring-2 ring-blue-300" :
+                      isCompleted ? "bg-green-500 cursor-pointer hover:ring-2 hover:ring-green-300" :
+                      "bg-gray-600 cursor-not-allowed"
+                    }`}
+                    title={canNavigate ? `Go back to ${stepNames[i]}` : stepNames[i]}
+                  />
+                  {i < 4 && (
+                    <div className={`w-8 h-0.5 ${isCompleted ? "bg-green-500" : "bg-gray-600"}`} />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -825,17 +837,22 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </label>
             </div>
 
-            {/* Go Deeper toggle */}
+            {/* Advanced Filters toggle */}
             <button
               onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
               className="w-full mb-4 px-4 py-3 bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 rounded-lg text-sm flex items-center justify-between border border-purple-700/50"
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg">🔍</span>
-                <span className="font-medium">Go Deeper</span>
-                <span className="text-purple-400 text-xs">Safety, tech, efficiency & more</span>
+                <div className="text-left">
+                  <span className="font-medium block">Advanced Filters</span>
+                  <span className="text-purple-400 text-xs">Safety ratings, ADAS tech, efficiency, brands</span>
+                </div>
               </div>
-              <span className="text-purple-400">{showAdvancedFilters ? "▲" : "▼"}</span>
+              <div className="flex items-center gap-2">
+                <span className="text-purple-300 text-xs">4 categories</span>
+                <span className="text-purple-400">{showAdvancedFilters ? "▲" : "▼"}</span>
+              </div>
             </button>
 
             {showAdvancedFilters && (

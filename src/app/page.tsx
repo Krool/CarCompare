@@ -43,6 +43,13 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleColumns, setVisibleColumns] = useState<ColumnId[]>(DEFAULT_VISIBLE_COLUMNS);
   const [showWizard, setShowWizard] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: "success" | "info" } | null>(null);
+
+  // Show toast notification
+  const showToast = useCallback((message: string, type: "success" | "info" = "info") => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  }, []);
 
   // Load state from localStorage on mount
   useEffect(() => {
@@ -270,11 +277,18 @@ export default function Home() {
       }
       // Limit to 4 cars for comparison
       if (prev.length >= 4) {
+        showToast("Maximum 4 cars for comparison", "info");
         return prev;
+      }
+      // Show helpful toast for first car
+      if (prev.length === 0) {
+        showToast("Car added to compare. Select more to compare side-by-side!", "success");
+      } else if (prev.length === 1) {
+        showToast("Click Compare button in header to view side-by-side", "info");
       }
       return [...prev, carId];
     });
-  }, []);
+  }, [showToast]);
 
   const removeFromCompare = useCallback((carId: string) => {
     setCompareList(prev => prev.filter(id => id !== carId));
@@ -321,12 +335,12 @@ export default function Home() {
     const url = `${window.location.origin}${window.location.pathname}?state=${encoded}`;
 
     navigator.clipboard.writeText(url).then(() => {
-      alert("Share link copied to clipboard!");
+      showToast("Share link copied to clipboard!", "success");
     }).catch(() => {
       // Fallback for older browsers
       prompt("Copy this link to share:", url);
     });
-  }, [filters, sortConfig, baselineCar, compareList, visibleColumns]);
+  }, [filters, sortConfig, baselineCar, compareList, visibleColumns, showToast]);
 
   const handleWizardComplete = useCallback((settings: {
     columns: ColumnId[];
@@ -401,8 +415,11 @@ export default function Home() {
             {compareList.length > 0 && (
               <button
                 onClick={() => setShowCompareModal(true)}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded text-sm font-medium"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded text-sm font-medium flex items-center gap-2 animate-bounce-once"
               >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
                 Compare ({compareList.length})
               </button>
             )}
@@ -518,6 +535,9 @@ export default function Home() {
                 onToggleFavorite={toggleFavorite}
                 onToggleCompare={toggleCompare}
                 onSelectBaseline={setBaselineCar}
+                sortField={sortConfig?.field}
+                sortDirection={sortConfig?.direction}
+                onSortChange={handleSortChange}
               />
             </div>
 
@@ -583,6 +603,28 @@ export default function Home() {
           onSkip={handleWizardSkip}
         />
       )}
+
+      {/* Toast Notification */}
+      {toast && (
+        <div className="fixed bottom-4 right-4 z-50 animate-slide-up">
+          <div className={`px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
+            toast.type === "success"
+              ? "bg-green-800 text-green-100 border border-green-600"
+              : "bg-blue-800 text-blue-100 border border-blue-600"
+          }`}>
+            {toast.type === "success" ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+            <span className="text-sm">{toast.message}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -597,6 +639,9 @@ function MobileCardView({
   onToggleFavorite,
   onToggleCompare,
   onSelectBaseline,
+  sortField,
+  sortDirection,
+  onSortChange,
 }: {
   cars: Car[];
   baselineCar: Car | null;
@@ -606,7 +651,24 @@ function MobileCardView({
   onToggleFavorite: (id: string) => void;
   onToggleCompare: (id: string) => void;
   onSelectBaseline: (car: Car) => void;
+  sortField?: SortField;
+  sortDirection?: "asc" | "desc";
+  onSortChange?: (field: SortField) => void;
 }) {
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
+
+  const toggleExpanded = (carId: string) => {
+    setExpandedCards(prev => {
+      const next = new Set(prev);
+      if (next.has(carId)) {
+        next.delete(carId);
+      } else {
+        next.add(carId);
+      }
+      return next;
+    });
+  };
+
   const getCarImageUrl = (car: Car, size: number = 400): string => {
     const modelFamily = car.model
       .split(" ")[0]
@@ -619,7 +681,7 @@ function MobileCardView({
   };
 
   const formatCurrency = (value: number | undefined): string => {
-    if (value === undefined) return "N/A";
+    if (value === undefined) return "-";
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -627,21 +689,58 @@ function MobileCardView({
     }).format(value);
   };
 
+  const sortOptions: { field: SortField; label: string }[] = [
+    { field: "msrp", label: "Price" },
+    { field: "year", label: "Year" },
+    { field: "safetyRating", label: "Safety" },
+    { field: "mpgCombined", label: "MPG" },
+  ];
+
   if (cars.length === 0) {
     return (
-      <div className="bg-gray-800 rounded-lg p-8 text-center text-gray-400">
-        No cars match your filters. Try adjusting the filter criteria.
+      <div className="bg-gray-800 rounded-lg p-8 text-center">
+        <div className="text-gray-400 mb-4">
+          <svg className="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <p className="text-lg font-medium text-gray-300 mb-2">No cars match your filters</p>
+          <p className="text-sm">Try expanding your search criteria</p>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="space-y-4">
+      {/* Mobile Sort Controls */}
+      {onSortChange && (
+        <div className="bg-gray-800 rounded-lg p-3 flex items-center gap-2 flex-wrap">
+          <span className="text-gray-400 text-sm">Sort:</span>
+          {sortOptions.map(opt => (
+            <button
+              key={opt.field}
+              onClick={() => onSortChange(opt.field)}
+              className={`px-3 py-1 rounded text-xs flex items-center gap-1 ${
+                sortField === opt.field
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-700 text-gray-300"
+              }`}
+            >
+              {opt.label}
+              {sortField === opt.field && (
+                <span>{sortDirection === "asc" ? "↑" : "↓"}</span>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+
       {cars.map((car) => {
         const isBaseline = baselineCar?.id === car.id;
         const isFavorite = favorites.includes(car.id);
         const isInCompare = compareList.includes(car.id);
         const effectiveWidth = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
+        const isExpanded = expandedCards.has(car.id);
 
         return (
           <div
@@ -712,7 +811,48 @@ function MobileCardView({
               </div>
             </div>
 
+            {/* Expanded specs section */}
+            {isExpanded && (
+              <div className="mt-4 pt-4 border-t border-gray-700 grid grid-cols-2 gap-2 text-sm animate-fadeIn">
+                <div>
+                  <span className="text-gray-400">Length:</span>
+                  <span className="text-white ml-2">{car.lengthInches ? `${car.lengthInches}"` : "-"}</span>
+                </div>
+                <div>
+                  <span className="text-gray-400">Height:</span>
+                  <span className="text-white ml-2">{car.heightInches ? `${car.heightInches}"` : "-"}</span>
+                </div>
+                <div>
+                  <span className="text-gray-400">Clearance:</span>
+                  <span className="text-white ml-2">{car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}</span>
+                </div>
+                <div>
+                  <span className="text-gray-400">Cargo:</span>
+                  <span className="text-white ml-2">{car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : "-"}</span>
+                </div>
+                <div>
+                  <span className="text-gray-400">Fuel:</span>
+                  <span className="text-white ml-2 capitalize">{car.fuelType.replace("-", " ")}</span>
+                </div>
+                <div>
+                  <span className="text-gray-400">EV Range:</span>
+                  <span className="text-white ml-2">{car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}</span>
+                </div>
+                {car.adasFeatures?.autoFoldingMirrors && (
+                  <div className="col-span-2">
+                    <span className="text-green-400 text-xs">✓ Auto-Folding Mirrors</span>
+                  </div>
+                )}
+              </div>
+            )}
+
             <div className="mt-4 flex gap-2">
+              <button
+                onClick={() => toggleExpanded(car.id)}
+                className="px-3 py-2 rounded text-sm bg-gray-700 text-gray-300 hover:bg-gray-600"
+              >
+                {isExpanded ? "Show Less" : "Show More"}
+              </button>
               <button
                 onClick={() => onSelectBaseline(car)}
                 className={`flex-1 px-3 py-2 rounded text-sm ${

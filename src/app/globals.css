@@ -150,6 +150,42 @@ body {
   animation: fadeInUp 0.3s ease-out backwards;
 }
 
+/* Slide up animation for toasts */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* One-time bounce animation for Compare button */
+@keyframes bounceOnce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+}
+
+.animate-bounce-once {
+  animation: bounceOnce 0.5s ease-out;
+}
+
 /* Print styles */
 @media print {
   /* Hide non-printable elements */

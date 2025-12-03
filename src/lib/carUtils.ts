@@ -358,7 +358,7 @@ export function getUniqueMakes(cars: Car[]): string[] {
 }
 
 export function formatCurrency(value: number | undefined): string {
-  if (value === undefined) return "N/A";
+  if (value === undefined) return "-";
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -368,12 +368,12 @@ export function formatCurrency(value: number | undefined): string {
 
 export function formatMpg(car: Car): string {
   if (car.fuelType === "electric") {
-    return car.mpge ? `${car.mpge} MPGe` : "N/A";
+    return car.mpge ? `${car.mpge} MPGe` : "-";
   }
   if (car.mpgCombined) {
     return `${car.mpgCombined} MPG`;
   }
-  return "N/A";
+  return "-";
 }
 
 export function getEffectiveWidth(car: Car, mirrorBuffer: number): number {
