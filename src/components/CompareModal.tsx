@@ -306,7 +306,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                 <td className="px-4 py-2 text-gray-400 font-medium">Hands-Free Highway</td>
                 {cars.map((car) => (
                   <td key={car.id} className="px-4 py-2 text-center">
-                    {car.autonomousLevel === "hands-free" || car.autonomousLevel === "full-self-driving" ? (
+                    {car.adasFeatures?.handsFreeHighway ? (
                       <span className="text-green-400">✓</span>
                     ) : (
                       <span className="text-gray-500">-</span>

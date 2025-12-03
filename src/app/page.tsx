@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { Car, CarFilters, SortConfig, SortField, ColumnId, BodyType, FuelType, SafetyRating, AutonomousLevel, PlugType } from "@/types/car";
 import carData from "@/data/cars.json";
 import FilterControls from "@/components/FilterControls";
@@ -44,11 +44,15 @@ export default function Home() {
   const [visibleColumns, setVisibleColumns] = useState<ColumnId[]>(DEFAULT_VISIBLE_COLUMNS);
   const [showWizard, setShowWizard] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: "success" | "info" } | null>(null);
+  const toastTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Show toast notification
   const showToast = useCallback((message: string, type: "success" | "info" = "info") => {
+    if (toastTimeoutRef.current) {
+      clearTimeout(toastTimeoutRef.current);
+    }
     setToast({ message, type });
-    setTimeout(() => setToast(null), 3000);
+    toastTimeoutRef.current = setTimeout(() => setToast(null), 3000);
   }, []);
 
   // Load state from localStorage on mount
