@@ -199,6 +199,13 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       }
     }
 
+    // Auto-folding mirrors filter
+    if (filters.hasAutoFoldingMirrors === true) {
+      if (!car.adasFeatures?.autoFoldingMirrors) {
+        return false;
+      }
+    }
+
     // Review score filter
     if (filters.minReviewScore !== undefined) {
       if (!car.reviewScore || car.reviewScore < filters.minReviewScore) {

@@ -90,6 +90,7 @@ export interface Car {
     summonParking?: boolean;           // Remote parking/summon
     handsFreeHighway?: boolean;        // Hands-free highway driving
     cityAutopilot?: boolean;           // City street autonomy
+    autoFoldingMirrors?: boolean;      // Power-folding mirrors (auto or button)
   };
   adasName?: string;  // Marketing name (e.g., "Autopilot", "BlueCruise", "Super Cruise")
 
@@ -150,6 +151,7 @@ export interface CarFilters {
   autonomousLevels?: AutonomousLevel[]; // Filter by autonomous capability
   hasHandsFree?: boolean;       // Has hands-free driving
   hasAutoLaneChange?: boolean;  // Has automatic lane change
+  hasAutoFoldingMirrors?: boolean; // Has power-folding mirrors
 }
 
 export interface CarDatabase {

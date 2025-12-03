@@ -454,7 +454,7 @@ function FilterControlsComponent({
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-4 mt-2">
+        <div className="flex items-center gap-4 mt-2 flex-wrap">
           <label className="flex items-center gap-2 text-sm text-gray-300">
             <input
               type="checkbox"
@@ -472,6 +472,15 @@ function FilterControlsComponent({
               className="rounded border-gray-600 bg-gray-700 text-purple-600"
             />
             Auto Lane Change
+          </label>
+          <label className="flex items-center gap-2 text-sm text-gray-300">
+            <input
+              type="checkbox"
+              checked={filters.hasAutoFoldingMirrors === true}
+              onChange={(e) => updateFilter("hasAutoFoldingMirrors", e.target.checked ? true : undefined)}
+              className="rounded border-gray-600 bg-gray-700 text-purple-600"
+            />
+            Auto-Folding Mirrors
           </label>
           <InfoTooltip title="ADAS Features">
             <AdasFeaturesInfoContent />

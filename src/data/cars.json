@@ -35,7 +35,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78.8,
       "mirrorWidthInches": 85.8,
@@ -90,7 +91,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "mirrorsFoldedWidthInches": 71.5,
       "mirrorWidthInches": 78.7,
@@ -145,7 +147,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 73.3,
       "mirrorWidthInches": 80.7,
@@ -206,7 +209,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 77,
       "mirrorWidthInches": 84.2,
@@ -261,7 +265,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
@@ -317,7 +322,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
@@ -381,7 +387,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.4,
       "mirrorWidthInches": 87.1,
@@ -442,7 +449,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.3,
@@ -500,7 +508,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Raised suspension. Quattro AWD standard. Only Audi wagon in US.",
       "lastUpdated": "2025-12-01",
@@ -552,7 +561,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MMI Navigation",
@@ -619,7 +629,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.2,
       "mirrorWidthInches": 82.7,
@@ -680,7 +691,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.5,
       "mirrorWidthInches": 84.3,
@@ -733,7 +745,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MMI Panoramic Display",
@@ -794,7 +807,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MMI Navigation Plus",
@@ -854,7 +868,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MMI touch",
@@ -914,7 +929,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "iDrive 8",
@@ -974,7 +990,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "iDrive 8.5",
@@ -1041,7 +1058,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.4,
       "mirrorWidthInches": 86.6,
@@ -1102,7 +1120,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.7,
       "mirrorWidthInches": 84.5,
@@ -1156,7 +1175,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "iDrive 8",
@@ -1224,7 +1244,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.8,
       "mirrorWidthInches": 88,
@@ -1282,7 +1303,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Luxury feel at mainstream price. Quiet cabin.",
       "lastUpdated": "2025-12-01",
@@ -1341,7 +1363,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.6,
       "mirrorWidthInches": 81.8,
@@ -1401,7 +1424,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
@@ -1461,7 +1485,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
@@ -1519,7 +1544,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Final year! 275hp turbo-4. SS has 455hp V8. ZL1 has 650hp!",
       "lastUpdated": "2025-12-01",
@@ -1575,7 +1601,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Mid-size truck with available ZR2 off-road trim.",
       "lastUpdated": "2025-12-01",
@@ -1631,7 +1658,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "All-new 2025. Now shares platform with Equinox EV.",
       "lastUpdated": "2025-12-01",
@@ -1690,7 +1718,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.1,
       "mirrorWidthInches": 83.3,
@@ -1751,7 +1780,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.6,
       "mirrorWidthInches": 87.8,
@@ -1809,7 +1839,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "All-new 2024. Most cargo in class. RS and Z71 trims.",
       "lastUpdated": "2025-12-01",
@@ -1869,7 +1900,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "mirrorsFoldedWidthInches": 73.2,
       "mirrorWidthInches": 80.4,
@@ -1929,7 +1961,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74,
       "mirrorWidthInches": 81.6,
@@ -1990,7 +2023,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "mirrorsFoldedWidthInches": 76.3,
       "mirrorWidthInches": 83.5,
@@ -2052,7 +2086,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "mirrorsFoldedWidthInches": 74,
       "mirrorWidthInches": 81.2,
@@ -2110,7 +2145,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Refreshed 2025. Hybrid and PHEV available.",
       "lastUpdated": "2025-12-01",
@@ -2169,7 +2205,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.9,
       "mirrorWidthInches": 88.2,
@@ -2227,7 +2264,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Refreshed 2025. RWD-based platform. ST available.",
       "lastUpdated": "2025-12-01",
@@ -2283,7 +2321,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "7th gen redesign. 315hp turbo-4. GT has 480hp V8. Dark Horse!",
       "lastUpdated": "2025-12-01",
@@ -2343,7 +2382,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.1,
       "mirrorWidthInches": 84.4,
@@ -2401,7 +2441,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Mid-size truck. Available Tremor off-road package.",
       "lastUpdated": "2025-12-01",
@@ -2459,7 +2500,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.4,
@@ -2520,7 +2562,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.4,
@@ -2581,7 +2624,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 77.4,
       "mirrorWidthInches": 84.8,
@@ -2639,7 +2683,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Available Super Cruise hands-free driving on 400,000+ miles of roads.",
       "lastUpdated": "2025-12-01",
@@ -2698,7 +2743,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.6,
@@ -2760,7 +2806,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.3,
       "mirrorWidthInches": 82.4,
@@ -2818,7 +2865,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Best-selling car in America. Excellent reliability.",
       "lastUpdated": "2025-12-01",
@@ -2874,7 +2922,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "More cargo than sedan. Available 6-speed manual.",
       "lastUpdated": "2025-12-01",
@@ -2934,7 +2983,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.5,
@@ -2997,7 +3047,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.5,
@@ -3058,7 +3109,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.5,
@@ -3121,7 +3173,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.5,
       "reviewScore": 95,
@@ -3178,7 +3231,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Class-leading reliability. Magic Slide 2nd-row seats. CabinWatch camera.",
       "lastUpdated": "2025-12-01",
@@ -3238,7 +3292,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.5,
       "reviewScore": 80,
@@ -3295,7 +3350,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "4th gen redesign. TrailSport for off-road. Excellent resale.",
       "lastUpdated": "2025-12-01",
@@ -3354,7 +3410,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.7,
       "mirrorWidthInches": 86.5,
@@ -3412,7 +3469,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Sharp styling. Great value. 5yr/60k warranty.",
       "lastUpdated": "2025-12-01",
@@ -3468,7 +3526,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "276hp turbo. Track-focused N mode. Fake pops and crackles.",
       "lastUpdated": "2025-12-01",
@@ -3527,7 +3586,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.4,
       "mirrorWidthInches": 84.4,
@@ -3588,7 +3648,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.6,
       "mirrorWidthInches": 83.2,
@@ -3645,7 +3706,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "World Car of the Year 2023. Most efficient EV. 800V fast charging.",
       "lastUpdated": "2025-12-01",
@@ -3704,7 +3766,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.8,
       "mirrorWidthInches": 86.9,
@@ -3762,7 +3825,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Best value 3-row. Telluride twin. 5yr/60k warranty.",
       "lastUpdated": "2025-12-01",
@@ -3821,7 +3885,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.8,
       "mirrorWidthInches": 86.8,
@@ -3879,7 +3944,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Best rear legroom in class. Sharp styling.",
       "lastUpdated": "2025-12-01",
@@ -3939,7 +4005,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.4,
       "mirrorWidthInches": 83.1,
@@ -3993,7 +4060,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "ProPILOT Assist",
@@ -4054,7 +4122,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "ProPILOT 2.0",
@@ -4114,7 +4183,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Pivi Pro",
@@ -4179,7 +4249,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Smallest Jeep SUV. Trail Rated 4x4 available.",
       "lastUpdated": "2025-12-01",
@@ -4238,7 +4309,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.7,
       "mirrorWidthInches": 86.7,
@@ -4301,7 +4373,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.7,
       "mirrorWidthInches": 86.7,
@@ -4355,7 +4428,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.5,
@@ -4418,7 +4492,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "mirrorsFoldedWidthInches": 75.8,
       "reviewScore": 53,
@@ -4475,7 +4550,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "SUV-like styling. 10-year/100k warranty. Dual sunroofs available.",
       "lastUpdated": "2025-12-01",
@@ -4534,7 +4610,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.4,
       "mirrorWidthInches": 84.4,
@@ -4591,7 +4668,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "10-80% in 18 mins. GT does 0-60 in 3.4s. 800V platform.",
       "lastUpdated": "2025-12-01",
@@ -4650,7 +4728,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.9,
       "mirrorWidthInches": 87.5,
@@ -4708,7 +4787,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Best warranty in class. 10yr/100k powertrain.",
       "lastUpdated": "2025-12-01",
@@ -4764,7 +4844,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Sportiest mid-size. GT available with 290hp.",
       "lastUpdated": "2025-12-01",
@@ -4822,7 +4903,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 73.1,
       "mirrorWidthInches": 80.5,
@@ -4880,7 +4962,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "10yr/100k warranty on budget car. Great value.",
       "lastUpdated": "2025-12-01",
@@ -4939,7 +5022,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.4,
@@ -5000,7 +5084,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.4,
       "mirrorWidthInches": 83,
@@ -5061,7 +5146,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.3,
       "mirrorWidthInches": 87.5,
@@ -5115,7 +5201,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Pivi Pro",
@@ -5176,7 +5263,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Pivi Pro",
@@ -5237,7 +5325,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "14in Touchscreen",
@@ -5298,7 +5387,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Twin-Turbo V6",
@@ -5365,7 +5455,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.3,
@@ -5428,7 +5519,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.3,
@@ -5487,7 +5579,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.6,
       "mirrorWidthInches": 83,
@@ -5548,7 +5641,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.9,
       "mirrorWidthInches": 88.1,
@@ -5608,7 +5702,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78.3,
       "mirrorWidthInches": 85.5,
@@ -5667,7 +5762,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78.3,
       "mirrorWidthInches": 85.8,
@@ -5727,7 +5823,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.9,
       "mirrorWidthInches": 87.2,
@@ -5789,7 +5886,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.5,
       "mirrorWidthInches": 82,
@@ -5852,7 +5950,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 77.7,
       "mirrorWidthInches": 85.2,
@@ -5913,7 +6012,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78.4,
       "mirrorWidthInches": 86,
@@ -5974,7 +6074,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78.4,
       "mirrorWidthInches": 86,
@@ -6032,7 +6133,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Premium feel. Inline-6 turbo. PHEV available.",
       "lastUpdated": "2025-12-01",
@@ -6088,7 +6190,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Premium feel at mainstream price. Fun to drive.",
       "lastUpdated": "2025-12-01",
@@ -6144,7 +6247,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Premium interior. Available AWD and turbo.",
       "lastUpdated": "2025-12-01",
@@ -6200,7 +6304,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Best roadster value. 2,341 lbs. 6-speed manual. Jinba ittai.",
       "lastUpdated": "2025-12-01",
@@ -6251,7 +6356,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MBUX",
@@ -6318,7 +6424,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78.2,
       "mirrorWidthInches": 85.5,
@@ -6371,7 +6478,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MBUX Hyperscreen",
@@ -6439,7 +6547,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.4,
       "mirrorWidthInches": 84.1,
@@ -6493,7 +6602,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MBUX",
@@ -6554,7 +6664,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "MBUX",
@@ -6620,7 +6731,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Best MPG non-hybrid. 10yr/100k warranty. Very basic.",
       "lastUpdated": "2025-12-01",
@@ -6679,7 +6791,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.6,
       "mirrorWidthInches": 84,
@@ -6743,7 +6856,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.6,
       "mirrorWidthInches": 84,
@@ -6801,7 +6915,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Standard AWD available. Good value mid-size.",
       "lastUpdated": "2025-12-01",
@@ -6860,7 +6975,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.8,
       "mirrorWidthInches": 84.5,
@@ -6921,7 +7037,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 77.4,
       "mirrorWidthInches": 84.8,
@@ -6982,7 +7099,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.2,
       "mirrorWidthInches": 86.5,
@@ -7043,7 +7161,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 82,
@@ -7101,7 +7220,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Best-selling Nissan. Excellent cargo space.",
       "lastUpdated": "2025-12-01",
@@ -7157,7 +7277,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Best-in-class rear legroom. Good value.",
       "lastUpdated": "2025-12-01",
@@ -7213,7 +7334,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Cheapest new car in America. Best rear legroom in class.",
       "lastUpdated": "2025-12-01",
@@ -7269,7 +7391,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "400hp twin-turbo V6. 6-speed manual. Classic Z styling.",
       "lastUpdated": "2025-12-01",
@@ -7327,7 +7450,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.8,
       "mirrorWidthInches": 82.1,
@@ -7387,7 +7511,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79,
       "mirrorWidthInches": 86.2,
@@ -7441,7 +7566,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "PCM 6.0",
@@ -7501,7 +7627,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "PCM 6.0",
@@ -7561,7 +7688,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Sport Chrono Package",
@@ -7626,7 +7754,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Best-in-class towing capacity. Coil spring rear suspension for smooth ride.",
       "lastUpdated": "2025-12-01",
@@ -7687,7 +7816,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.2,
       "reviewScore": 87,
@@ -7739,7 +7869,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Driver+",
@@ -7800,7 +7931,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Driver+",
@@ -7860,7 +7992,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Driver+",
@@ -7925,7 +8058,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "GR86 twin. 228hp boxer-4. EyeSight on automatic only.",
       "lastUpdated": "2025-12-01",
@@ -7984,7 +8118,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "mirrorsFoldedWidthInches": 73.9,
       "mirrorWidthInches": 81.2,
@@ -8047,7 +8182,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.2,
       "mirrorWidthInches": 81.5,
@@ -8102,7 +8238,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74,
       "mirrorWidthInches": 81.3,
@@ -8167,7 +8304,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "reviewScore": 82,
@@ -8224,7 +8362,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Standard AWD. Excellent ground clearance for a wagon.",
       "lastUpdated": "2025-12-01",
@@ -8282,7 +8421,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.2,
       "mirrorWidthInches": 82.9,
@@ -8335,7 +8475,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Autopilot",
@@ -8395,7 +8536,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Autopilot",
@@ -8464,7 +8606,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 73.2,
       "reviewScore": 90,
@@ -8516,7 +8659,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Autopilot",
@@ -8577,7 +8721,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Autopilot",
@@ -8637,7 +8782,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Autopilot",
@@ -8697,7 +8843,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "standardFeatures": [
         "Autopilot",
@@ -8767,7 +8914,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": false,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76,
       "reviewScore": 88,
@@ -8827,7 +8975,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.8,
       "mirrorWidthInches": 86.8,
@@ -8887,7 +9036,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75.2,
       "mirrorWidthInches": 82.9,
@@ -8950,7 +9100,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 82.1,
@@ -9008,7 +9159,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "World's best-selling car. Legendary reliability.",
       "lastUpdated": "2025-12-01",
@@ -9067,7 +9219,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.9,
@@ -9125,7 +9278,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "228hp boxer-4. 6-speed manual standard. Perfect balance.",
       "lastUpdated": "2025-12-01",
@@ -9186,7 +9340,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
@@ -9244,7 +9399,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "New for 2024. Larger than Highlander. Hybrid standard.",
       "lastUpdated": "2025-12-01",
@@ -9305,7 +9461,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 78,
       "mirrorWidthInches": 85.2,
@@ -9367,7 +9524,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
@@ -9430,7 +9588,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
@@ -9495,7 +9654,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 75,
       "mirrorWidthInches": 82.6,
@@ -9557,7 +9717,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 81.9,
       "reviewScore": 55,
@@ -9619,7 +9780,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.5,
       "mirrorWidthInches": 87.7,
@@ -9677,7 +9839,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Standard hybrid powertrain. Only full-size truck with standard hybrid.",
       "lastUpdated": "2025-12-01",
@@ -9736,7 +9899,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 80.3,
       "mirrorWidthInches": 87.6,
@@ -9794,7 +9958,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "The hot hatch benchmark. 241hp turbo. Available manual.",
       "lastUpdated": "2025-12-01",
@@ -9853,7 +10018,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.9,
       "mirrorWidthInches": 82.3,
@@ -9911,7 +10077,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "German engineering at budget price. GLI is the hot one.",
       "lastUpdated": "2025-12-01",
@@ -9970,7 +10137,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 74.4,
       "mirrorWidthInches": 81.8,
@@ -10030,7 +10198,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 79.3,
       "mirrorWidthInches": 86.5,
@@ -10088,7 +10257,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Scandinavian design. Mild hybrid. All-road capability.",
       "lastUpdated": "2025-12-01",
@@ -10147,7 +10317,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 76.9,
       "mirrorWidthInches": 84.5,
@@ -10209,7 +10380,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 81.1,
       "reviewScore": 85,
@@ -10265,7 +10437,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Most affordable EV crossover with 300+ miles range.",
       "lastUpdated": "2025-12-01",
@@ -10326,7 +10499,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 77.9,
       "mirrorWidthInches": 85.1,
@@ -10384,7 +10558,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "All-new 11th gen. Larger than ever. Used: $26,000-$33,000",
       "lastUpdated": "2025-12-01",
@@ -10440,7 +10615,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Sharp styling. Best cargo in class. Used: $27,000-$33,000",
       "lastUpdated": "2025-12-01",
@@ -10496,7 +10672,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Premium feel. Standard AWD. Used: $25,000-$32,000",
       "lastUpdated": "2025-12-01",
@@ -10551,7 +10728,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Japanese design. Lounge-like interior.",
       "lastUpdated": "2025-12-01",
@@ -10607,7 +10785,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Last gas-only Camry. 2025 is hybrid-only. Used: $24,000-$30,000",
       "lastUpdated": "2025-12-01",
@@ -10662,7 +10841,8 @@
         "autoLaneChange": true,
         "summonParking": false,
         "handsFreeHighway": true,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Ford's first mainstream EV. Used: $28,000-$38,000",
       "lastUpdated": "2025-12-01",
@@ -10718,7 +10898,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "All-new 2023 redesign. Used: $28,000-$35,000",
       "lastUpdated": "2025-12-01",
@@ -10774,7 +10955,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Best 3-row value. Used: $35,000-$45,000",
       "lastUpdated": "2025-12-01",
@@ -10829,7 +11011,8 @@
         "autoLaneChange": true,
         "summonParking": true,
         "handsFreeHighway": true,
-        "cityAutopilot": true
+        "cityAutopilot": true,
+        "autoFoldingMirrors": true
       },
       "notes": "Pre-Highland refresh. Used: $30,000-$42,000",
       "lastUpdated": "2025-12-01",
@@ -10885,7 +11068,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Best-selling SUV. Used: $26,000-$32,000",
       "lastUpdated": "2025-12-01",
@@ -10948,7 +11132,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "mirrorsFoldedWidthInches": 73.5,
       "reviewScore": 83,
@@ -11002,7 +11187,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "VR38DETT twin-turbo V6. 480hp. Launch control. Beat supercars at half the price. Current value: $50,000-$80,000",
       "lastUpdated": "2025-12-01",
@@ -11056,7 +11242,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "GT40 revival. 550hp supercharged V8. Only 4,038 built. Current value: $400,000-$700,000+",
       "lastUpdated": "2025-12-01",
@@ -11110,7 +11297,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Blobeye generation. First US STI. 300hp EJ257. Rally legend. Current value: $25,000-$45,000",
       "lastUpdated": "2025-12-01",
@@ -11164,7 +11352,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "SR20DET turbo. 250hp. Ultimate drift car. Never sold in US. Current value: $40,000-$80,000",
       "lastUpdated": "2025-12-01",
@@ -11218,7 +11407,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "S54 inline-6. 333hp, 8000 RPM redline. Peak analog M car. Track day legend. Current value: $30,000-$80,000",
       "lastUpdated": "2025-12-01",
@@ -11272,7 +11462,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "F20C revs to 9000 RPM. Highest specific output NA engine of its time. Perfect 50/50 weight. Current value: $35,000-$70,000",
       "lastUpdated": "2025-12-01",
@@ -11326,7 +11517,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "RB26DETT + ATTESA AWD. Paul Walker's iconic car. Finally US legal in 2024. Current value: $150,000-$500,000+",
       "lastUpdated": "2025-12-01",
@@ -11380,7 +11572,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Final year. VVT-i 2JZ-GTE. Last of the legends. Current value: $100,000-$250,000+",
       "lastUpdated": "2025-12-01",
@@ -11434,7 +11627,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Center driving position. BMW V12. 240mph. Only 106 built. Current value: $15,000,000-$25,000,000+",
       "lastUpdated": "2025-12-01",
@@ -11487,7 +11681,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "WRC homologation. 270hp 4G63 turbo. AWD rally weapon. Tommi Makinen era. Current value: $50,000-$100,000",
       "lastUpdated": "2025-12-01",
@@ -11540,7 +11735,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "2JZ-GTE legend. 320hp stock, 1000+hp capable. Fast & Furious icon. Current value: $80,000-$200,000+",
       "lastUpdated": "2025-12-01",
@@ -11594,7 +11790,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Twin-turbo 13B-REW rotary. 255hp in 2,850 lbs. Pure driver's car. Current value: $40,000-$100,000+",
       "lastUpdated": "2025-12-01",
@@ -11647,7 +11844,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "All-aluminum body. Ayrton Senna helped tune it. Honda reliability with supercar performance. Current value: $80,000-$200,000",
       "lastUpdated": "2025-12-01",
@@ -11700,7 +11898,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Revived the roadster. Jinba Ittai (horse and rider as one). Best-selling sports car ever. Current value: $8,000-$25,000",
       "lastUpdated": "2025-12-01",
@@ -11753,7 +11952,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Every 80s kid's poster car. Scissor doors. 5.2L V12. Only 42 inches tall. Current value: $400,000-$1,000,000+",
       "lastUpdated": "2025-12-01",
@@ -11806,7 +12006,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Nicknamed 'Widowmaker' for turbo lag snap oversteer. Whale tail. 282hp 3.3L flat-6. Current value: $150,000-$300,000",
       "lastUpdated": "2025-12-01",
@@ -11860,7 +12061,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Last RWD Corolla. 4A-GE twin-cam engine. Initial D star car. Drift icon. Current value: $25,000-$80,000",
       "lastUpdated": "2025-12-01",
@@ -11913,7 +12115,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Legendary off-roader. 2F inline-6. Million-mile capable. Current value: $30,000-$80,000",
       "lastUpdated": "2025-12-01",
@@ -11966,7 +12169,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Ducktail spoiler. 210hp. Only 1,580 built. Current value: $800,000-$2,000,000+",
       "lastUpdated": "2025-12-01",
@@ -12020,7 +12224,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "426 Hemi. 425hp. Only 652 built. Shaker hood scoop. Most valuable muscle car. Current value: $2,000,000-$4,000,000+",
       "lastUpdated": "2025-12-01",
@@ -12073,7 +12278,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "General Lee. Dukes of Hazzard. 375hp 440 Magnum. Current value: $80,000-$200,000",
       "lastUpdated": "2025-12-01",
@@ -12126,7 +12332,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "Only 1,358 built. NASCAR homologation special. 375hp 429ci V8. Current value: $300,000-$500,000+",
       "lastUpdated": "2025-12-01",
@@ -12179,7 +12386,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "428 Police Interceptor V8. 355hp. 'Eleanor' from Gone in 60 Seconds. Current value: $150,000-$300,000+",
       "lastUpdated": "2025-12-01",
@@ -12232,7 +12440,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "James Bond's car. Goldfinger. 282hp inline-6. Current value: $700,000-$1,500,000+",
       "lastUpdated": "2025-12-01",
@@ -12285,7 +12494,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": true
       },
       "notes": "One-year-only split rear window. Bill Mitchell design. 327/360hp fuel-injected option. Current value: $150,000-$300,000+",
       "lastUpdated": "2025-12-01",
@@ -12339,7 +12549,8 @@
         "autoLaneChange": false,
         "summonParking": false,
         "handsFreeHighway": false,
-        "cityAutopilot": false
+        "cityAutopilot": false,
+        "autoFoldingMirrors": false
       },
       "notes": "Most valuable car ever sold. Only 36 built. 3.0L V12. Current value: $50,000,000-$80,000,000+",
       "lastUpdated": "2025-12-01",
@@ -12385,7 +12596,8 @@
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
-        "trafficSignRecognition": true
+        "trafficSignRecognition": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "IQ.DRIVE",
       "leaseRating": "fair",
@@ -12434,7 +12646,8 @@
         "laneKeepAssist": true,
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
-        "automaticEmergencyBraking": true
+        "automaticEmergencyBraking": true,
+        "autoFoldingMirrors": false
       },
       "adasName": "IQ.DRIVE",
       "leaseRating": "excellent",
@@ -12484,7 +12697,8 @@
         "laneKeepAssist": true,
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
-        "automaticEmergencyBraking": true
+        "automaticEmergencyBraking": true,
+        "autoFoldingMirrors": false
       },
       "adasName": "Ford Co-Pilot360",
       "leaseRating": "good",
@@ -12535,7 +12749,8 @@
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
-        "driverMonitoring": true
+        "driverMonitoring": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "SmartSense",
       "leaseRating": "good",
@@ -12585,7 +12800,8 @@
         "laneKeepAssist": true,
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
-        "automaticEmergencyBraking": true
+        "automaticEmergencyBraking": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Full Speed Forward Collision Warning",
       "leaseRating": "good",
@@ -12636,7 +12852,8 @@
         "laneKeepAssist": true,
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
-        "automaticEmergencyBraking": true
+        "automaticEmergencyBraking": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Full Speed Forward Collision Warning",
       "leaseRating": "fair",
@@ -12687,7 +12904,8 @@
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
         "handsFreeHighway": true,
-        "autoLaneChange": true
+        "autoLaneChange": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Super Cruise",
       "leaseRating": "poor",
@@ -12738,7 +12956,8 @@
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
-        "trafficSignRecognition": true
+        "trafficSignRecognition": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Lexus Safety System+ 3.0",
       "leaseRating": "good",
@@ -12788,7 +13007,8 @@
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
-        "trafficSignRecognition": true
+        "trafficSignRecognition": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Lexus Safety System+ 3.0",
       "leaseRating": "good",
@@ -12837,7 +13057,8 @@
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
-        "trafficSignRecognition": true
+        "trafficSignRecognition": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "AcuraWatch",
       "leaseRating": "fair",
@@ -12886,7 +13107,8 @@
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
-        "trafficSignRecognition": true
+        "trafficSignRecognition": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Honda Sensing",
       "leaseRating": "good",
@@ -12933,7 +13155,8 @@
         "adaptiveCruiseControl": true,
         "laneKeepAssist": false,
         "blindSpotMonitoring": false,
-        "automaticEmergencyBraking": true
+        "automaticEmergencyBraking": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Driving Assistant",
       "leaseRating": "fair",
@@ -12981,7 +13204,8 @@
         "adaptiveCruiseControl": true,
         "laneKeepAssist": true,
         "blindSpotMonitoring": true,
-        "automaticEmergencyBraking": true
+        "automaticEmergencyBraking": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Driving Assistant Professional",
       "leaseRating": "fair",
@@ -13029,7 +13253,8 @@
         "laneKeepAssist": true,
         "laneCenteringAssist": true,
         "blindSpotMonitoring": true,
-        "automaticEmergencyBraking": true
+        "automaticEmergencyBraking": true,
+        "autoFoldingMirrors": false
       },
       "adasName": "Level 2 Autonomy",
       "leaseRating": "poor",
@@ -13080,7 +13305,8 @@
         "blindSpotMonitoring": true,
         "automaticEmergencyBraking": true,
         "trafficSignRecognition": true,
-        "handsFreeHighway": true
+        "handsFreeHighway": true,
+        "autoFoldingMirrors": true
       },
       "adasName": "Highway Driving Pilot",
       "leaseRating": "fair",
@@ -13130,7 +13356,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1800,
       "maintenanceCostAnnual": 1000,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "ford-f150-2020",
@@ -13164,7 +13393,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1600,
       "maintenanceCostAnnual": 900,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "ford-f150-2018",
@@ -13198,7 +13430,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1500,
       "maintenanceCostAnnual": 1000,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "chevrolet-silverado-1500-2023",
@@ -13232,7 +13467,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1850,
       "maintenanceCostAnnual": 1100,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "chevrolet-silverado-1500-2020",
@@ -13266,7 +13504,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1700,
       "maintenanceCostAnnual": 1000,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "ram-1500-2023",
@@ -13300,7 +13541,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1900,
       "maintenanceCostAnnual": 1200,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "ram-1500-2019",
@@ -13334,7 +13578,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1700,
       "maintenanceCostAnnual": 1100,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-tacoma-2023",
@@ -13368,7 +13615,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 700,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "toyota-tacoma-2020",
@@ -13402,7 +13652,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "toyota-tacoma-2017",
@@ -13436,7 +13689,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1200,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "honda-ridgeline-2023",
@@ -13470,7 +13726,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1500,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-ridgeline-2019",
@@ -13504,7 +13763,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-rav4-2020",
@@ -13538,7 +13800,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-rav4-2018",
@@ -13572,7 +13837,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-rav4-2016",
@@ -13606,7 +13874,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1200,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-crv-2021",
@@ -13640,7 +13911,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1380,
       "maintenanceCostAnnual": 420,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-crv-2019",
@@ -13674,7 +13948,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 400,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-crv-2017",
@@ -13708,7 +13985,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "nissan-rogue-2021",
@@ -13742,7 +14022,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "nissan-rogue-2018",
@@ -13776,7 +14059,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "hyundai-tucson-2022",
@@ -13810,7 +14096,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 480,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "hyundai-tucson-2019",
@@ -13844,7 +14133,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "mazda-cx5-2021",
@@ -13878,7 +14170,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1380,
       "maintenanceCostAnnual": 420,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "mazda-cx5-2018",
@@ -13912,7 +14207,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 400,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "subaru-forester-2021",
@@ -13946,7 +14244,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "subaru-forester-2018",
@@ -13980,7 +14281,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "kia-sportage-2022",
@@ -14014,7 +14318,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 480,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "kia-sportage-2019",
@@ -14048,7 +14355,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1250,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "ford-escape-2021",
@@ -14082,7 +14392,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "ford-escape-2018",
@@ -14116,7 +14429,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "chevrolet-equinox-2021",
@@ -14150,7 +14466,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "chevrolet-equinox-2018",
@@ -14184,7 +14503,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "toyota-camry-2021",
@@ -14218,7 +14540,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1250,
       "maintenanceCostAnnual": 350,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-camry-2018",
@@ -14252,7 +14577,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1200,
       "maintenanceCostAnnual": 350,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-camry-2016",
@@ -14286,7 +14614,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1150,
       "maintenanceCostAnnual": 400,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-civic-2022",
@@ -14320,7 +14651,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1200,
       "maintenanceCostAnnual": 350,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "honda-civic-2020",
@@ -14354,7 +14688,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1150,
       "maintenanceCostAnnual": 350,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "honda-civic-2018",
@@ -14388,7 +14725,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1100,
       "maintenanceCostAnnual": 350,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "honda-accord-2021",
@@ -14422,7 +14762,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 400,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-accord-2019",
@@ -14456,7 +14799,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 400,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-accord-2017",
@@ -14490,7 +14836,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1250,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-corolla-2021",
@@ -14524,7 +14873,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1100,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "toyota-corolla-2019",
@@ -14558,7 +14910,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1050,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "toyota-corolla-2017",
@@ -14592,7 +14947,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1000,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "nissan-altima-2021",
@@ -14626,7 +14984,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "nissan-altima-2018",
@@ -14660,7 +15021,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1250,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "hyundai-sonata-2021",
@@ -14694,7 +15058,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 400,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "hyundai-sonata-2018",
@@ -14728,7 +15095,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1200,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "kia-k5-2021",
@@ -14762,7 +15132,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1250,
       "maintenanceCostAnnual": 400,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "kia-optima-2019",
@@ -14796,7 +15169,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1200,
       "maintenanceCostAnnual": 420,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "mazda-mazda3-2021",
@@ -14830,7 +15206,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1200,
       "maintenanceCostAnnual": 380,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "mazda-mazda3-2018",
@@ -14864,7 +15243,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1150,
       "maintenanceCostAnnual": 380,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "subaru-legacy-2021",
@@ -14898,7 +15280,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1280,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "subaru-legacy-2018",
@@ -14932,7 +15317,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1220,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-highlander-2021",
@@ -14966,7 +15354,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1500,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-highlander-2019",
@@ -15000,7 +15391,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1450,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-highlander-2017",
@@ -15034,7 +15428,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-pilot-2021",
@@ -15068,7 +15465,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1550,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-pilot-2019",
@@ -15102,7 +15502,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1500,
       "maintenanceCostAnnual": 480,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-pilot-2017",
@@ -15136,7 +15539,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1450,
       "maintenanceCostAnnual": 520,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "ford-explorer-2021",
@@ -15170,7 +15576,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1600,
       "maintenanceCostAnnual": 650,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "ford-explorer-2019",
@@ -15204,7 +15613,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1550,
       "maintenanceCostAnnual": 700,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-4runner-2021",
@@ -15238,7 +15650,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-4runner-2018",
@@ -15272,7 +15687,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-4runner-2016",
@@ -15306,7 +15724,10 @@
       "reliabilityRating": "excellent",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "jeep-grand-cherokee-2021",
@@ -15340,7 +15761,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1600,
       "maintenanceCostAnnual": 700,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "jeep-grand-cherokee-2019",
@@ -15374,7 +15798,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1550,
       "maintenanceCostAnnual": 750,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "jeep-grand-cherokee-2017",
@@ -15408,7 +15835,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1500,
       "maintenanceCostAnnual": 800,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "hyundai-palisade-2021",
@@ -15442,7 +15872,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1480,
       "maintenanceCostAnnual": 480,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "hyundai-palisade-2020",
@@ -15476,7 +15909,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1450,
       "maintenanceCostAnnual": 480,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "kia-telluride-2021",
@@ -15510,7 +15946,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1420,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "kia-telluride-2020",
@@ -15544,7 +15983,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 450,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "chevrolet-traverse-2021",
@@ -15578,7 +16020,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1550,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "chevrolet-traverse-2018",
@@ -15612,7 +16057,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1500,
       "maintenanceCostAnnual": 650,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "subaru-outback-2021",
@@ -15646,7 +16094,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "subaru-outback-2018",
@@ -15680,7 +16131,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-odyssey-2021",
@@ -15714,7 +16168,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1450,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-odyssey-2019",
@@ -15748,7 +16205,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "honda-odyssey-2017",
@@ -15782,7 +16242,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-sienna-2021",
@@ -15816,7 +16279,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 480,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-sienna-2019",
@@ -15850,7 +16316,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 500,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "toyota-sienna-2017",
@@ -15884,7 +16353,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "tesla-model-3-2020",
@@ -15917,7 +16389,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1900,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "tesla-model-3-2019",
@@ -15950,7 +16425,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1850,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "tesla-model-y-2021",
@@ -15983,7 +16461,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 2000,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "tesla-model-y-2020",
@@ -16016,7 +16497,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1950,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "nissan-leaf-2021",
@@ -16049,7 +16533,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1400,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "nissan-leaf-2019",
@@ -16082,7 +16569,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 300,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "chevrolet-bolt-ev-2021",
@@ -16115,7 +16605,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1500,
       "maintenanceCostAnnual": 280,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "chevrolet-bolt-ev-2019",
@@ -16148,7 +16641,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1450,
       "maintenanceCostAnnual": 280,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "jeep-wrangler-2021",
@@ -16182,7 +16678,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1700,
       "maintenanceCostAnnual": 700,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "jeep-wrangler-2019",
@@ -16216,7 +16715,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1650,
       "maintenanceCostAnnual": 750,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "jeep-wrangler-2017",
@@ -16250,7 +16752,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1600,
       "maintenanceCostAnnual": 800,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "subaru-crosstrek-2021",
@@ -16284,7 +16789,10 @@
       "reliabilityRating": "good",
       "insuranceCostAnnual": 1300,
       "maintenanceCostAnnual": 480,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "subaru-crosstrek-2018",
@@ -16318,7 +16826,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1250,
       "maintenanceCostAnnual": 520,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": false
+      }
     },
     {
       "id": "volkswagen-tiguan-2021",
@@ -16352,7 +16863,10 @@
       "reliabilityRating": "average",
       "insuranceCostAnnual": 1380,
       "maintenanceCostAnnual": 550,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     },
     {
       "id": "volkswagen-tiguan-2018",
@@ -16386,7 +16900,10 @@
       "reliabilityRating": "below-average",
       "insuranceCostAnnual": 1350,
       "maintenanceCostAnnual": 600,
-      "lastUpdated": "2024-12-01"
+      "lastUpdated": "2024-12-01",
+      "adasFeatures": {
+        "autoFoldingMirrors": true
+      }
     }
   ],
   "lastSyncDate": "2025-12-01",
