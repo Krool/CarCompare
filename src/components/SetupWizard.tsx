@@ -101,7 +101,7 @@ const USE_CASE_PRESETS = {
   "garage-fit": {
     label: "Garage Fit",
     description: "Dimensions for parking spaces",
-    columns: ["mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"] as ColumnId[],
+    columns: ["lengthInches", "mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"] as ColumnId[],
     icon: "🏠",
   },
   "family": {

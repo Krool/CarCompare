@@ -133,6 +133,10 @@ export interface CarFilters {
   bodyTypes?: BodyType[];
   maxWidthInches?: number;      // For garage fit
   widthFilterType?: WidthFilterType; // Which width to filter by (default: extended)
+  maxLengthInches?: number;     // For garage fit - max length
+  maxHeightInches?: number;     // For garage fit - max height (low clearance)
+  minGroundClearance?: number;  // For off-road capability
+  minTowingCapacity?: number;   // Minimum towing capacity in lbs
   makes?: string[];
   minLegroom?: number;          // Minimum driver legroom in inches
   safetyRatings?: SafetyRating[]; // Filter by IIHS safety ratings
@@ -159,12 +163,15 @@ export type SortField =
   | "make"
   | "model"
   | "bodyType"
+  | "lengthInches"
   | "bodyWidthInches"
   | "mirrorsFoldedWidthInches"
   | "heightInches"
   | "groundClearanceInches"
+  | "towingCapacityLbs"
   | "seats"
   | "doors"
+  | "cargoVolumesCuFt"
   | "msrp"
   | "mpgCombined"
   | "electricRangeMiles"
@@ -186,8 +193,8 @@ export type ColumnId =
   | "favorite" | "compare" | "baseline" | "image"
   | "year" | "make" | "model" | "bodyType"
   | "safetyRating" | "reviewScore" | "autonomousLevel"
-  | "seats" | "driverLegroomInches"
-  | "mirrorsFoldedWidthInches" | "oneMirrorWidthInches" | "bodyWidthInches" | "heightInches" | "groundClearanceInches"
+  | "seats" | "doors" | "driverLegroomInches" | "cargoVolumesCuFt"
+  | "lengthInches" | "mirrorsFoldedWidthInches" | "oneMirrorWidthInches" | "bodyWidthInches" | "heightInches" | "groundClearanceInches" | "towingCapacityLbs"
   | "fuelType" | "plugType" | "mpgCombined" | "electricRangeMiles"
   | "msrp" | "leaseRating" | "depreciationCategory" | "fiveYearResalePercent"
   | "reliabilityRating" | "insuranceCostAnnual" | "maintenanceCostAnnual"

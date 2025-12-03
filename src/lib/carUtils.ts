@@ -96,6 +96,34 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       if (widthToCheck > filters.maxWidthInches) return false;
     }
 
+    // Length filter (garage fit)
+    if (filters.maxLengthInches !== undefined) {
+      if (!car.lengthInches || car.lengthInches > filters.maxLengthInches) {
+        return false;
+      }
+    }
+
+    // Height filter (garage fit - low clearance)
+    if (filters.maxHeightInches !== undefined) {
+      if (!car.heightInches || car.heightInches > filters.maxHeightInches) {
+        return false;
+      }
+    }
+
+    // Ground clearance filter (off-road)
+    if (filters.minGroundClearance !== undefined) {
+      if (!car.groundClearanceInches || car.groundClearanceInches < filters.minGroundClearance) {
+        return false;
+      }
+    }
+
+    // Towing capacity filter
+    if (filters.minTowingCapacity !== undefined) {
+      if (!car.towingCapacityLbs || car.towingCapacityLbs < filters.minTowingCapacity) {
+        return false;
+      }
+    }
+
     // Make filter
     if (filters.makes && filters.makes.length > 0 && !filters.makes.includes(car.make)) {
       return false;
@@ -108,7 +136,7 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       }
     }
 
-    // Safety rating filter
+    // Safety rating filter (by specific ratings)
     if (filters.safetyRatings && filters.safetyRatings.length > 0) {
       if (!car.safetyRating || !filters.safetyRatings.includes(car.safetyRating)) {
         return false;
@@ -199,6 +227,10 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
         aVal = a.bodyType.toLowerCase();
         bVal = b.bodyType.toLowerCase();
         break;
+      case "lengthInches":
+        aVal = a.lengthInches ?? 0;
+        bVal = b.lengthInches ?? 0;
+        break;
       case "bodyWidthInches":
         aVal = a.mirrorWidthInches ?? a.bodyWidthInches;
         bVal = b.mirrorWidthInches ?? b.bodyWidthInches;
@@ -250,6 +282,14 @@ export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
       case "groundClearanceInches":
         aVal = a.groundClearanceInches ?? 0;
         bVal = b.groundClearanceInches ?? 0;
+        break;
+      case "towingCapacityLbs":
+        aVal = a.towingCapacityLbs ?? 0;
+        bVal = b.towingCapacityLbs ?? 0;
+        break;
+      case "cargoVolumesCuFt":
+        aVal = a.cargoVolumesCuFt ?? 0;
+        bVal = b.cargoVolumesCuFt ?? 0;
         break;
       case "leaseRating":
         aVal = LEASE_RATING_ORDER[a.leaseRating ?? "undefined"];

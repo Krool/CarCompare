@@ -129,7 +129,10 @@ export default function CarTable({
             {isVisible("reviewScore") && <SortableHeader field="reviewScore" label="Score" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("autonomousLevel") && <SortableHeader field="autonomousLevel" label="ADAS" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("seats") && <SortableHeader field="seats" label="Seats" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("doors") && <SortableHeader field="doors" label="Doors" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("driverLegroomInches") && <SortableHeader field="driverLegroomInches" label="Legroom" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("cargoVolumesCuFt") && <SortableHeader field="cargoVolumesCuFt" label="Cargo" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("lengthInches") && <SortableHeader field="lengthInches" label="Length" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("mirrorsFoldedWidthInches") && <SortableHeader field="mirrorsFoldedWidthInches" label="Folded" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("oneMirrorWidthInches") && (
               <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
@@ -139,6 +142,7 @@ export default function CarTable({
             {isVisible("bodyWidthInches") && <SortableHeader field="bodyWidthInches" label="Extended" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("heightInches") && <SortableHeader field="heightInches" label="Height" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("groundClearanceInches") && <SortableHeader field="groundClearanceInches" label="Clearance" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            {isVisible("towingCapacityLbs") && <SortableHeader field="towingCapacityLbs" label="Towing" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("fuelType") && (
               <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Fuel
@@ -272,11 +276,32 @@ export default function CarTable({
                     )}
                   </td>
                 )}
+                {isVisible("doors") && (
+                  <td className="px-3 py-2 text-sm text-white">
+                    {car.doors}
+                  </td>
+                )}
                 {isVisible("driverLegroomInches") && (
                   <td className="px-3 py-2 text-sm text-white">
                     {car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}
                     {baselineCar && !isBaseline && car.driverLegroomInches && (
                       <DiffBadge diff={calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer)} positive="higher" />
+                    )}
+                  </td>
+                )}
+                {isVisible("cargoVolumesCuFt") && (
+                  <td className="px-3 py-2 text-sm text-white" title="Cargo volume in cubic feet">
+                    {car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt}` : "-"}
+                    {baselineCar && !isBaseline && car.cargoVolumesCuFt && baselineCar.cargoVolumesCuFt && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "cargoVolumesCuFt", mirrorBuffer)} positive="higher" />
+                    )}
+                  </td>
+                )}
+                {isVisible("lengthInches") && (
+                  <td className="px-3 py-2 text-sm text-white" title="Overall length">
+                    {car.lengthInches ? `${car.lengthInches}"` : "-"}
+                    {baselineCar && !isBaseline && car.lengthInches && baselineCar.lengthInches && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "lengthInches", mirrorBuffer)} positive="lower" />
                     )}
                   </td>
                 )}
@@ -331,6 +356,14 @@ export default function CarTable({
                     {car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}
                     {baselineCar && !isBaseline && car.groundClearanceInches && baselineCar.groundClearanceInches && (
                       <DiffBadge diff={calculateDifference(baselineCar, car, "groundClearanceInches", mirrorBuffer)} positive="higher" />
+                    )}
+                  </td>
+                )}
+                {isVisible("towingCapacityLbs") && (
+                  <td className="px-3 py-2 text-sm text-white" title="Towing capacity in pounds">
+                    {car.towingCapacityLbs ? `${car.towingCapacityLbs.toLocaleString()}` : "-"}
+                    {baselineCar && !isBaseline && car.towingCapacityLbs && baselineCar.towingCapacityLbs && (
+                      <DiffBadge diff={calculateDifference(baselineCar, car, "towingCapacityLbs", mirrorBuffer)} positive="higher" />
                     )}
                   </td>
                 )}

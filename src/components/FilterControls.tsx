@@ -222,39 +222,103 @@ function FilterControlsComponent({
         </div>
       </div>
 
-      {/* Garage Width */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">
-          Max Width for Garage (inches)
-          <InfoTooltip title="Vehicle Width">
+      {/* Garage Dimensions Section */}
+      <div className="space-y-3 p-3 bg-gray-900/50 rounded-lg border border-gray-700">
+        <label className="block text-sm font-medium text-gray-200">
+          Garage Fit Dimensions
+          <InfoTooltip title="Vehicle Dimensions">
             <WidthInfoContent />
           </InfoTooltip>
         </label>
-        <div className="flex gap-2">
+
+        {/* Max Length */}
+        <div className="space-y-1">
+          <label className="block text-xs text-gray-400">Max Length (inches)</label>
           <input
             type="number"
-            min={60}
-            max={120}
-            placeholder="e.g., 90"
-            value={filters.maxWidthInches ?? ""}
-            onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
+            min={100}
+            max={300}
+            placeholder="e.g., 200"
+            value={filters.maxLengthInches ?? ""}
+            onChange={(e) => updateFilter("maxLengthInches", e.target.value ? parseInt(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
           />
-          <select
-            value={filters.widthFilterType ?? "extended"}
-            onChange={(e) => updateFilter("widthFilterType", e.target.value as WidthFilterType)}
-            className="px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
-          >
-            <option value="extended">Mirrors Extended</option>
-            <option value="folded">Mirrors Folded</option>
-          </select>
         </div>
-        <p className="text-xs text-gray-500">
-          {filters.widthFilterType === "folded"
-            ? "Filters by width with mirrors folded in"
-            : "Filters by width with mirrors extended out"
-          }
-        </p>
+
+        {/* Max Width */}
+        <div className="space-y-1">
+          <label className="block text-xs text-gray-400">Max Width (inches)</label>
+          <div className="flex gap-2">
+            <input
+              type="number"
+              min={60}
+              max={120}
+              placeholder="e.g., 90"
+              value={filters.maxWidthInches ?? ""}
+              onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
+              className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            />
+            <select
+              value={filters.widthFilterType ?? "extended"}
+              onChange={(e) => updateFilter("widthFilterType", e.target.value as WidthFilterType)}
+              className="px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            >
+              <option value="extended">Mirrors Out</option>
+              <option value="folded">Folded</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Max Height */}
+        <div className="space-y-1">
+          <label className="block text-xs text-gray-400">Max Height (inches)</label>
+          <input
+            type="number"
+            min={50}
+            max={90}
+            placeholder="e.g., 72"
+            value={filters.maxHeightInches ?? ""}
+            onChange={(e) => updateFilter("maxHeightInches", e.target.value ? parseInt(e.target.value) : undefined)}
+            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+          />
+          <p className="text-xs text-gray-500">For low-clearance garages</p>
+        </div>
+      </div>
+
+      {/* Ground Clearance */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">
+          Min Ground Clearance (inches)
+        </label>
+        <input
+          type="number"
+          min={3}
+          max={15}
+          step={0.5}
+          placeholder="e.g., 8"
+          value={filters.minGroundClearance ?? ""}
+          onChange={(e) => updateFilter("minGroundClearance", e.target.value ? parseFloat(e.target.value) : undefined)}
+          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+        />
+        <p className="text-xs text-gray-500">For off-road or rough terrain</p>
+      </div>
+
+      {/* Towing Capacity */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-300">
+          Min Towing Capacity (lbs)
+        </label>
+        <input
+          type="number"
+          min={0}
+          max={20000}
+          step={500}
+          placeholder="e.g., 5000"
+          value={filters.minTowingCapacity ?? ""}
+          onChange={(e) => updateFilter("minTowingCapacity", e.target.value ? parseInt(e.target.value) : undefined)}
+          className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+        />
+        <p className="text-xs text-gray-500">For trailers, boats, etc.</p>
       </div>
 
       {/* Minimum Legroom */}

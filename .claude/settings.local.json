@@ -32,7 +32,11 @@
       "Bash(npx gh-pages:*)",
       "WebFetch(domain:motormashup.com)",
       "Bash(sort:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(timeout /t)",
+      "Bash(timeout /t 5)",
+      "Bash(git fetch:*)",
+      "WebFetch(domain:krool.github.io)"
     ],
     "deny": [],
     "ask": []

@@ -23,14 +23,20 @@ export const ALL_COLUMNS: ColumnConfig[] = [
   { id: "reviewScore", label: "Review Score", shortLabel: "Score", sortField: "reviewScore", defaultVisible: false, category: "safety" },
   { id: "autonomousLevel", label: "ADAS Level", shortLabel: "ADAS", sortField: "autonomousLevel", defaultVisible: false, category: "safety" },
 
-  // Dimensions columns
+  // Capacity columns
   { id: "seats", label: "Seats", sortField: "seats", defaultVisible: true, category: "dimensions" },
+  { id: "doors", label: "Doors", sortField: "doors", defaultVisible: false, category: "dimensions" },
   { id: "driverLegroomInches", label: "Legroom", sortField: "driverLegroomInches", defaultVisible: false, category: "dimensions" },
+  { id: "cargoVolumesCuFt", label: "Cargo (cu ft)", shortLabel: "Cargo", sortField: "cargoVolumesCuFt", defaultVisible: false, category: "dimensions" },
+
+  // Size dimensions - ordered: Length, Width variants, Height, Clearance
+  { id: "lengthInches", label: "Length", sortField: "lengthInches", defaultVisible: false, category: "dimensions" },
   { id: "mirrorsFoldedWidthInches", label: "Width (Folded)", shortLabel: "Folded", sortField: "mirrorsFoldedWidthInches", defaultVisible: false, category: "dimensions" },
   { id: "oneMirrorWidthInches", label: "Width (1 Mirror)", shortLabel: "1 Mirror", defaultVisible: false, category: "dimensions" },
   { id: "bodyWidthInches", label: "Width (Extended)", shortLabel: "Extended", sortField: "bodyWidthInches", defaultVisible: false, category: "dimensions" },
   { id: "heightInches", label: "Height", sortField: "heightInches", defaultVisible: false, category: "dimensions" },
   { id: "groundClearanceInches", label: "Ground Clearance", shortLabel: "Clearance", sortField: "groundClearanceInches", defaultVisible: false, category: "dimensions" },
+  { id: "towingCapacityLbs", label: "Towing (lbs)", shortLabel: "Towing", sortField: "towingCapacityLbs", defaultVisible: false, category: "dimensions" },
 
   // Powertrain columns
   { id: "fuelType", label: "Fuel Type", shortLabel: "Fuel", defaultVisible: true, category: "powertrain" },
@@ -68,7 +74,7 @@ const PRESETS: { name: string; columns: ColumnId[] }[] = [
   },
   {
     name: "Garage Fit",
-    columns: ["year", "make", "model", "mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"],
+    columns: ["year", "make", "model", "lengthInches", "mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"],
   },
   {
     name: "Safety Focus",
