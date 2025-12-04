@@ -34,10 +34,10 @@ function FilterSection({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border border-gray-700 rounded-lg overflow-hidden">
+    <div className="border border-gray-700 rounded-lg">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-3 py-2 bg-gray-700/50 hover:bg-gray-700 flex items-center justify-between text-left"
+        className="w-full px-3 py-2 bg-gray-700/50 hover:bg-gray-700 flex items-center justify-between text-left rounded-t-lg"
       >
         <span className="text-sm font-medium text-gray-200">{title}</span>
         <div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ function FilterSection({
         </div>
       </button>
       {isOpen && (
-        <div className="p-3 space-y-3 bg-gray-800/50">
+        <div className="p-3 space-y-3 bg-gray-800/50 rounded-b-lg">
           {children}
         </div>
       )}
