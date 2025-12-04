@@ -36,7 +36,8 @@
       "Bash(timeout /t)",
       "Bash(timeout /t 5)",
       "Bash(git fetch:*)",
-      "WebFetch(domain:krool.github.io)"
+      "WebFetch(domain:krool.github.io)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
