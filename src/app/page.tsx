@@ -463,6 +463,42 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Print-only header - hidden on screen */}
+      <div className="hidden print:block print-header">
+        <div className="flex justify-between items-start border-b-2 border-black pb-2 mb-4">
+          <div>
+            <h1 className="text-2xl font-bold">CarCompare Vehicle List</h1>
+            <p className="text-sm text-gray-600">
+              Generated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            </p>
+          </div>
+          <div className="text-right">
+            <p className="font-semibold">{sortedCars.length} vehicles</p>
+            {baselineCar && (
+              <p className="text-sm">Baseline: {baselineCar.year} {baselineCar.make} {baselineCar.model}</p>
+            )}
+          </div>
+        </div>
+        {/* Active filters summary */}
+        <div className="text-xs mb-4 print-filters">
+          <span className="font-semibold">Filters: </span>
+          {(() => {
+            const activeFilters: string[] = [];
+            if (filters.minYear || filters.maxYear) activeFilters.push(`Year: ${filters.minYear || "any"}-${filters.maxYear || "any"}`);
+            if (filters.minPrice || filters.maxPrice) activeFilters.push(`Price: $${filters.minPrice?.toLocaleString() || "0"}-$${filters.maxPrice?.toLocaleString() || "any"}`);
+            if (filters.bodyTypes?.length) activeFilters.push(`Type: ${filters.bodyTypes.join(", ")}`);
+            if (filters.fuelTypes?.length) activeFilters.push(`Fuel: ${filters.fuelTypes.join(", ")}`);
+            if (filters.safetyRatings?.length) activeFilters.push(`Safety: ${filters.safetyRatings.join(", ")}`);
+            if (filters.minSeats) activeFilters.push(`${filters.minSeats}+ seats`);
+            if (filters.maxWidthInches) activeFilters.push(`Max width: ${filters.maxWidthInches}"`);
+            if (filters.maxLengthInches) activeFilters.push(`Max length: ${filters.maxLengthInches}"`);
+            if (filters.minEvRange) activeFilters.push(`EV range: ${filters.minEvRange}+ mi`);
+            if (searchQuery) activeFilters.push(`Search: "${searchQuery}"`);
+            return activeFilters.length > 0 ? activeFilters.join(" | ") : "None";
+          })()}
+        </div>
+      </div>
+
       <main className="p-6">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Sidebar */}
@@ -564,6 +600,11 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* Print-only footer */}
+      <div className="hidden print:block print-footer">
+        <p>CarCompare - krool.github.io/CarCompare</p>
+      </div>
 
       <footer className="bg-gray-800 border-t border-gray-700 px-6 py-4 mt-8">
         <div className="flex flex-col items-center gap-2">

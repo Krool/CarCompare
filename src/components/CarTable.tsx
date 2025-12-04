@@ -143,20 +143,20 @@ export default function CarTable({
       <table className="min-w-full divide-y divide-gray-700">
         <thead className="bg-gray-900 sticky top-0 z-10">
           <tr>
-            {/* Action columns - always visible */}
-            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10">
+            {/* Action columns - hidden on print */}
+            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10 print:hidden">
               <span title="Add to favorites">★</span>
             </th>
-            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10">
+            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10 print:hidden">
               <span title="Add to compare">⚖</span>
             </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider print:hidden">
               Base
             </th>
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
               Image
             </th>
-            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10">
+            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10 print:hidden">
               <span title="View full details">Info</span>
             </th>
             {/* Configurable columns */}
@@ -223,7 +223,7 @@ export default function CarTable({
                 key={car.id}
                 className={`table-row-hover ${isBaseline ? "bg-blue-900/30" : isFavorite ? "bg-yellow-900/20" : "hover:bg-gray-700/50"}`}
               >
-                <td className="px-2 py-2 text-center">
+                <td className="px-2 py-2 text-center print:hidden">
                   <button
                     onClick={() => onToggleFavorite(car.id)}
                     className={`text-xl transition-colors ${
@@ -234,7 +234,7 @@ export default function CarTable({
                     ★
                   </button>
                 </td>
-                <td className="px-2 py-2 text-center">
+                <td className="px-2 py-2 text-center print:hidden">
                   <input
                     type="checkbox"
                     checked={isInCompare}
@@ -243,7 +243,7 @@ export default function CarTable({
                     title="Add to comparison"
                   />
                 </td>
-                <td className="px-3 py-2">
+                <td className="px-3 py-2 print:hidden">
                   <button
                     onClick={() => onSelectBaseline(car)}
                     className={`px-2 py-1 rounded text-xs ${
@@ -258,7 +258,7 @@ export default function CarTable({
                 <td className="px-3 py-2">
                   <CarImage car={car} onImageClick={() => setModalCar(car)} />
                 </td>
-                <td className="px-2 py-2 text-center">
+                <td className="px-2 py-2 text-center print:hidden">
                   <button
                     onClick={() => setModalCar(car)}
                     className="p-1.5 rounded bg-gray-700 hover:bg-blue-600 text-gray-300 hover:text-white transition-colors"
