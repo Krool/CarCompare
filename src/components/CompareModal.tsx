@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Car, SafetyRating } from "@/types/car";
-import { formatCurrency, getEffectiveWidth } from "@/lib/carUtils";
+import { formatCurrency, getEffectiveWidth, getCarImageUrl } from "@/lib/carUtils";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 interface CompareModalProps {
   cars: Car[];
@@ -11,8 +12,30 @@ interface CompareModalProps {
   mirrorBuffer: number;
 }
 
+function CompareCarImage({ car }: { car: Car }) {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return (
+      <div className="w-full h-32 bg-gray-700 rounded-lg mb-2 flex items-center justify-center text-gray-500 text-2xl">
+        {car.bodyType.charAt(0).toUpperCase()}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={getCarImageUrl(car, 300)}
+      alt={`${car.year} ${car.make} ${car.model}`}
+      className="w-full h-32 object-contain rounded-lg mb-2"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
 export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer }: CompareModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const focusTrapRef = useFocusTrap();
 
   // Lock body scroll and reset modal scroll position when opened
   useEffect(() => {
@@ -27,27 +50,25 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
       overlayRef.current.scrollTop = 0;
     }
 
+    // Handle ESC key to close modal
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
     return () => {
       // Restore body scroll
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
       window.scrollTo(0, scrollY);
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [onClose]);
 
   if (cars.length === 0) return null;
-
-  const getCarImageUrl = (car: Car, size: number = 400): string => {
-    const modelFamily = car.model
-      .split(" ")[0]
-      .toLowerCase()
-      .replace(/[^a-z0-9]/g, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "");
-    const make = car.make.toLowerCase();
-    return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=${size}`;
-  };
 
   const CompareRow = ({ label, values, format, highlight }: {
     label: string;
@@ -112,17 +133,22 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
       className="fixed z-50 bg-black/80"
       style={{ top: 0, left: 0, right: 0, bottom: 0, overflowY: 'auto' }}
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="compare-modal-title"
     >
       <div
+        ref={focusTrapRef}
         className="bg-gray-800 rounded-lg max-w-6xl p-6"
         style={{ margin: '20px auto', width: 'calc(100% - 32px)' }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-white">Compare Vehicles</h2>
+          <h2 id="compare-modal-title" className="text-2xl font-bold text-white">Compare Vehicles</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white text-3xl leading-none p-2"
+            aria-label="Close comparison modal"
           >
             ×
           </button>
@@ -141,14 +167,11 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                         onClick={() => onRemoveCar(car.id)}
                         className="absolute -top-2 -right-2 bg-red-600 hover:bg-red-500 text-white rounded-full w-6 h-6 text-sm"
                         title="Remove from comparison"
+                        aria-label={`Remove ${car.year} ${car.make} ${car.model} from comparison`}
                       >
                         ×
                       </button>
-                      <img
-                        src={getCarImageUrl(car, 300)}
-                        alt={`${car.year} ${car.make} ${car.model}`}
-                        className="w-full h-32 object-contain rounded-lg mb-2"
-                      />
+                      <CompareCarImage car={car} />
                       <div className="text-white font-semibold">
                         {car.year} {car.make}
                       </div>

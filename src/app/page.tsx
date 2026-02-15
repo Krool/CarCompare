@@ -9,17 +9,8 @@ import BaselineSelector from "@/components/BaselineSelector";
 import CompareModal from "@/components/CompareModal";
 import ColumnSettings, { DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
 import SetupWizard from "@/components/SetupWizard";
-import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv } from "@/lib/carUtils";
-
-// LocalStorage keys
-const STORAGE_KEYS = {
-  favorites: "carcompare_favorites",
-  filters: "carcompare_filters",
-  mirrorBuffer: "carcompare_mirrorBuffer",
-  baseline: "carcompare_baseline",
-  columns: "carcompare_columns",
-  hasSeenWizard: "carcompare_hasSeenWizard",
-};
+import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl } from "@/lib/carUtils";
+import { STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
 
 export default function Home() {
   const allCars = carData.cars as Car[];
@@ -52,7 +43,7 @@ export default function Home() {
       clearTimeout(toastTimeoutRef.current);
     }
     setToast({ message, type });
-    toastTimeoutRef.current = setTimeout(() => setToast(null), 3000);
+    toastTimeoutRef.current = setTimeout(() => setToast(null), TOAST_DURATION_MS);
   }, []);
 
   // Load state from localStorage on mount
@@ -160,15 +151,27 @@ export default function Home() {
       setIsInitialized(true);
       return;
     } else {
-      // Load from localStorage
-      const savedFavorites = localStorage.getItem(STORAGE_KEYS.favorites);
-      if (savedFavorites) setFavorites(JSON.parse(savedFavorites));
+      // Load from localStorage with error handling
+      try {
+        const savedFavorites = localStorage.getItem(STORAGE_KEYS.favorites);
+        if (savedFavorites) setFavorites(JSON.parse(savedFavorites));
+      } catch (e) {
+        console.error("Failed to parse favorites:", e);
+      }
 
-      const savedFilters = localStorage.getItem(STORAGE_KEYS.filters);
-      if (savedFilters) setFilters(JSON.parse(savedFilters));
+      try {
+        const savedFilters = localStorage.getItem(STORAGE_KEYS.filters);
+        if (savedFilters) setFilters(JSON.parse(savedFilters));
+      } catch (e) {
+        console.error("Failed to parse filters:", e);
+      }
 
-      const savedBuffer = localStorage.getItem(STORAGE_KEYS.mirrorBuffer);
-      if (savedBuffer) setMirrorBuffer(parseInt(savedBuffer));
+      try {
+        const savedBuffer = localStorage.getItem(STORAGE_KEYS.mirrorBuffer);
+        if (savedBuffer) setMirrorBuffer(parseInt(savedBuffer));
+      } catch (e) {
+        console.error("Failed to parse mirrorBuffer:", e);
+      }
 
       const savedBaseline = localStorage.getItem(STORAGE_KEYS.baseline);
       if (savedBaseline) {
@@ -176,8 +179,19 @@ export default function Home() {
         if (car) setBaselineCar(car);
       }
 
-      const savedColumns = localStorage.getItem(STORAGE_KEYS.columns);
-      if (savedColumns) setVisibleColumns(JSON.parse(savedColumns));
+      try {
+        const savedColumns = localStorage.getItem(STORAGE_KEYS.columns);
+        if (savedColumns) setVisibleColumns(JSON.parse(savedColumns));
+      } catch (e) {
+        console.error("Failed to parse columns:", e);
+      }
+
+      try {
+        const savedCompareList = localStorage.getItem(STORAGE_KEYS.compareList);
+        if (savedCompareList) setCompareList(JSON.parse(savedCompareList));
+      } catch (e) {
+        console.error("Failed to parse compareList:", e);
+      }
 
       // Check if first-time user (no wizard seen)
       const hasSeenWizard = localStorage.getItem(STORAGE_KEYS.hasSeenWizard);
@@ -220,6 +234,12 @@ export default function Home() {
     if (!isInitialized) return;
     localStorage.setItem(STORAGE_KEYS.columns, JSON.stringify(visibleColumns));
   }, [visibleColumns, isInitialized]);
+
+  // Save compare list to localStorage
+  useEffect(() => {
+    if (!isInitialized) return;
+    localStorage.setItem(STORAGE_KEYS.compareList, JSON.stringify(compareList));
+  }, [compareList, isInitialized]);
 
   // Debounce search input
   useEffect(() => {
@@ -404,6 +424,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-900">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:text-sm focus:font-medium"
+      >
+        Skip to main content
+      </a>
       <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700 px-6 py-5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
@@ -499,7 +525,7 @@ export default function Home() {
         </div>
       </div>
 
-      <main className="p-6">
+      <main id="main-content" className="p-6">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Sidebar */}
           <aside className="lg:w-80 flex-shrink-0 space-y-4 no-print">
@@ -650,8 +676,9 @@ export default function Home() {
       )}
 
       {/* Toast Notification */}
+      <div role="status" aria-live="polite" className="fixed bottom-4 right-4 z-50">
       {toast && (
-        <div className="fixed bottom-4 right-4 z-50 animate-slide-up">
+        <div className="animate-slide-up">
           <div className={`px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
             toast.type === "success"
               ? "bg-green-800 text-green-100 border border-green-600"
@@ -670,6 +697,7 @@ export default function Home() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
@@ -701,6 +729,12 @@ function MobileCardView({
   onSortChange?: (field: SortField) => void;
 }) {
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
+  const [visibleCount, setVisibleCount] = useState(20);
+
+  // Reset visible count when cars list changes (e.g., filter change)
+  useEffect(() => {
+    setVisibleCount(20);
+  }, [cars.length]);
 
   const toggleExpanded = (carId: string) => {
     setExpandedCards(prev => {
@@ -712,17 +746,6 @@ function MobileCardView({
       }
       return next;
     });
-  };
-
-  const getCarImageUrl = (car: Car, size: number = 400): string => {
-    const modelFamily = car.model
-      .split(" ")[0]
-      .toLowerCase()
-      .replace(/[^a-z0-9]/g, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "");
-    const make = car.make.toLowerCase();
-    return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=${size}`;
   };
 
   const formatCurrency = (value: number | undefined): string => {
@@ -780,7 +803,7 @@ function MobileCardView({
         </div>
       )}
 
-      {cars.map((car) => {
+      {cars.slice(0, visibleCount).map((car) => {
         const isBaseline = baselineCar?.id === car.id;
         const isFavorite = favorites.includes(car.id);
         const isInCompare = compareList.includes(car.id);
@@ -912,6 +935,15 @@ function MobileCardView({
           </div>
         );
       })}
+
+      {visibleCount < cars.length && (
+        <button
+          onClick={() => setVisibleCount(prev => Math.min(prev + 20, cars.length))}
+          className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm font-medium"
+        >
+          Show More ({cars.length - visibleCount} remaining)
+        </button>
+      )}
     </div>
   );
 }

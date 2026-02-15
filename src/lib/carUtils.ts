@@ -473,3 +473,20 @@ export function downloadCsv(content: string, filename: string): void {
   link.click();
   URL.revokeObjectURL(link.href);
 }
+
+/**
+ * Generate car image URL from imagin.studio API
+ * @param car - The car object
+ * @param size - Image width in pixels (default: 400)
+ * @returns URL string for car image
+ */
+export function getCarImageUrl(car: Car, size: number = 400): string {
+  const modelFamily = car.model
+    .split(" ")[0]
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+  const make = car.make.toLowerCase();
+  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=${size}`;
+}

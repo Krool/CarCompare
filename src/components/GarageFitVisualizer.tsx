@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Car } from "@/types/car";
 import { getEffectiveWidth, getCarDisplayName } from "@/lib/carUtils";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 interface GarageFitVisualizerProps {
   car: Car;
@@ -41,6 +42,7 @@ export default function GarageFitVisualizer({
 }: GarageFitVisualizerProps) {
   const [garage, setGarage] = useState<GarageDimensions>(DEFAULT_GARAGE);
   const [isInitialized, setIsInitialized] = useState(false);
+  const focusTrapRef = useFocusTrap();
 
   // Load garage dimensions from localStorage
   useEffect(() => {
@@ -115,15 +117,19 @@ export default function GarageFitVisualizer({
     <div
       className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="garage-fit-title"
     >
       <div
+        ref={focusTrapRef}
         className="bg-gray-800 rounded-lg max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex justify-between items-start mb-6">
           <div>
-            <h3 className="text-xl font-bold text-white">Garage Fit Visualizer</h3>
+            <h3 id="garage-fit-title" className="text-xl font-bold text-white">Garage Fit Visualizer</h3>
             <p className="text-gray-400 text-sm mt-1">{getCarDisplayName(car)}</p>
           </div>
           <button

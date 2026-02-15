@@ -186,6 +186,37 @@ body {
   animation: bounceOnce 0.5s ease-out;
 }
 
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin,
+  .animate-pulse,
+  .animate-fadeIn,
+  .animate-fadeInUp,
+  .animate-slideInRight,
+  .animate-scaleIn,
+  .animate-slide-up,
+  .animate-bounce-once,
+  .skeleton,
+  .stagger-item,
+  .modal-backdrop,
+  .modal-content {
+    animation: none !important;
+  }
+
+  .table-row-hover:hover {
+    transform: none !important;
+  }
+
+  .btn-hover:hover,
+  .btn-hover:active {
+    transform: none !important;
+  }
+
+  .filter-transition {
+    transition: none !important;
+  }
+}
+
 /* Print styles */
 @media print {
   /* Hide interactive and navigation elements */

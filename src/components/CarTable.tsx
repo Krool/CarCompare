@@ -9,6 +9,7 @@ import {
   calculateDifference,
   getCarDisplayName,
 } from "@/lib/carUtils";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 import GarageFitVisualizer from "./GarageFitVisualizer";
 
 interface CarTableProps {
@@ -51,12 +52,16 @@ const HEADER_TOOLTIPS: Partial<Record<SortField, string>> = {
 function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: SortableHeaderProps) {
   const isActive = sortConfig.field === field;
   const headerTooltip = tooltip || HEADER_TOOLTIPS[field];
+  const ariaSortValue = isActive
+    ? sortConfig.direction === "asc" ? "ascending" as const : "descending" as const
+    : "none" as const;
 
   return (
     <th
       className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-700 select-none group relative"
       onClick={() => onSortChange(field)}
       title={headerTooltip}
+      aria-sort={ariaSortValue}
     >
       <div className="flex items-center gap-1">
         {label}
@@ -230,6 +235,7 @@ export default function CarTable({
                       isFavorite ? "text-yellow-400" : "text-gray-600 hover:text-yellow-400"
                     }`}
                     title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+                    aria-label={isFavorite ? `Remove ${car.year} ${car.make} ${car.model} from favorites` : `Add ${car.year} ${car.make} ${car.model} to favorites`}
                   >
                     ★
                   </button>
@@ -241,6 +247,7 @@ export default function CarTable({
                     onChange={() => onToggleCompare(car.id)}
                     className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
                     title="Add to comparison"
+                    aria-label={isInCompare ? `Remove ${car.year} ${car.make} ${car.model} from comparison` : `Add ${car.year} ${car.make} ${car.model} to comparison`}
                   />
                 </td>
                 <td className="px-3 py-2 print:hidden">
@@ -251,6 +258,7 @@ export default function CarTable({
                         ? "bg-blue-600 text-white"
                         : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                     }`}
+                    aria-label={isBaseline ? `${car.year} ${car.make} ${car.model} is baseline` : `Set ${car.year} ${car.make} ${car.model} as baseline`}
                   >
                     {isBaseline ? "✓" : "Set"}
                   </button>
@@ -263,8 +271,9 @@ export default function CarTable({
                     onClick={() => setModalCar(car)}
                     className="p-1.5 rounded bg-gray-700 hover:bg-blue-600 text-gray-300 hover:text-white transition-colors"
                     title="View full details"
+                    aria-label={`View details for ${car.year} ${car.make} ${car.model}`}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </button>
@@ -795,6 +804,8 @@ interface ImageModalProps {
 function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps) {
   const [selectedAngle, setSelectedAngle] = useState("01");
   const [showGarageFit, setShowGarageFit] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const focusTrapRef = useFocusTrap(!showGarageFit);
   const imageUrl = getCarImageUrl(car, 800, selectedAngle);
   const isBaseline = baselineCar?.id === car.id;
   const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
@@ -821,15 +832,19 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
     <div
       className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="image-modal-title"
     >
       <div
+        ref={focusTrapRef}
         className="bg-gray-800 rounded-lg max-w-4xl w-full p-6 mt-4 mb-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 id="image-modal-title" className="text-2xl font-bold text-white">
               {car.year} {car.make} {car.model}
             </h3>
             {car.trim && <p className="text-gray-400">{car.trim}</p>}
@@ -842,6 +857,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white text-3xl leading-none p-2"
+            aria-label="Close details modal"
           >
             ×
           </button>
@@ -850,11 +866,18 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         {/* Image Gallery */}
         <div className="mb-6">
           {/* Main Image */}
-          <img
-            src={imageUrl}
-            alt={`${car.year} ${car.make} ${car.model} - ${CAR_ANGLES.find(a => a.id === selectedAngle)?.label}`}
-            className="w-full h-auto rounded-lg mb-3"
-          />
+          {imageError ? (
+            <div className="w-full h-64 bg-gray-700 rounded-lg mb-3 flex items-center justify-center text-gray-500 text-4xl">
+              {car.bodyType.charAt(0).toUpperCase()}
+            </div>
+          ) : (
+            <img
+              src={imageUrl}
+              alt={`${car.year} ${car.make} ${car.model} - ${CAR_ANGLES.find(a => a.id === selectedAngle)?.label}`}
+              className="w-full h-auto rounded-lg mb-3"
+              onError={() => setImageError(true)}
+            />
+          )}
           {/* Thumbnail Strip */}
           <div className="flex gap-2 justify-center">
             {CAR_ANGLES.map((angle) => (
@@ -871,6 +894,10 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
                   src={getCarImageUrl(car, 150, angle.id)}
                   alt={angle.label}
                   className="w-20 h-12 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                 />
                 <span className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs py-0.5 text-center">
                   {angle.label}

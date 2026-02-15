@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Car, ColumnId, BodyType, FuelType, SortField, SafetyRating, AutonomousLevel, PlugType } from "@/types/car";
 import { ALL_COLUMNS } from "./ColumnSettings";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 interface SetupWizardProps {
   cars: Car[];
@@ -136,6 +137,7 @@ type UseCaseKey = keyof typeof USE_CASE_PRESETS;
 const BASE_COLUMNS: ColumnId[] = ["year", "make", "model", "bodyType", "msrp"];
 
 export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardProps) {
+  const focusTrapRef = useFocusTrap();
   const [step, setStep] = useState<WizardStep>("welcome");
   const [selectedUseCases, setSelectedUseCases] = useState<UseCaseKey[]>([]);
   const [selectedBaseline, setSelectedBaseline] = useState<Car | null>(null);
@@ -160,6 +162,17 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
   });
   const [sortConfig, setSortConfig] = useState<{ field: SortField; direction: "asc" | "desc" } | undefined>(undefined);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+
+  // Handle ESC key to close wizard
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onSkip();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [onSkip]);
 
   // Get unique makes from all cars for make filter
   const availableMakes = useMemo(() => {
@@ -451,8 +464,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
   };
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 modal-backdrop">
-      <div className="bg-gray-800 rounded-xl max-w-2xl w-full p-8 modal-content max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="wizard-title">
+      <div ref={focusTrapRef} className="bg-gray-800 rounded-xl max-w-2xl w-full p-8 modal-content max-h-[90vh] overflow-y-auto">
         {/* Progress indicator - clickable steps */}
         <div className="flex justify-center mb-8">
           <div className="flex items-center gap-2">
@@ -487,7 +500,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
         {/* Welcome Step */}
         {step === "welcome" && (
           <div className="text-center animate-fadeIn">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 id="wizard-title" className="text-3xl font-bold text-white mb-4">
               Welcome to <span className="text-blue-400">Car</span>Compare
             </h2>
             <p className="text-gray-300 mb-8 text-lg">
