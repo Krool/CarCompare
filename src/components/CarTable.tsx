@@ -58,7 +58,7 @@ function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: Sor
 
   return (
     <th
-      className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-700 select-none group relative"
+      className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-white/[0.02] select-none group relative transition-colors"
       onClick={() => onSortChange(field)}
       title={headerTooltip}
       aria-sort={ariaSortValue}
@@ -66,12 +66,12 @@ function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: Sor
       <div className="flex items-center gap-1">
         {label}
         {headerTooltip && (
-          <svg className="w-3 h-3 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3 h-3 text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         )}
         {isActive && (
-          <span className="text-blue-400">
+          <span className="text-amber-400 text-[10px]">
             {sortConfig.direction === "asc" ? "▲" : "▼"}
           </span>
         )}
@@ -83,17 +83,17 @@ function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: Sor
 function DiffBadge({ diff, positive }: { diff: string | null; positive?: "higher" | "lower" }) {
   if (!diff) return null;
   if (diff === "same") {
-    return <span className="text-gray-500 text-xs ml-1">(=)</span>;
+    return <span className="text-gray-600 text-xs ml-1">(=)</span>;
   }
 
   const isPositiveNum = diff.startsWith("+");
   const isGood = positive === "higher" ? isPositiveNum : positive === "lower" ? !isPositiveNum : null;
 
-  let colorClass = "text-gray-400";
-  if (isGood === true) colorClass = "text-green-400";
-  if (isGood === false) colorClass = "text-red-400";
+  let colorClass = "text-gray-500";
+  if (isGood === true) colorClass = "text-emerald-400";
+  if (isGood === false) colorClass = "text-rose-400";
 
-  return <span className={`text-xs ml-1 ${colorClass}`}>({diff})</span>;
+  return <span className={`text-xs ml-1 font-mono ${colorClass}`}>({diff})</span>;
 }
 
 export default function CarTable({
@@ -116,19 +116,19 @@ export default function CarTable({
 
   if (cars.length === 0) {
     return (
-      <div className="bg-gray-800 rounded-lg p-8 text-center">
-        <div className="text-gray-400 mb-4">
-          <svg className="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="surface-elevated rounded-xl p-10 text-center">
+        <div className="text-gray-500 mb-4">
+          <svg className="w-10 h-10 mx-auto mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <p className="text-lg font-medium text-gray-300 mb-2">No cars match your filters</p>
-          <p className="text-sm">Try these suggestions:</p>
+          <p className="text-base font-medium text-gray-300 mb-1">No cars match your filters</p>
+          <p className="text-sm text-gray-500">Try adjusting your criteria:</p>
         </div>
-        <ul className="text-gray-500 text-sm space-y-1 max-w-md mx-auto text-left list-disc list-inside">
-          <li>Expand the price range or year range</li>
-          <li>Remove dimension constraints (length, width, height)</li>
-          <li>Select more body types or fuel types</li>
-          <li>Clear specific filters in the sidebar</li>
+        <ul className="text-gray-500 text-sm space-y-1 max-w-sm mx-auto text-left">
+          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Expand the price or year range</li>
+          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Remove dimension constraints</li>
+          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Select more body or fuel types</li>
+          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Clear specific sidebar filters</li>
         </ul>
       </div>
     );
@@ -144,24 +144,24 @@ export default function CarTable({
           mirrorBuffer={mirrorBuffer}
         />
       )}
-    <div className="overflow-x-auto bg-gray-800 rounded-lg max-h-[calc(100vh-300px)] overflow-y-auto">
-      <table className="min-w-full divide-y divide-gray-700">
-        <thead className="bg-gray-900 sticky top-0 z-10">
+    <div className="overflow-x-auto surface-elevated rounded-xl max-h-[calc(100vh-300px)] overflow-y-auto">
+      <table className="min-w-full divide-y divide-gray-800/80">
+        <thead className="bg-gray-900/90 backdrop-blur-sm sticky top-0 z-10">
           <tr>
             {/* Action columns - hidden on print */}
-            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10 print:hidden">
-              <span title="Add to favorites">★</span>
+            <th className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
+              <span title="Add to favorites" className="text-amber-600">★</span>
             </th>
-            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10 print:hidden">
+            <th className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
               <span title="Add to compare">⚖</span>
             </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider print:hidden">
+            <th className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider print:hidden">
               Base
             </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
               Image
             </th>
-            <th className="px-2 py-2 text-center text-xs font-medium text-gray-300 uppercase tracking-wider w-10 print:hidden">
+            <th className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
               <span title="View full details">Info</span>
             </th>
             {/* Configurable columns */}
@@ -216,7 +216,7 @@ export default function CarTable({
             )}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-700">
+        <tbody className="divide-y divide-gray-800/60">
           {cars.map((car) => {
             const isBaseline = baselineCar?.id === car.id;
             const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
@@ -226,13 +226,13 @@ export default function CarTable({
             return (
               <tr
                 key={car.id}
-                className={`table-row-hover ${isBaseline ? "bg-blue-900/30" : isFavorite ? "bg-yellow-900/20" : "hover:bg-gray-700/50"}`}
+                className={`table-row-hover transition-colors ${isBaseline ? "bg-amber-500/[0.06]" : isFavorite ? "bg-amber-500/[0.03]" : ""}`}
               >
                 <td className="px-2 py-2 text-center print:hidden">
                   <button
                     onClick={() => onToggleFavorite(car.id)}
-                    className={`text-xl transition-colors ${
-                      isFavorite ? "text-yellow-400" : "text-gray-600 hover:text-yellow-400"
+                    className={`text-lg transition-colors ${
+                      isFavorite ? "text-amber-400" : "text-gray-700 hover:text-amber-400"
                     }`}
                     title={isFavorite ? "Remove from favorites" : "Add to favorites"}
                     aria-label={isFavorite ? `Remove ${car.year} ${car.make} ${car.model} from favorites` : `Add ${car.year} ${car.make} ${car.model} to favorites`}
@@ -245,7 +245,7 @@ export default function CarTable({
                     type="checkbox"
                     checked={isInCompare}
                     onChange={() => onToggleCompare(car.id)}
-                    className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
+                    className="w-3.5 h-3.5 rounded border-gray-600 bg-gray-800 accent-amber-500"
                     title="Add to comparison"
                     aria-label={isInCompare ? `Remove ${car.year} ${car.make} ${car.model} from comparison` : `Add ${car.year} ${car.make} ${car.model} to comparison`}
                   />
@@ -253,10 +253,10 @@ export default function CarTable({
                 <td className="px-3 py-2 print:hidden">
                   <button
                     onClick={() => onSelectBaseline(car)}
-                    className={`px-2 py-1 rounded text-xs ${
+                    className={`px-2 py-1 rounded-md text-xs font-medium transition-colors ${
                       isBaseline
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                        ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                        : "bg-gray-800/50 text-gray-500 hover:text-gray-300 border border-gray-700/30"
                     }`}
                     aria-label={isBaseline ? `${car.year} ${car.make} ${car.model} is baseline` : `Set ${car.year} ${car.make} ${car.model} as baseline`}
                   >
@@ -269,11 +269,11 @@ export default function CarTable({
                 <td className="px-2 py-2 text-center print:hidden">
                   <button
                     onClick={() => setModalCar(car)}
-                    className="p-1.5 rounded bg-gray-700 hover:bg-blue-600 text-gray-300 hover:text-white transition-colors"
+                    className="p-1.5 rounded-md bg-gray-800/50 hover:bg-amber-500/20 text-gray-500 hover:text-amber-400 transition-colors border border-gray-700/30"
                     title="View full details"
                     aria-label={`View details for ${car.year} ${car.make} ${car.model}`}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </button>
@@ -497,7 +497,7 @@ export default function CarTable({
         </tbody>
       </table>
       {(isVisible("mirrorsFoldedWidthInches") || isVisible("oneMirrorWidthInches") || isVisible("bodyWidthInches")) && (
-        <div className="px-3 py-2 text-xs text-gray-500 border-t border-gray-700">
+        <div className="px-3 py-2 text-xs text-gray-600 border-t border-gray-800/40">
           Folded = both mirrors folded, 1 Mirror = driver mirror extended only, Extended = both mirrors extended
         </div>
       )}
@@ -508,11 +508,11 @@ export default function CarTable({
 
 const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType: string }) {
   const colors: Record<string, string> = {
-    gasoline: "bg-gray-600 text-gray-200",
-    diesel: "bg-yellow-800 text-yellow-200",
-    hybrid: "bg-green-800 text-green-200",
-    "plug-in-hybrid": "bg-teal-800 text-teal-200",
-    electric: "bg-blue-800 text-blue-200",
+    gasoline: "bg-gray-700/50 text-gray-300 border-gray-600/30",
+    diesel: "bg-amber-900/30 text-amber-300 border-amber-800/30",
+    hybrid: "bg-emerald-900/30 text-emerald-300 border-emerald-800/30",
+    "plug-in-hybrid": "bg-teal-900/30 text-teal-300 border-teal-800/30",
+    electric: "bg-sky-900/30 text-sky-300 border-sky-800/30",
   };
 
   const labels: Record<string, string> = {
@@ -524,7 +524,7 @@ const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType
   };
 
   return (
-    <span className={`px-2 py-0.5 rounded text-xs ${colors[fuelType] ?? "bg-gray-600"}`}>
+    <span className={`badge border ${colors[fuelType] ?? "bg-gray-700/50 border-gray-600/30"}`}>
       {labels[fuelType] ?? fuelType}
     </span>
   );
@@ -532,14 +532,14 @@ const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType
 
 const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType: string }) {
   const colors: Record<string, string> = {
-    sedan: "bg-purple-800 text-purple-200",
-    crossover: "bg-orange-800 text-orange-200",
-    suv: "bg-amber-800 text-amber-200",
-    truck: "bg-red-800 text-red-200",
-    minivan: "bg-pink-800 text-pink-200",
-    hatchback: "bg-cyan-800 text-cyan-200",
-    wagon: "bg-lime-800 text-lime-200",
-    coupe: "bg-indigo-800 text-indigo-200",
+    sedan: "bg-violet-900/30 text-violet-300 border-violet-800/30",
+    crossover: "bg-orange-900/30 text-orange-300 border-orange-800/30",
+    suv: "bg-amber-900/30 text-amber-300 border-amber-800/30",
+    truck: "bg-rose-900/30 text-rose-300 border-rose-800/30",
+    minivan: "bg-pink-900/30 text-pink-300 border-pink-800/30",
+    hatchback: "bg-cyan-900/30 text-cyan-300 border-cyan-800/30",
+    wagon: "bg-lime-900/30 text-lime-300 border-lime-800/30",
+    coupe: "bg-indigo-900/30 text-indigo-300 border-indigo-800/30",
   };
 
   const labels: Record<string, string> = {
@@ -554,7 +554,7 @@ const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType
   };
 
   return (
-    <span className={`px-2 py-0.5 rounded text-xs ${colors[bodyType] ?? "bg-gray-600"}`}>
+    <span className={`badge border ${colors[bodyType] ?? "bg-gray-700/50 border-gray-600/30"}`}>
       {labels[bodyType] ?? bodyType}
     </span>
   );
@@ -562,15 +562,15 @@ const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType
 
 const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: SafetyRating }) {
   if (!rating || rating === "Not Rated") {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-600 text-xs">-</span>;
   }
 
   const colors: Record<string, string> = {
-    "TSP+": "bg-green-700 text-green-100",
-    "TSP": "bg-green-800 text-green-200",
-    "Good": "bg-blue-800 text-blue-200",
-    "Acceptable": "bg-yellow-800 text-yellow-200",
-    "Pending": "bg-gray-600 text-gray-300",
+    "TSP+": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
+    "TSP": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
+    "Good": "bg-sky-900/25 text-sky-300 border-sky-800/30",
+    "Acceptable": "bg-amber-900/25 text-amber-300 border-amber-800/30",
+    "Pending": "bg-gray-700/30 text-gray-400 border-gray-600/30",
   };
 
   const titles: Record<string, string> = {
@@ -583,7 +583,7 @@ const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: Safet
 
   return (
     <span
-      className={`px-2 py-0.5 rounded text-xs ${colors[rating] ?? "bg-gray-600"}`}
+      className={`badge border ${colors[rating] ?? "bg-gray-700/30 border-gray-600/30"}`}
       title={titles[rating]}
     >
       {rating}
@@ -593,18 +593,17 @@ const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: Safet
 
 const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score?: number }) {
   if (score === undefined || score === null) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-600 text-xs">-</span>;
   }
 
-  // Heatmap colors based on score (0-100)
   const getHeatmapColor = (s: number): string => {
-    if (s >= 90) return "bg-green-600 text-white";
-    if (s >= 80) return "bg-green-700 text-green-100";
-    if (s >= 70) return "bg-lime-700 text-lime-100";
-    if (s >= 60) return "bg-yellow-600 text-yellow-100";
-    if (s >= 50) return "bg-orange-600 text-orange-100";
-    if (s >= 40) return "bg-orange-700 text-orange-100";
-    return "bg-red-700 text-red-100";
+    if (s >= 90) return "bg-emerald-900/40 text-emerald-300 border-emerald-700/40";
+    if (s >= 80) return "bg-emerald-900/25 text-emerald-400 border-emerald-800/30";
+    if (s >= 70) return "bg-lime-900/25 text-lime-300 border-lime-800/30";
+    if (s >= 60) return "bg-amber-900/25 text-amber-300 border-amber-800/30";
+    if (s >= 50) return "bg-orange-900/25 text-orange-300 border-orange-800/30";
+    if (s >= 40) return "bg-orange-900/30 text-orange-300 border-orange-700/30";
+    return "bg-rose-900/30 text-rose-300 border-rose-700/30";
   };
 
   const getScoreLabel = (s: number): string => {
@@ -619,7 +618,7 @@ const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score
 
   return (
     <span
-      className={`px-2 py-0.5 rounded text-xs font-medium ${getHeatmapColor(score)}`}
+      className={`badge border font-mono ${getHeatmapColor(score)}`}
       title={`${getScoreLabel(score)} - Aggregated expert review score from MotorMashup`}
     >
       {score}
@@ -629,15 +628,15 @@ const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score
 
 const AdasBadge = React.memo(function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) {
   if (!level || level === "none") {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-600 text-xs">-</span>;
   }
 
   const colors: Record<AutonomousLevel, string> = {
-    "none": "bg-gray-700 text-gray-400",
-    "basic": "bg-gray-600 text-gray-200",
-    "enhanced": "bg-blue-800 text-blue-200",
-    "hands-free": "bg-purple-700 text-purple-200",
-    "full-self-driving": "bg-cyan-700 text-cyan-200",
+    "none": "bg-gray-700/30 text-gray-500 border-gray-600/30",
+    "basic": "bg-gray-700/30 text-gray-300 border-gray-600/30",
+    "enhanced": "bg-sky-900/25 text-sky-300 border-sky-800/30",
+    "hands-free": "bg-violet-900/30 text-violet-300 border-violet-800/30",
+    "full-self-driving": "bg-cyan-900/30 text-cyan-300 border-cyan-800/30",
   };
 
   const labels: Record<AutonomousLevel, string> = {
@@ -650,7 +649,7 @@ const AdasBadge = React.memo(function AdasBadge({ level, name }: { level?: Auton
 
   return (
     <span
-      className={`px-2 py-0.5 rounded text-xs ${colors[level]}`}
+      className={`badge border ${colors[level]}`}
       title={name ?? level}
     >
       {labels[level]}
@@ -660,14 +659,14 @@ const AdasBadge = React.memo(function AdasBadge({ level, name }: { level?: Auton
 
 const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rating?: LeaseRating }) {
   if (!rating) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-600 text-xs">-</span>;
   }
 
   const colors: Record<LeaseRating, string> = {
-    "excellent": "bg-green-600 text-white",
-    "good": "bg-green-800 text-green-200",
-    "fair": "bg-yellow-700 text-yellow-100",
-    "poor": "bg-red-800 text-red-200",
+    "excellent": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
+    "good": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
+    "fair": "bg-amber-900/25 text-amber-300 border-amber-800/30",
+    "poor": "bg-rose-900/25 text-rose-300 border-rose-800/30",
   };
 
   const titles: Record<LeaseRating, string> = {
@@ -679,7 +678,7 @@ const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rati
 
   return (
     <span
-      className={`px-2 py-0.5 rounded text-xs capitalize ${colors[rating]}`}
+      className={`badge border capitalize ${colors[rating]}`}
       title={titles[rating]}
     >
       {rating}
@@ -689,14 +688,14 @@ const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rati
 
 const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
   if (!category) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-600 text-xs">-</span>;
   }
 
   const colors: Record<DepreciationCategory, string> = {
-    "low": "bg-green-600 text-white",
-    "medium": "bg-yellow-700 text-yellow-100",
-    "high": "bg-orange-700 text-orange-100",
-    "very-high": "bg-red-700 text-red-100",
+    "low": "bg-emerald-900/30 text-emerald-300 border-emerald-700/30",
+    "medium": "bg-amber-900/25 text-amber-300 border-amber-800/30",
+    "high": "bg-orange-900/25 text-orange-300 border-orange-800/30",
+    "very-high": "bg-rose-900/25 text-rose-300 border-rose-800/30",
   };
 
   const labels: Record<DepreciationCategory, string> = {
@@ -715,7 +714,7 @@ const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { 
 
   return (
     <span
-      className={`px-2 py-0.5 rounded text-xs ${colors[category]}`}
+      className={`badge border ${colors[category]}`}
       title={titles[category]}
     >
       {labels[category]}
@@ -725,15 +724,15 @@ const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { 
 
 const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rating?: ReliabilityRating }) {
   if (!rating) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-600 text-xs">-</span>;
   }
 
   const colors: Record<ReliabilityRating, string> = {
-    "excellent": "bg-green-600 text-white",
-    "good": "bg-green-800 text-green-200",
-    "average": "bg-yellow-700 text-yellow-100",
-    "below-average": "bg-orange-700 text-orange-100",
-    "poor": "bg-red-700 text-red-100",
+    "excellent": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
+    "good": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
+    "average": "bg-amber-900/25 text-amber-300 border-amber-800/30",
+    "below-average": "bg-orange-900/25 text-orange-300 border-orange-800/30",
+    "poor": "bg-rose-900/25 text-rose-300 border-rose-800/30",
   };
 
   const labels: Record<ReliabilityRating, string> = {
@@ -754,7 +753,7 @@ const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rati
 
   return (
     <span
-      className={`px-2 py-0.5 rounded text-xs ${colors[rating]}`}
+      className={`badge border ${colors[rating]}`}
       title={titles[rating]}
     >
       {labels[rating]}
@@ -764,8 +763,8 @@ const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rati
 
 const FeatureCheck = React.memo(function FeatureCheck({ label, enabled }: { label: string; enabled?: boolean }) {
   return (
-    <div className={`flex items-center gap-1 ${enabled ? "text-green-400" : "text-gray-500"}`}>
-      <span>{enabled ? "✓" : "✗"}</span>
+    <div className={`flex items-center gap-1.5 ${enabled ? "text-emerald-400" : "text-gray-600"}`}>
+      <span className="text-xs">{enabled ? "✓" : "✗"}</span>
       <span>{label}</span>
     </div>
   );
@@ -811,7 +810,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
   const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
 
   const DetailRow = ({ label, value, diff, positive }: { label: string; value: string | number | undefined; diff?: string | null; positive?: "higher" | "lower" }) => (
-    <div className="flex justify-between py-1 border-b border-gray-700">
+    <div className="flex justify-between py-1 border-b border-gray-800/50">
       <span className="text-gray-400">{label}</span>
       <span className="text-white">
         {value ?? "-"}
@@ -830,7 +829,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         />
       )}
     <div
-      className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -838,7 +837,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
     >
       <div
         ref={focusTrapRef}
-        className="bg-gray-800 rounded-lg max-w-4xl w-full p-6 mt-4 mb-8"
+        className="surface-elevated rounded-2xl max-w-4xl w-full p-6 mt-4 mb-8 modal-content"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -910,8 +909,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         {/* Details Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Pricing */}
-          <div className="bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Pricing</h4>
+          <div className="surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Pricing</h4>
             <DetailRow
               label="MSRP"
               value={formatCurrency(car.msrp)}
@@ -921,8 +920,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           </div>
 
           {/* Dimensions */}
-          <div className="bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Dimensions</h4>
+          <div className="surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Dimensions</h4>
             <DetailRow
               label="Width (Mirrors Folded)"
               value={car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : undefined}
@@ -951,15 +950,15 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
             />
             <button
               onClick={() => setShowGarageFit(true)}
-              className="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-sm font-medium transition-colors"
+              className="mt-3 w-full py-2 btn-accent rounded-lg text-sm transition-colors"
             >
               Check Garage Fit
             </button>
           </div>
 
           {/* Capacity */}
-          <div className="bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Capacity</h4>
+          <div className="surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Capacity</h4>
             <DetailRow
               label="Seats"
               value={car.seats}
@@ -977,8 +976,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           </div>
 
           {/* Efficiency */}
-          <div className="bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Efficiency</h4>
+          <div className="surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Efficiency</h4>
             {car.fuelType !== "electric" && (
               <>
                 <DetailRow label="City MPG" value={car.mpgCity} />
@@ -1003,23 +1002,23 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           </div>
 
           {/* Powertrain */}
-          <div className="bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Powertrain</h4>
+          <div className="surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Powertrain</h4>
             <DetailRow label="Fuel Type" value={car.fuelType} />
             <DetailRow label="Plug Type" value={car.plugType === "none" ? "-" : car.plugType} />
           </div>
 
           {/* Capability */}
           {car.towingCapacityLbs && (
-            <div className="bg-gray-900 rounded-lg p-4">
-              <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Capability</h4>
+            <div className="surface-inset rounded-xl p-4">
+              <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Capability</h4>
               <DetailRow label="Towing Capacity" value={`${car.towingCapacityLbs.toLocaleString()} lbs`} />
             </div>
           )}
 
           {/* Safety */}
-          <div className="bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Safety</h4>
+          <div className="surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Safety</h4>
             <DetailRow label="IIHS Rating" value={car.safetyRating ?? "Not Rated"} />
             {car.safetyRating === "TSP+" && (
               <p className="text-xs text-green-400 mt-2">Top Safety Pick+ - Highest IIHS award</p>
@@ -1032,8 +1031,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
 
         {/* Driver Assistance */}
         {car.autonomousLevel && car.autonomousLevel !== "none" && (
-          <div className="mt-6 bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Driver Assistance</h4>
+          <div className="mt-6 surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Driver Assistance</h4>
             <div className="flex items-center gap-2 mb-3">
               <AdasBadge level={car.autonomousLevel} name={car.adasName} />
               {car.adasName && <span className="text-gray-300 text-sm">{car.adasName}</span>}
@@ -1058,8 +1057,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
 
         {/* Features & Notes */}
         {(car.standardFeatures?.length || car.notes) && (
-          <div className="mt-6 bg-gray-900 rounded-lg p-4">
-            <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Features & Notes</h4>
+          <div className="mt-6 surface-inset rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Features & Notes</h4>
             {car.standardFeatures && car.standardFeatures.length > 0 && (
               <div className="mb-3">
                 <span className="text-gray-400 text-sm">Standard Features:</span>
@@ -1082,8 +1081,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         )}
 
         {/* Search Links */}
-        <div className="mt-6 bg-gray-900 rounded-lg p-4">
-          <h4 className="text-lg font-semibold text-white mb-3 border-b border-gray-700 pb-2">Search This Vehicle</h4>
+        <div className="mt-6 surface-inset rounded-xl p-4">
+          <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Search This Vehicle</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <SearchLink
               name="Cars.com"
@@ -1135,8 +1134,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
 
         {/* Baseline comparison note */}
         {isBaseline && (
-          <div className="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-700">
-            <p className="text-blue-300 text-sm">This is your baseline vehicle for comparisons.</p>
+          <div className="mt-4 p-3 bg-amber-900/15 rounded-lg border border-amber-700/30">
+            <p className="text-amber-400/80 text-sm">This is your baseline vehicle for comparisons.</p>
           </div>
         )}
 
@@ -1179,7 +1178,7 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
   if (hasError) {
     return (
       <div
-        className="w-36 h-16 bg-gray-700 rounded flex items-center justify-center text-gray-500 text-sm cursor-pointer"
+        className="w-36 h-16 bg-gray-800/50 border border-gray-700/30 rounded-lg flex items-center justify-center text-gray-600 text-sm cursor-pointer"
         onClick={onImageClick}
         title="Click for details"
       >
@@ -1206,7 +1205,7 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
         ref={imgRef}
         src={imageUrl}
         alt={`${car.year} ${car.make} ${car.model}`}
-        className={`w-36 h-16 object-cover rounded transition-opacity duration-200 ${isLoading ? "opacity-0" : "opacity-100"}`}
+        className={`w-36 h-16 object-cover rounded-lg transition-opacity duration-200 ${isLoading ? "opacity-0" : "opacity-100"}`}
         loading="lazy"
         onLoad={() => setIsLoading(false)}
         onError={() => {
@@ -1218,13 +1217,13 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
   );
 });
 
-function SearchLink({ name, url, color }: { name: string; url: string; color: string }) {
+function SearchLink({ name, url }: { name: string; url: string; color: string }) {
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${color} hover:opacity-80 text-white text-center py-2 px-3 rounded text-sm font-medium transition-opacity`}
+      className="bg-gray-800/50 hover:bg-amber-500/10 border border-gray-700/30 hover:border-amber-500/30 text-gray-300 hover:text-amber-400 text-center py-2 px-3 rounded-lg text-sm font-medium transition-colors"
     >
       {name}
     </a>

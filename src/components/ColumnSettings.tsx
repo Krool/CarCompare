@@ -149,7 +149,7 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded text-sm font-medium flex items-center gap-2"
+        className="px-3.5 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700/50 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
         title="Customize columns"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -160,9 +160,9 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50 max-h-[70vh] overflow-y-auto">
+        <div className="absolute right-0 mt-2 w-80 surface-elevated rounded-xl shadow-2xl z-50 max-h-[70vh] overflow-y-auto modal-content">
           <div className="p-4">
-            <h3 className="text-white font-semibold mb-3">Customize Columns</h3>
+            <h3 className="text-gray-200 font-semibold text-sm uppercase tracking-wider mb-3">Customize Columns</h3>
 
             {/* Presets */}
             <div className="mb-4">
@@ -174,7 +174,7 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
                   <button
                     key={preset.name}
                     onClick={() => applyPreset(preset)}
-                    className="px-2 py-1 bg-gray-700 hover:bg-gray-600 text-gray-300 text-xs rounded transition-colors group relative"
+                    className="px-2 py-1 bg-gray-800/50 hover:bg-amber-500/10 text-gray-400 hover:text-amber-400 text-xs rounded-lg border border-gray-700/30 transition-colors group relative"
                     title={preset.description}
                   >
                     {preset.name} ({preset.columns.length})
@@ -198,13 +198,13 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
                     {columnsInCategory.map((column) => (
                       <label
                         key={column.id}
-                        className="flex items-center gap-2 py-1 px-2 rounded hover:bg-gray-700 cursor-pointer"
+                        className="flex items-center gap-2 py-1 px-2 rounded-lg hover:bg-white/[0.03] cursor-pointer transition-colors"
                       >
                         <input
                           type="checkbox"
                           checked={visibleColumns.includes(column.id)}
                           onChange={() => toggleColumn(column.id)}
-                          className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
+                          className="w-3.5 h-3.5 rounded border-gray-600 bg-gray-800 accent-amber-500"
                         />
                         <span className="text-gray-300 text-sm">{column.label}</span>
                       </label>
@@ -215,10 +215,10 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
             })}
 
             {/* Reset button */}
-            <div className="pt-3 border-t border-gray-700">
+            <div className="pt-3 border-t border-gray-700/30">
               <button
                 onClick={() => onColumnsChange(DEFAULT_VISIBLE_COLUMNS)}
-                className="w-full px-3 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 text-sm rounded transition-colors"
+                className="w-full px-3 py-2 bg-gray-800/50 hover:bg-gray-800 text-gray-400 hover:text-white text-sm rounded-lg border border-gray-700/30 transition-colors"
               >
                 Reset to Default
               </button>

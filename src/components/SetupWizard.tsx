@@ -464,8 +464,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
   };
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="wizard-title">
-      <div ref={focusTrapRef} className="bg-gray-800 rounded-xl max-w-2xl w-full p-8 modal-content max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="wizard-title">
+      <div ref={focusTrapRef} className="surface-elevated rounded-2xl max-w-2xl w-full p-8 modal-content max-h-[90vh] overflow-y-auto">
         {/* Progress indicator - clickable steps */}
         <div className="flex justify-center mb-8">
           <div className="flex items-center gap-2">
@@ -474,7 +474,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               const currentIndex = ["welcome", "use-case", "baseline", "preferences", "complete"].indexOf(step);
               const isCompleted = currentIndex > i;
               const isCurrent = step === s;
-              const canNavigate = isCompleted; // Can only go back to completed steps
+              const canNavigate = isCompleted;
 
               return (
                 <div key={s} className="flex items-center">
@@ -482,14 +482,14 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     onClick={() => canNavigate && setStep(s)}
                     disabled={!canNavigate}
                     className={`w-3 h-3 rounded-full transition-all ${
-                      isCurrent ? "bg-blue-500 ring-2 ring-blue-300" :
-                      isCompleted ? "bg-green-500 cursor-pointer hover:ring-2 hover:ring-green-300" :
-                      "bg-gray-600 cursor-not-allowed"
+                      isCurrent ? "bg-amber-500 ring-2 ring-amber-300/50" :
+                      isCompleted ? "bg-emerald-500 cursor-pointer hover:ring-2 hover:ring-emerald-300/50" :
+                      "bg-gray-700 cursor-not-allowed"
                     }`}
                     title={canNavigate ? `Go back to ${stepNames[i]}` : stepNames[i]}
                   />
                   {i < 4 && (
-                    <div className={`w-8 h-0.5 ${isCompleted ? "bg-green-500" : "bg-gray-600"}`} />
+                    <div className={`w-8 h-0.5 ${isCompleted ? "bg-emerald-500/50" : "bg-gray-700"}`} />
                   )}
                 </div>
               );
@@ -500,24 +500,31 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
         {/* Welcome Step */}
         {step === "welcome" && (
           <div className="text-center animate-fadeIn">
-            <h2 id="wizard-title" className="text-3xl font-bold text-white mb-4">
-              Welcome to <span className="text-blue-400">Car</span>Compare
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-amber-900/20">
+              <svg className="w-7 h-7 text-gray-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h14a2 2 0 012 2v6a2 2 0 01-2 2M5 17l-1 2m15-2l1 2" />
+                <circle cx="7.5" cy="17" r="1" fill="currentColor" />
+                <circle cx="16.5" cy="17" r="1" fill="currentColor" />
+              </svg>
+            </div>
+            <h2 id="wizard-title" className="text-3xl font-bold text-white mb-3">
+              Welcome to <span className="text-gradient-gold">Car</span>Compare
             </h2>
-            <p className="text-gray-300 mb-8 text-lg">
-              Let&apos;s set up your experience in a few quick steps.
+            <p className="text-gray-400 mb-8">
+              Set up your experience in a few quick steps.
               <br />
-              <span className="text-gray-400 text-sm">This will only take 30 seconds.</span>
+              <span className="text-gray-600 text-sm">Takes about 30 seconds.</span>
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-3 justify-center">
               <button
                 onClick={() => setStep("use-case")}
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-lg font-medium btn-hover"
+                className="px-8 py-3 btn-accent rounded-xl text-base font-semibold"
               >
                 Get Started
               </button>
               <button
                 onClick={onSkip}
-                className="px-8 py-3 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-lg btn-hover"
+                className="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-xl text-base border border-gray-700/50 transition-colors"
               >
                 Skip Setup
               </button>
@@ -541,18 +548,18 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                   <button
                     key={key}
                     onClick={() => toggleUseCase(key)}
-                    className={`p-3 rounded-lg text-left transition-all ${
+                    className={`p-3 rounded-xl text-left transition-all ${
                       isSelected
-                        ? "bg-blue-600 border-2 border-blue-400"
-                        : "bg-gray-700 border-2 border-transparent hover:border-gray-500"
+                        ? "bg-amber-500/10 border border-amber-500/40 shadow-lg shadow-amber-900/10"
+                        : "bg-gray-800/30 border border-gray-700/30 hover:border-gray-600/50"
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-xl">{preset.icon}</span>
-                      {isSelected && <span className="text-green-400 text-sm">✓</span>}
+                      {isSelected && <span className="text-amber-400 text-sm">✓</span>}
                     </div>
                     <span className="text-white font-medium text-sm block">{preset.label}</span>
-                    <span className="text-gray-400 text-xs">{preset.description}</span>
+                    <span className="text-gray-500 text-xs">{preset.description}</span>
                   </button>
                 );
               })}
@@ -560,21 +567,21 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
             {/* Preview of selected columns */}
             {selectedUseCases.length > 0 && (
-              <div className="bg-gray-900 rounded-lg p-3 mb-6">
-                <p className="text-gray-400 text-xs mb-2">
-                  Columns: <span className="text-white">{combinedColumns.length}</span> selected
+              <div className="surface-inset rounded-xl p-3 mb-6">
+                <p className="text-gray-500 text-xs mb-2">
+                  Columns: <span className="text-amber-400 font-medium">{combinedColumns.length}</span> selected
                 </p>
                 <div className="flex flex-wrap gap-1">
                   {combinedColumns.slice(0, 12).map(col => {
                     const colConfig = ALL_COLUMNS.find(c => c.id === col);
                     return (
-                      <span key={col} className="px-2 py-0.5 bg-gray-700 text-gray-300 text-xs rounded">
+                      <span key={col} className="px-2 py-0.5 bg-gray-800/50 text-gray-400 text-xs rounded-md border border-gray-700/30">
                         {colConfig?.shortLabel || colConfig?.label || col}
                       </span>
                     );
                   })}
                   {combinedColumns.length > 12 && (
-                    <span className="px-2 py-0.5 text-gray-500 text-xs">
+                    <span className="px-2 py-0.5 text-gray-600 text-xs">
                       +{combinedColumns.length - 12} more
                     </span>
                   )}
@@ -591,7 +598,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </button>
               <button
                 onClick={() => setStep("baseline")}
-                className="px-8 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white btn-hover"
+                className="px-8 py-3 rounded-lg font-medium btn-accent"
               >
                 {selectedUseCases.length === 0 ? "Show All Columns" : "Next"}
               </button>
@@ -618,10 +625,10 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 placeholder="Search for a car (e.g., 2024 Toyota RAV4)"
                 value={baselineSearch}
                 onChange={(e) => setBaselineSearch(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400"
+                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white placeholder-gray-400"
               />
               {filteredCars.length > 0 && (
-                <div className="mt-2 bg-gray-900 rounded-lg border border-gray-700 max-h-48 overflow-y-auto">
+                <div className="mt-2 surface-inset rounded-xl border border-gray-700 max-h-48 overflow-y-auto">
                   {filteredCars.map(car => (
                     <button
                       key={car.id}
@@ -641,7 +648,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
             {/* Selected baseline */}
             {selectedBaseline && (
-              <div className="mb-4 p-4 bg-blue-900/30 border border-blue-700 rounded-lg flex justify-between items-center">
+              <div className="mb-4 p-4 bg-amber-900/15 border border-amber-700/30 rounded-xl flex justify-between items-center">
                 <div>
                   <span className="text-white font-medium">
                     {selectedBaseline.year} {selectedBaseline.make} {selectedBaseline.model}
@@ -666,7 +673,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     <button
                       key={car.id}
                       onClick={() => setSelectedBaseline(car)}
-                      className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-300 text-sm rounded-full"
+                      className="px-3 py-1.5 bg-gray-800/50 hover:bg-gray-800 text-gray-400 hover:text-white border border-gray-700/30 text-sm rounded-full"
                     >
                       {car.year} {car.make} {car.model}
                     </button>
@@ -691,7 +698,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 </button>
                 <button
                   onClick={() => setStep("preferences")}
-                  className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium btn-hover"
+                  className="px-8 py-3 btn-accent rounded-xl font-medium"
                 >
                   Next
                 </button>
@@ -711,14 +718,14 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             </p>
 
             {/* Body types with descriptions */}
-            <div className="mb-4 bg-gray-900 rounded-lg p-4">
+            <div className="mb-4 surface-inset rounded-xl p-4">
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <p className="text-white font-medium">Body Style</p>
                   <p className="text-gray-500 text-xs">What type of vehicle?</p>
                 </div>
                 {preferences.bodyTypes.length > 0 && (
-                  <span className="text-blue-400 text-xs">{preferences.bodyTypes.length} selected</span>
+                  <span className="text-amber-400 text-xs">{preferences.bodyTypes.length} selected</span>
                 )}
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -737,8 +744,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     onClick={() => toggleBodyType(type)}
                     className={`p-2 rounded-lg text-left transition-all ${
                       preferences.bodyTypes.includes(type)
-                        ? "bg-blue-600 border-2 border-blue-400"
-                        : "bg-gray-700 border-2 border-transparent hover:border-gray-500"
+                        ? "bg-amber-500/10 border border-amber-500/40"
+                        : "bg-gray-800/30 border border-gray-700/30 hover:border-gray-600/50"
                     }`}
                   >
                     <span className="text-white text-sm capitalize block">{type}</span>
@@ -749,14 +756,14 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             </div>
 
             {/* Fuel types with descriptions */}
-            <div className="mb-4 bg-gray-900 rounded-lg p-4">
+            <div className="mb-4 surface-inset rounded-xl p-4">
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <p className="text-white font-medium">Powertrain</p>
                   <p className="text-gray-500 text-xs">What type of engine or motor?</p>
                 </div>
                 {preferences.fuelTypes.length > 0 && (
-                  <span className="text-blue-400 text-xs">{preferences.fuelTypes.length} selected</span>
+                  <span className="text-amber-400 text-xs">{preferences.fuelTypes.length} selected</span>
                 )}
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -771,8 +778,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     onClick={() => toggleFuelType(type)}
                     className={`p-2 rounded-lg text-left transition-all ${
                       preferences.fuelTypes.includes(type)
-                        ? "bg-blue-600 border-2 border-blue-400"
-                        : "bg-gray-700 border-2 border-transparent hover:border-gray-500"
+                        ? "bg-amber-500/10 border border-amber-500/40"
+                        : "bg-gray-800/30 border border-gray-700/30 hover:border-gray-600/50"
                     }`}
                   >
                     <div className="flex items-center gap-1">
@@ -788,7 +795,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             {/* Quick common filters row */}
             <div className="mb-4 grid grid-cols-2 gap-3">
               {/* Price Budget */}
-              <div className="bg-gray-900 rounded-lg p-3">
+              <div className="surface-inset rounded-xl p-3">
                 <p className="text-white text-sm font-medium mb-2">Budget</p>
                 <div className="flex flex-wrap gap-1">
                   {[40000, 50000, 60000, 80000].map(price => (
@@ -800,8 +807,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       }))}
                       className={`px-2 py-1 rounded text-xs ${
                         preferences.maxPrice === price
-                          ? "bg-blue-600 text-white"
-                          : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                          ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                          : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                       }`}
                     >
                       &lt;${(price / 1000)}k
@@ -811,7 +818,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </div>
 
               {/* Seats */}
-              <div className="bg-gray-900 rounded-lg p-3">
+              <div className="surface-inset rounded-xl p-3">
                 <p className="text-white text-sm font-medium mb-2">Min Seats</p>
                 <div className="flex flex-wrap gap-1">
                   {[5, 6, 7, 8].map(num => (
@@ -823,8 +830,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       }))}
                       className={`px-2 py-1 rounded text-xs ${
                         preferences.minSeats === num
-                          ? "bg-blue-600 text-white"
-                          : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                          ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                          : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                       }`}
                     >
                       {num}+
@@ -836,12 +843,12 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
             {/* New cars only toggle */}
             <div className="mb-4">
-              <label className="flex items-center gap-3 cursor-pointer p-3 bg-gray-900 rounded-lg">
+              <label className="flex items-center gap-3 cursor-pointer p-3 surface-inset rounded-xl">
                 <input
                   type="checkbox"
                   checked={preferences.newOnly}
                   onChange={(e) => setPreferences(prev => ({ ...prev, newOnly: e.target.checked }))}
-                  className="w-5 h-5 rounded border-gray-600 bg-gray-700 text-blue-600"
+                  className="w-5 h-5 rounded border-gray-600 bg-gray-800 accent-amber-500"
                 />
                 <div>
                   <span className="text-white block">Only new cars (2024+)</span>
@@ -853,29 +860,29 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             {/* Advanced Filters toggle */}
             <button
               onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-              className="w-full mb-4 px-4 py-3 bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 rounded-lg text-sm flex items-center justify-between border border-purple-700/50"
+              className="w-full mb-4 px-4 py-3 bg-amber-900/15 hover:bg-amber-900/25 text-gray-200 rounded-xl text-sm flex items-center justify-between border border-amber-800/20 transition-colors"
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg">🔍</span>
                 <div className="text-left">
                   <span className="font-medium block">Advanced Filters</span>
-                  <span className="text-purple-400 text-xs">Safety ratings, ADAS tech, efficiency, brands</span>
+                  <span className="text-amber-400/70 text-xs">Safety ratings, ADAS tech, efficiency, brands</span>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-purple-300 text-xs">4 categories</span>
-                <span className="text-purple-400">{showAdvancedFilters ? "▲" : "▼"}</span>
+                <span className="text-gray-500 text-xs">4 categories</span>
+                <span className="text-amber-400">{showAdvancedFilters ? "▲" : "▼"}</span>
               </div>
             </button>
 
             {showAdvancedFilters && (
-              <div className="space-y-3 mb-4 border-l-2 border-purple-600 pl-4">
+              <div className="space-y-3 mb-4 border-l-2 border-amber-700/30 pl-4">
                 {/* Safety Rating */}
-                <div className="bg-gray-900 rounded-lg p-3">
+                <div className="surface-inset rounded-xl p-3">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-white text-sm font-medium">🛡️ Safety Rating (IIHS)</p>
                     {preferences.safetyRatings.length > 0 && (
-                      <span className="text-blue-400 text-xs">{preferences.safetyRatings.length} selected</span>
+                      <span className="text-amber-400 text-xs">{preferences.safetyRatings.length} selected</span>
                     )}
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -887,10 +894,10 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       <button
                         key={rating}
                         onClick={() => toggleSafetyRating(rating)}
-                        className={`px-3 py-1.5 rounded text-sm ${
+                        className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                           preferences.safetyRatings.includes(rating)
-                            ? "bg-green-600 text-white"
-                            : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                            ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                            : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                         }`}
                       >
                         {label}
@@ -900,11 +907,11 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 </div>
 
                 {/* Driver Assistance */}
-                <div className="bg-gray-900 rounded-lg p-3">
+                <div className="surface-inset rounded-xl p-3">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-white text-sm font-medium">🤖 Driver Assistance (ADAS)</p>
                     {(preferences.autonomousLevels.length > 0 || preferences.hasHandsFree) && (
-                      <span className="text-blue-400 text-xs">filtered</span>
+                      <span className="text-amber-400 text-xs">filtered</span>
                     )}
                   </div>
                   <div className="flex flex-wrap gap-2 mb-2">
@@ -917,10 +924,10 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       <button
                         key={level}
                         onClick={() => toggleAutonomousLevel(level)}
-                        className={`px-3 py-1.5 rounded text-sm ${
+                        className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                           preferences.autonomousLevels.includes(level)
-                            ? "bg-purple-600 text-white"
-                            : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                            ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                            : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                         }`}
                       >
                         {label}
@@ -932,14 +939,14 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       type="checkbox"
                       checked={preferences.hasHandsFree}
                       onChange={(e) => setPreferences(prev => ({ ...prev, hasHandsFree: e.target.checked }))}
-                      className="rounded border-gray-600 bg-gray-700 text-purple-600"
+                      className="rounded border-gray-600 bg-gray-800 accent-amber-500"
                     />
                     Must have hands-free highway driving
                   </label>
                 </div>
 
                 {/* Efficiency */}
-                <div className="bg-gray-900 rounded-lg p-3">
+                <div className="surface-inset rounded-xl p-3">
                   <p className="text-white text-sm font-medium mb-2">⛽ Efficiency</p>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
@@ -954,8 +961,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                             }))}
                             className={`px-2 py-1 rounded text-xs ${
                               preferences.minMpg === mpg
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                                ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                                : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                             }`}
                           >
                             {mpg}+
@@ -975,8 +982,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                             }))}
                             className={`px-2 py-1 rounded text-xs ${
                               preferences.minEvRange === range
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                                ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                                : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                             }`}
                           >
                             {range}+
@@ -989,11 +996,11 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
                 {/* EV Plug Type */}
                 {(preferences.fuelTypes.includes("electric") || preferences.fuelTypes.includes("plug-in-hybrid") || preferences.fuelTypes.length === 0) && (
-                  <div className="bg-gray-900 rounded-lg p-3">
+                  <div className="surface-inset rounded-xl p-3">
                     <div className="flex items-center justify-between mb-2">
                       <p className="text-white text-sm font-medium">🔌 EV Plug Type</p>
                       {preferences.plugTypes.length > 0 && (
-                        <span className="text-blue-400 text-xs">{preferences.plugTypes.length} selected</span>
+                        <span className="text-amber-400 text-xs">{preferences.plugTypes.length} selected</span>
                       )}
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -1008,8 +1015,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                           onClick={() => togglePlugType(type)}
                           className={`px-3 py-1.5 rounded text-sm ${
                             preferences.plugTypes.includes(type)
-                              ? "bg-blue-600 text-white"
-                              : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                              ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                              : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                           }`}
                         >
                           {label}
@@ -1020,7 +1027,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 )}
 
                 {/* Makes */}
-                <div className="bg-gray-900 rounded-lg p-3">
+                <div className="surface-inset rounded-xl p-3">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-white text-sm font-medium">🏭 Brands</p>
                     {preferences.makes.length > 0 && (
@@ -1039,8 +1046,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         onClick={() => toggleMake(make)}
                         className={`px-2 py-1 rounded text-xs ${
                           preferences.makes.includes(make)
-                            ? "bg-blue-600 text-white"
-                            : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                            ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                            : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                         }`}
                       >
                         {make}
@@ -1053,7 +1060,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 </div>
 
                 {/* Sort preference */}
-                <div className="bg-gray-900 rounded-lg p-3">
+                <div className="surface-inset rounded-xl p-3">
                   <p className="text-white text-sm font-medium mb-2">📊 Default Sort</p>
                   <div className="flex flex-wrap gap-2">
                     {([
@@ -1073,8 +1080,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         )}
                         className={`px-3 py-1.5 rounded text-sm ${
                           sortConfig?.field === field && sortConfig?.direction === dir
-                            ? "bg-blue-600 text-white"
-                            : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                            ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                            : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                         }`}
                       >
                         {label}
@@ -1086,7 +1093,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             )}
 
             {/* Preview of matched cars */}
-            <div className="mb-6 bg-gray-900 rounded-lg p-3">
+            <div className="mb-6 surface-inset rounded-xl p-3">
               <p className="text-gray-400 text-sm">
                 <span className="text-white font-medium">{preferencesFilteredCars.length}</span> cars match your filters
                 {combinedColumns.length > 0 && (
@@ -1104,7 +1111,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </button>
               <button
                 onClick={() => setStep("complete")}
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium btn-hover"
+                className="px-8 py-3 btn-accent rounded-xl font-medium"
               >
                 Review & Share
               </button>
@@ -1123,7 +1130,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             </p>
 
             {/* Summary */}
-            <div className="bg-gray-900 rounded-lg p-4 mb-6 space-y-3">
+            <div className="surface-inset rounded-xl p-4 mb-6 space-y-3">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-400">Matching cars:</span>
                 <span className="text-white font-medium">{preferencesFilteredCars.length}</span>
@@ -1198,7 +1205,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                   type="text"
                   readOnly
                   value={generateShareUrl()}
-                  className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-gray-300 text-sm"
+                  className="flex-1 px-3 py-2 bg-gray-800/50 border border-gray-700/30 rounded-lg text-gray-300 text-sm"
                 />
                 <button
                   onClick={() => {
@@ -1224,7 +1231,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </button>
               <button
                 onClick={handleComplete}
-                className="px-8 py-3 bg-green-600 hover:bg-green-500 text-white rounded-lg font-medium btn-hover"
+                className="px-8 py-3 btn-accent rounded-xl font-medium"
               >
                 Start Comparing
               </button>

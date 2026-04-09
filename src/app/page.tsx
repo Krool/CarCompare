@@ -423,29 +423,44 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-gray-950 relative">
+      {/* Ambient background glow */}
+      <div className="ambient-glow" />
+
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:text-sm focus:font-medium"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-500 focus:text-gray-950 focus:rounded focus:text-sm focus:font-medium"
       >
         Skip to main content
       </a>
-      <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700 px-6 py-5">
+
+      {/* ── Header ── */}
+      <header className="relative z-10 border-b border-gray-800/80 px-6 py-5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-extrabold tracking-tight">
-              <span className="text-blue-400">Car</span>
-              <span className="text-white">Compare</span>
-            </h1>
-            <p className="text-gray-400 text-sm mt-1">
-              Find the perfect car for your garage and family
-            </p>
+          <div className="flex items-center gap-4">
+            {/* Logo mark */}
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-900/20">
+              <svg className="w-5 h-5 text-gray-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h14a2 2 0 012 2v6a2 2 0 01-2 2M5 17l-1 2m15-2l1 2" />
+                <circle cx="7.5" cy="17" r="1" fill="currentColor" />
+                <circle cx="16.5" cy="17" r="1" fill="currentColor" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight">
+                <span className="text-gradient-gold">Car</span>
+                <span className="text-white">Compare</span>
+              </h1>
+              <p className="text-gray-500 text-xs tracking-wide uppercase mt-0.5">
+                Find the perfect car for your garage
+              </p>
+            </div>
           </div>
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-2 flex-wrap items-center">
             {compareList.length > 0 && (
               <button
                 onClick={() => setShowCompareModal(true)}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded text-sm font-medium flex items-center gap-2 animate-bounce-once"
+                className="btn-accent px-4 py-2 rounded-lg text-sm flex items-center gap-2 animate-bounce-once"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -459,34 +474,36 @@ export default function Home() {
             />
             <button
               onClick={handleExportCsv}
-              className="px-4 py-2 bg-green-700 hover:bg-green-600 text-white rounded text-sm font-medium btn-hover no-print"
+              className="px-3.5 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700/50 rounded-lg text-sm font-medium btn-hover no-print transition-colors"
               title="Export filtered results to CSV"
             >
-              Export CSV
+              Export
             </button>
             <button
               onClick={handlePrint}
-              className="px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded text-sm font-medium btn-hover no-print"
+              className="px-3.5 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700/50 rounded-lg text-sm font-medium btn-hover no-print transition-colors"
               title="Print current view"
             >
               Print
             </button>
             <button
               onClick={handleShareUrl}
-              className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded text-sm font-medium btn-hover no-print"
+              className="px-3.5 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700/50 rounded-lg text-sm font-medium btn-hover no-print transition-colors"
               title="Copy shareable link with current filters"
             >
               Share
             </button>
             <button
               onClick={() => setShowWizard(true)}
-              className="px-4 py-2 bg-indigo-700 hover:bg-indigo-600 text-white rounded text-sm font-medium btn-hover no-print"
+              className="px-3.5 py-2 bg-amber-900/30 hover:bg-amber-900/50 text-amber-400 border border-amber-800/30 rounded-lg text-sm font-medium btn-hover no-print transition-colors"
               title="Run the quick setup wizard"
             >
               Setup
             </button>
           </div>
         </div>
+        {/* Accent line */}
+        <div className="header-accent-line mt-5 -mx-6" />
       </header>
 
       {/* Print-only header - hidden on screen */}
@@ -505,7 +522,6 @@ export default function Home() {
             )}
           </div>
         </div>
-        {/* Active filters summary */}
         <div className="text-xs mb-4 print-filters">
           <span className="font-semibold">Filters: </span>
           {(() => {
@@ -525,7 +541,7 @@ export default function Home() {
         </div>
       </div>
 
-      <main id="main-content" className="p-6">
+      <main id="main-content" className="relative z-10 p-6">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Sidebar */}
           <aside className="lg:w-80 flex-shrink-0 space-y-4 no-print">
@@ -553,7 +569,7 @@ export default function Home() {
                   placeholder="Search cars (e.g., Toyota, SUV, 2025, hybrid...)"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
-                  className="w-full px-4 py-2 pl-10 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                  className="w-full px-4 py-2.5 pl-10 bg-gray-900/80 border border-gray-700/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 transition-colors"
                 />
                 <svg
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
@@ -566,7 +582,7 @@ export default function Home() {
                 {searchInput && (
                   <button
                     onClick={() => setSearchInput("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
                   >
                     ×
                   </button>
@@ -575,17 +591,20 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-4">
-                  <p className="text-gray-400">
-                    Showing {sortedCars.length} of {allCars.length} vehicles
+                  <p className="text-gray-400 text-sm">
+                    <span className="text-white font-medium tabular-nums">{sortedCars.length}</span>
+                    <span className="text-gray-500"> of </span>
+                    <span className="tabular-nums">{allCars.length}</span>
+                    <span className="text-gray-500"> vehicles</span>
                   </p>
                   {favorites.length > 0 && (
-                    <span className="text-yellow-400 text-sm">
-                      ★ {favorites.length} favorited
+                    <span className="text-amber-400 text-sm flex items-center gap-1">
+                      <span className="text-amber-500">★</span> {favorites.length}
                     </span>
                   )}
                 </div>
-                <p className="text-gray-500 text-sm">
-                  Last updated: {carData.lastSyncDate}
+                <p className="text-gray-600 text-xs font-mono tracking-wide">
+                  Updated {carData.lastSyncDate}
                 </p>
               </div>
             </div>
@@ -632,18 +651,18 @@ export default function Home() {
         <p>CarCompare - krool.github.io/CarCompare</p>
       </div>
 
-      <footer className="bg-gray-800 border-t border-gray-700 px-6 py-4 mt-8">
+      <footer className="relative z-10 border-t border-gray-800/50 px-6 py-5 mt-12">
         <div className="flex flex-col items-center gap-2">
-          <p className="text-gray-500 text-sm text-center">
+          <p className="text-gray-600 text-xs text-center tracking-wide">
             Data sourced from manufacturer specifications. Prices and availability may vary.
           </p>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-600 text-xs">
             Part of{' '}
             <a
               href="https://krool.github.io/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1"
+              className="text-amber-600 hover:text-amber-500 transition-colors inline-flex items-center gap-1"
             >
               Krool World
               <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -679,21 +698,21 @@ export default function Home() {
       <div role="status" aria-live="polite" className="fixed bottom-4 right-4 z-50">
       {toast && (
         <div className="animate-slide-up">
-          <div className={`px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
+          <div className={`px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 backdrop-blur-lg ${
             toast.type === "success"
-              ? "bg-green-800 text-green-100 border border-green-600"
-              : "bg-blue-800 text-blue-100 border border-blue-600"
+              ? "bg-emerald-900/80 text-emerald-100 border border-emerald-700/50"
+              : "bg-gray-800/90 text-gray-100 border border-gray-700/50"
           }`}>
             {toast.type === "success" ? (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             )}
-            <span className="text-sm">{toast.message}</span>
+            <span className="text-sm font-medium">{toast.message}</span>
           </div>
         </div>
       )}
@@ -766,37 +785,37 @@ function MobileCardView({
 
   if (cars.length === 0) {
     return (
-      <div className="bg-gray-800 rounded-lg p-8 text-center">
-        <div className="text-gray-400 mb-4">
-          <svg className="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="surface-elevated rounded-xl p-10 text-center">
+        <div className="text-gray-500 mb-4">
+          <svg className="w-10 h-10 mx-auto mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <p className="text-lg font-medium text-gray-300 mb-2">No cars match your filters</p>
-          <p className="text-sm">Try expanding your search criteria</p>
+          <p className="text-base font-medium text-gray-300 mb-1">No cars match your filters</p>
+          <p className="text-sm text-gray-500">Try expanding your search criteria</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {/* Mobile Sort Controls */}
       {onSortChange && (
-        <div className="bg-gray-800 rounded-lg p-3 flex items-center gap-2 flex-wrap">
-          <span className="text-gray-400 text-sm">Sort:</span>
+        <div className="surface-elevated rounded-xl p-3 flex items-center gap-2 flex-wrap">
+          <span className="text-gray-500 text-xs uppercase tracking-wider">Sort</span>
           {sortOptions.map(opt => (
             <button
               key={opt.field}
               onClick={() => onSortChange(opt.field)}
-              className={`px-3 py-1 rounded text-xs flex items-center gap-1 ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1 transition-colors ${
                 sortField === opt.field
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-700 text-gray-300"
+                  ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                  : "bg-gray-800/50 text-gray-400 border border-gray-700/30"
               }`}
             >
               {opt.label}
               {sortField === opt.field && (
-                <span>{sortDirection === "asc" ? "↑" : "↓"}</span>
+                <span className="text-amber-500">{sortDirection === "asc" ? "↑" : "↓"}</span>
               )}
             </button>
           ))}
@@ -813,28 +832,28 @@ function MobileCardView({
         return (
           <div
             key={car.id}
-            className={`bg-gray-800 rounded-lg p-4 ${
-              isBaseline ? "ring-2 ring-blue-500" : isFavorite ? "ring-2 ring-yellow-500/50" : ""
+            className={`surface-elevated rounded-xl p-4 transition-shadow ${
+              isBaseline ? "ring-1 ring-amber-500/40 shadow-lg shadow-amber-900/10" : isFavorite ? "ring-1 ring-amber-500/20" : ""
             }`}
           >
             <div className="flex gap-4">
               <img
                 src={getCarImageUrl(car, 200)}
                 alt={`${car.year} ${car.make} ${car.model}`}
-                className="w-32 h-20 object-cover rounded"
+                className="w-32 h-20 object-cover rounded-lg"
               />
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-white font-semibold">
+                    <h3 className="text-white font-semibold text-sm">
                       {car.year} {car.make} {car.model}
                     </h3>
-                    {car.trim && <p className="text-gray-400 text-sm">{car.trim}</p>}
+                    {car.trim && <p className="text-gray-500 text-xs">{car.trim}</p>}
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 items-center">
                     <button
                       onClick={() => onToggleFavorite(car.id)}
-                      className={`text-xl ${isFavorite ? "text-yellow-400" : "text-gray-600"}`}
+                      className={`text-lg transition-colors ${isFavorite ? "text-amber-400" : "text-gray-700 hover:text-amber-400"}`}
                     >
                       ★
                     </button>
@@ -842,15 +861,15 @@ function MobileCardView({
                       type="checkbox"
                       checked={isInCompare}
                       onChange={() => onToggleCompare(car.id)}
-                      className="w-5 h-5"
+                      className="w-4 h-4 rounded border-gray-600 bg-gray-800 accent-amber-500"
                     />
                   </div>
                 </div>
-                <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-0.5 bg-gray-700 rounded">{car.bodyType}</span>
-                  <span className="px-2 py-0.5 bg-gray-700 rounded">{car.seats} seats</span>
+                <div className="mt-2 flex flex-wrap gap-1.5 text-xs">
+                  <span className="px-2 py-0.5 bg-gray-800 border border-gray-700/50 rounded text-gray-400">{car.bodyType}</span>
+                  <span className="px-2 py-0.5 bg-gray-800 border border-gray-700/50 rounded text-gray-400">{car.seats} seats</span>
                   {car.safetyRating && car.safetyRating !== "Not Rated" && (
-                    <span className="px-2 py-0.5 bg-green-800 text-green-200 rounded">
+                    <span className="px-2 py-0.5 bg-emerald-900/30 border border-emerald-800/30 text-emerald-400 rounded">
                       {car.safetyRating}
                     </span>
                   )}
@@ -858,22 +877,22 @@ function MobileCardView({
               </div>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
+            <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
               <div>
-                <span className="text-gray-400">MSRP:</span>
-                <span className="text-white ml-2">{formatCurrency(car.msrp)}</span>
+                <span className="text-gray-500 text-xs">MSRP</span>
+                <span className="text-white ml-2 tabular-nums">{formatCurrency(car.msrp)}</span>
               </div>
               <div>
-                <span className="text-gray-400">Width:</span>
-                <span className="text-white ml-2">{effectiveWidth.toFixed(1)}"</span>
+                <span className="text-gray-500 text-xs">Width</span>
+                <span className="text-white ml-2 tabular-nums">{effectiveWidth.toFixed(1)}&quot;</span>
               </div>
               <div>
-                <span className="text-gray-400">Legroom:</span>
-                <span className="text-white ml-2">{car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}</span>
+                <span className="text-gray-500 text-xs">Legroom</span>
+                <span className="text-white ml-2 tabular-nums">{car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}</span>
               </div>
               <div>
-                <span className="text-gray-400">MPG:</span>
-                <span className="text-white ml-2">
+                <span className="text-gray-500 text-xs">MPG</span>
+                <span className="text-white ml-2 tabular-nums">
                   {car.mpgCombined ?? car.mpge ?? "-"}{car.mpge ? " MPGe" : ""}
                 </span>
               </div>
@@ -881,52 +900,52 @@ function MobileCardView({
 
             {/* Expanded specs section */}
             {isExpanded && (
-              <div className="mt-4 pt-4 border-t border-gray-700 grid grid-cols-2 gap-2 text-sm animate-fadeIn">
+              <div className="mt-3 pt-3 border-t border-gray-700/50 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm animate-fadeIn">
                 <div>
-                  <span className="text-gray-400">Length:</span>
-                  <span className="text-white ml-2">{car.lengthInches ? `${car.lengthInches}"` : "-"}</span>
+                  <span className="text-gray-500 text-xs">Length</span>
+                  <span className="text-white ml-2 tabular-nums">{car.lengthInches ? `${car.lengthInches}"` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-400">Height:</span>
-                  <span className="text-white ml-2">{car.heightInches ? `${car.heightInches}"` : "-"}</span>
+                  <span className="text-gray-500 text-xs">Height</span>
+                  <span className="text-white ml-2 tabular-nums">{car.heightInches ? `${car.heightInches}"` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-400">Clearance:</span>
-                  <span className="text-white ml-2">{car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}</span>
+                  <span className="text-gray-500 text-xs">Clearance</span>
+                  <span className="text-white ml-2 tabular-nums">{car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-400">Cargo:</span>
-                  <span className="text-white ml-2">{car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : "-"}</span>
+                  <span className="text-gray-500 text-xs">Cargo</span>
+                  <span className="text-white ml-2 tabular-nums">{car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-400">Fuel:</span>
+                  <span className="text-gray-500 text-xs">Fuel</span>
                   <span className="text-white ml-2 capitalize">{car.fuelType.replace("-", " ")}</span>
                 </div>
                 <div>
-                  <span className="text-gray-400">EV Range:</span>
-                  <span className="text-white ml-2">{car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}</span>
+                  <span className="text-gray-500 text-xs">EV Range</span>
+                  <span className="text-white ml-2 tabular-nums">{car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}</span>
                 </div>
                 {car.adasFeatures?.autoFoldingMirrors && (
                   <div className="col-span-2">
-                    <span className="text-green-400 text-xs">✓ Auto-Folding Mirrors</span>
+                    <span className="text-emerald-400 text-xs">✓ Auto-Folding Mirrors</span>
                   </div>
                 )}
               </div>
             )}
 
-            <div className="mt-4 flex gap-2">
+            <div className="mt-3 flex gap-2">
               <button
                 onClick={() => toggleExpanded(car.id)}
-                className="px-3 py-2 rounded text-sm bg-gray-700 text-gray-300 hover:bg-gray-600"
+                className="px-3 py-2 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:text-white border border-gray-700/50 transition-colors"
               >
-                {isExpanded ? "Show Less" : "Show More"}
+                {isExpanded ? "Less" : "More"}
               </button>
               <button
                 onClick={() => onSelectBaseline(car)}
-                className={`flex-1 px-3 py-2 rounded text-sm ${
+                className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
                   isBaseline
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300"
+                    ? "btn-accent"
+                    : "bg-gray-800 text-gray-400 border border-gray-700/50 hover:text-white"
                 }`}
               >
                 {isBaseline ? "✓ Baseline" : "Set as Baseline"}
@@ -939,7 +958,7 @@ function MobileCardView({
       {visibleCount < cars.length && (
         <button
           onClick={() => setVisibleCount(prev => Math.min(prev + 20, cars.length))}
-          className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg text-sm font-medium"
+          className="w-full py-3 bg-gray-800/50 hover:bg-gray-800 text-gray-400 hover:text-white border border-gray-700/30 rounded-xl text-sm font-medium transition-colors"
         >
           Show More ({cars.length - visibleCount} remaining)
         </button>

@@ -59,9 +59,9 @@ export default function BaselineSelector({
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg p-4 space-y-3">
-      <div className="flex items-center justify-between border-b border-gray-600 pb-2">
-        <h2 className="text-lg font-semibold text-white">
+    <div className="surface-elevated rounded-xl p-4 space-y-3">
+      <div className="flex items-center justify-between border-b border-gray-700/30 pb-2">
+        <h2 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">
           Baseline Vehicle
         </h2>
         <button
@@ -77,12 +77,12 @@ export default function BaselineSelector({
       </div>
 
       {showHelp && (
-        <div className="bg-blue-900/30 border border-blue-700/50 rounded-lg p-3 text-sm text-blue-200 animate-fadeIn">
-          <p className="font-medium mb-2">What is a baseline?</p>
-          <p className="text-blue-300 mb-2">
+        <div className="bg-amber-900/10 border border-amber-800/20 rounded-xl p-3 text-sm text-gray-300 animate-fadeIn">
+          <p className="font-medium mb-2 text-amber-400">What is a baseline?</p>
+          <p className="text-gray-400 mb-2">
             A baseline is a reference vehicle you know well (like your current car) that helps you compare differences.
           </p>
-          <p className="text-blue-300">
+          <p className="text-gray-400">
             When set, the table shows +/- differences for key specs like price, size, and efficiency compared to your baseline.
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function BaselineSelector({
               setIsDropdownOpen(true);
             }}
             onFocus={() => setIsDropdownOpen(true)}
-            className="w-full px-3 py-2 pl-8 bg-gray-700 border border-gray-600 rounded text-white text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 pl-8 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-500/40 transition-colors"
             role="combobox"
             aria-expanded={isDropdownOpen && hasResults}
             aria-haspopup="listbox"
@@ -135,7 +135,7 @@ export default function BaselineSelector({
           <div
             id="baseline-results"
             role="listbox"
-            className="bg-gray-900 rounded-lg border border-gray-700 max-h-48 overflow-y-auto"
+            className="surface-inset rounded-xl border border-gray-700/30 max-h-48 overflow-y-auto"
           >
             {hasResults ? (
               Object.entries(groupedResults).map(([make, makeCars]) => (
@@ -167,8 +167,8 @@ export default function BaselineSelector({
       </div>
 
       {baselineCar && (
-        <div className="bg-gray-900 rounded p-3 space-y-2">
-          <h3 className="font-medium text-white">{getCarDisplayName(baselineCar)}</h3>
+        <div className="surface-inset rounded-xl p-3 space-y-2">
+          <h3 className="font-medium text-white text-sm">{getCarDisplayName(baselineCar)}</h3>
           <div className="grid grid-cols-2 gap-2 text-sm">
             <div>
               <span className="text-gray-400">Width (Folded):</span>
@@ -208,16 +208,16 @@ export default function BaselineSelector({
           )}
           <button
             onClick={() => onBaselineChange(null)}
-            className="text-xs text-blue-400 hover:text-blue-300"
+            className="text-xs text-amber-500 hover:text-amber-400 transition-colors"
           >
             Clear baseline
           </button>
         </div>
       )}
 
-      <p className="text-xs text-gray-500">
-        Differences shown in table: <span className="text-green-400">green = better</span>,{" "}
-        <span className="text-red-400">red = worse</span>
+      <p className="text-xs text-gray-600">
+        Differences in table: <span className="text-emerald-400">green = better</span>,{" "}
+        <span className="text-rose-400">red = worse</span>
       </p>
     </div>
   );

@@ -17,7 +17,7 @@ function CompareCarImage({ car }: { car: Car }) {
 
   if (hasError) {
     return (
-      <div className="w-full h-32 bg-gray-700 rounded-lg mb-2 flex items-center justify-center text-gray-500 text-2xl">
+      <div className="w-full h-32 bg-gray-800/50 border border-gray-700/30 rounded-xl mb-2 flex items-center justify-center text-gray-600 text-2xl">
         {car.bodyType.charAt(0).toUpperCase()}
       </div>
     );
@@ -27,7 +27,7 @@ function CompareCarImage({ car }: { car: Car }) {
     <img
       src={getCarImageUrl(car, 300)}
       alt={`${car.year} ${car.make} ${car.model}`}
-      className="w-full h-32 object-contain rounded-lg mb-2"
+      className="w-full h-32 object-contain rounded-xl mb-2"
       onError={() => setHasError(true)}
     />
   );
@@ -94,13 +94,13 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
     }
 
     return (
-      <tr className="border-b border-gray-700">
+      <tr className="border-b border-gray-800/50">
         <td className="px-4 py-2 text-gray-400 font-medium">{label}</td>
         {formatted.map((val, i) => (
           <td
             key={i}
             className={`px-4 py-2 text-center ${
-              bestIndex === i ? "text-green-400 font-semibold" : "text-white"
+              bestIndex === i ? "text-emerald-400 font-semibold" : "text-gray-200"
             }`}
           >
             {val}
@@ -112,16 +112,16 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
   const SafetyBadge = ({ rating }: { rating?: SafetyRating }) => {
     if (!rating || rating === "Not Rated") {
-      return <span className="text-gray-500">-</span>;
+      return <span className="text-gray-600">-</span>;
     }
     const colors: Record<string, string> = {
-      "TSP+": "bg-green-700 text-green-100",
-      "TSP": "bg-green-800 text-green-200",
-      "Good": "bg-blue-800 text-blue-200",
-      "Acceptable": "bg-yellow-800 text-yellow-200",
+      "TSP+": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
+      "TSP": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
+      "Good": "bg-sky-900/25 text-sky-300 border-sky-800/30",
+      "Acceptable": "bg-amber-900/25 text-amber-300 border-amber-800/30",
     };
     return (
-      <span className={`px-2 py-0.5 rounded text-xs ${colors[rating] ?? "bg-gray-600"}`}>
+      <span className={`badge border ${colors[rating] ?? "bg-gray-700/30 border-gray-600/30"}`}>
         {rating}
       </span>
     );
@@ -130,7 +130,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
   return (
     <div
       ref={overlayRef}
-      className="fixed z-50 bg-black/80"
+      className="fixed z-50 bg-black/85 backdrop-blur-sm"
       style={{ top: 0, left: 0, right: 0, bottom: 0, overflowY: 'auto' }}
       onClick={onClose}
       role="dialog"
@@ -139,7 +139,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
     >
       <div
         ref={focusTrapRef}
-        className="bg-gray-800 rounded-lg max-w-6xl p-6"
+        className="surface-elevated rounded-2xl max-w-6xl p-6 modal-content"
         style={{ margin: '20px auto', width: 'calc(100% - 32px)' }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -165,7 +165,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                     <div className="relative">
                       <button
                         onClick={() => onRemoveCar(car.id)}
-                        className="absolute -top-2 -right-2 bg-red-600 hover:bg-red-500 text-white rounded-full w-6 h-6 text-sm"
+                        className="absolute -top-2 -right-2 bg-rose-600/80 hover:bg-rose-500 text-white rounded-full w-6 h-6 text-sm transition-colors"
                         title="Remove from comparison"
                         aria-label={`Remove ${car.year} ${car.make} ${car.model} from comparison`}
                       >
@@ -185,8 +185,8 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
             <tbody>
               {/* Pricing Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Pricing
                 </td>
               </tr>
@@ -198,12 +198,12 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               />
 
               {/* Safety Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Safety
                 </td>
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-gray-800/50">
                 <td className="px-4 py-2 text-gray-400 font-medium">IIHS Rating</td>
                 {cars.map((car) => (
                   <td key={car.id} className="px-4 py-2 text-center">
@@ -213,8 +213,8 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               </tr>
 
               {/* Dimensions Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Dimensions
                 </td>
               </tr>
@@ -242,8 +242,8 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               />
 
               {/* Capacity Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Capacity
                 </td>
               </tr>
@@ -266,8 +266,8 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               />
 
               {/* Efficiency Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Efficiency
                 </td>
               </tr>
@@ -289,8 +289,8 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               />
 
               {/* Powertrain Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Powertrain
                 </td>
               </tr>
@@ -316,8 +316,8 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               />
 
               {/* Driver Assistance Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Driver Assistance
                 </td>
               </tr>
@@ -325,24 +325,24 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                 label="ADAS Level"
                 values={cars.map(c => c.autonomousLevel ?? "-")}
               />
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-gray-800/50">
                 <td className="px-4 py-2 text-gray-400 font-medium">Hands-Free Highway</td>
                 {cars.map((car) => (
                   <td key={car.id} className="px-4 py-2 text-center">
                     {car.adasFeatures?.handsFreeHighway ? (
-                      <span className="text-green-400">✓</span>
+                      <span className="text-emerald-400">✓</span>
                     ) : (
                       <span className="text-gray-500">-</span>
                     )}
                   </td>
                 ))}
               </tr>
-              <tr className="border-b border-gray-700">
+              <tr className="border-b border-gray-800/50">
                 <td className="px-4 py-2 text-gray-400 font-medium">Auto-Folding Mirrors</td>
                 {cars.map((car) => (
                   <td key={car.id} className="px-4 py-2 text-center">
                     {car.adasFeatures?.autoFoldingMirrors ? (
-                      <span className="text-green-400">✓</span>
+                      <span className="text-emerald-400">✓</span>
                     ) : (
                       <span className="text-gray-500">-</span>
                     )}
@@ -351,8 +351,8 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               </tr>
 
               {/* Ownership Costs Section */}
-              <tr className="bg-gray-900">
-                <td colSpan={cars.length + 1} className="px-4 py-2 text-blue-400 font-semibold text-sm uppercase">
+              <tr className="bg-gray-900/50">
+                <td colSpan={cars.length + 1} className="px-4 py-2 text-amber-400/80 font-semibold text-xs uppercase tracking-wider">
                   Ownership
                 </td>
               </tr>
@@ -376,7 +376,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
           </table>
         </div>
 
-        <div className="mt-6 text-center text-gray-500 text-sm">
+        <div className="mt-6 text-center text-gray-600 text-xs">
           Green highlighting indicates the best value in each category
         </div>
       </div>

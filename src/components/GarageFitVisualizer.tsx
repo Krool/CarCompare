@@ -108,14 +108,14 @@ export default function GarageFitVisualizer({
   };
 
   const getClearanceColor = (inches: number, comfortable: number): string => {
-    if (inches < 0) return "text-red-400";
-    if (inches < comfortable) return "text-yellow-400";
-    return "text-green-400";
+    if (inches < 0) return "text-rose-400";
+    if (inches < comfortable) return "text-amber-400";
+    return "text-emerald-400";
   };
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -123,7 +123,7 @@ export default function GarageFitVisualizer({
     >
       <div
         ref={focusTrapRef}
-        className="bg-gray-800 rounded-lg max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto"
+        className="surface-elevated rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto modal-content"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -141,7 +141,7 @@ export default function GarageFitVisualizer({
         </div>
 
         {/* Garage Dimensions Input */}
-        <div className="bg-gray-900 rounded-lg p-4 mb-6">
+        <div className="surface-inset rounded-xl p-4 mb-6">
           <h4 className="text-white font-medium mb-3">Your Garage Dimensions</h4>
 
           {/* Quick Presets */}
@@ -152,7 +152,7 @@ export default function GarageFitVisualizer({
                 <button
                   key={preset.name}
                   onClick={() => setGarage(preset.dimensions)}
-                  className="px-2 py-1 bg-gray-700 hover:bg-gray-600 text-gray-300 text-xs rounded transition-colors"
+                  className="px-2 py-1 bg-gray-800/50 hover:bg-amber-500/10 text-gray-400 hover:text-amber-400 text-xs rounded-lg border border-gray-700/30 transition-colors"
                 >
                   {preset.name}
                 </button>
@@ -167,7 +167,7 @@ export default function GarageFitVisualizer({
                 type="number"
                 value={Math.round(garage.width / 12)}
                 onChange={(e) => handleDimensionChange("width", parseInt(e.target.value) || 0)}
-                className="w-full bg-gray-700 text-white rounded px-3 py-2 text-center"
+                className="w-full bg-gray-800/50 border border-gray-700/30 text-white rounded-lg px-3 py-2 text-center focus:outline-none focus:border-amber-500/40 transition-colors"
                 min={6}
                 max={30}
               />
@@ -178,7 +178,7 @@ export default function GarageFitVisualizer({
                 type="number"
                 value={Math.round(garage.length / 12)}
                 onChange={(e) => handleDimensionChange("length", parseInt(e.target.value) || 0)}
-                className="w-full bg-gray-700 text-white rounded px-3 py-2 text-center"
+                className="w-full bg-gray-800/50 border border-gray-700/30 text-white rounded-lg px-3 py-2 text-center focus:outline-none focus:border-amber-500/40 transition-colors"
                 min={10}
                 max={40}
               />
@@ -189,7 +189,7 @@ export default function GarageFitVisualizer({
                 type="number"
                 value={Math.round(garage.height / 12)}
                 onChange={(e) => handleDimensionChange("height", parseInt(e.target.value) || 0)}
-                className="w-full bg-gray-700 text-white rounded px-3 py-2 text-center"
+                className="w-full bg-gray-800/50 border border-gray-700/30 text-white rounded-lg px-3 py-2 text-center focus:outline-none focus:border-amber-500/40 transition-colors"
                 min={6}
                 max={15}
               />
@@ -201,12 +201,12 @@ export default function GarageFitVisualizer({
         </div>
 
         {/* Fit Status */}
-        <div className={`rounded-lg p-4 mb-6 border-2 ${
+        <div className={`rounded-xl p-4 mb-6 border ${
           fitAnalysis.fits
             ? fitAnalysis.comfortable
-              ? "bg-green-900/30 border-green-600"
-              : "bg-yellow-900/30 border-yellow-600"
-            : "bg-red-900/30 border-red-600"
+              ? "bg-emerald-900/15 border-emerald-700/30"
+              : "bg-amber-900/15 border-amber-700/30"
+            : "bg-rose-900/15 border-rose-700/30"
         }`}>
           <div className="flex items-center gap-3">
             <span className="text-3xl">
@@ -220,9 +220,9 @@ export default function GarageFitVisualizer({
               <h4 className={`text-lg font-semibold ${
                 fitAnalysis.fits
                   ? fitAnalysis.comfortable
-                    ? "text-green-400"
-                    : "text-yellow-400"
-                  : "text-red-400"
+                    ? "text-emerald-400"
+                    : "text-amber-400"
+                  : "text-rose-400"
               }`}>
                 {fitAnalysis.fits
                   ? fitAnalysis.comfortable
@@ -242,7 +242,7 @@ export default function GarageFitVisualizer({
         </div>
 
         {/* Top-Down Visualization */}
-        <div className="bg-gray-900 rounded-lg p-4 mb-6">
+        <div className="surface-inset rounded-xl p-4 mb-6">
           <h4 className="text-white font-medium mb-3">Top-Down View</h4>
           <div className="flex justify-center">
             <div
@@ -263,7 +263,7 @@ export default function GarageFitVisualizer({
               {/* Car (centered) */}
               <div
                 className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded ${
-                  fitAnalysis.fits ? "bg-blue-600" : "bg-red-600"
+                  fitAnalysis.fits ? "bg-amber-500/70" : "bg-rose-500/70"
                 }`}
                 style={{
                   width: carVisualWidth,
@@ -304,7 +304,7 @@ export default function GarageFitVisualizer({
         </div>
 
         {/* Detailed Clearances */}
-        <div className="bg-gray-900 rounded-lg p-4 mb-6">
+        <div className="surface-inset rounded-xl p-4 mb-6">
           <h4 className="text-white font-medium mb-3">Clearance Details</h4>
           <div className="grid grid-cols-2 gap-4">
             <div className="flex justify-between">
@@ -341,7 +341,7 @@ export default function GarageFitVisualizer({
         </div>
 
         {/* Recommendations */}
-        <div className="bg-gray-900 rounded-lg p-4">
+        <div className="surface-inset rounded-xl p-4">
           <h4 className="text-white font-medium mb-2">Recommendations</h4>
           <ul className="text-gray-400 text-sm space-y-1">
             {fitAnalysis.sideClearance < 24 && fitAnalysis.sideClearance >= 0 && (
@@ -357,10 +357,10 @@ export default function GarageFitVisualizer({
               <li>• Low ceiling clearance - watch for roof racks</li>
             )}
             {fitAnalysis.comfortable && (
-              <li className="text-green-400">• Great fit! Plenty of room for comfortable entry/exit</li>
+              <li className="text-emerald-400">• Great fit! Plenty of room for comfortable entry/exit</li>
             )}
             {!fitAnalysis.fits && (
-              <li className="text-red-400">• This vehicle will not fit in your garage</li>
+              <li className="text-rose-400">• This vehicle will not fit in your garage</li>
             )}
           </ul>
         </div>

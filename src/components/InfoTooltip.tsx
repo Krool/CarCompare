@@ -36,7 +36,7 @@ export default function InfoTooltip({ title, children }: InfoTooltipProps) {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="ml-1 w-4 h-4 rounded-full bg-gray-600 hover:bg-gray-500 text-gray-300 text-xs font-bold inline-flex items-center justify-center"
+        className="ml-1 w-4 h-4 rounded-full bg-gray-700/50 hover:bg-amber-500/20 text-gray-500 hover:text-amber-400 text-xs font-bold inline-flex items-center justify-center transition-colors border border-gray-600/30"
         title={`Learn about ${title}`}
         type="button"
       >
@@ -46,7 +46,7 @@ export default function InfoTooltip({ title, children }: InfoTooltipProps) {
       {isOpen && (
         <div
           ref={panelRef}
-          className="absolute z-50 left-0 top-6 w-80 bg-gray-900 border border-gray-600 rounded-lg shadow-xl p-4"
+          className="absolute z-50 left-0 top-6 w-80 surface-elevated rounded-xl shadow-2xl p-4"
         >
           <div className="flex justify-between items-start mb-3">
             <h4 className="text-white font-semibold">{title}</h4>
@@ -70,19 +70,19 @@ export default function InfoTooltip({ title, children }: InfoTooltipProps) {
 export function AdasInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-blue-400">Full Self-Driving (FSD)</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-cyan-400">Full Self-Driving (FSD)</p>
         <p className="text-gray-400 text-xs">Most advanced. Handles city streets, intersections, and highway driving with minimal intervention. Currently only Tesla offers this level.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-purple-400">Hands-Free Highway</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-violet-400">Hands-Free Highway</p>
         <p className="text-gray-400 text-xs">Can drive hands-free on mapped highways. Examples: GM Super Cruise, Ford BlueCruise, Mercedes Drive Pilot. Driver must stay attentive.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-blue-300">Enhanced ADAS</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-sky-400">Enhanced ADAS</p>
         <p className="text-gray-400 text-xs">Hands-on highway driving with lane centering and adaptive cruise. Maintains lane position and following distance. Most modern vehicles have this.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-gray-400">Basic ADAS</p>
         <p className="text-gray-400 text-xs">Lane keep assist (nudges back if drifting) and adaptive cruise control. Doesn't actively center in lane.</p>
       </div>
@@ -97,11 +97,11 @@ export function AdasInfoContent() {
 export function AdasFeaturesInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Hands-Free Highway</p>
         <p className="text-gray-400 text-xs">Allows completely hands-off driving on compatible highways. Uses cameras/radar to monitor road and driver attention. Only a few vehicles offer this feature.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Auto Lane Change</p>
         <p className="text-gray-400 text-xs">Vehicle can automatically change lanes when you activate the turn signal or when the system determines it's safe. Usually requires driver supervision.</p>
       </div>
@@ -116,20 +116,20 @@ export function AdasFeaturesInfoContent() {
 export function SafetyRatingInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-green-400">TSP+ (Top Safety Pick+)</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-emerald-400">TSP+ (Top Safety Pick+)</p>
         <p className="text-gray-400 text-xs">Highest IIHS award. Requires "Good" ratings in all crash tests, good headlights on all trims, and excellent pedestrian detection.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-green-300">TSP (Top Safety Pick)</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-emerald-300">TSP (Top Safety Pick)</p>
         <p className="text-gray-400 text-xs">Second-highest award. Requires "Good" crash ratings and at least "Acceptable" headlights and pedestrian detection.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-blue-400">Good</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-sky-400">Good</p>
         <p className="text-gray-400 text-xs">Passes all IIHS crash tests with "Good" ratings but may not meet TSP criteria for headlights or other features.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-yellow-400">Acceptable</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-amber-400">Acceptable</p>
         <p className="text-gray-400 text-xs">Passes IIHS crash tests with mixed ratings. Some areas may be "Acceptable" or "Marginal" instead of "Good".</p>
       </div>
       <div>
@@ -144,11 +144,11 @@ export function SafetyRatingInfoContent() {
 export function WidthInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Mirrors Extended</p>
         <p className="text-gray-400 text-xs">Total width with side mirrors in normal driving position. This is the width you need for driving through narrow spaces.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Mirrors Folded</p>
         <p className="text-gray-400 text-xs">Width with side mirrors folded in against the body. Useful for tight parking garages or narrow parking spaces. Not all vehicles have power-folding mirrors.</p>
       </div>
@@ -163,16 +163,16 @@ export function WidthInfoContent() {
 export function FuelTypeInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-blue-400">Electric (EV)</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-sky-400">Electric (EV)</p>
         <p className="text-gray-400 text-xs">100% battery-powered. No gas engine. Charges at home or public stations. Zero tailpipe emissions.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-teal-400">Plug-in Hybrid (PHEV)</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-teal-300">Plug-in Hybrid (PHEV)</p>
         <p className="text-gray-400 text-xs">Has both electric motor and gas engine. Can drive 20-50 miles on battery alone, then switches to gas. Plugs in to charge.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-green-400">Hybrid</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-emerald-400">Hybrid</p>
         <p className="text-gray-400 text-xs">Gas engine with electric assist. Battery charges from regenerative braking. Cannot plug in. Better fuel economy than gas-only.</p>
       </div>
       <div>
@@ -186,15 +186,15 @@ export function FuelTypeInfoContent() {
 export function PlugTypeInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">NACS / Tesla</p>
         <p className="text-gray-400 text-xs">North American Charging Standard. Originally Tesla-only, now becoming the standard for most new EVs. Access to Tesla Supercharger network.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">CCS1</p>
         <p className="text-gray-400 text-xs">Combined Charging System (Type 1). Previously the standard for non-Tesla EVs in North America. Supports DC fast charging.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">J1772</p>
         <p className="text-gray-400 text-xs">Standard Level 2 charging plug. Used by plug-in hybrids and older EVs. Slower charging, up to ~19kW.</p>
       </div>
@@ -210,20 +210,20 @@ export function ReviewScoreInfoContent() {
   return (
     <>
       <p className="mb-2">Aggregated scores from professional automotive reviewers, compiled by MotorMashup.</p>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-green-400">80-100: Excellent</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-emerald-400">80-100: Excellent</p>
         <p className="text-gray-400 text-xs">Top picks in their segment. Highly recommended by most reviewers.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-blue-400">70-79: Good</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-sky-400">70-79: Good</p>
         <p className="text-gray-400 text-xs">Solid choices with minor drawbacks. Well-regarded overall.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
-        <p className="font-medium text-yellow-400">60-69: Average</p>
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
+        <p className="font-medium text-amber-400">60-69: Average</p>
         <p className="text-gray-400 text-xs">Meets expectations but doesn't stand out. May have notable compromises.</p>
       </div>
       <div>
-        <p className="font-medium text-red-400">Below 60: Below Average</p>
+        <p className="font-medium text-rose-400">Below 60: Below Average</p>
         <p className="text-gray-400 text-xs">Significant issues noted by reviewers. Consider alternatives.</p>
       </div>
     </>
@@ -233,23 +233,23 @@ export function ReviewScoreInfoContent() {
 export function BodyTypeInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Crossover</p>
         <p className="text-gray-400 text-xs">Car-based platform with raised ride height. Typically unibody construction. Better fuel economy than truck-based SUVs. Most popular segment.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">SUV</p>
         <p className="text-gray-400 text-xs">Truck-based platform with body-on-frame construction. Better for towing and off-road. Includes full-size SUVs like Tahoe, Expedition.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Sedan</p>
         <p className="text-gray-400 text-xs">Traditional 4-door car with separate trunk. Lower center of gravity for better handling. Generally most fuel efficient.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Hatchback</p>
         <p className="text-gray-400 text-xs">Compact car with rear liftgate. More cargo flexibility than sedans. Popular in compact and subcompact sizes.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Truck</p>
         <p className="text-gray-400 text-xs">Pickup truck with open cargo bed. Best for towing and hauling. Includes mid-size (Tacoma) and full-size (F-150).</p>
       </div>
@@ -264,11 +264,11 @@ export function BodyTypeInfoContent() {
 export function EfficiencyInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">MPG (Miles Per Gallon)</p>
         <p className="text-gray-400 text-xs">Fuel efficiency for gas/hybrid vehicles. Higher is better. Combined rating averages city (55%) and highway (45%) driving.</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">MPGe (Miles Per Gallon Equivalent)</p>
         <p className="text-gray-400 text-xs">Electric efficiency converted to gas equivalent. 33.7 kWh = 1 gallon of gas. EVs typically rate 100+ MPGe.</p>
       </div>
@@ -371,13 +371,13 @@ export function CargoInfoContent() {
 export function LeaseDepreciationInfoContent() {
   return (
     <>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Lease Rating</p>
         <p className="text-gray-400 text-xs">How favorable lease deals typically are. Based on money factor (interest rate), residual value, and available incentives.</p>
         <p className="text-gray-500 text-xs mt-1">Excellent: Great deals, low payments relative to MSRP</p>
         <p className="text-gray-500 text-xs">Poor: High payments, better to buy or look elsewhere</p>
       </div>
-      <div className="border-b border-gray-700 pb-2 mb-2">
+      <div className="border-b border-gray-800/50 pb-2 mb-2">
         <p className="font-medium text-white">Depreciation</p>
         <p className="text-gray-400 text-xs">How fast the vehicle loses value. Low depreciation = better resale value. Luxury vehicles and EVs often depreciate faster.</p>
       </div>

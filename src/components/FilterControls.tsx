@@ -34,23 +34,23 @@ function FilterSection({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border border-gray-700 rounded-lg">
+    <div className="border border-gray-700/30 rounded-xl overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-3 py-2 bg-gray-700/50 hover:bg-gray-700 flex items-center justify-between text-left rounded-t-lg"
+        className="w-full px-3 py-2.5 bg-white/[0.02] hover:bg-white/[0.04] flex items-center justify-between text-left transition-colors"
       >
-        <span className="text-sm font-medium text-gray-200">{title}</span>
+        <span className="text-sm font-medium text-gray-300">{title}</span>
         <div className="flex items-center gap-2">
           {activeCount > 0 && (
-            <span className="px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
+            <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full font-medium border border-amber-500/20">
               {activeCount}
             </span>
           )}
-          <span className="text-gray-400 text-xs">{isOpen ? "▲" : "▼"}</span>
+          <span className="text-gray-600 text-xs">{isOpen ? "▲" : "▼"}</span>
         </div>
       </button>
       {isOpen && (
-        <div className="p-3 space-y-3 bg-gray-800/50 rounded-b-lg">
+        <div className="p-3 space-y-3 bg-black/15">
           {children}
         </div>
       )}
@@ -211,23 +211,23 @@ function FilterControlsComponent({
   const totalActiveFilters = basicFilterCount + dimensionFilterCount + safetyFilterCount + powertrainFilterCount + vehicleFilterCount;
 
   return (
-    <div className="bg-gray-800 rounded-lg p-4 space-y-3">
-      <div className="flex items-center justify-between border-b border-gray-600 pb-2">
-        <h2 className="text-lg font-semibold text-white">Filters</h2>
+    <div className="surface-elevated rounded-xl p-4 space-y-3">
+      <div className="flex items-center justify-between border-b border-gray-700/30 pb-2">
+        <h2 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">Filters</h2>
         {totalActiveFilters > 0 && (
-          <span className="text-xs text-gray-400">{totalActiveFilters} active</span>
+          <span className="text-xs text-amber-400 font-mono">{totalActiveFilters} active</span>
         )}
       </div>
 
       {/* Quick Presets */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-300">Quick Presets</label>
-        <div className="flex gap-2 flex-wrap">
+        <label className="block text-xs font-medium text-gray-500 uppercase tracking-wider">Quick Presets</label>
+        <div className="flex gap-1.5 flex-wrap">
           {PRESETS.map((preset) => (
             <button
               key={preset.name}
               onClick={() => onFiltersChange({ ...preset.filters })}
-              className="px-3 py-1 rounded text-xs bg-purple-800 text-purple-200 hover:bg-purple-700"
+              className="px-2.5 py-1 rounded-lg text-xs bg-amber-900/20 text-amber-400 hover:bg-amber-900/35 border border-amber-800/20 transition-colors"
             >
               {preset.name}
             </button>
@@ -237,15 +237,15 @@ function FilterControlsComponent({
 
       {/* Show Favorites Only */}
       {hasFavorites && (
-        <div className="p-2 bg-yellow-900/20 border border-yellow-700/50 rounded-lg">
+        <div className="p-2.5 bg-amber-900/10 border border-amber-800/20 rounded-xl">
           <label className="flex items-center gap-2 cursor-pointer">
             <input
               type="checkbox"
               checked={filters.showFavoritesOnly ?? false}
               onChange={(e) => updateFilter("showFavoritesOnly", e.target.checked || undefined)}
-              className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-yellow-500 focus:ring-yellow-500"
+              className="w-4 h-4 rounded border-gray-600 bg-gray-800 accent-amber-500"
             />
-            <span className="text-sm font-medium text-yellow-400">★ Show Favorites Only</span>
+            <span className="text-sm font-medium text-amber-400">★ Show Favorites Only</span>
           </label>
         </div>
       )}
@@ -263,7 +263,7 @@ function FilterControlsComponent({
               placeholder="Min"
               value={filters.minYear ?? ""}
               onChange={(e) => updateFilter("minYear", e.target.value ? parseInt(e.target.value) : undefined)}
-              className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+              className="w-20 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             />
             <span className="text-gray-400 self-center">to</span>
             <input
@@ -273,7 +273,7 @@ function FilterControlsComponent({
               placeholder="Max"
               value={filters.maxYear ?? ""}
               onChange={(e) => updateFilter("maxYear", e.target.value ? parseInt(e.target.value) : undefined)}
-              className="w-20 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+              className="w-20 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             />
           </div>
         </div>
@@ -289,7 +289,7 @@ function FilterControlsComponent({
               placeholder="Min $"
               value={filters.minPrice ?? ""}
               onChange={(e) => updateFilter("minPrice", e.target.value ? parseInt(e.target.value) : undefined)}
-              className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+              className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             />
             <span className="text-gray-400 self-center">to</span>
             <input
@@ -299,7 +299,7 @@ function FilterControlsComponent({
               placeholder="Max $"
               value={filters.maxPrice ?? ""}
               onChange={(e) => updateFilter("maxPrice", e.target.value ? parseInt(e.target.value) : undefined)}
-              className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+              className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             />
           </div>
         </div>
@@ -324,7 +324,7 @@ function FilterControlsComponent({
             placeholder="e.g., 200"
             value={filters.maxLengthInches ?? ""}
             onChange={(e) => updateFilter("maxLengthInches", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
 
@@ -339,12 +339,12 @@ function FilterControlsComponent({
               placeholder="e.g., 90"
               value={filters.maxWidthInches ?? ""}
               onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
-              className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+              className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             />
             <select
               value={filters.widthFilterType ?? "extended"}
               onChange={(e) => updateFilter("widthFilterType", e.target.value as WidthFilterType)}
-              className="px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+              className="px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             >
               <option value="extended">Mirrors Out</option>
               <option value="one-mirror">1 Mirror</option>
@@ -363,7 +363,7 @@ function FilterControlsComponent({
             placeholder="e.g., 72"
             value={filters.maxHeightInches ?? ""}
             onChange={(e) => updateFilter("maxHeightInches", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
 
@@ -383,7 +383,7 @@ function FilterControlsComponent({
             placeholder="e.g., 8"
             value={filters.minGroundClearance ?? ""}
             onChange={(e) => updateFilter("minGroundClearance", e.target.value ? parseFloat(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
 
@@ -403,7 +403,7 @@ function FilterControlsComponent({
             placeholder="e.g., 5000"
             value={filters.minTowingCapacity ?? ""}
             onChange={(e) => updateFilter("minTowingCapacity", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
 
@@ -423,7 +423,7 @@ function FilterControlsComponent({
             placeholder="e.g., 42"
             value={filters.minLegroom ?? ""}
             onChange={(e) => updateFilter("minLegroom", e.target.value ? parseFloat(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
 
@@ -442,7 +442,7 @@ function FilterControlsComponent({
             placeholder="e.g., 60"
             value={filters.minCargo ?? ""}
             onChange={(e) => updateFilter("minCargo", e.target.value ? parseFloat(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
       </FilterSection>
@@ -464,8 +464,8 @@ function FilterControlsComponent({
                 onClick={() => toggleSafetyFilter(sr.value)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.safetyRatings?.includes(sr.value)
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {sr.label}
@@ -489,7 +489,7 @@ function FilterControlsComponent({
             placeholder="e.g., 70"
             value={filters.minReviewScore ?? ""}
             onChange={(e) => updateFilter("minReviewScore", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
 
@@ -508,8 +508,8 @@ function FilterControlsComponent({
                 onClick={() => toggleAutonomousFilter(al.value)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.autonomousLevels?.includes(al.value)
-                    ? "bg-purple-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {al.label}
@@ -519,7 +519,7 @@ function FilterControlsComponent({
         </div>
 
         {/* ADAS Feature Checkboxes */}
-        <div className="space-y-2 p-2 bg-gray-900/50 rounded">
+        <div className="space-y-2 p-2.5 bg-black/15 rounded-lg border border-gray-700/20">
           <label className="flex items-center gap-1 text-xs text-gray-400">
             Specific Features
             <InfoTooltip title="ADAS Features">
@@ -532,7 +532,7 @@ function FilterControlsComponent({
                 type="checkbox"
                 checked={filters.hasHandsFree === true}
                 onChange={(e) => updateFilter("hasHandsFree", e.target.checked ? true : undefined)}
-                className="rounded border-gray-600 bg-gray-700 text-purple-600"
+                className="rounded border-gray-600 bg-gray-800 accent-amber-500"
               />
               Hands-Free Highway
             </label>
@@ -541,7 +541,7 @@ function FilterControlsComponent({
                 type="checkbox"
                 checked={filters.hasAutoLaneChange === true}
                 onChange={(e) => updateFilter("hasAutoLaneChange", e.target.checked ? true : undefined)}
-                className="rounded border-gray-600 bg-gray-700 text-purple-600"
+                className="rounded border-gray-600 bg-gray-800 accent-amber-500"
               />
               Auto Lane Change
             </label>
@@ -550,7 +550,7 @@ function FilterControlsComponent({
                 type="checkbox"
                 checked={filters.hasAutoFoldingMirrors === true}
                 onChange={(e) => updateFilter("hasAutoFoldingMirrors", e.target.checked ? true : undefined)}
-                className="rounded border-gray-600 bg-gray-700 text-purple-600"
+                className="rounded border-gray-600 bg-gray-800 accent-amber-500"
               />
               Auto-Folding Mirrors
             </label>
@@ -575,8 +575,8 @@ function FilterControlsComponent({
                 onClick={() => toggleFuelTypeFilter(ft.value)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.fuelTypes?.includes(ft.value)
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {ft.label}
@@ -600,8 +600,8 @@ function FilterControlsComponent({
                 onClick={() => togglePlugTypeFilter(pt.value)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.plugTypes?.includes(pt.value)
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {pt.label}
@@ -625,7 +625,7 @@ function FilterControlsComponent({
             placeholder="e.g., 30"
             value={filters.minMpg ?? ""}
             onChange={(e) => updateFilter("minMpg", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
         </div>
 
@@ -644,7 +644,7 @@ function FilterControlsComponent({
             placeholder="e.g., 250"
             value={filters.minEvRange ?? ""}
             onChange={(e) => updateFilter("minEvRange", e.target.value ? parseInt(e.target.value) : undefined)}
-            className="w-24 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-sm"
+            className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
           />
           <p className="text-xs text-gray-500">Only shows EVs/PHEVs</p>
         </div>
@@ -667,8 +667,8 @@ function FilterControlsComponent({
                 onClick={() => toggleBodyTypeFilter(bt.value)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.bodyTypes?.includes(bt.value)
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {bt.label}
@@ -687,8 +687,8 @@ function FilterControlsComponent({
                 onClick={() => toggleDoorsFilter(d)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.doors?.includes(d)
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {d}
@@ -707,8 +707,8 @@ function FilterControlsComponent({
                 onClick={() => toggleSeatsFilter(s)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.seats?.includes(s)
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {s}
@@ -727,8 +727,8 @@ function FilterControlsComponent({
                 onClick={() => toggleMakeFilter(make)}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.makes?.includes(make)
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                    : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
                 {make}
@@ -742,7 +742,7 @@ function FilterControlsComponent({
       {totalActiveFilters > 0 && (
         <button
           onClick={() => onFiltersChange({})}
-          className="w-full py-2 bg-red-900/50 hover:bg-red-900/70 text-red-300 border border-red-800 rounded text-sm"
+          className="w-full py-2.5 bg-rose-900/20 hover:bg-rose-900/30 text-rose-400 border border-rose-800/30 rounded-xl text-sm font-medium transition-colors"
         >
           Clear All Filters ({totalActiveFilters})
         </button>
