@@ -628,7 +628,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white placeholder-gray-400"
               />
               {filteredCars.length > 0 && (
-                <div className="mt-2 surface-inset rounded-xl border border-gray-700 max-h-48 overflow-y-auto">
+                <div className="mt-2 surface-inset rounded-xl border border-gray-700/30 max-h-48 overflow-y-auto">
                   {filteredCars.map(car => (
                     <button
                       key={car.id}

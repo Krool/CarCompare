@@ -66,7 +66,7 @@ function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: Sor
       <div className="flex items-center gap-1">
         {label}
         {headerTooltip && (
-          <svg className="w-3 h-3 text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         )}
@@ -806,7 +806,9 @@ function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): str
     fileType: "webp",
   });
   if (powerTrain) params.set("powerTrain", powerTrain);
-  return `https://cdn.imagin.studio/getImage?${params.toString()}`;
+  const cdnNum = ((car.id.charCodeAt(0) + car.id.charCodeAt(car.id.length - 1)) % 9) + 1;
+  const cdn = `cdn-0${cdnNum}`;
+  return `https://${cdn}.imagin.studio/getImage?${params.toString()}`;
 }
 
 interface ImageModalProps {
@@ -901,8 +903,8 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
                 onClick={() => setSelectedAngle(angle.id)}
                 className={`relative rounded overflow-hidden border-2 transition-all ${
                   selectedAngle === angle.id
-                    ? "border-blue-500 scale-105"
-                    : "border-gray-600 hover:border-gray-400"
+                    ? "border-amber-500 scale-105"
+                    : "border-gray-700/50 hover:border-gray-500"
                 }`}
               >
                 <img

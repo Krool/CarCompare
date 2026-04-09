@@ -511,7 +511,7 @@ export default function Home() {
         <div className="flex justify-between items-start border-b-2 border-black pb-2 mb-4">
           <div>
             <h1 className="text-2xl font-bold">CarCompare Vehicle List</h1>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-500">
               Generated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
             </p>
           </div>
