@@ -488,5 +488,28 @@ export function getCarImageUrl(car: Car, size: number = 400): string {
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
   const make = car.make.toLowerCase();
-  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=01&width=${size}`;
+  // Map fuel type to IMAGIN powerTrain parameter
+  const powerTrainMap: Record<string, string> = {
+    electric: "electric",
+    hybrid: "hybrid",
+    "plug-in-hybrid": "phev",
+    gasoline: "petrol",
+    diesel: "diesel",
+  };
+  const powerTrain = powerTrainMap[car.fuelType] || "";
+  // Use CDN load balancing (cdn-01 through cdn-09) based on car id hash
+  const cdnNum = ((car.id.charCodeAt(0) + car.id.charCodeAt(car.id.length - 1)) % 9) + 1;
+  const cdn = `cdn-0${cdnNum}`;
+  const params = new URLSearchParams({
+    customer: "img",
+    make,
+    modelFamily,
+    modelYear: String(car.year),
+    angle: "01",
+    width: String(size),
+    zoomType: "fullscreen",
+    fileType: "webp",
+  });
+  if (powerTrain) params.set("powerTrain", powerTrain);
+  return `https://${cdn}.imagin.studio/getImage?${params.toString()}`;
 }

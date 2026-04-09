@@ -774,23 +774,39 @@ const FeatureCheck = React.memo(function FeatureCheck({ label, enabled }: { labe
 const CAR_ANGLES = [
   { id: "01", label: "Front 3/4" },
   { id: "09", label: "Rear 3/4" },
-  { id: "13", label: "Side" },
+  { id: "21", label: "Side" },
   { id: "29", label: "Front" },
+  { id: "33", label: "Top" },
 ] as const;
 
 function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): string {
-  // Use IMAGIN.studio API for consistent car images
-  // Format model name: "RAV4 Hybrid" -> "rav4", "Model Y" -> "model-y", "CR-V" -> "cr-v"
   const modelFamily = car.model
-    .split(" ")[0] // Take first word (e.g., "RAV4" from "RAV4 Hybrid")
+    .split(" ")[0]
     .toLowerCase()
-    .replace(/[^a-z0-9]/g, "-") // Replace non-alphanumeric with dash
-    .replace(/-+/g, "-") // Remove consecutive dashes
-    .replace(/^-|-$/g, ""); // Remove leading/trailing dashes
-
+    .replace(/[^a-z0-9]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
   const make = car.make.toLowerCase();
-
-  return `https://cdn.imagin.studio/getImage?customer=img&make=${make}&modelFamily=${modelFamily}&paintId=pspc0001&angle=${angle}&width=${size}`;
+  const powerTrainMap: Record<string, string> = {
+    electric: "electric",
+    hybrid: "hybrid",
+    "plug-in-hybrid": "phev",
+    gasoline: "petrol",
+    diesel: "diesel",
+  };
+  const powerTrain = powerTrainMap[car.fuelType] || "";
+  const params = new URLSearchParams({
+    customer: "img",
+    make,
+    modelFamily,
+    modelYear: String(car.year),
+    angle,
+    width: String(size),
+    zoomType: "fullscreen",
+    fileType: "webp",
+  });
+  if (powerTrain) params.set("powerTrain", powerTrain);
+  return `https://cdn.imagin.studio/getImage?${params.toString()}`;
 }
 
 interface ImageModalProps {
