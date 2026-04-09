@@ -46,7 +46,7 @@ function FilterSection({
               {activeCount}
             </span>
           )}
-          <span className="text-gray-600 text-xs">{isOpen ? "▲" : "▼"}</span>
+          <span className="text-gray-500 text-xs">{isOpen ? "▲" : "▼"}</span>
         </div>
       </button>
       {isOpen && (
@@ -221,7 +221,7 @@ function FilterControlsComponent({
 
       {/* Quick Presets */}
       <div className="space-y-2">
-        <label className="block text-xs font-medium text-gray-500 uppercase tracking-wider">Quick Presets</label>
+        <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider">Quick Presets</label>
         <div className="flex gap-1.5 flex-wrap">
           {PRESETS.map((preset) => (
             <button

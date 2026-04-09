@@ -215,7 +215,7 @@ export default function BaselineSelector({
         </div>
       )}
 
-      <p className="text-xs text-gray-600">
+      <p className="text-xs text-gray-500">
         Differences in table: <span className="text-emerald-400">green = better</span>,{" "}
         <span className="text-rose-400">red = worse</span>
       </p>

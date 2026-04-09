@@ -83,7 +83,7 @@ function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: Sor
 function DiffBadge({ diff, positive }: { diff: string | null; positive?: "higher" | "lower" }) {
   if (!diff) return null;
   if (diff === "same") {
-    return <span className="text-gray-600 text-xs ml-1">(=)</span>;
+    return <span className="text-gray-500 text-xs ml-1">(=)</span>;
   }
 
   const isPositiveNum = diff.startsWith("+");
@@ -117,18 +117,18 @@ export default function CarTable({
   if (cars.length === 0) {
     return (
       <div className="surface-elevated rounded-xl p-10 text-center">
-        <div className="text-gray-500 mb-4">
+        <div className="text-gray-400 mb-4">
           <svg className="w-10 h-10 mx-auto mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <p className="text-base font-medium text-gray-300 mb-1">No cars match your filters</p>
-          <p className="text-sm text-gray-500">Try adjusting your criteria:</p>
+          <p className="text-sm text-gray-400">Try adjusting your criteria:</p>
         </div>
-        <ul className="text-gray-500 text-sm space-y-1 max-w-sm mx-auto text-left">
-          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Expand the price or year range</li>
-          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Remove dimension constraints</li>
-          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Select more body or fuel types</li>
-          <li className="flex items-center gap-2"><span className="text-gray-600">-</span> Clear specific sidebar filters</li>
+        <ul className="text-gray-400 text-sm space-y-1 max-w-sm mx-auto text-left">
+          <li className="flex items-center gap-2"><span className="text-gray-500">-</span> Expand the price or year range</li>
+          <li className="flex items-center gap-2"><span className="text-gray-500">-</span> Remove dimension constraints</li>
+          <li className="flex items-center gap-2"><span className="text-gray-500">-</span> Select more body or fuel types</li>
+          <li className="flex items-center gap-2"><span className="text-gray-500">-</span> Clear specific sidebar filters</li>
         </ul>
       </div>
     );
@@ -497,7 +497,7 @@ export default function CarTable({
         </tbody>
       </table>
       {(isVisible("mirrorsFoldedWidthInches") || isVisible("oneMirrorWidthInches") || isVisible("bodyWidthInches")) && (
-        <div className="px-3 py-2 text-xs text-gray-600 border-t border-gray-800/40">
+        <div className="px-3 py-2 text-xs text-gray-500 border-t border-gray-800/40">
           Folded = both mirrors folded, 1 Mirror = driver mirror extended only, Extended = both mirrors extended
         </div>
       )}
@@ -562,7 +562,7 @@ const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType
 
 const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: SafetyRating }) {
   if (!rating || rating === "Not Rated") {
-    return <span className="text-gray-600 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">-</span>;
   }
 
   const colors: Record<string, string> = {
@@ -593,7 +593,7 @@ const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: Safet
 
 const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score?: number }) {
   if (score === undefined || score === null) {
-    return <span className="text-gray-600 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">-</span>;
   }
 
   const getHeatmapColor = (s: number): string => {
@@ -628,7 +628,7 @@ const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score
 
 const AdasBadge = React.memo(function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) {
   if (!level || level === "none") {
-    return <span className="text-gray-600 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">-</span>;
   }
 
   const colors: Record<AutonomousLevel, string> = {
@@ -659,7 +659,7 @@ const AdasBadge = React.memo(function AdasBadge({ level, name }: { level?: Auton
 
 const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rating?: LeaseRating }) {
   if (!rating) {
-    return <span className="text-gray-600 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">-</span>;
   }
 
   const colors: Record<LeaseRating, string> = {
@@ -688,7 +688,7 @@ const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rati
 
 const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
   if (!category) {
-    return <span className="text-gray-600 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">-</span>;
   }
 
   const colors: Record<DepreciationCategory, string> = {
@@ -724,7 +724,7 @@ const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { 
 
 const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rating?: ReliabilityRating }) {
   if (!rating) {
-    return <span className="text-gray-600 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">-</span>;
   }
 
   const colors: Record<ReliabilityRating, string> = {
@@ -763,7 +763,7 @@ const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rati
 
 const FeatureCheck = React.memo(function FeatureCheck({ label, enabled }: { label: string; enabled?: boolean }) {
   return (
-    <div className={`flex items-center gap-1.5 ${enabled ? "text-emerald-400" : "text-gray-600"}`}>
+    <div className={`flex items-center gap-1.5 ${enabled ? "text-emerald-400" : "text-gray-500"}`}>
       <span className="text-xs">{enabled ? "✓" : "✗"}</span>
       <span>{label}</span>
     </div>
@@ -1140,7 +1140,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         )}
 
         {/* Footer with metadata */}
-        <div className="mt-6 pt-4 border-t border-gray-700 flex justify-between text-xs text-gray-500">
+        <div className="mt-6 pt-4 border-t border-gray-800/50 flex justify-between text-xs text-gray-400">
           <span>Last updated: {car.lastUpdated}</span>
           <span>Source: {car.dataSource ?? "manual"}</span>
         </div>
@@ -1178,7 +1178,7 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
   if (hasError) {
     return (
       <div
-        className="w-36 h-16 bg-gray-800/50 border border-gray-700/30 rounded-lg flex items-center justify-center text-gray-600 text-sm cursor-pointer"
+        className="w-36 h-16 bg-gray-800/50 border border-gray-700/30 rounded-lg flex items-center justify-center text-gray-500 text-sm cursor-pointer"
         onClick={onImageClick}
         title="Click for details"
       >

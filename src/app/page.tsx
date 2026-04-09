@@ -451,7 +451,7 @@ export default function Home() {
                 <span className="text-gradient-gold">Car</span>
                 <span className="text-white">Compare</span>
               </h1>
-              <p className="text-gray-500 text-xs tracking-wide uppercase mt-0.5">
+              <p className="text-gray-400 text-xs tracking-wide uppercase mt-0.5">
                 Find the perfect car for your garage
               </p>
             </div>
@@ -593,9 +593,9 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <p className="text-gray-400 text-sm">
                     <span className="text-white font-medium tabular-nums">{sortedCars.length}</span>
-                    <span className="text-gray-500"> of </span>
+                    <span className="text-gray-400"> of </span>
                     <span className="tabular-nums">{allCars.length}</span>
-                    <span className="text-gray-500"> vehicles</span>
+                    <span className="text-gray-400"> vehicles</span>
                   </p>
                   {favorites.length > 0 && (
                     <span className="text-amber-400 text-sm flex items-center gap-1">
@@ -603,7 +603,7 @@ export default function Home() {
                     </span>
                   )}
                 </div>
-                <p className="text-gray-600 text-xs font-mono tracking-wide">
+                <p className="text-gray-500 text-xs font-mono tracking-wide">
                   Updated {carData.lastSyncDate}
                 </p>
               </div>
@@ -653,10 +653,10 @@ export default function Home() {
 
       <footer className="relative z-10 border-t border-gray-800/50 px-6 py-5 mt-12">
         <div className="flex flex-col items-center gap-2">
-          <p className="text-gray-600 text-xs text-center tracking-wide">
+          <p className="text-gray-500 text-xs text-center tracking-wide">
             Data sourced from manufacturer specifications. Prices and availability may vary.
           </p>
-          <p className="text-gray-600 text-xs">
+          <p className="text-gray-500 text-xs">
             Part of{' '}
             <a
               href="https://krool.github.io/"
@@ -848,7 +848,7 @@ function MobileCardView({
                     <h3 className="text-white font-semibold text-sm">
                       {car.year} {car.make} {car.model}
                     </h3>
-                    {car.trim && <p className="text-gray-500 text-xs">{car.trim}</p>}
+                    {car.trim && <p className="text-gray-400 text-xs">{car.trim}</p>}
                   </div>
                   <div className="flex gap-2 items-center">
                     <button
@@ -879,19 +879,19 @@ function MobileCardView({
 
             <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
               <div>
-                <span className="text-gray-500 text-xs">MSRP</span>
+                <span className="text-gray-400 text-xs">MSRP</span>
                 <span className="text-white ml-2 tabular-nums">{formatCurrency(car.msrp)}</span>
               </div>
               <div>
-                <span className="text-gray-500 text-xs">Width</span>
+                <span className="text-gray-400 text-xs">Width</span>
                 <span className="text-white ml-2 tabular-nums">{effectiveWidth.toFixed(1)}&quot;</span>
               </div>
               <div>
-                <span className="text-gray-500 text-xs">Legroom</span>
+                <span className="text-gray-400 text-xs">Legroom</span>
                 <span className="text-white ml-2 tabular-nums">{car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}</span>
               </div>
               <div>
-                <span className="text-gray-500 text-xs">MPG</span>
+                <span className="text-gray-400 text-xs">MPG</span>
                 <span className="text-white ml-2 tabular-nums">
                   {car.mpgCombined ?? car.mpge ?? "-"}{car.mpge ? " MPGe" : ""}
                 </span>
@@ -902,27 +902,27 @@ function MobileCardView({
             {isExpanded && (
               <div className="mt-3 pt-3 border-t border-gray-700/50 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm animate-fadeIn">
                 <div>
-                  <span className="text-gray-500 text-xs">Length</span>
+                  <span className="text-gray-400 text-xs">Length</span>
                   <span className="text-white ml-2 tabular-nums">{car.lengthInches ? `${car.lengthInches}"` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-500 text-xs">Height</span>
+                  <span className="text-gray-400 text-xs">Height</span>
                   <span className="text-white ml-2 tabular-nums">{car.heightInches ? `${car.heightInches}"` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-500 text-xs">Clearance</span>
+                  <span className="text-gray-400 text-xs">Clearance</span>
                   <span className="text-white ml-2 tabular-nums">{car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-500 text-xs">Cargo</span>
+                  <span className="text-gray-400 text-xs">Cargo</span>
                   <span className="text-white ml-2 tabular-nums">{car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : "-"}</span>
                 </div>
                 <div>
-                  <span className="text-gray-500 text-xs">Fuel</span>
+                  <span className="text-gray-400 text-xs">Fuel</span>
                   <span className="text-white ml-2 capitalize">{car.fuelType.replace("-", " ")}</span>
                 </div>
                 <div>
-                  <span className="text-gray-500 text-xs">EV Range</span>
+                  <span className="text-gray-400 text-xs">EV Range</span>
                   <span className="text-white ml-2 tabular-nums">{car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}</span>
                 </div>
                 {car.adasFeatures?.autoFoldingMirrors && (

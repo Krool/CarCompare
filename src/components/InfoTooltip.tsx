@@ -87,7 +87,7 @@ export function AdasInfoContent() {
         <p className="text-gray-400 text-xs">Lane keep assist (nudges back if drifting) and adaptive cruise control. Doesn't actively center in lane.</p>
       </div>
       <div>
-        <p className="font-medium text-gray-500">None</p>
+        <p className="font-medium text-gray-400">None</p>
         <p className="text-gray-400 text-xs">No driver assistance features. Rare in modern vehicles.</p>
       </div>
     </>
@@ -133,10 +133,10 @@ export function SafetyRatingInfoContent() {
         <p className="text-gray-400 text-xs">Passes IIHS crash tests with mixed ratings. Some areas may be "Acceptable" or "Marginal" instead of "Good".</p>
       </div>
       <div>
-        <p className="font-medium text-gray-500">Not Rated</p>
+        <p className="font-medium text-gray-400">Not Rated</p>
         <p className="text-gray-400 text-xs">Vehicle hasn't been tested by IIHS yet, usually because it's too new or low-volume.</p>
       </div>
-      <p className="text-xs text-gray-500 mt-3 italic">Note: 2025 IIHS criteria are stricter than previous years. Many vehicles that earned TSP in 2024 no longer qualify.</p>
+      <p className="text-xs text-gray-400 mt-3 italic">Note: 2025 IIHS criteria are stricter than previous years. Many vehicles that earned TSP in 2024 no longer qualify.</p>
     </>
   );
 }
@@ -272,7 +272,7 @@ export function EfficiencyInfoContent() {
         <p className="font-medium text-white">MPGe (Miles Per Gallon Equivalent)</p>
         <p className="text-gray-400 text-xs">Electric efficiency converted to gas equivalent. 33.7 kWh = 1 gallon of gas. EVs typically rate 100+ MPGe.</p>
       </div>
-      <div className="text-xs text-gray-500 mt-2">
+      <div className="text-xs text-gray-400 mt-2">
         <p className="font-medium text-gray-400 mb-1">Typical ranges:</p>
         <p>• Economy car: 30-40 MPG</p>
         <p>• Hybrid: 40-60 MPG</p>
@@ -287,14 +287,14 @@ export function EvRangeInfoContent() {
   return (
     <>
       <p className="mb-2">Maximum distance on a full battery charge (EPA estimated).</p>
-      <div className="text-xs text-gray-500">
+      <div className="text-xs text-gray-400">
         <p className="font-medium text-gray-400 mb-1">Typical ranges:</p>
         <p>• Short range EV: 100-200 miles</p>
         <p>• Average EV: 250-300 miles</p>
         <p>• Long range EV: 300-400+ miles</p>
         <p>• Plug-in Hybrid: 20-50 miles (electric only)</p>
       </div>
-      <p className="text-xs text-gray-500 mt-2 italic">Note: Real-world range varies with weather, speed, terrain, and climate control use. Cold weather can reduce range 20-40%.</p>
+      <p className="text-xs text-gray-400 mt-2 italic">Note: Real-world range varies with weather, speed, terrain, and climate control use. Cold weather can reduce range 20-40%.</p>
     </>
   );
 }
@@ -303,7 +303,7 @@ export function TowingInfoContent() {
   return (
     <>
       <p className="mb-2">Maximum weight the vehicle can safely tow when properly equipped.</p>
-      <div className="text-xs text-gray-500">
+      <div className="text-xs text-gray-400">
         <p className="font-medium text-gray-400 mb-1">Common trailer weights:</p>
         <p>• Small utility trailer: 1,000-2,000 lbs</p>
         <p>• Jet skis/small boat: 1,500-3,000 lbs</p>
@@ -313,7 +313,7 @@ export function TowingInfoContent() {
         <p>• Large travel trailer: 5,000-8,000 lbs</p>
         <p>• Horse trailer (2 horse): 6,000-8,000 lbs</p>
       </div>
-      <p className="text-xs text-gray-500 mt-2 italic">Note: Requires tow package. Payload and tongue weight limits also apply.</p>
+      <p className="text-xs text-gray-400 mt-2 italic">Note: Requires tow package. Payload and tongue weight limits also apply.</p>
     </>
   );
 }
@@ -322,7 +322,7 @@ export function GroundClearanceInfoContent() {
   return (
     <>
       <p className="mb-2">Distance from ground to lowest point of the vehicle.</p>
-      <div className="text-xs text-gray-500">
+      <div className="text-xs text-gray-400">
         <p className="font-medium text-gray-400 mb-1">Typical clearances:</p>
         <p>• Sports car: 4-5 inches</p>
         <p>• Sedan: 5-6 inches</p>
@@ -330,7 +330,7 @@ export function GroundClearanceInfoContent() {
         <p>• SUV: 8-10 inches</p>
         <p>• Off-road SUV/Truck: 10-12+ inches</p>
       </div>
-      <p className="text-xs text-gray-500 mt-2 italic">Higher clearance helps with speed bumps, unpaved roads, snow, and off-road driving.</p>
+      <p className="text-xs text-gray-400 mt-2 italic">Higher clearance helps with speed bumps, unpaved roads, snow, and off-road driving.</p>
     </>
   );
 }
@@ -339,13 +339,13 @@ export function LegroomInfoContent() {
   return (
     <>
       <p className="mb-2">Maximum distance from seat back to pedals for the driver.</p>
-      <div className="text-xs text-gray-500">
+      <div className="text-xs text-gray-400">
         <p className="font-medium text-gray-400 mb-1">Typical ranges:</p>
         <p>• Compact car: 40-42 inches</p>
         <p>• Mid-size: 42-44 inches</p>
         <p>• Full-size/SUV: 44-46 inches</p>
       </div>
-      <p className="text-xs text-gray-500 mt-2 italic">Drivers 6'2"+ typically need 44+ inches for comfort. Test drive recommended for taller drivers.</p>
+      <p className="text-xs text-gray-400 mt-2 italic">Drivers 6'2"+ typically need 44+ inches for comfort. Test drive recommended for taller drivers.</p>
     </>
   );
 }
@@ -354,7 +354,7 @@ export function CargoInfoContent() {
   return (
     <>
       <p className="mb-2">Cargo space behind rear seats (or with seats folded where noted).</p>
-      <div className="text-xs text-gray-500">
+      <div className="text-xs text-gray-400">
         <p className="font-medium text-gray-400 mb-1">Typical volumes:</p>
         <p>• Sedan trunk: 12-16 cu ft</p>
         <p>• Hatchback: 15-25 cu ft</p>
@@ -363,7 +363,7 @@ export function CargoInfoContent() {
         <p>• Full-size SUV: 45-90 cu ft</p>
         <p>• Minivan: 80-140 cu ft</p>
       </div>
-      <p className="text-xs text-gray-500 mt-2 italic">A standard carry-on suitcase is about 2.5 cu ft.</p>
+      <p className="text-xs text-gray-400 mt-2 italic">A standard carry-on suitcase is about 2.5 cu ft.</p>
     </>
   );
 }

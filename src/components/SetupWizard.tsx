@@ -513,7 +513,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             <p className="text-gray-400 mb-8">
               Set up your experience in a few quick steps.
               <br />
-              <span className="text-gray-600 text-sm">Takes about 30 seconds.</span>
+              <span className="text-gray-500 text-sm">Takes about 30 seconds.</span>
             </p>
             <div className="flex gap-3 justify-center">
               <button
@@ -559,7 +559,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       {isSelected && <span className="text-amber-400 text-sm">✓</span>}
                     </div>
                     <span className="text-white font-medium text-sm block">{preset.label}</span>
-                    <span className="text-gray-500 text-xs">{preset.description}</span>
+                    <span className="text-gray-400 text-xs">{preset.description}</span>
                   </button>
                 );
               })}
@@ -581,7 +581,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     );
                   })}
                   {combinedColumns.length > 12 && (
-                    <span className="px-2 py-0.5 text-gray-600 text-xs">
+                    <span className="px-2 py-0.5 text-gray-500 text-xs">
                       +{combinedColumns.length - 12} more
                     </span>
                   )}
@@ -722,7 +722,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <p className="text-white font-medium">Body Style</p>
-                  <p className="text-gray-500 text-xs">What type of vehicle?</p>
+                  <p className="text-gray-400 text-xs">What type of vehicle?</p>
                 </div>
                 {preferences.bodyTypes.length > 0 && (
                   <span className="text-amber-400 text-xs">{preferences.bodyTypes.length} selected</span>
@@ -760,7 +760,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <p className="text-white font-medium">Powertrain</p>
-                  <p className="text-gray-500 text-xs">What type of engine or motor?</p>
+                  <p className="text-gray-400 text-xs">What type of engine or motor?</p>
                 </div>
                 {preferences.fuelTypes.length > 0 && (
                   <span className="text-amber-400 text-xs">{preferences.fuelTypes.length} selected</span>
@@ -852,7 +852,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 />
                 <div>
                   <span className="text-white block">Only new cars (2024+)</span>
-                  <span className="text-gray-500 text-xs">Exclude older model years</span>
+                  <span className="text-gray-400 text-xs">Exclude older model years</span>
                 </div>
               </label>
             </div>

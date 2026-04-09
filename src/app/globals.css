@@ -20,14 +20,14 @@
   --font-mono: var(--font-dm-mono);
   --font-display: var(--font-outfit);
 
-  /* Refined gray palette with cool blue undertone */
+  /* Refined gray palette with cool blue undertone — tuned for readability */
   --color-gray-50: #f4f4f6;
   --color-gray-100: #e4e4e8;
   --color-gray-200: #c8c8d0;
-  --color-gray-300: #a0a0ae;
-  --color-gray-400: #72728a;
-  --color-gray-500: #52526a;
-  --color-gray-600: #32324a;
+  --color-gray-300: #a8a8b8;
+  --color-gray-400: #8888a0;
+  --color-gray-500: #6e6e88;
+  --color-gray-600: #4e4e68;
   --color-gray-700: #1e1e30;
   --color-gray-800: #141422;
   --color-gray-900: #0c0c18;

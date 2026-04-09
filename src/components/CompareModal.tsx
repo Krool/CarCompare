@@ -17,7 +17,7 @@ function CompareCarImage({ car }: { car: Car }) {
 
   if (hasError) {
     return (
-      <div className="w-full h-32 bg-gray-800/50 border border-gray-700/30 rounded-xl mb-2 flex items-center justify-center text-gray-600 text-2xl">
+      <div className="w-full h-32 bg-gray-800/50 border border-gray-700/30 rounded-xl mb-2 flex items-center justify-center text-gray-500 text-2xl">
         {car.bodyType.charAt(0).toUpperCase()}
       </div>
     );
@@ -112,7 +112,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
   const SafetyBadge = ({ rating }: { rating?: SafetyRating }) => {
     if (!rating || rating === "Not Rated") {
-      return <span className="text-gray-600">-</span>;
+      return <span className="text-gray-500">-</span>;
     }
     const colors: Record<string, string> = {
       "TSP+": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
@@ -376,7 +376,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
           </table>
         </div>
 
-        <div className="mt-6 text-center text-gray-600 text-xs">
+        <div className="mt-6 text-center text-gray-500 text-xs">
           Green highlighting indicates the best value in each category
         </div>
       </div>
