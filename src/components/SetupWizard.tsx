@@ -467,8 +467,8 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
     <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="wizard-title">
       <div ref={focusTrapRef} className="surface-elevated rounded-2xl max-w-2xl w-full p-8 modal-content max-h-[90vh] overflow-y-auto">
         {/* Progress indicator - clickable steps */}
-        <div className="flex justify-center mb-8">
-          <div className="flex items-center gap-2">
+        <nav aria-label="Setup progress" className="flex justify-center mb-8">
+          <ol className="flex items-center gap-2">
             {(["welcome", "use-case", "baseline", "preferences", "complete"] as WizardStep[]).map((s, i) => {
               const stepNames = ["Welcome", "Use Case", "Baseline", "Filters", "Done"];
               const currentIndex = ["welcome", "use-case", "baseline", "preferences", "complete"].indexOf(step);
@@ -477,10 +477,12 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               const canNavigate = isCompleted;
 
               return (
-                <div key={s} className="flex items-center">
+                <li key={s} className="flex items-center">
                   <button
                     onClick={() => canNavigate && setStep(s)}
                     disabled={!canNavigate}
+                    aria-current={isCurrent ? "step" : undefined}
+                    aria-label={`Step ${i + 1} of 5: ${stepNames[i]}${isCurrent ? " (current)" : isCompleted ? " (completed)" : ""}`}
                     className={`w-3 h-3 rounded-full transition-all ${
                       isCurrent ? "bg-amber-500 ring-2 ring-amber-300/50" :
                       isCompleted ? "bg-emerald-500 cursor-pointer hover:ring-2 hover:ring-emerald-300/50" :
@@ -489,13 +491,13 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     title={canNavigate ? `Go back to ${stepNames[i]}` : stepNames[i]}
                   />
                   {i < 4 && (
-                    <div className={`w-8 h-0.5 ${isCompleted ? "bg-emerald-500/50" : "bg-gray-700"}`} />
+                    <div className={`w-8 h-0.5 ${isCompleted ? "bg-emerald-500/50" : "bg-gray-700"}`} aria-hidden="true" />
                   )}
-                </div>
+                </li>
               );
             })}
-          </div>
-        </div>
+          </ol>
+        </nav>
 
         {/* Welcome Step */}
         {step === "welcome" && (
@@ -535,7 +537,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
         {/* Use Case Step */}
         {step === "use-case" && (
           <div className="animate-fadeIn">
-            <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            <h2 id="wizard-title" className="text-2xl font-bold text-white mb-2 text-center">
               What brings you here?
             </h2>
             <p className="text-gray-400 mb-6 text-center">
@@ -548,6 +550,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                   <button
                     key={key}
                     onClick={() => toggleUseCase(key)}
+                    aria-pressed={isSelected}
                     className={`p-3 rounded-xl text-left transition-all ${
                       isSelected
                         ? "bg-amber-500/10 border border-amber-500/40 shadow-lg shadow-amber-900/10"
@@ -609,7 +612,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
         {/* Baseline Step */}
         {step === "baseline" && (
           <div className="animate-fadeIn">
-            <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            <h2 id="wizard-title" className="text-2xl font-bold text-white mb-2 text-center">
               Do you have a reference car?
             </h2>
             <p className="text-gray-400 mb-6 text-center">
@@ -620,7 +623,9 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
             {/* Search */}
             <div className="mb-4">
+              <label htmlFor="wizard-baseline-search" className="sr-only">Search for a baseline car</label>
               <input
+                id="wizard-baseline-search"
                 type="text"
                 placeholder="Search for a car (e.g., 2024 Toyota RAV4)"
                 value={baselineSearch}
@@ -658,8 +663,9 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 <button
                   onClick={() => setSelectedBaseline(null)}
                   className="text-gray-400 hover:text-white"
+                  aria-label="Clear selected baseline"
                 >
-                  ✕
+                  <span aria-hidden="true">✕</span>
                 </button>
               </div>
             )}
@@ -710,7 +716,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
         {/* Preferences Step */}
         {step === "preferences" && (
           <div className="animate-fadeIn">
-            <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            <h2 id="wizard-title" className="text-2xl font-bold text-white mb-2 text-center">
               Filter Your Results
             </h2>
             <p className="text-gray-400 mb-6 text-center">
@@ -742,6 +748,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                   <button
                     key={type}
                     onClick={() => toggleBodyType(type)}
+                    aria-pressed={preferences.bodyTypes.includes(type)}
                     className={`p-2 rounded-lg text-left transition-all ${
                       preferences.bodyTypes.includes(type)
                         ? "bg-amber-500/10 border border-amber-500/40"
@@ -776,6 +783,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                   <button
                     key={type}
                     onClick={() => toggleFuelType(type)}
+                    aria-pressed={preferences.fuelTypes.includes(type)}
                     className={`p-2 rounded-lg text-left transition-all ${
                       preferences.fuelTypes.includes(type)
                         ? "bg-amber-500/10 border border-amber-500/40"
@@ -1122,7 +1130,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
         {/* Complete Step with Share URL */}
         {step === "complete" && (
           <div className="animate-fadeIn">
-            <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            <h2 id="wizard-title" className="text-2xl font-bold text-white mb-2 text-center">
               Ready to Compare!
             </h2>
             <p className="text-gray-400 mb-6 text-center">
@@ -1199,12 +1207,13 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
             {/* Share URL */}
             <div className="mb-6">
-              <p className="text-white font-medium mb-2">Share Link</p>
+              <p className="text-white font-medium mb-2" id="wizard-share-label">Share Link</p>
               <div className="flex gap-2">
                 <input
                   type="text"
                   readOnly
                   value={generateShareUrl()}
+                  aria-labelledby="wizard-share-label"
                   className="flex-1 px-3 py-2 bg-gray-800/50 border border-gray-700/30 rounded-lg text-gray-300 text-sm"
                 />
                 <button

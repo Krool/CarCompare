@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "Car Compare - Find Cars That Fit Your Garage",
   description: "Compare cars by dimensions, price, fuel type, and more. Find vehicles that fit your garage and family needs.",
   metadataBase: new URL("https://krool.github.io/CarCompare"),
+  alternates: { canonical: "https://krool.github.io/CarCompare/" },
   openGraph: {
     type: "website",
     url: "https://krool.github.io/CarCompare/",
@@ -44,6 +45,10 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${dmMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"WebApplication","name":"Car Compare","url":"https://krool.github.io/CarCompare/","description":"Compare cars by dimensions, price, fuel type, and more. Find vehicles that fit your garage and family needs.","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}) }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SXG8M67HPV"
           strategy="afterInteractive"
@@ -53,7 +58,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-SXG8M67HPV');
+            gtag('config', 'G-SXG8M67HPV', { content_group: 'Car Compare' });
           `}
         </Script>
         {children}

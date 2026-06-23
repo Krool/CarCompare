@@ -135,6 +135,7 @@ export default function GarageFitVisualizer({
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white text-2xl leading-none p-2"
+            aria-label="Close garage fit visualizer"
           >
             ×
           </button>

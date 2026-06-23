@@ -564,7 +564,9 @@ export default function Home() {
             <div className="mb-4 space-y-3">
               {/* Search box */}
               <div className="relative">
+                <label htmlFor="car-search" className="sr-only">Search cars</label>
                 <input
+                  id="car-search"
                   type="text"
                   placeholder="Search cars (e.g., Toyota, SUV, 2025, hybrid...)"
                   value={searchInput}
@@ -576,6 +578,7 @@ export default function Home() {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
@@ -583,6 +586,7 @@ export default function Home() {
                   <button
                     onClick={() => setSearchInput("")}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+                    aria-label="Clear search"
                   >
                     ×
                   </button>
@@ -591,7 +595,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-4">
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-400 text-sm" aria-live="polite" role="status">
                     <span className="text-white font-medium tabular-nums">{sortedCars.length}</span>
                     <span className="text-gray-400"> of </span>
                     <span className="tabular-nums">{allCars.length}</span>
@@ -807,6 +811,8 @@ function MobileCardView({
             <button
               key={opt.field}
               onClick={() => onSortChange(opt.field)}
+              aria-pressed={sortField === opt.field}
+              aria-label={sortField === opt.field ? `Sort by ${opt.label}, ${sortDirection === "asc" ? "ascending" : "descending"}` : `Sort by ${opt.label}`}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1 transition-colors ${
                 sortField === opt.field
                   ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
@@ -815,7 +821,7 @@ function MobileCardView({
             >
               {opt.label}
               {sortField === opt.field && (
-                <span className="text-amber-500">{sortDirection === "asc" ? "↑" : "↓"}</span>
+                <span className="text-amber-500" aria-hidden="true">{sortDirection === "asc" ? "↑" : "↓"}</span>
               )}
             </button>
           ))}
@@ -854,14 +860,17 @@ function MobileCardView({
                     <button
                       onClick={() => onToggleFavorite(car.id)}
                       className={`text-lg transition-colors ${isFavorite ? "text-amber-400" : "text-gray-700 hover:text-amber-400"}`}
+                      aria-label={isFavorite ? `Remove ${car.year} ${car.make} ${car.model} from favorites` : `Add ${car.year} ${car.make} ${car.model} to favorites`}
+                      aria-pressed={isFavorite}
                     >
-                      ★
+                      <span aria-hidden="true">★</span>
                     </button>
                     <input
                       type="checkbox"
                       checked={isInCompare}
                       onChange={() => onToggleCompare(car.id)}
                       className="w-4 h-4 rounded border-gray-600 bg-gray-800 accent-amber-500"
+                      aria-label={isInCompare ? `Remove ${car.year} ${car.make} ${car.model} from comparison` : `Add ${car.year} ${car.make} ${car.model} to comparison`}
                     />
                   </div>
                 </div>

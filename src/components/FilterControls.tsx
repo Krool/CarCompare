@@ -37,16 +37,20 @@ function FilterSection({
     <div className="border border-gray-700/30 rounded-xl overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         className="w-full px-3 py-2.5 bg-white/[0.02] hover:bg-white/[0.04] flex items-center justify-between text-left transition-colors"
       >
-        <span className="text-sm font-medium text-gray-300">{title}</span>
+        <span className="text-sm font-medium text-gray-300">
+          {title}
+          {activeCount > 0 && <span className="sr-only">, {activeCount} active</span>}
+        </span>
         <div className="flex items-center gap-2">
           {activeCount > 0 && (
-            <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full font-medium border border-amber-500/20">
+            <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full font-medium border border-amber-500/20" aria-hidden="true">
               {activeCount}
             </span>
           )}
-          <span className="text-gray-500 text-xs">{isOpen ? "▲" : "▼"}</span>
+          <span className="text-gray-500 text-xs" aria-hidden="true">{isOpen ? "▲" : "▼"}</span>
         </div>
       </button>
       {isOpen && (
@@ -254,13 +258,14 @@ function FilterControlsComponent({
       <FilterSection title="Year & Price" defaultOpen={true} activeCount={basicFilterCount}>
         {/* Year Range */}
         <div className="space-y-1">
-          <label className="block text-xs text-gray-400">Year Range</label>
+          <label className="block text-xs text-gray-400" id="filter-year-label">Year Range</label>
           <div className="flex gap-2">
             <input
               type="number"
               min={2010}
               max={2026}
               placeholder="Min"
+              aria-label="Minimum year"
               value={filters.minYear ?? ""}
               onChange={(e) => updateFilter("minYear", e.target.value ? parseInt(e.target.value) : undefined)}
               className="w-20 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -271,6 +276,7 @@ function FilterControlsComponent({
               min={2010}
               max={2026}
               placeholder="Max"
+              aria-label="Maximum year"
               value={filters.maxYear ?? ""}
               onChange={(e) => updateFilter("maxYear", e.target.value ? parseInt(e.target.value) : undefined)}
               className="w-20 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -287,6 +293,7 @@ function FilterControlsComponent({
               min={0}
               step={1000}
               placeholder="Min $"
+              aria-label="Minimum price in dollars"
               value={filters.minPrice ?? ""}
               onChange={(e) => updateFilter("minPrice", e.target.value ? parseInt(e.target.value) : undefined)}
               className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -297,6 +304,7 @@ function FilterControlsComponent({
               min={0}
               step={1000}
               placeholder="Max $"
+              aria-label="Maximum price in dollars"
               value={filters.maxPrice ?? ""}
               onChange={(e) => updateFilter("maxPrice", e.target.value ? parseInt(e.target.value) : undefined)}
               className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -322,6 +330,7 @@ function FilterControlsComponent({
             min={100}
             max={300}
             placeholder="e.g., 200"
+            aria-label="Maximum length in inches"
             value={filters.maxLengthInches ?? ""}
             onChange={(e) => updateFilter("maxLengthInches", e.target.value ? parseInt(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -337,12 +346,14 @@ function FilterControlsComponent({
               min={60}
               max={120}
               placeholder="e.g., 90"
+              aria-label="Maximum width in inches"
               value={filters.maxWidthInches ?? ""}
               onChange={(e) => updateFilter("maxWidthInches", e.target.value ? parseInt(e.target.value) : undefined)}
               className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             />
             <select
               value={filters.widthFilterType ?? "extended"}
+              aria-label="Width measurement type"
               onChange={(e) => updateFilter("widthFilterType", e.target.value as WidthFilterType)}
               className="px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
             >
@@ -361,6 +372,7 @@ function FilterControlsComponent({
             min={50}
             max={90}
             placeholder="e.g., 72"
+            aria-label="Maximum height in inches"
             value={filters.maxHeightInches ?? ""}
             onChange={(e) => updateFilter("maxHeightInches", e.target.value ? parseInt(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -381,6 +393,7 @@ function FilterControlsComponent({
             max={15}
             step={0.5}
             placeholder="e.g., 8"
+            aria-label="Minimum ground clearance in inches"
             value={filters.minGroundClearance ?? ""}
             onChange={(e) => updateFilter("minGroundClearance", e.target.value ? parseFloat(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -401,6 +414,7 @@ function FilterControlsComponent({
             max={20000}
             step={500}
             placeholder="e.g., 5000"
+            aria-label="Minimum towing capacity in pounds"
             value={filters.minTowingCapacity ?? ""}
             onChange={(e) => updateFilter("minTowingCapacity", e.target.value ? parseInt(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -421,6 +435,7 @@ function FilterControlsComponent({
             max={50}
             step={0.5}
             placeholder="e.g., 42"
+            aria-label="Minimum driver legroom in inches"
             value={filters.minLegroom ?? ""}
             onChange={(e) => updateFilter("minLegroom", e.target.value ? parseFloat(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -440,6 +455,7 @@ function FilterControlsComponent({
             min={0}
             max={150}
             placeholder="e.g., 60"
+            aria-label="Minimum cargo volume in cubic feet"
             value={filters.minCargo ?? ""}
             onChange={(e) => updateFilter("minCargo", e.target.value ? parseFloat(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -462,6 +478,7 @@ function FilterControlsComponent({
               <button
                 key={sr.value}
                 onClick={() => toggleSafetyFilter(sr.value)}
+                aria-pressed={filters.safetyRatings?.includes(sr.value) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.safetyRatings?.includes(sr.value)
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
@@ -487,6 +504,7 @@ function FilterControlsComponent({
             min={0}
             max={100}
             placeholder="e.g., 70"
+            aria-label="Minimum review score, 0 to 100"
             value={filters.minReviewScore ?? ""}
             onChange={(e) => updateFilter("minReviewScore", e.target.value ? parseInt(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -506,6 +524,7 @@ function FilterControlsComponent({
               <button
                 key={al.value}
                 onClick={() => toggleAutonomousFilter(al.value)}
+                aria-pressed={filters.autonomousLevels?.includes(al.value) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.autonomousLevels?.includes(al.value)
                     ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
@@ -573,6 +592,7 @@ function FilterControlsComponent({
               <button
                 key={ft.value}
                 onClick={() => toggleFuelTypeFilter(ft.value)}
+                aria-pressed={filters.fuelTypes?.includes(ft.value) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.fuelTypes?.includes(ft.value)
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
@@ -598,6 +618,7 @@ function FilterControlsComponent({
               <button
                 key={pt.value}
                 onClick={() => togglePlugTypeFilter(pt.value)}
+                aria-pressed={filters.plugTypes?.includes(pt.value) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.plugTypes?.includes(pt.value)
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
@@ -623,6 +644,7 @@ function FilterControlsComponent({
             min={0}
             max={200}
             placeholder="e.g., 30"
+            aria-label="Minimum MPG or MPGe"
             value={filters.minMpg ?? ""}
             onChange={(e) => updateFilter("minMpg", e.target.value ? parseInt(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -642,6 +664,7 @@ function FilterControlsComponent({
             min={0}
             max={500}
             placeholder="e.g., 250"
+            aria-label="Minimum EV range in miles"
             value={filters.minEvRange ?? ""}
             onChange={(e) => updateFilter("minEvRange", e.target.value ? parseInt(e.target.value) : undefined)}
             className="w-24 px-2 py-1 bg-gray-800/50 border border-gray-700/30 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500/40 transition-colors"
@@ -665,6 +688,7 @@ function FilterControlsComponent({
               <button
                 key={bt.value}
                 onClick={() => toggleBodyTypeFilter(bt.value)}
+                aria-pressed={filters.bodyTypes?.includes(bt.value) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.bodyTypes?.includes(bt.value)
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
@@ -685,6 +709,8 @@ function FilterControlsComponent({
               <button
                 key={d}
                 onClick={() => toggleDoorsFilter(d)}
+                aria-pressed={filters.doors?.includes(d) ?? false}
+                aria-label={`${d} doors`}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.doors?.includes(d)
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
@@ -705,6 +731,8 @@ function FilterControlsComponent({
               <button
                 key={s}
                 onClick={() => toggleSeatsFilter(s)}
+                aria-pressed={filters.seats?.includes(s) ?? false}
+                aria-label={`${s} seats`}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.seats?.includes(s)
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
@@ -725,6 +753,7 @@ function FilterControlsComponent({
               <button
                 key={make}
                 onClick={() => toggleMakeFilter(make)}
+                aria-pressed={filters.makes?.includes(make) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.makes?.includes(make)
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"

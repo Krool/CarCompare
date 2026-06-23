@@ -95,7 +95,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
 
     return (
       <tr className="border-b border-gray-800/50">
-        <td className="px-4 py-2 text-gray-400 font-medium">{label}</td>
+        <th scope="row" className="px-4 py-2 text-left text-gray-400 font-medium">{label}</th>
         {formatted.map((val, i) => (
           <td
             key={i}
@@ -104,6 +104,9 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
             }`}
           >
             {val}
+            {bestIndex === i && (
+              <span className="text-emerald-400 ml-1" title="Best value"> ★<span className="sr-only"> (best value)</span></span>
+            )}
           </td>
         ))}
       </tr>
@@ -159,9 +162,9 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
             {/* Car Images & Names Header */}
             <thead>
               <tr className="border-b border-gray-600">
-                <th className="px-4 py-2 text-left text-gray-400 w-40"></th>
+                <th scope="col" className="px-4 py-2 text-left text-gray-400 w-40"><span className="sr-only">Specification</span></th>
                 {cars.map((car) => (
-                  <th key={car.id} className="px-4 py-4 text-center min-w-[200px]">
+                  <th key={car.id} scope="col" className="px-4 py-4 text-center min-w-[200px]">
                     <div className="relative">
                       <button
                         onClick={() => onRemoveCar(car.id)}
@@ -204,7 +207,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                 </td>
               </tr>
               <tr className="border-b border-gray-800/50">
-                <td className="px-4 py-2 text-gray-400 font-medium">IIHS Rating</td>
+                <th scope="row" className="px-4 py-2 text-left text-gray-400 font-medium">IIHS Rating</th>
                 {cars.map((car) => (
                   <td key={car.id} className="px-4 py-2 text-center">
                     <SafetyBadge rating={car.safetyRating} />
@@ -326,7 +329,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                 values={cars.map(c => c.autonomousLevel ?? "-")}
               />
               <tr className="border-b border-gray-800/50">
-                <td className="px-4 py-2 text-gray-400 font-medium">Hands-Free Highway</td>
+                <th scope="row" className="px-4 py-2 text-left text-gray-400 font-medium">Hands-Free Highway</th>
                 {cars.map((car) => (
                   <td key={car.id} className="px-4 py-2 text-center">
                     {car.adasFeatures?.handsFreeHighway ? (
@@ -338,7 +341,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
                 ))}
               </tr>
               <tr className="border-b border-gray-800/50">
-                <td className="px-4 py-2 text-gray-400 font-medium">Auto-Folding Mirrors</td>
+                <th scope="row" className="px-4 py-2 text-left text-gray-400 font-medium">Auto-Folding Mirrors</th>
                 {cars.map((car) => (
                   <td key={car.id} className="px-4 py-2 text-center">
                     {car.adasFeatures?.autoFoldingMirrors ? (

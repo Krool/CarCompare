@@ -56,26 +56,35 @@ function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: Sor
     ? sortConfig.direction === "asc" ? "ascending" as const : "descending" as const
     : "none" as const;
 
+  const sortHint = isActive
+    ? sortConfig.direction === "asc" ? "sorted ascending" : "sorted descending"
+    : "not sorted, activate to sort";
+
   return (
     <th
-      className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-white/[0.02] select-none group relative transition-colors"
-      onClick={() => onSortChange(field)}
-      title={headerTooltip}
+      scope="col"
+      className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider select-none group relative transition-colors"
       aria-sort={ariaSortValue}
     >
-      <div className="flex items-center gap-1">
+      <button
+        type="button"
+        onClick={() => onSortChange(field)}
+        title={headerTooltip}
+        aria-label={`${label}, ${sortHint}`}
+        className="flex items-center gap-1 w-full text-left uppercase tracking-wider cursor-pointer hover:bg-white/[0.02] transition-colors"
+      >
         {label}
         {headerTooltip && (
-          <svg className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         )}
         {isActive && (
-          <span className="text-amber-400 text-[10px]">
+          <span className="text-amber-400 text-[10px]" aria-hidden="true">
             {sortConfig.direction === "asc" ? "▲" : "▼"}
           </span>
         )}
-      </div>
+      </button>
     </th>
   );
 }
@@ -149,19 +158,21 @@ export default function CarTable({
         <thead className="bg-gray-900/90 backdrop-blur-sm sticky top-0 z-10">
           <tr>
             {/* Action columns - hidden on print */}
-            <th className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
-              <span title="Add to favorites" className="text-amber-600">★</span>
+            <th scope="col" className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
+              <span title="Add to favorites" className="text-amber-600" aria-hidden="true">★</span>
+              <span className="sr-only">Favorite</span>
             </th>
-            <th className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
-              <span title="Add to compare">⚖</span>
+            <th scope="col" className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
+              <span title="Add to compare" aria-hidden="true">⚖</span>
+              <span className="sr-only">Compare</span>
             </th>
-            <th className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider print:hidden">
+            <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider print:hidden">
               Base
             </th>
-            <th className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+            <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
               Image
             </th>
-            <th className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
+            <th scope="col" className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
               <span title="View full details">Info</span>
             </th>
             {/* Configurable columns */}
@@ -179,7 +190,7 @@ export default function CarTable({
             {isVisible("lengthInches") && <SortableHeader field="lengthInches" label="Length" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("mirrorsFoldedWidthInches") && <SortableHeader field="mirrorsFoldedWidthInches" label="Folded" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("oneMirrorWidthInches") && (
-              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 1 Mirror
               </th>
             )}
@@ -188,12 +199,12 @@ export default function CarTable({
             {isVisible("groundClearanceInches") && <SortableHeader field="groundClearanceInches" label="Clearance" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("towingCapacityLbs") && <SortableHeader field="towingCapacityLbs" label="Towing" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("fuelType") && (
-              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Fuel
               </th>
             )}
             {isVisible("plugType") && (
-              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Plug
               </th>
             )}
@@ -210,7 +221,7 @@ export default function CarTable({
             {isVisible("insuranceCostAnnual") && <SortableHeader field="insuranceCostAnnual" label="Insure/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("maintenanceCostAnnual") && <SortableHeader field="maintenanceCostAnnual" label="Maint/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("notes") && (
-              <th className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
+              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
                 Notes
               </th>
             )}

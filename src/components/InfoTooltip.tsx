@@ -38,9 +38,11 @@ export default function InfoTooltip({ title, children }: InfoTooltipProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="ml-1 w-4 h-4 rounded-full bg-gray-700/50 hover:bg-amber-500/20 text-gray-500 hover:text-amber-400 text-xs font-bold inline-flex items-center justify-center transition-colors border border-gray-600/30"
         title={`Learn about ${title}`}
+        aria-label={`Learn about ${title}`}
+        aria-expanded={isOpen}
         type="button"
       >
-        ?
+        <span aria-hidden="true">?</span>
       </button>
 
       {isOpen && (
@@ -53,6 +55,7 @@ export default function InfoTooltip({ title, children }: InfoTooltipProps) {
             <button
               onClick={() => setIsOpen(false)}
               className="text-gray-400 hover:text-white text-lg leading-none"
+              aria-label={`Close ${title} info`}
             >
               ×
             </button>
