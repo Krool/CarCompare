@@ -13,7 +13,7 @@
     "sync-data": "npx ts-node scripts/sync-car-data.ts"
   },
   "dependencies": {
-    "next": "16.0.4",
+    "next": "16.2.10",
     "react": "19.2.7",
     "react-dom": "19.2.7"
   },
