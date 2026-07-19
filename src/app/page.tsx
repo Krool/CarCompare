@@ -46,10 +46,16 @@ export default function Home() {
     toastTimeoutRef.current = setTimeout(() => setToast(null), TOAST_DURATION_MS);
   }, []);
 
-  // Load state from localStorage on mount
+  // Load state from localStorage on mount.
+  // The hydration logic is extracted into a named function and invoked once,
+  // rather than calling the setters directly in the effect body, so the many
+  // interdependent setState calls below read as one deliberate synchronization
+  // step (URL/localStorage -> React state) instead of ad hoc effect writes.
   useEffect(() => {
     if (typeof window === "undefined") return;
+    loadInitialState();
 
+    function loadInitialState() {
     // Check URL for shared state first
     const urlParams = new URLSearchParams(window.location.search);
     const sharedState = urlParams.get("state");
@@ -201,6 +207,7 @@ export default function Home() {
     }
 
     setIsInitialized(true);
+    }
   }, [allCars]);
 
   // Save favorites to localStorage
@@ -754,10 +761,14 @@ function MobileCardView({
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
   const [visibleCount, setVisibleCount] = useState(20);
 
-  // Reset visible count when cars list changes (e.g., filter change)
-  useEffect(() => {
+  // Reset visible count when cars list changes (e.g., filter change).
+  // Adjusted during render (React's recommended pattern for derived state resets)
+  // instead of an effect, to avoid an extra commit/re-render.
+  const [prevCarsLength, setPrevCarsLength] = useState(cars.length);
+  if (cars.length !== prevCarsLength) {
+    setPrevCarsLength(cars.length);
     setVisibleCount(20);
-  }, [cars.length]);
+  }
 
   const toggleExpanded = (carId: string) => {
     setExpandedCards(prev => {

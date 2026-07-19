@@ -40,29 +40,25 @@ export default function GarageFitVisualizer({
   mirrorBuffer,
   onClose,
 }: GarageFitVisualizerProps) {
-  const [garage, setGarage] = useState<GarageDimensions>(DEFAULT_GARAGE);
-  const [isInitialized, setIsInitialized] = useState(false);
-  const focusTrapRef = useFocusTrap();
-
-  // Load garage dimensions from localStorage
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        setGarage(JSON.parse(saved));
-      } catch (e) {
-        console.error("Failed to parse garage dimensions:", e);
-      }
+  // GarageFitVisualizer only ever mounts client-side (in response to a button
+  // click), so it's safe to read localStorage directly in the initializer
+  // instead of hydrating via an effect.
+  const [garage, setGarage] = useState<GarageDimensions>(() => {
+    if (typeof window === "undefined") return DEFAULT_GARAGE;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : DEFAULT_GARAGE;
+    } catch (e) {
+      console.error("Failed to parse garage dimensions:", e);
+      return DEFAULT_GARAGE;
     }
-    setIsInitialized(true);
-  }, []);
+  });
+  const focusTrapRef = useFocusTrap();
 
   // Save garage dimensions to localStorage
   useEffect(() => {
-    if (!isInitialized) return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(garage));
-  }, [garage, isInitialized]);
+  }, [garage]);
 
   const carWidth = getEffectiveWidth(car, mirrorBuffer);
   const carLength = car.lengthInches ?? 180; // Default to 15 feet if unknown

@@ -2,10 +2,7 @@ name: PR Checks
 
 # Verification signal for pull requests. Does not deploy; deploy.yml owns GitHub Pages.
 #
-# Blocking gate:     typecheck + build (both currently green).
-# Non-blocking:      lint. The repo is not eslint-clean yet (pre-existing debt tracked in
-#                    issue #3). Lint runs for visibility but does not fail the PR until that
-#                    debt is paid down and the step is made blocking.
+# Blocking gate: lint + typecheck + build.
 
 on:
   pull_request:
@@ -31,8 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint (non-blocking, see issue #3)
-        continue-on-error: true
+      - name: Lint
         run: npm run lint
 
       - name: Typecheck

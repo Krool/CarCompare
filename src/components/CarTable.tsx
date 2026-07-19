@@ -105,6 +105,18 @@ function DiffBadge({ diff, positive }: { diff: string | null; positive?: "higher
   return <span className={`text-xs ml-1 font-mono ${colorClass}`}>({diff})</span>;
 }
 
+function DetailRow({ label, value, diff, positive, isBaseline }: { label: string; value: string | number | undefined; diff?: string | null; positive?: "higher" | "lower"; isBaseline?: boolean }) {
+  return (
+    <div className="flex justify-between py-1 border-b border-gray-800/50">
+      <span className="text-gray-400">{label}</span>
+      <span className="text-white">
+        {value ?? "-"}
+        {diff && !isBaseline && <DiffBadge diff={diff} positive={positive} />}
+      </span>
+    </div>
+  );
+}
+
 export default function CarTable({
   cars,
   sortConfig,
@@ -838,16 +850,6 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
   const isBaseline = baselineCar?.id === car.id;
   const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
 
-  const DetailRow = ({ label, value, diff, positive }: { label: string; value: string | number | undefined; diff?: string | null; positive?: "higher" | "lower" }) => (
-    <div className="flex justify-between py-1 border-b border-gray-800/50">
-      <span className="text-gray-400">{label}</span>
-      <span className="text-white">
-        {value ?? "-"}
-        {diff && !isBaseline && <DiffBadge diff={diff} positive={positive} />}
-      </span>
-    </div>
-  );
-
   return (
     <>
       {showGarageFit && (
@@ -945,6 +947,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               value={formatCurrency(car.msrp)}
               diff={baselineCar ? calculateDifference(baselineCar, car, "msrp", mirrorBuffer) : null}
               positive="lower"
+              isBaseline={isBaseline}
             />
           </div>
 
@@ -956,12 +959,14 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               value={car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : undefined}
               diff={baselineCar && baselineCar.mirrorsFoldedWidthInches && car.mirrorsFoldedWidthInches ? calculateDifference(baselineCar, car, "mirrorsFoldedWidthInches", mirrorBuffer) : null}
               positive="lower"
+              isBaseline={isBaseline}
             />
             <DetailRow
               label="Width (Mirrors Extended)"
               value={`${effectiveWidth.toFixed(1)}"`}
               diff={baselineCar ? calculateDifference(baselineCar, car, "bodyWidthInches", mirrorBuffer) : null}
               positive="lower"
+              isBaseline={isBaseline}
             />
             <DetailRow label="Body Width" value={car.bodyWidthInches ? `${car.bodyWidthInches}"` : undefined} />
             <DetailRow label="Length" value={car.lengthInches ? `${car.lengthInches}"` : undefined} />
@@ -970,12 +975,14 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               value={car.heightInches ? `${car.heightInches}"` : undefined}
               diff={baselineCar && car.heightInches && baselineCar.heightInches ? calculateDifference(baselineCar, car, "heightInches", mirrorBuffer) : null}
               positive="lower"
+              isBaseline={isBaseline}
             />
             <DetailRow
               label="Ground Clearance"
               value={car.groundClearanceInches ? `${car.groundClearanceInches}"` : undefined}
               diff={baselineCar && car.groundClearanceInches && baselineCar.groundClearanceInches ? calculateDifference(baselineCar, car, "groundClearanceInches", mirrorBuffer) : null}
               positive="higher"
+              isBaseline={isBaseline}
             />
             <button
               onClick={() => setShowGarageFit(true)}
@@ -993,6 +1000,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               value={car.seats}
               diff={baselineCar ? calculateDifference(baselineCar, car, "seats", mirrorBuffer) : null}
               positive="higher"
+              isBaseline={isBaseline}
             />
             <DetailRow label="Doors" value={car.doors} />
             <DetailRow
@@ -1000,6 +1008,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               value={car.driverLegroomInches ? `${car.driverLegroomInches}"` : undefined}
               diff={baselineCar ? calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer) : null}
               positive="higher"
+              isBaseline={isBaseline}
             />
             <DetailRow label="Cargo Volume" value={car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : undefined} />
           </div>
@@ -1016,6 +1025,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
                   value={car.mpgCombined}
                   diff={baselineCar ? calculateDifference(baselineCar, car, "mpgCombined", mirrorBuffer) : null}
                   positive="higher"
+                  isBaseline={isBaseline}
                 />
               </>
             )}
@@ -1026,6 +1036,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
                 value={`${car.electricRangeMiles} mi`}
                 diff={baselineCar ? calculateDifference(baselineCar, car, "electricRangeMiles", mirrorBuffer) : null}
                 positive="higher"
+                isBaseline={isBaseline}
               />
             )}
           </div>
@@ -1186,7 +1197,7 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
   const imgRef = React.useRef<HTMLImageElement>(null);
 
   // Memoize the image URL to prevent recalculation
-  const imageUrl = useMemo(() => getCarImageUrl(car), [car.make, car.model]);
+  const imageUrl = useMemo(() => getCarImageUrl(car), [car]);
 
   // Add timeout to stop loading animation after 5 seconds
   React.useEffect(() => {

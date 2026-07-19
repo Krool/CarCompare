@@ -33,6 +33,66 @@ function CompareCarImage({ car }: { car: Car }) {
   );
 }
 
+function CompareRow({ label, values, format, highlight }: {
+  label: string;
+  values: (string | number | undefined)[];
+  format?: (v: string | number | undefined) => string;
+  highlight?: "higher" | "lower";
+}) {
+  const formatted = values.map(v => format ? format(v) : (v ?? "-"));
+
+  // Find best value for highlighting
+  let bestIndex = -1;
+  if (highlight && values.some(v => v !== undefined)) {
+    const numericValues = values.map(v => typeof v === "number" ? v : parseFloat(String(v)) || 0);
+    if (highlight === "higher") {
+      bestIndex = numericValues.indexOf(Math.max(...numericValues));
+    } else {
+      const validValues = numericValues.filter(v => v > 0);
+      if (validValues.length > 0) {
+        const minVal = Math.min(...validValues);
+        bestIndex = numericValues.indexOf(minVal);
+      }
+    }
+  }
+
+  return (
+    <tr className="border-b border-gray-800/50">
+      <th scope="row" className="px-4 py-2 text-left text-gray-400 font-medium">{label}</th>
+      {formatted.map((val, i) => (
+        <td
+          key={i}
+          className={`px-4 py-2 text-center ${
+            bestIndex === i ? "text-emerald-400 font-semibold" : "text-gray-200"
+          }`}
+        >
+          {val}
+          {bestIndex === i && (
+            <span className="text-emerald-400 ml-1" title="Best value"> ★<span className="sr-only"> (best value)</span></span>
+          )}
+        </td>
+      ))}
+    </tr>
+  );
+}
+
+function SafetyBadge({ rating }: { rating?: SafetyRating }) {
+  if (!rating || rating === "Not Rated") {
+    return <span className="text-gray-500">-</span>;
+  }
+  const colors: Record<string, string> = {
+    "TSP+": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
+    "TSP": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
+    "Good": "bg-sky-900/25 text-sky-300 border-sky-800/30",
+    "Acceptable": "bg-amber-900/25 text-amber-300 border-amber-800/30",
+  };
+  return (
+    <span className={`badge border ${colors[rating] ?? "bg-gray-700/30 border-gray-600/30"}`}>
+      {rating}
+    </span>
+  );
+}
+
 export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer }: CompareModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const focusTrapRef = useFocusTrap();
@@ -69,66 +129,6 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
   }, [onClose]);
 
   if (cars.length === 0) return null;
-
-  const CompareRow = ({ label, values, format, highlight }: {
-    label: string;
-    values: (string | number | undefined)[];
-    format?: (v: string | number | undefined) => string;
-    highlight?: "higher" | "lower";
-  }) => {
-    const formatted = values.map(v => format ? format(v) : (v ?? "-"));
-
-    // Find best value for highlighting
-    let bestIndex = -1;
-    if (highlight && values.some(v => v !== undefined)) {
-      const numericValues = values.map(v => typeof v === "number" ? v : parseFloat(String(v)) || 0);
-      if (highlight === "higher") {
-        bestIndex = numericValues.indexOf(Math.max(...numericValues));
-      } else {
-        const validValues = numericValues.filter(v => v > 0);
-        if (validValues.length > 0) {
-          const minVal = Math.min(...validValues);
-          bestIndex = numericValues.indexOf(minVal);
-        }
-      }
-    }
-
-    return (
-      <tr className="border-b border-gray-800/50">
-        <th scope="row" className="px-4 py-2 text-left text-gray-400 font-medium">{label}</th>
-        {formatted.map((val, i) => (
-          <td
-            key={i}
-            className={`px-4 py-2 text-center ${
-              bestIndex === i ? "text-emerald-400 font-semibold" : "text-gray-200"
-            }`}
-          >
-            {val}
-            {bestIndex === i && (
-              <span className="text-emerald-400 ml-1" title="Best value"> ★<span className="sr-only"> (best value)</span></span>
-            )}
-          </td>
-        ))}
-      </tr>
-    );
-  };
-
-  const SafetyBadge = ({ rating }: { rating?: SafetyRating }) => {
-    if (!rating || rating === "Not Rated") {
-      return <span className="text-gray-500">-</span>;
-    }
-    const colors: Record<string, string> = {
-      "TSP+": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
-      "TSP": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
-      "Good": "bg-sky-900/25 text-sky-300 border-sky-800/30",
-      "Acceptable": "bg-amber-900/25 text-amber-300 border-amber-800/30",
-    };
-    return (
-      <span className={`badge border ${colors[rating] ?? "bg-gray-700/30 border-gray-600/30"}`}>
-        {rating}
-      </span>
-    );
-  };
 
   return (
     <div
