@@ -97,37 +97,58 @@ function columnHasData(columnId: ColumnId, cars: Car[]): boolean {
   return false;
 }
 
+// Shared stroke-icon wrapper so every wizard icon matches the header logo style
+function LineIcon({ path, className = "w-4 h-4" }: { path: string; className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={path} />
+    </svg>
+  );
+}
+
+const ICON_PATHS = {
+  garage: "M3 21V9l9-6 9 6v12M7 21v-8h10v8M7 17h10",
+  shield: "M12 3l7 3v5c0 4.6-2.9 8.2-7 10-4.1-1.8-7-5.4-7-10V6l7-3",
+  dollar: "M12 2v20M16.5 6.5c-.9-1-2.5-1.5-4.5-1.5-2.5 0-4.5 1.1-4.5 3s1.8 2.6 4.5 3.2c2.7.6 4.5 1.4 4.5 3.3s-2 3-4.5 3c-2 0-3.6-.6-4.5-1.6",
+  bolt: "M13 2L4 14h6l-1 8 9-12h-6l1-8",
+  gauge: "M12 14l4-5M5.2 18.9A9 9 0 1118.8 18.9M12 5v2",
+  sliders: "M4 6h10M18 6h2M4 12h2M10 12h10M4 18h10M18 18h2M14 4v4M6 10v4M14 16v4",
+  check: "M4 12l5 5L20 7",
+  close: "M6 6l12 12M18 6L6 18",
+  chevronDown: "M6 9l6 6 6-6",
+} as const;
+
 // Preset configurations based on use case - can select multiple
 const USE_CASE_PRESETS = {
   "garage-fit": {
     label: "Garage Fit",
     description: "Dimensions for parking spaces",
     columns: ["lengthInches", "mirrorsFoldedWidthInches", "oneMirrorWidthInches", "bodyWidthInches", "heightInches", "groundClearanceInches"] as ColumnId[],
-    icon: "🏠",
+    icon: ICON_PATHS.garage,
   },
   "family": {
     label: "Family Safety",
     description: "Safety ratings and seating",
     columns: ["safetyRating", "seats", "reliabilityRating"] as ColumnId[],
-    icon: "👨‍👩‍👧‍👦",
+    icon: ICON_PATHS.shield,
   },
   "budget": {
     label: "Budget & Costs",
     description: "Ownership and running costs",
     columns: ["mpgCombined", "reliabilityRating", "insuranceCostAnnual", "maintenanceCostAnnual", "depreciationCategory"] as ColumnId[],
-    icon: "💰",
+    icon: ICON_PATHS.dollar,
   },
   "ev-shopping": {
     label: "EV / Electric",
     description: "Range and charging info",
     columns: ["electricRangeMiles", "plugType", "fuelType"] as ColumnId[],
-    icon: "⚡",
+    icon: ICON_PATHS.bolt,
   },
   "performance": {
     label: "Performance",
     description: "Speed and power stats",
     columns: ["zeroToSixtySeconds", "horsepower"] as ColumnId[],
-    icon: "🏎️",
+    icon: ICON_PATHS.gauge,
   },
 };
 
@@ -484,14 +505,14 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     aria-current={isCurrent ? "step" : undefined}
                     aria-label={`Step ${i + 1} of 5: ${stepNames[i]}${isCurrent ? " (current)" : isCompleted ? " (completed)" : ""}`}
                     className={`w-3 h-3 rounded-full transition-all ${
-                      isCurrent ? "bg-amber-500 ring-2 ring-amber-300/50" :
-                      isCompleted ? "bg-emerald-500 cursor-pointer hover:ring-2 hover:ring-emerald-300/50" :
+                      isCurrent ? "bg-amber-500 ring-2 ring-amber-400/40" :
+                      isCompleted ? "bg-amber-700 cursor-pointer hover:ring-2 hover:ring-amber-500/40" :
                       "bg-gray-700 cursor-not-allowed"
                     }`}
                     title={canNavigate ? `Go back to ${stepNames[i]}` : stepNames[i]}
                   />
                   {i < 4 && (
-                    <div className={`w-8 h-0.5 ${isCompleted ? "bg-emerald-500/50" : "bg-gray-700"}`} aria-hidden="true" />
+                    <div className={`w-8 h-0.5 ${isCompleted ? "bg-amber-700/50" : "bg-gray-700"}`} aria-hidden="true" />
                   )}
                 </li>
               );
@@ -513,9 +534,9 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               Welcome to <span className="text-gradient-gold">Car</span>Compare
             </h2>
             <p className="text-gray-400 mb-8">
-              Set up your experience in a few quick steps.
+              Pick what matters, set a reference car, and get a comparison table built around your search.
               <br />
-              <span className="text-gray-500 text-sm">Takes about 30 seconds.</span>
+              <span className="text-gray-500 text-sm">Takes about 30 seconds. Everything can be changed later.</span>
             </p>
             <div className="flex gap-3 justify-center">
               <button
@@ -557,9 +578,15 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         : "bg-gray-800/30 border border-gray-700/30 hover:border-gray-600/50"
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xl">{preset.icon}</span>
-                      {isSelected && <span className="text-amber-400 text-sm">✓</span>}
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
+                        isSelected
+                          ? "bg-amber-500/15 border-amber-500/30 text-amber-400"
+                          : "bg-gray-800/50 border-gray-700/30 text-gray-400"
+                      }`}>
+                        <LineIcon path={preset.icon} />
+                      </span>
+                      {isSelected && <LineIcon path={ICON_PATHS.check} className="w-4 h-4 text-amber-400" />}
                     </div>
                     <span className="text-white font-medium text-sm block">{preset.label}</span>
                     <span className="text-gray-400 text-xs">{preset.description}</span>
@@ -665,7 +692,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                   className="text-gray-400 hover:text-white"
                   aria-label="Clear selected baseline"
                 >
-                  <span aria-hidden="true">✕</span>
+                  <LineIcon path={ICON_PATHS.close} />
                 </button>
               </div>
             )}
@@ -775,11 +802,11 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {([
-                  { type: "gasoline" as FuelType, desc: "Traditional gas", icon: "⛽" },
-                  { type: "hybrid" as FuelType, desc: "Gas + electric", icon: "🔋" },
-                  { type: "plug-in-hybrid" as FuelType, desc: "Plugs in + gas", icon: "🔌" },
-                  { type: "electric" as FuelType, desc: "100% battery", icon: "⚡" },
-                ]).map(({ type, desc, icon }) => (
+                  { type: "gasoline" as FuelType, desc: "Traditional gas" },
+                  { type: "hybrid" as FuelType, desc: "Gas + electric" },
+                  { type: "plug-in-hybrid" as FuelType, desc: "Plugs in + gas" },
+                  { type: "electric" as FuelType, desc: "100% battery" },
+                ]).map(({ type, desc }) => (
                   <button
                     key={type}
                     onClick={() => toggleFuelType(type)}
@@ -790,10 +817,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         : "bg-gray-800/30 border border-gray-700/30 hover:border-gray-600/50"
                     }`}
                   >
-                    <div className="flex items-center gap-1">
-                      <span>{icon}</span>
-                      <span className="text-white text-sm capitalize">{type.replace("-", " ")}</span>
-                    </div>
+                    <span className="text-white text-sm capitalize block">{type.replace("-", " ")}</span>
                     <span className="text-gray-400 text-xs">{desc}</span>
                   </button>
                 ))}
@@ -870,17 +894,17 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
               className="w-full mb-4 px-4 py-3 bg-amber-900/15 hover:bg-amber-900/25 text-gray-200 rounded-xl text-sm flex items-center justify-between border border-amber-800/20 transition-colors"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-lg">🔍</span>
+              <div className="flex items-center gap-3">
+                <LineIcon path={ICON_PATHS.sliders} className="w-4 h-4 text-amber-400" />
                 <div className="text-left">
                   <span className="font-medium block">Advanced Filters</span>
                   <span className="text-amber-400/70 text-xs">Safety ratings, ADAS tech, efficiency, brands</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-500 text-xs">4 categories</span>
-                <span className="text-amber-400">{showAdvancedFilters ? "▲" : "▼"}</span>
-              </div>
+              <LineIcon
+                path={ICON_PATHS.chevronDown}
+                className={`w-4 h-4 text-amber-400 transition-transform ${showAdvancedFilters ? "rotate-180" : ""}`}
+              />
             </button>
 
             {showAdvancedFilters && (
@@ -888,7 +912,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 {/* Safety Rating */}
                 <div className="surface-inset rounded-xl p-3">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-white text-sm font-medium">🛡️ Safety Rating (IIHS)</p>
+                    <p className="text-white text-sm font-medium">Safety Rating (IIHS)</p>
                     {preferences.safetyRatings.length > 0 && (
                       <span className="text-amber-400 text-xs">{preferences.safetyRatings.length} selected</span>
                     )}
@@ -904,7 +928,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         onClick={() => toggleSafetyRating(rating)}
                         className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                           preferences.safetyRatings.includes(rating)
-                            ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                            ? "bg-amber-500/15 text-amber-400 border border-amber-500/40"
                             : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                         }`}
                       >
@@ -917,7 +941,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 {/* Driver Assistance */}
                 <div className="surface-inset rounded-xl p-3">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-white text-sm font-medium">🤖 Driver Assistance (ADAS)</p>
+                    <p className="text-white text-sm font-medium">Driver Assistance (ADAS)</p>
                     {(preferences.autonomousLevels.length > 0 || preferences.hasHandsFree) && (
                       <span className="text-amber-400 text-xs">filtered</span>
                     )}
@@ -934,7 +958,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         onClick={() => toggleAutonomousLevel(level)}
                         className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                           preferences.autonomousLevels.includes(level)
-                            ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                            ? "bg-amber-500/15 text-amber-400 border border-amber-500/40"
                             : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                         }`}
                       >
@@ -955,7 +979,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
                 {/* Efficiency */}
                 <div className="surface-inset rounded-xl p-3">
-                  <p className="text-white text-sm font-medium mb-2">⛽ Efficiency</p>
+                  <p className="text-white text-sm font-medium mb-2">Efficiency</p>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <p className="text-gray-400 text-xs mb-1">Min MPG/MPGe</p>
@@ -1006,7 +1030,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 {(preferences.fuelTypes.includes("electric") || preferences.fuelTypes.includes("plug-in-hybrid") || preferences.fuelTypes.length === 0) && (
                   <div className="surface-inset rounded-xl p-3">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-white text-sm font-medium">🔌 EV Plug Type</p>
+                      <p className="text-white text-sm font-medium">EV Plug Type</p>
                       {preferences.plugTypes.length > 0 && (
                         <span className="text-amber-400 text-xs">{preferences.plugTypes.length} selected</span>
                       )}
@@ -1037,7 +1061,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 {/* Makes */}
                 <div className="surface-inset rounded-xl p-3">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-white text-sm font-medium">🏭 Brands</p>
+                    <p className="text-white text-sm font-medium">Brands</p>
                     {preferences.makes.length > 0 && (
                       <button
                         onClick={() => setPreferences(prev => ({ ...prev, makes: [] }))}
@@ -1069,11 +1093,11 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
                 {/* Sort preference */}
                 <div className="surface-inset rounded-xl p-3">
-                  <p className="text-white text-sm font-medium mb-2">📊 Default Sort</p>
+                  <p className="text-white text-sm font-medium mb-2">Default Sort</p>
                   <div className="flex flex-wrap gap-2">
                     {([
-                      { field: "msrp" as SortField, label: "Price ↑", dir: "asc" as const },
-                      { field: "msrp" as SortField, label: "Price ↓", dir: "desc" as const },
+                      { field: "msrp" as SortField, label: "Price (low first)", dir: "asc" as const },
+                      { field: "msrp" as SortField, label: "Price (high first)", dir: "desc" as const },
                       { field: "safetyRating" as SortField, label: "Safety", dir: "desc" as const },
                       { field: "mpgCombined" as SortField, label: "MPG", dir: "desc" as const },
                       { field: "electricRangeMiles" as SortField, label: "Range", dir: "desc" as const },
@@ -1131,10 +1155,10 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
         {step === "complete" && (
           <div className="animate-fadeIn">
             <h2 id="wizard-title" className="text-2xl font-bold text-white mb-2 text-center">
-              Ready to Compare!
+              Ready to Compare
             </h2>
             <p className="text-gray-400 mb-6 text-center">
-              Your settings are ready. Share this link to save or send your configuration.
+              Here is what you set up. Copy the link to save this view or send it to someone.
             </p>
 
             {/* Summary */}
