@@ -23,12 +23,3 @@ There is no unit-test suite. The verification signal is lint + typecheck + build
 ## Release and approval
 Default branch is `master`. Pushing/merging to `master` triggers `.github/workflows/deploy.yml`
 and ships to GitHub Pages, so a merged PR IS the production deploy.
-
-## Repo map
-- `src/app/`         Next App Router (layout.tsx, page.tsx, globals.css)
-- `src/components/`  React UI (CarTable, CompareModal, FilterControls, SetupWizard, ...)
-- `src/lib/`         utilities (carUtils, analytics, constants, useFocusTrap)
-- `src/data/`        cars.json, the vehicle dataset
-- `src/types/`       TypeScript types (car.ts)
-- `scripts/`         data maintenance + sync (sync-car-data.ts, validate-cars.js, ...)
-- `public/`          static assets
