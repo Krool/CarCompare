@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Car, SafetyRating } from "@/types/car";
 import { formatCurrency, getEffectiveWidth, getCarImageUrl } from "@/lib/carUtils";
 import { EMPTY, adasLevelLabel, fuelTypeLabel, plugTypeLabel, reliabilityLabel } from "@/lib/labels";
-import { CarImagePlaceholder } from "./CarTable";
+import CarImagePlaceholder from "./CarImagePlaceholder";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 
 interface CompareModalProps {
@@ -25,7 +25,7 @@ function CompareCarImage({ car }: { car: Car }) {
     <img
       src={getCarImageUrl(car, 300)}
       alt={`${car.year} ${car.make} ${car.model}`}
-      className="w-full h-32 object-contain rounded-xl mb-2"
+      className="w-full h-20 object-contain rounded-xl mb-2"
       onError={() => setHasError(true)}
     />
   );
@@ -47,10 +47,13 @@ function CompareRow({ label, values, format, highlight }: {
 
   const formatted = values.map(v => format ? format(v) : (v ?? EMPTY));
 
-  // Find best value for highlighting. Only real readings can win: the previous
-  // version coerced missing values to 0, which let a car with NO towing rating
-  // take the "best value" star on the towing row.
-  let bestIndex = -1;
+  // Which cells win this row.
+  //
+  // Only real readings compete: the previous version coerced missing values to
+  // 0, which let a car with NO towing rating take the "best value" star. Ties
+  // all win rather than the first one silently taking it, and if every car
+  // ties there is no winner to point at.
+  const winners = new Set<number>();
   if (highlight) {
     const numericValues = values.map(v => {
       const n = typeof v === "number" ? v : parseFloat(String(v));
@@ -59,7 +62,11 @@ function CompareRow({ label, values, format, highlight }: {
     const candidates = numericValues.filter((n): n is number => n !== null);
     if (candidates.length > 1) {
       const target = highlight === "higher" ? Math.max(...candidates) : Math.min(...candidates);
-      bestIndex = numericValues.indexOf(target);
+      if (candidates.some(n => n !== target)) {
+        numericValues.forEach((n, i) => {
+          if (n === target) winners.add(i);
+        });
+      }
     }
   }
 
@@ -68,18 +75,19 @@ function CompareRow({ label, values, format, highlight }: {
       <th scope="row" className="px-4 py-2 text-left text-gray-400 font-medium">{label}</th>
       {formatted.map((val, i) => {
         const isMissing = val === EMPTY;
+        const isWinner = winners.has(i);
         return (
           <td
             key={i}
             className={`px-4 py-2 text-center tabular-nums ${
-              bestIndex === i ? "text-emerald-400 font-semibold" : isMissing ? "text-gray-500" : "text-gray-200"
+              isWinner ? "text-emerald-400 font-semibold" : isMissing ? "text-gray-500" : "text-gray-200"
             }`}
           >
             {val}
-            {bestIndex === i && (
+            {isWinner && (
               <span className="text-emerald-400 ml-1" title="Best value" aria-hidden="true"> ★</span>
             )}
-            {bestIndex === i && <span className="sr-only"> (best value)</span>}
+            {isWinner && <span className="sr-only"> (best value)</span>}
           </td>
         );
       })}
@@ -246,7 +254,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               <CompareRow
                 label="MSRP"
                 values={cars.map(c => c.msrp)}
-                format={(v) => v ? formatCurrency(v as number) : "-"}
+                format={(v) => v ? formatCurrency(v as number) : EMPTY}
                 highlight="lower"
               />
 
@@ -274,24 +282,24 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               <CompareRow
                 label="Width (Mirrors Folded)"
                 values={cars.map(c => c.mirrorsFoldedWidthInches)}
-                format={(v) => v ? `${(v as number).toFixed(1)}"` : "-"}
+                format={(v) => v ? `${(v as number).toFixed(1)}"` : EMPTY}
                 highlight="lower"
               />
               <CompareRow
                 label="Width (Mirrors Extended)"
                 values={cars.map(c => getEffectiveWidth(c, mirrorBuffer))}
-                format={(v) => v ? `${(v as number).toFixed(1)}"` : "-"}
+                format={(v) => v ? `${(v as number).toFixed(1)}"` : EMPTY}
                 highlight="lower"
               />
               <CompareRow
                 label="Length"
                 values={cars.map(c => c.lengthInches)}
-                format={(v) => v ? `${v}"` : "-"}
+                format={(v) => v ? `${v}"` : EMPTY}
               />
               <CompareRow
                 label="Height"
                 values={cars.map(c => c.heightInches)}
-                format={(v) => v ? `${v}"` : "-"}
+                format={(v) => v ? `${v}"` : EMPTY}
               />
 
               {/* Capacity Section */}
@@ -308,13 +316,13 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               <CompareRow
                 label="Driver Legroom"
                 values={cars.map(c => c.driverLegroomInches)}
-                format={(v) => v ? `${v}"` : "-"}
+                format={(v) => v ? `${v}"` : EMPTY}
                 highlight="higher"
               />
               <CompareRow
                 label="Cargo Volume"
                 values={cars.map(c => c.cargoVolumesCuFt)}
-                format={(v) => v ? `${v} cu ft` : "-"}
+                format={(v) => v ? `${v} cu ft` : EMPTY}
                 highlight="higher"
               />
 
@@ -337,7 +345,7 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               <CompareRow
                 label="EV Range"
                 values={cars.map(c => c.electricRangeMiles)}
-                format={(v) => v ? `${v} mi` : "-"}
+                format={(v) => v ? `${v} mi` : EMPTY}
                 highlight="higher"
               />
 
@@ -358,13 +366,13 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               <CompareRow
                 label="Horsepower"
                 values={cars.map(c => c.horsepower)}
-                format={(v) => v ? `${v} hp` : "-"}
+                format={(v) => v ? `${v} hp` : EMPTY}
                 highlight="higher"
               />
               <CompareRow
                 label="0-60 mph"
                 values={cars.map(c => c.zeroToSixtySeconds)}
-                format={(v) => v ? `${v}s` : "-"}
+                format={(v) => v ? `${v}s` : EMPTY}
                 highlight="lower"
               />
 
@@ -402,13 +410,13 @@ export default function CompareModal({ cars, onClose, onRemoveCar, mirrorBuffer 
               <CompareRow
                 label="Towing Capacity"
                 values={cars.map(c => c.towingCapacityLbs)}
-                format={(v) => v ? `${(v as number).toLocaleString()} lbs` : "-"}
+                format={(v) => v ? `${(v as number).toLocaleString()} lbs` : EMPTY}
                 highlight="higher"
               />
               <CompareRow
                 label="Ground Clearance"
                 values={cars.map(c => c.groundClearanceInches)}
-                format={(v) => v ? `${v}"` : "-"}
+                format={(v) => v ? `${v}"` : EMPTY}
                 highlight="higher"
               />
             </tbody>

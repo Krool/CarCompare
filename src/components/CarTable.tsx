@@ -23,6 +23,7 @@ import {
   optional,
 } from "@/lib/labels";
 import { useFocusTrap } from "@/lib/useFocusTrap";
+import CarImagePlaceholder from "./CarImagePlaceholder";
 import GarageFitVisualizer from "./GarageFitVisualizer";
 
 interface CarTableProps {
@@ -128,8 +129,10 @@ function DiffBadge({ diff, positive }: { diff: string | null; positive?: "higher
 
   return (
     <span className={`delta ${toneClass} ml-1`}>
+      {/* The arrow carries the sign, so both "+" and "-" are dropped from the
+          number — otherwise positives read "▲27" and negatives "▼-27". */}
       <span aria-hidden="true">{arrow}</span>
-      {diff.replace(/^\+/, "")}
+      {diff.replace(/^[+-]/, "")}
       <span className="sr-only"> {diff} versus baseline, {judgement}</span>
     </span>
   );
@@ -533,16 +536,17 @@ export default function CarTable({
                     </span>
                   </td>
                 )}
-                {isVisible("mpgCombined") && (
-                  <td className="px-3 py-2 text-sm tabular-nums whitespace-nowrap">
-                    <span className={formatMpg(car) === "-" ? "text-gray-500" : "text-white"}>
-                      {formatMpg(car) === "-" ? EMPTY : formatMpg(car)}
-                    </span>
-                    {showDiff && hasValue(car.mpgCombined) && hasValue(baselineCar?.mpgCombined) && (
-                      <DiffBadge diff={calculateDifference(baselineCar!, car, "mpgCombined", mirrorBuffer)} positive="higher" />
-                    )}
-                  </td>
-                )}
+                {isVisible("mpgCombined") && (() => {
+                  const mpg = formatMpg(car);
+                  return (
+                    <td className="px-3 py-2 text-sm tabular-nums whitespace-nowrap">
+                      <span className={mpg === EMPTY ? "text-gray-500" : "text-white"}>{mpg}</span>
+                      {showDiff && hasValue(car.mpgCombined) && hasValue(baselineCar?.mpgCombined) && (
+                        <DiffBadge diff={calculateDifference(baselineCar!, car, "mpgCombined", mirrorBuffer)} positive="higher" />
+                      )}
+                    </td>
+                  );
+                })()}
                 {isVisible("electricRangeMiles") && (
                   <NumCell value={car.electricRangeMiles} format={(v) => `${v} mi`} />
                 )}
@@ -1197,31 +1201,6 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
     </>
   );
 }
-
-/**
- * Silhouette shown when a render is unavailable.
- *
- * Replaces the single capital letter ("S" for suv) that used to stand in — a
- * consistent shape reads as "no photo" rather than as a typo.
- */
-export const CarImagePlaceholder = React.memo(function CarImagePlaceholder({
-  className = "",
-  label,
-}: { className?: string; label?: string }) {
-  return (
-    <div
-      className={`bg-gray-800/40 border border-gray-700/30 rounded-lg flex items-center justify-center text-gray-600 ${className}`}
-      title={label}
-    >
-      <svg className="w-1/3 h-1/3 min-w-4 min-h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h14a2 2 0 012 2v6a2 2 0 01-2 2" />
-        <circle cx="7.5" cy="17" r="1" fill="currentColor" />
-        <circle cx="16.5" cy="17" r="1" fill="currentColor" />
-      </svg>
-      <span className="sr-only">No image available</span>
-    </div>
-  );
-});
 
 // Memoized car image component to prevent unnecessary re-renders.
 // Purely presentational — the surrounding cell owns the click target, so the

@@ -1,4 +1,5 @@
-import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating } from "@/types/car";
+import { Car, CarFilters, SortConfig, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating } from "@/types/car";
+import { EMPTY } from "@/lib/labels";
 
 // Safety rating order for sorting (higher is better)
 const SAFETY_RATING_ORDER: Record<SafetyRating | "undefined", number> = {
@@ -358,7 +359,7 @@ export function getUniqueMakes(cars: Car[]): string[] {
 }
 
 export function formatCurrency(value: number | undefined): string {
-  if (value === undefined) return "-";
+  if (value === undefined) return EMPTY;
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -368,12 +369,12 @@ export function formatCurrency(value: number | undefined): string {
 
 export function formatMpg(car: Car): string {
   if (car.fuelType === "electric") {
-    return car.mpge ? `${car.mpge} MPGe` : "-";
+    return car.mpge ? `${car.mpge} MPGe` : EMPTY;
   }
   if (car.mpgCombined) {
     return `${car.mpgCombined} MPG`;
   }
-  return "-";
+  return EMPTY;
 }
 
 export function getEffectiveWidth(car: Car, mirrorBuffer: number): number {
@@ -484,19 +485,21 @@ export const CAR_ANGLES = [
 ] as const;
 
 /**
- * Generate car image URL from imagin.studio API.
+ * IMAGIN.studio account key.
  *
- * `customer` defaults to "img", IMAGIN's public demo account, which returns
- * WATERMARKED renders. Set NEXT_PUBLIC_IMAGIN_CUSTOMER to a licensed key to
- * get clean images; nothing else needs to change.
- *
+ * Defaults to "img", their public demo account, which returns WATERMARKED
+ * renders. Set NEXT_PUBLIC_IMAGIN_CUSTOMER to a licensed key for clean
+ * images; nothing else needs to change.
+ */
+export const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER ?? "img";
+
+/**
+ * Generate car image URL from imagin.studio API
  * @param car - The car object
  * @param size - Image width in pixels (default: 400)
  * @param angle - Camera angle id from CAR_ANGLES (default: front 3/4)
  * @returns URL string for car image
  */
-export const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER ?? "img";
-
 export function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): string {
   const modelFamily = car.model
     .split(" ")[0]

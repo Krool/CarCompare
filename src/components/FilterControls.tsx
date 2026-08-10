@@ -528,7 +528,7 @@ function FilterControlsComponent({
                 aria-pressed={filters.autonomousLevels?.includes(al.value) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.autonomousLevels?.includes(al.value)
-                    ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
                     : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
