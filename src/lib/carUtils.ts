@@ -474,13 +474,30 @@ export function downloadCsv(content: string, filename: string): void {
   URL.revokeObjectURL(link.href);
 }
 
+/** Camera angles offered by the IMAGIN.studio API. */
+export const CAR_ANGLES = [
+  { id: "01", label: "Front 3/4" },
+  { id: "09", label: "Rear 3/4" },
+  { id: "21", label: "Side" },
+  { id: "29", label: "Front" },
+  { id: "33", label: "Top" },
+] as const;
+
 /**
- * Generate car image URL from imagin.studio API
+ * Generate car image URL from imagin.studio API.
+ *
+ * `customer` defaults to "img", IMAGIN's public demo account, which returns
+ * WATERMARKED renders. Set NEXT_PUBLIC_IMAGIN_CUSTOMER to a licensed key to
+ * get clean images; nothing else needs to change.
+ *
  * @param car - The car object
  * @param size - Image width in pixels (default: 400)
+ * @param angle - Camera angle id from CAR_ANGLES (default: front 3/4)
  * @returns URL string for car image
  */
-export function getCarImageUrl(car: Car, size: number = 400): string {
+export const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER ?? "img";
+
+export function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): string {
   const modelFamily = car.model
     .split(" ")[0]
     .toLowerCase()
@@ -501,11 +518,11 @@ export function getCarImageUrl(car: Car, size: number = 400): string {
   const cdnNum = ((car.id.charCodeAt(0) + car.id.charCodeAt(car.id.length - 1)) % 9) + 1;
   const cdn = `cdn-0${cdnNum}`;
   const params = new URLSearchParams({
-    customer: "img",
+    customer: IMAGIN_CUSTOMER,
     make,
     modelFamily,
     modelYear: String(car.year),
-    angle: "01",
+    angle,
     width: String(size),
     zoomType: "fullscreen",
     fileType: "webp",

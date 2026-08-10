@@ -1,14 +1,27 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating, ColumnId } from "@/types/car";
+import { Car, SortConfig, SortField, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating, BodyType, FuelType, ColumnId } from "@/types/car";
 import {
   formatCurrency,
   formatMpg,
   getEffectiveWidth,
   calculateDifference,
-  getCarDisplayName,
+  getCarImageUrl,
+  CAR_ANGLES,
 } from "@/lib/carUtils";
+import {
+  EMPTY,
+  bodyTypeLabel,
+  fuelTypeLabel,
+  adasLevelLabel,
+  plugTypeLabel,
+  reliabilityLabel,
+  depreciationLabel,
+  leaseRatingLabel,
+  hasValue,
+  optional,
+} from "@/lib/labels";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import GarageFitVisualizer from "./GarageFitVisualizer";
 
@@ -89,28 +102,88 @@ function SortableHeader({ field, label, sortConfig, onSortChange, tooltip }: Sor
   );
 }
 
+/**
+ * Difference from the baseline car.
+ *
+ * The arrow encodes direction and the tone encodes judgement, so the reading
+ * survives without colour (colour-blind users, greyscale print). Previously
+ * hue was the only signal.
+ */
 function DiffBadge({ diff, positive }: { diff: string | null; positive?: "higher" | "lower" }) {
   if (!diff) return null;
   if (diff === "same") {
-    return <span className="text-gray-500 text-xs ml-1">(=)</span>;
+    return (
+      <span className="delta delta-same ml-1">
+        =<span className="sr-only"> same as baseline</span>
+      </span>
+    );
   }
 
   const isPositiveNum = diff.startsWith("+");
   const isGood = positive === "higher" ? isPositiveNum : positive === "lower" ? !isPositiveNum : null;
 
-  let colorClass = "text-gray-500";
-  if (isGood === true) colorClass = "text-emerald-400";
-  if (isGood === false) colorClass = "text-rose-400";
+  const toneClass = isGood === true ? "delta-good" : isGood === false ? "delta-bad" : "delta-same";
+  const arrow = isPositiveNum ? "▲" : "▼";
+  const judgement = isGood === true ? "better" : isGood === false ? "worse" : "different";
 
-  return <span className={`text-xs ml-1 font-mono ${colorClass}`}>({diff})</span>;
+  return (
+    <span className={`delta ${toneClass} ml-1`}>
+      <span aria-hidden="true">{arrow}</span>
+      {diff.replace(/^\+/, "")}
+      <span className="sr-only"> {diff} versus baseline, {judgement}</span>
+    </span>
+  );
+}
+
+/**
+ * A numeric table cell.
+ *
+ * Renders a muted em-dash when the reading is absent, so "no data" is
+ * visually distinct from a real measurement, and suppresses the delta rather
+ * than comparing against nothing.
+ */
+function NumCell({
+  value,
+  format = String,
+  title,
+  diff,
+  positive,
+}: {
+  value: number | undefined;
+  format?: (v: number) => string;
+  title?: string;
+  diff?: string | null;
+  positive?: "higher" | "lower";
+}) {
+  if (!hasValue(value)) {
+    return (
+      <td className="px-3 py-2 text-sm text-gray-500 tabular-nums" title={title}>
+        {EMPTY}
+      </td>
+    );
+  }
+  return (
+    <td className="px-3 py-2 text-sm text-white tabular-nums whitespace-nowrap" title={title}>
+      {format(value)}
+      {diff && <DiffBadge diff={diff} positive={positive} />}
+    </td>
+  );
+}
+
+/** Width with the driver's mirror extended and the passenger's folded. */
+function getOneMirrorWidth(car: Car, mirrorBuffer: number): number {
+  const folded = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches;
+  const extended = getEffectiveWidth(car, mirrorBuffer);
+  return ((extended - folded) / 2) + folded;
 }
 
 function DetailRow({ label, value, diff, positive, isBaseline }: { label: string; value: string | number | undefined; diff?: string | null; positive?: "higher" | "lower"; isBaseline?: boolean }) {
+  const isMissing = value === undefined || value === null || value === "";
   return (
-    <div className="flex justify-between py-1 border-b border-gray-800/50">
+    <div className="flex justify-between gap-3 py-1.5 border-b border-gray-800/50 last:border-b-0">
       <span className="text-gray-400">{label}</span>
-      <span className="text-white">
-        {value ?? "-"}
+      <span className={`text-right tabular-nums ${isMissing ? "text-gray-500" : "text-white"}`}>
+        {isMissing ? EMPTY : value}
         {diff && !isBaseline && <DiffBadge diff={diff} positive={positive} />}
       </span>
     </div>
@@ -165,11 +238,24 @@ export default function CarTable({
           mirrorBuffer={mirrorBuffer}
         />
       )}
-    <div className="overflow-x-auto surface-elevated rounded-xl max-h-[calc(100vh-300px)] overflow-y-auto">
+    {/*
+      `relative` matters: Tailwind's .sr-only is absolutely positioned, and
+      without a positioned ancestor the visually-hidden delta descriptions
+      resolve against the viewport. Once the table is scrolled right they land
+      past the page edge and give the whole document a horizontal scrollbar.
+    */}
+    <div className="relative surface-elevated rounded-xl overflow-x-auto overflow-y-auto md:h-full md:min-h-0 max-md:max-h-[70dvh]">
       <table className="min-w-full divide-y divide-gray-800/80">
-        <thead className="bg-gray-900/90 backdrop-blur-sm sticky top-0 z-10">
+        <thead className="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-10">
           <tr>
-            {/* Action columns - hidden on print */}
+            {/*
+              Action columns. They lead the row because star/checkbox at the
+              left edge is the convention for selectable tables — but they are
+              kept to two narrow cells so the car's identity is the third
+              column, not the sixth. The image and a separate "info" button
+              used to sit here too; the image now lives inside the model cell
+              and details open from the model name.
+            */}
             <th scope="col" className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
               <span title="Add to favorites" className="text-amber-600" aria-hidden="true">★</span>
               <span className="sr-only">Favorite</span>
@@ -178,19 +264,13 @@ export default function CarTable({
               <span title="Add to compare" aria-hidden="true">⚖</span>
               <span className="sr-only">Compare</span>
             </th>
-            <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider print:hidden">
-              Base
-            </th>
-            <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
-              Image
-            </th>
-            <th scope="col" className="px-2 py-2.5 text-center text-[10px] font-semibold text-gray-400 uppercase tracking-wider w-10 print:hidden">
-              <span title="View full details">Info</span>
-            </th>
             {/* Configurable columns */}
             {isVisible("year") && <SortableHeader field="year" label="Year" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("make") && <SortableHeader field="make" label="Make" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("model") && <SortableHeader field="model" label="Model" sortConfig={sortConfig} onSortChange={onSortChange} />}
+            <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap print:hidden">
+              Base
+            </th>
             {isVisible("bodyType") && <SortableHeader field="bodyType" label="Type" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("safetyRating") && <SortableHeader field="safetyRating" label="Safety" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("reviewScore") && <SortableHeader field="reviewScore" label="Score" sortConfig={sortConfig} onSortChange={onSortChange} />}
@@ -202,7 +282,7 @@ export default function CarTable({
             {isVisible("lengthInches") && <SortableHeader field="lengthInches" label="Length" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("mirrorsFoldedWidthInches") && <SortableHeader field="mirrorsFoldedWidthInches" label="Folded" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("oneMirrorWidthInches") && (
-              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+              <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap" title="Width with 1 mirror extended (passenger side folded)">
                 1 Mirror
               </th>
             )}
@@ -211,12 +291,12 @@ export default function CarTable({
             {isVisible("groundClearanceInches") && <SortableHeader field="groundClearanceInches" label="Clearance" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("towingCapacityLbs") && <SortableHeader field="towingCapacityLbs" label="Towing" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("fuelType") && (
-              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+              <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap">
                 Fuel
               </th>
             )}
             {isVisible("plugType") && (
-              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+              <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap">
                 Plug
               </th>
             )}
@@ -233,7 +313,7 @@ export default function CarTable({
             {isVisible("insuranceCostAnnual") && <SortableHeader field="insuranceCostAnnual" label="Insure/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("maintenanceCostAnnual") && <SortableHeader field="maintenanceCostAnnual" label="Maint/yr" sortConfig={sortConfig} onSortChange={onSortChange} />}
             {isVisible("notes") && (
-              <th scope="col" className="px-3 py-2 text-left text-xs font-medium text-gray-300 uppercase tracking-wider max-w-xs">
+              <th scope="col" className="px-3 py-2.5 text-left text-[10px] font-semibold text-gray-400 uppercase tracking-wider max-w-xs">
                 Notes
               </th>
             )}
@@ -245,6 +325,9 @@ export default function CarTable({
             const effectiveWidth = getEffectiveWidth(car, mirrorBuffer);
             const isFavorite = favorites.includes(car.id);
             const isInCompare = compareList.includes(car.id);
+            // A delta is only meaningful against another car, and the baseline
+            // row has nothing to compare itself to.
+            const showDiff = baselineCar !== null && !isBaseline;
 
             return (
               <tr
@@ -268,11 +351,37 @@ export default function CarTable({
                     type="checkbox"
                     checked={isInCompare}
                     onChange={() => onToggleCompare(car.id)}
-                    className="w-3.5 h-3.5 rounded border-gray-600 bg-gray-800 accent-amber-500"
+                    className="w-4 h-4"
                     title="Add to comparison"
                     aria-label={isInCompare ? `Remove ${car.year} ${car.make} ${car.model} from comparison` : `Add ${car.year} ${car.make} ${car.model} to comparison`}
                   />
                 </td>
+                {/* Configurable columns */}
+                {isVisible("year") && (
+                  <td className="px-3 py-2 text-sm text-white tabular-nums">
+                    {car.year}
+                  </td>
+                )}
+                {isVisible("make") && (
+                  <td className="px-3 py-2 text-sm text-white whitespace-nowrap">
+                    {car.make}
+                  </td>
+                )}
+                {isVisible("model") && (
+                  <td className="px-3 py-2 text-sm">
+                    <button
+                      onClick={() => setModalCar(car)}
+                      className="flex items-center gap-2.5 text-left group/model"
+                      aria-label={`View details for ${car.year} ${car.make} ${car.model}`}
+                    >
+                      <CarImage car={car} />
+                      <span className="min-w-0">
+                        <span className="text-white group-hover/model:text-amber-400 transition-colors">{car.model}</span>
+                        {car.trim && <span className="text-gray-400 text-xs ml-1">{car.trim}</span>}
+                      </span>
+                    </button>
+                  </td>
+                )}
                 <td className="px-3 py-2 print:hidden">
                   <button
                     onClick={() => onSelectBaseline(car)}
@@ -286,38 +395,6 @@ export default function CarTable({
                     {isBaseline ? "✓" : "Set"}
                   </button>
                 </td>
-                <td className="px-3 py-2">
-                  <CarImage car={car} onImageClick={() => setModalCar(car)} />
-                </td>
-                <td className="px-2 py-2 text-center print:hidden">
-                  <button
-                    onClick={() => setModalCar(car)}
-                    className="p-1.5 rounded-md bg-gray-800/50 hover:bg-amber-500/20 text-gray-500 hover:text-amber-400 transition-colors border border-gray-700/30"
-                    title="View full details"
-                    aria-label={`View details for ${car.year} ${car.make} ${car.model}`}
-                  >
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </button>
-                </td>
-                {/* Configurable columns */}
-                {isVisible("year") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.year}
-                  </td>
-                )}
-                {isVisible("make") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.make}
-                  </td>
-                )}
-                {isVisible("model") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.model}
-                    {car.trim && <span className="text-gray-400 text-xs ml-1">{car.trim}</span>}
-                  </td>
-                )}
                 {isVisible("bodyType") && (
                   <td className="px-3 py-2 text-sm">
                     <BodyTypeBadge bodyType={car.bodyType} />
@@ -339,103 +416,110 @@ export default function CarTable({
                   </td>
                 )}
                 {isVisible("seats") && (
-                  <td className="px-3 py-2 text-sm text-white">
+                  <td className="px-3 py-2 text-sm text-white tabular-nums whitespace-nowrap">
                     {car.seats}
-                    {baselineCar && !isBaseline && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "seats", mirrorBuffer)} positive="higher" />
+                    {showDiff && (
+                      <DiffBadge diff={calculateDifference(baselineCar!, car, "seats", mirrorBuffer)} positive="higher" />
                     )}
                   </td>
                 )}
                 {isVisible("doors") && (
-                  <td className="px-3 py-2 text-sm text-white">
+                  <td className="px-3 py-2 text-sm text-white tabular-nums">
                     {car.doors}
                   </td>
                 )}
                 {isVisible("driverLegroomInches") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}
-                    {baselineCar && !isBaseline && car.driverLegroomInches && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer)} positive="higher" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.driverLegroomInches}
+                    format={(v) => `${v}"`}
+                    diff={showDiff && hasValue(baselineCar?.driverLegroomInches) ? calculateDifference(baselineCar!, car, "driverLegroomInches", mirrorBuffer) : null}
+                    positive="higher"
+                  />
                 )}
                 {isVisible("cargoVolumesCuFt") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Cargo volume in cubic feet">
-                    {car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt}` : "-"}
-                    {baselineCar && !isBaseline && car.cargoVolumesCuFt && baselineCar.cargoVolumesCuFt && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "cargoVolumesCuFt", mirrorBuffer)} positive="higher" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.cargoVolumesCuFt}
+                    title="Cargo volume in cubic feet"
+                    diff={showDiff && hasValue(baselineCar?.cargoVolumesCuFt) ? calculateDifference(baselineCar!, car, "cargoVolumesCuFt", mirrorBuffer) : null}
+                    positive="higher"
+                  />
                 )}
                 {isVisible("lengthInches") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Overall length">
-                    {car.lengthInches ? `${car.lengthInches}"` : "-"}
-                    {baselineCar && !isBaseline && car.lengthInches && baselineCar.lengthInches && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "lengthInches", mirrorBuffer)} positive="lower" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.lengthInches}
+                    format={(v) => `${v}"`}
+                    title="Overall length"
+                    diff={showDiff && hasValue(baselineCar?.lengthInches) ? calculateDifference(baselineCar!, car, "lengthInches", mirrorBuffer) : null}
+                    positive="lower"
+                  />
                 )}
                 {isVisible("mirrorsFoldedWidthInches") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Width with mirrors folded">
-                    {car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : "-"}
-                    {baselineCar && !isBaseline && car.mirrorsFoldedWidthInches && baselineCar.mirrorsFoldedWidthInches && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "mirrorsFoldedWidthInches", mirrorBuffer)} positive="lower" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.mirrorsFoldedWidthInches}
+                    format={(v) => `${v}"`}
+                    title="Width with mirrors folded"
+                    diff={showDiff && hasValue(baselineCar?.mirrorsFoldedWidthInches) ? calculateDifference(baselineCar!, car, "mirrorsFoldedWidthInches", mirrorBuffer) : null}
+                    positive="lower"
+                  />
                 )}
                 {isVisible("oneMirrorWidthInches") && (() => {
                   // Calculate 1 mirror width: (extended - folded) / 2 + folded
-                  const folded = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches;
-                  const extended = effectiveWidth;
-                  const oneMirror = ((extended - folded) / 2) + folded;
-                  const baseOneMirror = baselineCar ? (() => {
-                    const baseFolded = baselineCar.mirrorsFoldedWidthInches ?? baselineCar.bodyWidthInches;
-                    const baseExtended = getEffectiveWidth(baselineCar, mirrorBuffer);
-                    return ((baseExtended - baseFolded) / 2) + baseFolded;
-                  })() : null;
-                  const diff = baseOneMirror && !isBaseline ? (oneMirror - baseOneMirror).toFixed(1) : null;
-                  const diffStr = diff ? (parseFloat(diff) > 0 ? `+${diff}` : diff === "0.0" ? "same" : diff) : null;
+                  const oneMirror = getOneMirrorWidth(car, mirrorBuffer);
+                  const baseOneMirror = baselineCar ? getOneMirrorWidth(baselineCar, mirrorBuffer) : null;
+                  const delta = baseOneMirror !== null && showDiff ? oneMirror - baseOneMirror : null;
+                  // Narrower than the baseline is the good direction here, same
+                  // as every other width column — the old inline styling had it
+                  // inverted and used off-palette red/green.
+                  const diffStr = delta === null
+                    ? null
+                    : Math.abs(delta) < 0.05
+                      ? "same"
+                      : `${delta > 0 ? "+" : ""}${delta.toFixed(1)}`;
                   return (
-                    <td className="px-3 py-2 text-sm text-white" title="Width with 1 mirror extended (passenger side folded)">
-                      {oneMirror.toFixed(1)}"
-                      {diffStr && diffStr !== "same" && (
-                        <span className={`text-xs ml-1 ${parseFloat(diff!) > 0 ? "text-red-400" : "text-green-400"}`}>({diffStr})</span>
-                      )}
-                      {diffStr === "same" && <span className="text-gray-500 text-xs ml-1">(=)</span>}
-                    </td>
+                    <NumCell
+                      value={oneMirror}
+                      format={(v) => `${v.toFixed(1)}"`}
+                      title="Width with 1 mirror extended (passenger side folded)"
+                      diff={diffStr}
+                      positive="lower"
+                    />
                   );
                 })()}
                 {isVisible("bodyWidthInches") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Width with mirrors extended">
-                    {effectiveWidth.toFixed(1)}"
-                    {baselineCar && !isBaseline && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "bodyWidthInches", mirrorBuffer)} positive="lower" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={effectiveWidth}
+                    format={(v) => `${v.toFixed(1)}"`}
+                    title="Width with mirrors extended"
+                    diff={showDiff ? calculateDifference(baselineCar!, car, "bodyWidthInches", mirrorBuffer) : null}
+                    positive="lower"
+                  />
                 )}
                 {isVisible("heightInches") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Overall height">
-                    {car.heightInches ? `${car.heightInches}"` : "-"}
-                    {baselineCar && !isBaseline && car.heightInches && baselineCar.heightInches && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "heightInches", mirrorBuffer)} positive="lower" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.heightInches}
+                    format={(v) => `${v}"`}
+                    title="Overall height"
+                    diff={showDiff && hasValue(baselineCar?.heightInches) ? calculateDifference(baselineCar!, car, "heightInches", mirrorBuffer) : null}
+                    positive="lower"
+                  />
                 )}
                 {isVisible("groundClearanceInches") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Ground clearance">
-                    {car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}
-                    {baselineCar && !isBaseline && car.groundClearanceInches && baselineCar.groundClearanceInches && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "groundClearanceInches", mirrorBuffer)} positive="higher" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.groundClearanceInches}
+                    format={(v) => `${v}"`}
+                    title="Ground clearance"
+                    diff={showDiff && hasValue(baselineCar?.groundClearanceInches) ? calculateDifference(baselineCar!, car, "groundClearanceInches", mirrorBuffer) : null}
+                    positive="higher"
+                  />
                 )}
                 {isVisible("towingCapacityLbs") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Towing capacity in pounds">
-                    {car.towingCapacityLbs ? `${car.towingCapacityLbs.toLocaleString()}` : "-"}
-                    {baselineCar && !isBaseline && car.towingCapacityLbs && baselineCar.towingCapacityLbs && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "towingCapacityLbs", mirrorBuffer)} positive="higher" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.towingCapacityLbs}
+                    format={(v) => v.toLocaleString()}
+                    title="Towing capacity in pounds"
+                    diff={showDiff && hasValue(baselineCar?.towingCapacityLbs) ? calculateDifference(baselineCar!, car, "towingCapacityLbs", mirrorBuffer) : null}
+                    positive="higher"
+                  />
                 )}
                 {isVisible("fuelType") && (
                   <td className="px-3 py-2 text-sm">
@@ -443,41 +527,39 @@ export default function CarTable({
                   </td>
                 )}
                 {isVisible("plugType") && (
-                  <td className="px-3 py-2 text-sm text-gray-300">
-                    {car.plugType === "none" ? "-" : car.plugType}
+                  <td className="px-3 py-2 text-sm whitespace-nowrap">
+                    <span className={car.plugType === "none" ? "text-gray-500" : "text-gray-300"}>
+                      {plugTypeLabel(car.plugType)}
+                    </span>
                   </td>
                 )}
                 {isVisible("mpgCombined") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {formatMpg(car)}
-                    {baselineCar && !isBaseline && car.mpgCombined && baselineCar.mpgCombined && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "mpgCombined", mirrorBuffer)} positive="higher" />
+                  <td className="px-3 py-2 text-sm tabular-nums whitespace-nowrap">
+                    <span className={formatMpg(car) === "-" ? "text-gray-500" : "text-white"}>
+                      {formatMpg(car) === "-" ? EMPTY : formatMpg(car)}
+                    </span>
+                    {showDiff && hasValue(car.mpgCombined) && hasValue(baselineCar?.mpgCombined) && (
+                      <DiffBadge diff={calculateDifference(baselineCar!, car, "mpgCombined", mirrorBuffer)} positive="higher" />
                     )}
                   </td>
                 )}
                 {isVisible("electricRangeMiles") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}
-                  </td>
+                  <NumCell value={car.electricRangeMiles} format={(v) => `${v} mi`} />
                 )}
                 {isVisible("zeroToSixtySeconds") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.zeroToSixtySeconds ? `${car.zeroToSixtySeconds}s` : "-"}
-                  </td>
+                  <NumCell value={car.zeroToSixtySeconds} format={(v) => `${v}s`} />
                 )}
                 {isVisible("horsepower") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.horsepower ? `${car.horsepower}` : "-"}
-                  </td>
+                  <NumCell value={car.horsepower} format={(v) => `${v} hp`} />
                 )}
                 {/* Pricing & Ownership */}
                 {isVisible("msrp") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {formatCurrency(car.msrp)}
-                    {baselineCar && !isBaseline && (
-                      <DiffBadge diff={calculateDifference(baselineCar, car, "msrp", mirrorBuffer)} positive="lower" />
-                    )}
-                  </td>
+                  <NumCell
+                    value={car.msrp}
+                    format={(v) => formatCurrency(v)}
+                    diff={showDiff && hasValue(baselineCar?.msrp) ? calculateDifference(baselineCar!, car, "msrp", mirrorBuffer) : null}
+                    positive="lower"
+                  />
                 )}
                 {isVisible("leaseRating") && (
                   <td className="px-3 py-2 text-sm">
@@ -490,9 +572,7 @@ export default function CarTable({
                   </td>
                 )}
                 {isVisible("fiveYearResalePercent") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.fiveYearResalePercent ? `${car.fiveYearResalePercent}%` : "-"}
-                  </td>
+                  <NumCell value={car.fiveYearResalePercent} format={(v) => `${v}%`} />
                 )}
                 {isVisible("reliabilityRating") && (
                   <td className="px-3 py-2 text-sm">
@@ -500,18 +580,14 @@ export default function CarTable({
                   </td>
                 )}
                 {isVisible("insuranceCostAnnual") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.insuranceCostAnnual ? formatCurrency(car.insuranceCostAnnual) : "-"}
-                  </td>
+                  <NumCell value={car.insuranceCostAnnual} format={(v) => formatCurrency(v)} />
                 )}
                 {isVisible("maintenanceCostAnnual") && (
-                  <td className="px-3 py-2 text-sm text-white">
-                    {car.maintenanceCostAnnual ? formatCurrency(car.maintenanceCostAnnual) : "-"}
-                  </td>
+                  <NumCell value={car.maintenanceCostAnnual} format={(v) => formatCurrency(v)} />
                 )}
                 {isVisible("notes") && (
-                  <td className="px-3 py-2 text-sm text-gray-400 max-w-xs truncate" title={car.notes}>
-                    {car.notes ?? "-"}
+                  <td className={`px-3 py-2 text-sm max-w-xs truncate ${car.notes ? "text-gray-400" : "text-gray-500"}`} title={car.notes}>
+                    {car.notes ?? EMPTY}
                   </td>
                 )}
               </tr>
@@ -529,71 +605,51 @@ export default function CarTable({
   );
 }
 
-const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType: string }) {
-  const colors: Record<string, string> = {
-    gasoline: "bg-gray-700/50 text-gray-300 border-gray-600/30",
-    diesel: "bg-amber-900/30 text-amber-300 border-amber-800/30",
-    hybrid: "bg-emerald-900/30 text-emerald-300 border-emerald-800/30",
-    "plug-in-hybrid": "bg-teal-900/30 text-teal-300 border-teal-800/30",
-    electric: "bg-sky-900/30 text-sky-300 border-sky-800/30",
-  };
-
-  const labels: Record<string, string> = {
-    gasoline: "Gas",
-    diesel: "Diesel",
-    hybrid: "Hybrid",
-    "plug-in-hybrid": "PHEV",
-    electric: "EV",
-  };
+/**
+ * Fuel type.
+ *
+ * Category is carried by the label; tone is reserved for the one thing a
+ * shopper judges here — whether the car plugs in. Gas and diesel are neutral,
+ * electrified powertrains get the brand accent.
+ */
+const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType: FuelType }) {
+  const tone = fuelType === "electric"
+    ? "badge-accent"
+    : fuelType === "hybrid" || fuelType === "plug-in-hybrid"
+      ? "badge-good"
+      : "badge-neutral";
 
   return (
-    <span className={`badge border ${colors[fuelType] ?? "bg-gray-700/50 border-gray-600/30"}`}>
-      {labels[fuelType] ?? fuelType}
+    <span className={`badge ${tone}`} title={fuelTypeLabel(fuelType)}>
+      {fuelTypeLabel(fuelType, true)}
     </span>
   );
 });
 
-const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType: string }) {
-  const colors: Record<string, string> = {
-    sedan: "bg-violet-900/30 text-violet-300 border-violet-800/30",
-    crossover: "bg-orange-900/30 text-orange-300 border-orange-800/30",
-    suv: "bg-amber-900/30 text-amber-300 border-amber-800/30",
-    truck: "bg-rose-900/30 text-rose-300 border-rose-800/30",
-    minivan: "bg-pink-900/30 text-pink-300 border-pink-800/30",
-    hatchback: "bg-cyan-900/30 text-cyan-300 border-cyan-800/30",
-    wagon: "bg-lime-900/30 text-lime-300 border-lime-800/30",
-    coupe: "bg-indigo-900/30 text-indigo-300 border-indigo-800/30",
-  };
-
-  const labels: Record<string, string> = {
-    sedan: "Sedan",
-    crossover: "Crossover",
-    suv: "SUV",
-    truck: "Truck",
-    minivan: "Minivan",
-    hatchback: "Hatch",
-    wagon: "Wagon",
-    coupe: "Coupe",
-  };
-
+/**
+ * Body type is a category, not a judgement — it gets one neutral tone. It
+ * previously had a distinct hue per type, which put eight unrelated colours
+ * on screen and made the table read as a legend rather than data.
+ */
+const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType: BodyType }) {
   return (
-    <span className={`badge border ${colors[bodyType] ?? "bg-gray-700/50 border-gray-600/30"}`}>
-      {labels[bodyType] ?? bodyType}
+    <span className="badge badge-neutral" title={bodyTypeLabel(bodyType)}>
+      {bodyTypeLabel(bodyType, true)}
     </span>
   );
 });
 
 const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: SafetyRating }) {
   if (!rating || rating === "Not Rated") {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">{EMPTY}</span>;
   }
 
   const colors: Record<string, string> = {
-    "TSP+": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
-    "TSP": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
-    "Good": "bg-sky-900/25 text-sky-300 border-sky-800/30",
-    "Acceptable": "bg-amber-900/25 text-amber-300 border-amber-800/30",
-    "Pending": "bg-gray-700/30 text-gray-400 border-gray-600/30",
+    "TSP+": "badge-good",
+    "TSP": "badge-good",
+    "Good": "badge-neutral",
+    "Acceptable": "badge-caution",
+    "Pending": "badge-neutral",
   };
 
   const titles: Record<string, string> = {
@@ -606,7 +662,7 @@ const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: Safet
 
   return (
     <span
-      className={`badge border ${colors[rating] ?? "bg-gray-700/30 border-gray-600/30"}`}
+      className={`badge ${colors[rating] ?? "badge-neutral"}`}
       title={titles[rating]}
     >
       {rating}
@@ -616,17 +672,16 @@ const SafetyBadge = React.memo(function SafetyBadge({ rating }: { rating?: Safet
 
 const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score?: number }) {
   if (score === undefined || score === null) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">{EMPTY}</span>;
   }
 
+  // Four semantic steps rather than a seven-stop rainbow: the number itself
+  // already carries the fine gradation.
   const getHeatmapColor = (s: number): string => {
-    if (s >= 90) return "bg-emerald-900/40 text-emerald-300 border-emerald-700/40";
-    if (s >= 80) return "bg-emerald-900/25 text-emerald-400 border-emerald-800/30";
-    if (s >= 70) return "bg-lime-900/25 text-lime-300 border-lime-800/30";
-    if (s >= 60) return "bg-amber-900/25 text-amber-300 border-amber-800/30";
-    if (s >= 50) return "bg-orange-900/25 text-orange-300 border-orange-800/30";
-    if (s >= 40) return "bg-orange-900/30 text-orange-300 border-orange-700/30";
-    return "bg-rose-900/30 text-rose-300 border-rose-700/30";
+    if (s >= 80) return "badge-good";
+    if (s >= 60) return "badge-neutral";
+    if (s >= 45) return "badge-caution";
+    return "badge-bad";
   };
 
   const getScoreLabel = (s: number): string => {
@@ -641,7 +696,7 @@ const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score
 
   return (
     <span
-      className={`badge border font-mono ${getHeatmapColor(score)}`}
+      className={`badge font-mono ${getHeatmapColor(score)}`}
       title={`${getScoreLabel(score)} - Aggregated expert review score from MotorMashup`}
     >
       {score}
@@ -651,45 +706,37 @@ const ReviewScoreBadge = React.memo(function ReviewScoreBadge({ score }: { score
 
 const AdasBadge = React.memo(function AdasBadge({ level, name }: { level?: AutonomousLevel; name?: string }) {
   if (!level || level === "none") {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">{EMPTY}</span>;
   }
 
   const colors: Record<AutonomousLevel, string> = {
-    "none": "bg-gray-700/30 text-gray-500 border-gray-600/30",
-    "basic": "bg-gray-700/30 text-gray-300 border-gray-600/30",
-    "enhanced": "bg-sky-900/25 text-sky-300 border-sky-800/30",
-    "hands-free": "bg-violet-900/30 text-violet-300 border-violet-800/30",
-    "full-self-driving": "bg-cyan-900/30 text-cyan-300 border-cyan-800/30",
-  };
-
-  const labels: Record<AutonomousLevel, string> = {
-    "none": "None",
-    "basic": "Basic",
-    "enhanced": "Enhanced",
-    "hands-free": "Hands-Free",
-    "full-self-driving": "FSD",
+    "none": "badge-neutral",
+    "basic": "badge-neutral",
+    "enhanced": "badge-neutral",
+    "hands-free": "badge-accent",
+    "full-self-driving": "badge-accent",
   };
 
   return (
     <span
-      className={`badge border ${colors[level]}`}
-      title={name ?? level}
+      className={`badge ${colors[level]}`}
+      title={name ?? adasLevelLabel(level)}
     >
-      {labels[level]}
+      {adasLevelLabel(level, true)}
     </span>
   );
 });
 
 const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rating?: LeaseRating }) {
   if (!rating) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">{EMPTY}</span>;
   }
 
   const colors: Record<LeaseRating, string> = {
-    "excellent": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
-    "good": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
-    "fair": "bg-amber-900/25 text-amber-300 border-amber-800/30",
-    "poor": "bg-rose-900/25 text-rose-300 border-rose-800/30",
+    "excellent": "badge-good",
+    "good": "badge-good",
+    "fair": "badge-caution",
+    "poor": "badge-bad",
   };
 
   const titles: Record<LeaseRating, string> = {
@@ -701,31 +748,24 @@ const LeaseRatingBadge = React.memo(function LeaseRatingBadge({ rating }: { rati
 
   return (
     <span
-      className={`badge border capitalize ${colors[rating]}`}
+      className={`badge ${colors[rating]}`}
       title={titles[rating]}
     >
-      {rating}
+      {leaseRatingLabel(rating)}
     </span>
   );
 });
 
 const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { category?: DepreciationCategory }) {
   if (!category) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">{EMPTY}</span>;
   }
 
   const colors: Record<DepreciationCategory, string> = {
-    "low": "bg-emerald-900/30 text-emerald-300 border-emerald-700/30",
-    "medium": "bg-amber-900/25 text-amber-300 border-amber-800/30",
-    "high": "bg-orange-900/25 text-orange-300 border-orange-800/30",
-    "very-high": "bg-rose-900/25 text-rose-300 border-rose-800/30",
-  };
-
-  const labels: Record<DepreciationCategory, string> = {
-    "low": "Low",
-    "medium": "Med",
-    "high": "High",
-    "very-high": "V.High",
+    "low": "badge-good",
+    "medium": "badge-neutral",
+    "high": "badge-caution",
+    "very-high": "badge-bad",
   };
 
   const titles: Record<DepreciationCategory, string> = {
@@ -737,33 +777,25 @@ const DepreciationBadge = React.memo(function DepreciationBadge({ category }: { 
 
   return (
     <span
-      className={`badge border ${colors[category]}`}
+      className={`badge ${colors[category]}`}
       title={titles[category]}
     >
-      {labels[category]}
+      {depreciationLabel(category, true)}
     </span>
   );
 });
 
 const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rating?: ReliabilityRating }) {
   if (!rating) {
-    return <span className="text-gray-500 text-xs">-</span>;
+    return <span className="text-gray-500 text-xs">{EMPTY}</span>;
   }
 
   const colors: Record<ReliabilityRating, string> = {
-    "excellent": "bg-emerald-900/40 text-emerald-300 border-emerald-700/40",
-    "good": "bg-emerald-900/25 text-emerald-400 border-emerald-800/30",
-    "average": "bg-amber-900/25 text-amber-300 border-amber-800/30",
-    "below-average": "bg-orange-900/25 text-orange-300 border-orange-800/30",
-    "poor": "bg-rose-900/25 text-rose-300 border-rose-800/30",
-  };
-
-  const labels: Record<ReliabilityRating, string> = {
-    "excellent": "Excellent",
-    "good": "Good",
-    "average": "Avg",
-    "below-average": "Below",
-    "poor": "Poor",
+    "excellent": "badge-good",
+    "good": "badge-good",
+    "average": "badge-neutral",
+    "below-average": "badge-caution",
+    "poor": "badge-bad",
   };
 
   const titles: Record<ReliabilityRating, string> = {
@@ -776,10 +808,10 @@ const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rati
 
   return (
     <span
-      className={`badge border ${colors[rating]}`}
+      className={`badge ${colors[rating]}`}
       title={titles[rating]}
     >
-      {labels[rating]}
+      {reliabilityLabel(rating, true)}
     </span>
   );
 });
@@ -787,52 +819,12 @@ const ReliabilityBadge = React.memo(function ReliabilityBadge({ rating }: { rati
 const FeatureCheck = React.memo(function FeatureCheck({ label, enabled }: { label: string; enabled?: boolean }) {
   return (
     <div className={`flex items-center gap-1.5 ${enabled ? "text-emerald-400" : "text-gray-500"}`}>
-      <span className="text-xs">{enabled ? "✓" : "✗"}</span>
+      <span className="text-xs" aria-hidden="true">{enabled ? "✓" : "✗"}</span>
       <span>{label}</span>
+      <span className="sr-only">{enabled ? "included" : "not included"}</span>
     </div>
   );
 });
-
-// Available angles from IMAGIN.studio
-const CAR_ANGLES = [
-  { id: "01", label: "Front 3/4" },
-  { id: "09", label: "Rear 3/4" },
-  { id: "21", label: "Side" },
-  { id: "29", label: "Front" },
-  { id: "33", label: "Top" },
-] as const;
-
-function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): string {
-  const modelFamily = car.model
-    .split(" ")[0]
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
-  const make = car.make.toLowerCase();
-  const powerTrainMap: Record<string, string> = {
-    electric: "electric",
-    hybrid: "hybrid",
-    "plug-in-hybrid": "phev",
-    gasoline: "petrol",
-    diesel: "diesel",
-  };
-  const powerTrain = powerTrainMap[car.fuelType] || "";
-  const params = new URLSearchParams({
-    customer: "img",
-    make,
-    modelFamily,
-    modelYear: String(car.year),
-    angle,
-    width: String(size),
-    zoomType: "fullscreen",
-    fileType: "webp",
-  });
-  if (powerTrain) params.set("powerTrain", powerTrain);
-  const cdnNum = ((car.id.charCodeAt(0) + car.id.charCodeAt(car.id.length - 1)) % 9) + 1;
-  const cdn = `cdn-0${cdnNum}`;
-  return `https://${cdn}.imagin.studio/getImage?${params.toString()}`;
-}
 
 interface ImageModalProps {
   car: Car;
@@ -871,40 +863,59 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         className="surface-elevated rounded-2xl max-w-4xl w-full p-6 mt-4 mb-8 modal-content"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 id="image-modal-title" className="text-2xl font-bold text-white">
-              {car.year} {car.make} {car.model}
-            </h3>
-            {car.trim && <p className="text-gray-400">{car.trim}</p>}
-            <div className="flex gap-2 mt-2">
-              <BodyTypeBadge bodyType={car.bodyType} />
-              <FuelTypeBadge fuelType={car.fuelType} />
-              <SafetyBadge rating={car.safetyRating} />
+        {/*
+          Sticky so the title and the close control stay reachable — this
+          modal is several screens tall and both used to scroll away.
+        */}
+        <div className="sticky -top-6 z-20 -mx-6 -mt-6 mb-4 px-6 pt-6 pb-4 bg-gray-900/95 backdrop-blur-sm rounded-t-2xl border-b border-gray-800/60">
+          <div className="flex justify-between items-start gap-4">
+            <div className="min-w-0">
+              <h3 id="image-modal-title" className="text-2xl font-bold text-white">
+                {car.year} {car.make} {car.model}
+              </h3>
+              {car.trim && <p className="text-gray-400">{car.trim}</p>}
+              <div className="flex flex-wrap gap-2 mt-2">
+                <BodyTypeBadge bodyType={car.bodyType} />
+                <FuelTypeBadge fuelType={car.fuelType} />
+                {/* Only render when there is a rating — the badge's own empty
+                    state is a dash, which read as a stray character here. */}
+                {car.safetyRating && car.safetyRating !== "Not Rated" && (
+                  <SafetyBadge rating={car.safetyRating} />
+                )}
+              </div>
+            </div>
+            <div className="flex items-center gap-2 shrink-0">
+              {/* The garage-fit check is what this app is for; it was buried in
+                  the bottom corner of the dimensions card. */}
+              <button
+                onClick={() => setShowGarageFit(true)}
+                className="btn-accent px-3.5 py-2 rounded-lg text-sm whitespace-nowrap"
+              >
+                Check Garage Fit
+              </button>
+              <button
+                onClick={onClose}
+                className="text-gray-400 hover:text-white text-3xl leading-none p-2"
+                aria-label="Close details modal"
+              >
+                ×
+              </button>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white text-3xl leading-none p-2"
-            aria-label="Close details modal"
-          >
-            ×
-          </button>
         </div>
 
         {/* Image Gallery */}
         <div className="mb-6">
           {/* Main Image */}
           {imageError ? (
-            <div className="w-full h-64 bg-gray-700 rounded-lg mb-3 flex items-center justify-center text-gray-500 text-4xl">
-              {car.bodyType.charAt(0).toUpperCase()}
-            </div>
+            <CarImagePlaceholder className="w-full h-64 mb-3" label={bodyTypeLabel(car.bodyType)} />
           ) : (
+            /* Capped: at full width the render filled the entire viewport and
+               pushed every specification below the fold. */
             <img
               src={imageUrl}
               alt={`${car.year} ${car.make} ${car.model} - ${CAR_ANGLES.find(a => a.id === selectedAngle)?.label}`}
-              className="w-full h-auto rounded-lg mb-3"
+              className="w-full max-h-[38dvh] object-contain rounded-lg mb-3"
               onError={() => setImageError(true)}
             />
           )}
@@ -941,19 +952,30 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Pricing */}
           <div className="surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Pricing</h4>
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Pricing</h4>
             <DetailRow
               label="MSRP"
-              value={formatCurrency(car.msrp)}
+              value={optional(car.msrp, (v) => formatCurrency(v as number))}
               diff={baselineCar ? calculateDifference(baselineCar, car, "msrp", mirrorBuffer) : null}
               positive="lower"
               isBaseline={isBaseline}
             />
+            <DetailRow
+              label="Used Price"
+              value={hasValue(car.usedPriceLow) && hasValue(car.usedPriceHigh)
+                ? `${formatCurrency(car.usedPriceLow)} – ${formatCurrency(car.usedPriceHigh)}`
+                : undefined}
+            />
+            <DetailRow label="5-Year Resale" value={optional(car.fiveYearResalePercent, (v) => `${v}%`)} />
+            <DetailRow label="Depreciation" value={car.depreciationCategory ? depreciationLabel(car.depreciationCategory) : undefined} />
+            <DetailRow label="Insurance / yr" value={optional(car.insuranceCostAnnual, (v) => formatCurrency(v as number))} />
+            <DetailRow label="Maintenance / yr" value={optional(car.maintenanceCostAnnual, (v) => formatCurrency(v as number))} />
+            <DetailRow label="Reliability" value={car.reliabilityRating ? reliabilityLabel(car.reliabilityRating) : undefined} />
           </div>
 
           {/* Dimensions */}
           <div className="surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Dimensions</h4>
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Dimensions</h4>
             <DetailRow
               label="Width (Mirrors Folded)"
               value={car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : undefined}
@@ -984,17 +1006,12 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
               positive="higher"
               isBaseline={isBaseline}
             />
-            <button
-              onClick={() => setShowGarageFit(true)}
-              className="mt-3 w-full py-2 btn-accent rounded-lg text-sm transition-colors"
-            >
-              Check Garage Fit
-            </button>
+            <DetailRow label="Towing Capacity" value={optional(car.towingCapacityLbs, (v) => `${(v as number).toLocaleString()} lbs`)} />
           </div>
 
           {/* Capacity */}
           <div className="surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Capacity</h4>
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Capacity</h4>
             <DetailRow
               label="Seats"
               value={car.seats}
@@ -1005,17 +1022,17 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
             <DetailRow label="Doors" value={car.doors} />
             <DetailRow
               label="Driver Legroom"
-              value={car.driverLegroomInches ? `${car.driverLegroomInches}"` : undefined}
+              value={optional(car.driverLegroomInches, (v) => `${v}"`)}
               diff={baselineCar ? calculateDifference(baselineCar, car, "driverLegroomInches", mirrorBuffer) : null}
               positive="higher"
               isBaseline={isBaseline}
             />
-            <DetailRow label="Cargo Volume" value={car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : undefined} />
+            <DetailRow label="Cargo Volume" value={optional(car.cargoVolumesCuFt, (v) => `${v} cu ft`)} />
           </div>
 
           {/* Efficiency */}
           <div className="surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Efficiency</h4>
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Efficiency</h4>
             {car.fuelType !== "electric" && (
               <>
                 <DetailRow label="City MPG" value={car.mpgCity} />
@@ -1029,8 +1046,13 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
                 />
               </>
             )}
-            {car.mpge && <DetailRow label="MPGe" value={car.mpge} />}
-            {car.electricRangeMiles && (
+            {/*
+              `{car.mpge && ...}` renders a literal `0` when the field is zero
+              rather than undefined — that bug leaked a stray "0" into this
+              grid. hasValue() treats 0 as "no reading" for these fields.
+            */}
+            {hasValue(car.mpge) && <DetailRow label="MPGe" value={car.mpge} />}
+            {hasValue(car.electricRangeMiles) && (
               <DetailRow
                 label="Electric Range"
                 value={`${car.electricRangeMiles} mi`}
@@ -1043,28 +1065,23 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
 
           {/* Powertrain */}
           <div className="surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Powertrain</h4>
-            <DetailRow label="Fuel Type" value={car.fuelType} />
-            <DetailRow label="Plug Type" value={car.plugType === "none" ? "-" : car.plugType} />
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Powertrain</h4>
+            <DetailRow label="Fuel Type" value={fuelTypeLabel(car.fuelType)} />
+            <DetailRow label="Plug Type" value={car.plugType === "none" ? undefined : plugTypeLabel(car.plugType)} />
+            <DetailRow label="Horsepower" value={optional(car.horsepower, (v) => `${v} hp`)} />
+            <DetailRow label="0-60 mph" value={optional(car.zeroToSixtySeconds, (v) => `${v}s`)} />
           </div>
-
-          {/* Capability */}
-          {car.towingCapacityLbs && (
-            <div className="surface-inset rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Capability</h4>
-              <DetailRow label="Towing Capacity" value={`${car.towingCapacityLbs.toLocaleString()} lbs`} />
-            </div>
-          )}
 
           {/* Safety */}
           <div className="surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Safety</h4>
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Safety</h4>
             <DetailRow label="IIHS Rating" value={car.safetyRating ?? "Not Rated"} />
+            <DetailRow label="ADAS Level" value={adasLevelLabel(car.autonomousLevel)} />
             {car.safetyRating === "TSP+" && (
-              <p className="text-xs text-green-400 mt-2">Top Safety Pick+ - Highest IIHS award</p>
+              <p className="text-xs text-emerald-400 mt-2">Top Safety Pick+ - Highest IIHS award</p>
             )}
             {car.safetyRating === "TSP" && (
-              <p className="text-xs text-green-400 mt-2">Top Safety Pick - Excellent safety rating</p>
+              <p className="text-xs text-emerald-400 mt-2">Top Safety Pick - Excellent safety rating</p>
             )}
           </div>
         </div>
@@ -1072,7 +1089,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         {/* Driver Assistance */}
         {car.autonomousLevel && car.autonomousLevel !== "none" && (
           <div className="mt-6 surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Driver Assistance</h4>
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Driver Assistance</h4>
             <div className="flex items-center gap-2 mb-3">
               <AdasBadge level={car.autonomousLevel} name={car.adasName} />
               {car.adasName && <span className="text-gray-300 text-sm">{car.adasName}</span>}
@@ -1098,7 +1115,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
         {/* Features & Notes */}
         {(car.standardFeatures?.length || car.notes) && (
           <div className="mt-6 surface-inset rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Features & Notes</h4>
+            <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Features & Notes</h4>
             {car.standardFeatures && car.standardFeatures.length > 0 && (
               <div className="mb-3">
                 <span className="text-gray-400 text-sm">Standard Features:</span>
@@ -1122,52 +1139,43 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
 
         {/* Search Links */}
         <div className="mt-6 surface-inset rounded-xl p-4">
-          <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50/50 pb-2 uppercase tracking-wider">Search This Vehicle</h4>
+          <h4 className="text-sm font-semibold text-gray-200 mb-3 border-b border-gray-800/50 pb-2 uppercase tracking-wider">Search This Vehicle</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <SearchLink
               name="Cars.com"
               url={`https://www.cars.com/shopping/results/?keyword=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}`}
-              color="bg-blue-700"
             />
             <SearchLink
               name="AutoTrader"
               url={`https://www.autotrader.com/cars-for-sale/all-cars/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}?startYear=${car.year}&endYear=${car.year}`}
-              color="bg-red-700"
             />
             <SearchLink
               name="CarGurus"
               url={`https://www.cargurus.com/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?zip=10001&sourceContext=carGurusHomePageModel&newSearchFromOverviewPage=true&inventorySearchWidgetType=AUTO&entitySelectingHelper.selectedEntity=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}`}
-              color="bg-green-700"
             />
             <SearchLink
               name="Edmunds"
               url={`https://www.edmunds.com/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}/${car.year}/`}
-              color="bg-purple-700"
             />
             <SearchLink
               name="KBB"
               url={`https://www.kbb.com/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}/${car.year}/`}
-              color="bg-cyan-700"
             />
             <SearchLink
               name="TrueCar"
               url={`https://www.truecar.com/used-cars-for-sale/listings/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}/year-${car.year}/`}
-              color="bg-orange-700"
             />
             <SearchLink
               name="CarMax"
               url={`https://www.carmax.com/cars/${car.make.toLowerCase()}/${car.model.toLowerCase().replace(/\s+/g, '-')}?year=${car.year}`}
-              color="bg-yellow-700"
             />
             <SearchLink
               name="Google"
               url={`https://www.google.com/search?q=${encodeURIComponent(`${car.year} ${car.make} ${car.model} for sale`)}`}
-              color="bg-gray-600"
             />
             <SearchLink
               name="Images"
               url={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}`}
-              color="bg-pink-700"
             />
           </div>
         </div>
@@ -1190,8 +1198,36 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
   );
 }
 
-// Memoized car image component to prevent unnecessary re-renders
-const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car; onImageClick: () => void }) {
+/**
+ * Silhouette shown when a render is unavailable.
+ *
+ * Replaces the single capital letter ("S" for suv) that used to stand in — a
+ * consistent shape reads as "no photo" rather than as a typo.
+ */
+export const CarImagePlaceholder = React.memo(function CarImagePlaceholder({
+  className = "",
+  label,
+}: { className?: string; label?: string }) {
+  return (
+    <div
+      className={`bg-gray-800/40 border border-gray-700/30 rounded-lg flex items-center justify-center text-gray-600 ${className}`}
+      title={label}
+    >
+      <svg className="w-1/3 h-1/3 min-w-4 min-h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h14a2 2 0 012 2v6a2 2 0 01-2 2" />
+        <circle cx="7.5" cy="17" r="1" fill="currentColor" />
+        <circle cx="16.5" cy="17" r="1" fill="currentColor" />
+      </svg>
+      <span className="sr-only">No image available</span>
+    </div>
+  );
+});
+
+// Memoized car image component to prevent unnecessary re-renders.
+// Purely presentational — the surrounding cell owns the click target, so the
+// thumbnail is not separately interactive (it used to be a second, nested
+// click handler beside the "info" button that did the same thing).
+const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const imgRef = React.useRef<HTMLImageElement>(null);
@@ -1216,36 +1252,17 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
   }, [imageUrl, isLoading]);
 
   if (hasError) {
-    return (
-      <div
-        className="w-36 h-16 bg-gray-800/50 border border-gray-700/30 rounded-lg flex items-center justify-center text-gray-500 text-sm cursor-pointer"
-        onClick={onImageClick}
-        title="Click for details"
-      >
-        {car.bodyType.charAt(0).toUpperCase()}
-      </div>
-    );
+    return <CarImagePlaceholder className="w-20 h-12 shrink-0" label={bodyTypeLabel(car.bodyType)} />;
   }
 
   return (
-    <div
-      className="w-36 h-16 relative cursor-pointer hover:opacity-80 transition-opacity"
-      onClick={onImageClick}
-      title="Click for details"
-    >
-      {isLoading && (
-        <div className="absolute inset-0 skeleton rounded flex items-center justify-center">
-          <svg className="w-6 h-6 text-gray-500 animate-spin" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-        </div>
-      )}
+    <span className="w-20 h-12 shrink-0 relative block">
+      {isLoading && <span className="absolute inset-0 skeleton rounded-lg block" />}
       <img
         ref={imgRef}
         src={imageUrl}
-        alt={`${car.year} ${car.make} ${car.model}`}
-        className={`w-36 h-16 object-cover rounded-lg transition-opacity duration-200 ${isLoading ? "opacity-0" : "opacity-100"}`}
+        alt=""
+        className={`w-20 h-12 object-cover rounded-lg transition-opacity duration-200 ${isLoading ? "opacity-0" : "opacity-100"}`}
         loading="lazy"
         onLoad={() => setIsLoading(false)}
         onError={() => {
@@ -1253,11 +1270,11 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
           setIsLoading(false);
         }}
       />
-    </div>
+    </span>
   );
 });
 
-function SearchLink({ name, url }: { name: string; url: string; color: string }) {
+function SearchLink({ name, url }: { name: string; url: string }) {
   return (
     <a
       href={url}

@@ -26,7 +26,9 @@
   --color-gray-200: #c8c8d0;
   --color-gray-300: #a8a8b8;
   --color-gray-400: #8888a0;
-  --color-gray-500: #6e6e88;
+  /* 4.79:1 on --background. The previous #6e6e88 measured 3.99:1 and failed
+     WCAG AA for normal text on ~200 elements (disclaimers, timestamps, hints). */
+  --color-gray-500: #7b7b93;
   --color-gray-600: #4e4e68;
   --color-gray-700: #1e1e30;
   --color-gray-800: #141422;
@@ -73,6 +75,70 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
+}
+
+/* ═══════════════════════════════════════════
+   FORM CONTROLS
+
+   Native checkboxes ignore `background-color` / `border-color` unless
+   appearance is reset, and `accent-color` only paints the CHECKED fill. The
+   app previously relied on `bg-gray-800 border-gray-600 accent-amber-500`, so
+   every UNCHECKED box rendered as an OS-default white square — the brightest
+   element on a near-black page, and louder than the checked state it was
+   meant to contrast with. Style the control here so every call site inherits
+   the same behaviour.
+   ═══════════════════════════════════════════ */
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #4e4e68;
+  background-color: rgba(255, 255, 255, 0.04);
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.12s ease-out;
+  background-color: #0a0a10;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:hover:not(:checked):not(:disabled) {
+  border-color: var(--accent-dim);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  input[type="checkbox"],
+  input[type="checkbox"]::before {
+    transition: none;
+  }
 }
 
 /* Custom scrollbar */
@@ -339,7 +405,88 @@ body::before {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  border: 1px solid transparent;
 }
+
+/* Semantic badge tones.
+   Categorical hue (a colour per body type, per fuel type, per ADAS level) put
+   eight unrelated hues on screen at once and left the brand gold unused. These
+   five tones are the whole vocabulary: the LABEL carries the category, the
+   TONE carries the judgement. */
+
+.badge-neutral {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.09);
+  color: var(--color-gray-200);
+}
+
+.badge-accent {
+  background: rgba(200, 164, 78, 0.12);
+  border-color: rgba(200, 164, 78, 0.28);
+  color: var(--accent-hover);
+}
+
+.badge-good {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.28);
+  color: #5eead4;
+}
+
+.badge-caution {
+  background: rgba(200, 164, 78, 0.08);
+  border-color: rgba(200, 164, 78, 0.18);
+  color: #d8bd7c;
+}
+
+.badge-bad {
+  background: rgba(244, 63, 94, 0.1);
+  border-color: rgba(244, 63, 94, 0.26);
+  color: #fda4af;
+}
+
+/* ═══════════════════════════════════════════
+   SETUP WIZARD
+
+   The wizard body scrolls (the filters step is taller than most viewports),
+   so its action row is pinned to the bottom of the panel. The negative
+   margins cancel the panel's p-8 so the bar spans the full width.
+   ═══════════════════════════════════════════ */
+
+.wizard-footer {
+  position: sticky;
+  bottom: -2rem;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem -2rem -2rem;
+  padding: 1rem 2rem 2rem;
+  background: rgba(12, 12, 24, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+/* ═══════════════════════════════════════════
+   COMPARISON DELTAS
+
+   Direction is encoded by a glyph as well as a hue, so the better/worse
+   reading survives for colour-blind users and in greyscale print.
+   ═══════════════════════════════════════════ */
+
+.delta {
+  font-size: 0.6875rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.delta-good { color: #34d399; }
+.delta-bad { color: #fb7185; }
+.delta-same { color: var(--color-gray-500); }
 
 /* ═══════════════════════════════════════════
    HEADER ACCENT LINE
@@ -516,41 +663,43 @@ textarea:focus-visible {
     letter-spacing: 0.5px !important;
   }
 
-  span[class*="bg-green"] {
+  .badge {
+    padding: 1px 4px !important;
+    border-radius: 2px !important;
+    border: 1px solid #d1d5db !important;
+  }
+
+  .badge-good {
     background: #dcfce7 !important;
     color: #166534 !important;
-    padding: 1px 4px !important;
-    border-radius: 2px !important;
   }
 
-  span[class*="bg-blue"] {
-    background: #dbeafe !important;
-    color: #1e40af !important;
-    padding: 1px 4px !important;
-    border-radius: 2px !important;
-  }
-
-  span[class*="bg-yellow"],
-  span[class*="bg-amber"] {
+  .badge-caution {
     background: #fef3c7 !important;
     color: #92400e !important;
-    padding: 1px 4px !important;
-    border-radius: 2px !important;
   }
 
-  span[class*="bg-gray"] {
+  .badge-bad {
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+  }
+
+  .badge-neutral,
+  .badge-accent {
     background: #f3f4f6 !important;
     color: #374151 !important;
-    padding: 1px 4px !important;
-    border-radius: 2px !important;
   }
 
-  span[class*="text-green"] {
+  .delta-good {
     color: #166534 !important;
   }
 
-  span[class*="text-red"] {
-    color: #dc2626 !important;
+  .delta-bad {
+    color: #b91c1c !important;
+  }
+
+  .delta-same {
+    color: #6b7280 !important;
   }
 
   @page {
