@@ -9,8 +9,9 @@ import BaselineSelector from "@/components/BaselineSelector";
 import CompareModal from "@/components/CompareModal";
 import ColumnSettings, { ALL_COLUMNS, DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
 import SetupWizard from "@/components/SetupWizard";
-import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl, localDateStamp } from "@/lib/carUtils";
+import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl, hasVehicleImagery, localDateStamp } from "@/lib/carUtils";
 import { EMPTY, bodyTypeLabel, fuelTypeLabel } from "@/lib/labels";
+import CarImagePlaceholder from "@/components/CarImagePlaceholder";
 import { DEFAULT_BASELINE_ID, DEFAULT_SORT_CONFIG, STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
 import { readStorage, readStorageJson, writeStorage } from "@/lib/storage";
 import { isStringArray, parseFiniteInt, toSortConfig } from "@/lib/validation";
@@ -978,16 +979,20 @@ function MobileCardView({
             }`}
           >
             <div className="flex gap-4">
-              {/* This card list is `block lg:hidden` — rendered on every device and only
+              {/* This card list is `block md:hidden` — rendered on every device and only
                   hidden by CSS. Without loading="lazy", React hoists a <link rel="preload">
                   for each visible card, so desktop visitors eagerly fetched 20 images they
                   never see, at preload priority. */}
-              <img
-                src={getCarImageUrl(car, 200)}
-                alt={`${car.year} ${car.make} ${car.model}`}
-                className="w-32 h-20 object-cover rounded-lg"
-                loading="lazy"
-              />
+              {hasVehicleImagery(car) ? (
+                <img
+                  src={getCarImageUrl(car, 200)}
+                  alt={`${car.year} ${car.make} ${car.model}`}
+                  className="w-32 h-20 object-cover rounded-lg"
+                  loading="lazy"
+                />
+              ) : (
+                <CarImagePlaceholder className="w-32 h-20 shrink-0" label={bodyTypeLabel(car.bodyType)} />
+              )}
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-start">
                   <div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Car, SafetyRating } from "@/types/car";
-import { formatCurrency, getEffectiveWidth, getCarImageUrl } from "@/lib/carUtils";
+import { formatCurrency, getEffectiveWidth, getCarImageUrl, hasVehicleImagery } from "@/lib/carUtils";
 import { EMPTY, adasLevelLabel, fuelTypeLabel, plugTypeLabel, reliabilityLabel } from "@/lib/labels";
 import CarImagePlaceholder from "./CarImagePlaceholder";
 import { useFocusTrap } from "@/lib/useFocusTrap";
@@ -17,7 +17,7 @@ interface CompareModalProps {
 function CompareCarImage({ car }: { car: Car }) {
   const [hasError, setHasError] = useState(false);
 
-  if (hasError) {
+  if (hasError || !hasVehicleImagery(car)) {
     return <CarImagePlaceholder className="w-full h-20 mb-2" />;
   }
 

@@ -488,6 +488,23 @@ export function localDateStamp(date: Date = new Date()): string {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
+/**
+ * Makes IMAGIN.studio has no library for.
+ *
+ * The API answers 200 with a stand-in render rather than 404-ing on an unknown
+ * make, so an uncovered brand silently gets some other manufacturer's vehicle
+ * presented as its photo. In a comparison tool that is misinformation, and it
+ * is worse than showing nothing — these fall back to the silhouette instead.
+ *
+ * Slate had not shipped a vehicle as of 2026-08-10, so no render exists.
+ */
+const MAKES_WITHOUT_IMAGERY = new Set(["slate"]);
+
+/** Whether a real photo exists for this car, or we should draw a placeholder. */
+export function hasVehicleImagery(car: Car): boolean {
+  return !MAKES_WITHOUT_IMAGERY.has(car.make.toLowerCase());
+}
+
 /** Camera angles offered by the IMAGIN.studio API. */
 export const CAR_ANGLES = [
   { id: "01", label: "Front 3/4" },

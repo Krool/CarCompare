@@ -8,6 +8,7 @@ import {
   getEffectiveWidth,
   calculateDifference,
   getCarImageUrl,
+  hasVehicleImagery,
   CAR_ANGLES,
   getFoldedWidth,
   getOneMirrorWidth,
@@ -911,10 +912,14 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
           </div>
         </div>
 
-        {/* Image Gallery */}
+        {/* Image Gallery. Suppressed entirely for makes with no render
+            library — an angle picker over a stand-in vehicle is worse than
+            no gallery at all. */}
         <div className="mb-6">
           {/* Main Image */}
-          {imageError ? (
+          {!hasVehicleImagery(car) ? (
+            <CarImagePlaceholder className="w-full h-56" label={bodyTypeLabel(car.bodyType)} />
+          ) : imageError ? (
             <CarImagePlaceholder className="w-full h-64 mb-3" label={bodyTypeLabel(car.bodyType)} />
           ) : (
             /* Capped: at full width the render filled the entire viewport and
@@ -927,7 +932,7 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
             />
           )}
           {/* Thumbnail Strip */}
-          <div className="flex gap-2 justify-center">
+          <div className={`flex gap-2 justify-center ${hasVehicleImagery(car) ? "" : "hidden"}`}>
             {CAR_ANGLES.map((angle) => (
               <button
                 key={angle.id}
@@ -1239,7 +1244,7 @@ const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
     return () => clearTimeout(timer);
   }, [imageUrl]);
 
-  if (hasError) {
+  if (hasError || !hasVehicleImagery(car)) {
     return <CarImagePlaceholder className="w-20 h-12 shrink-0" label={bodyTypeLabel(car.bodyType)} />;
   }
 
