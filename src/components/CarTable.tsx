@@ -1246,12 +1246,24 @@ const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
 
   return (
     <span className="w-20 h-12 shrink-0 relative block">
-      {isLoading && <span className="absolute inset-0 skeleton rounded-lg block" />}
+      {/*
+        The skeleton sits BEHIND the image rather than the image being hidden
+        until onLoad fires. This is a static export, so the <img> ships in the
+        pre-rendered HTML and the browser often finishes loading it before
+        React hydrates and attaches onLoad — that event is then lost, and an
+        `opacity-0 until isLoading clears` image stayed invisible forever even
+        though it had loaded. Only reproduced in production, never in dev,
+        where there is no pre-rendered markup to beat hydration.
+
+        Stacking instead of toggling means the image is correct with no JS at
+        all: transparent while it has nothing to paint, opaque once decoded.
+      */}
+      {isLoading && <span className="absolute inset-0 skeleton rounded-lg block" aria-hidden="true" />}
       <img
         ref={imgRef}
         src={imageUrl}
         alt=""
-        className={`w-20 h-12 object-cover rounded-lg transition-opacity duration-200 ${isLoading ? "opacity-0" : "opacity-100"}`}
+        className="w-20 h-12 object-cover rounded-lg relative"
         loading="lazy"
         onLoad={() => setIsLoading(false)}
         onError={() => {
