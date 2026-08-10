@@ -160,7 +160,12 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 popover-panel rounded-xl z-50 max-h-[70vh] overflow-y-auto modal-content">
+        // Below `md` the header stacks (page.tsx: flex-col md:flex-row), which puts this
+        // button at the far LEFT of the viewport. Right-aligning a fixed 320px panel to it
+        // then pushed most of the menu off the left edge — at 390px it opened at x=-181,
+        // with every checkbox off-screen. Anchor left and cap the width to the viewport
+        // until the header goes horizontal and the button moves to the right.
+        <div className="absolute left-0 right-auto md:left-auto md:right-0 mt-2 w-[min(20rem,calc(100vw-2rem))] md:w-80 popover-panel rounded-xl z-50 max-h-[70vh] overflow-y-auto modal-content">
           <div className="p-4">
             <h3 className="text-gray-200 font-semibold text-sm uppercase tracking-wider mb-3">Customize Columns</h3>
 
