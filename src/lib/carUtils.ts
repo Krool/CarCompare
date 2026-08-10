@@ -523,7 +523,11 @@ export const CAR_ANGLES = [
  * fix. Set NEXT_PUBLIC_IMAGIN_CUSTOMER at build time; nothing else needs to change.
  * Note the value ships publicly in the client bundle. See README.md.
  */
-export const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER ?? "img";
+// `||`, not `??`. GitHub Actions substitutes an unset secret as an EMPTY STRING
+// rather than leaving the variable undefined, so `?? "img"` accepted "" and every
+// deployed image URL went out as `customer=`, which IMAGIN rejects — the live site
+// lost all of its car photos. Trim so a stray-whitespace secret falls back too.
+export const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER?.trim() || "img";
 
 /**
  * Generate car image URL from imagin.studio API
