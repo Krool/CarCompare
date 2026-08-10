@@ -200,7 +200,7 @@ export default function Home() {
         // Support both old format (filters, sort, baseline, compare, columns) and new short format (f, s, b, c, v)
         const filters = decoded.f || decoded.filters;
         const sort = decoded.s || decoded.sort;
-        const baseline = decoded.b || decoded.baseline;
+        const baseline = "b" in decoded ? decoded.b : decoded.baseline;
         const compare = decoded.c || decoded.compare;
         const columns = decoded.v || decoded.columns;
 
@@ -215,7 +215,9 @@ export default function Home() {
             : toSortConfig(sort?.field, sort?.direction);
           if (decodedSort) setSortConfig(decodedSort);
         }
-        if (baseline) {
+        if (baseline === null) {
+          setBaselineCar(null);
+        } else if (typeof baseline === "string") {
           const car = allCars.find(c => c.id === baseline);
           if (car) setBaselineCar(car);
         }
@@ -264,7 +266,9 @@ export default function Home() {
       if (savedCompareList) setCompareList(savedCompareList);
 
       const savedBaseline = readStorage(STORAGE_KEYS.baseline);
-      if (savedBaseline) {
+      if (savedBaseline === "") {
+        setBaselineCar(null);
+      } else if (savedBaseline) {
         const car = allCars.find(c => c.id === savedBaseline);
         if (car) setBaselineCar(car);
       }
@@ -292,9 +296,10 @@ export default function Home() {
   // Save baseline to localStorage
   useEffect(() => {
     if (!isInitialized) return;
-    if (baselineCar) {
-      writeStorage(STORAGE_KEYS.baseline, baselineCar.id);
-    }
+    // "" records a deliberately cleared baseline, which an absent key cannot express —
+    // it would be indistinguishable from a first visit. Clearing the baseline used to
+    // write nothing at all, so the old car came back on the next reload.
+    writeStorage(STORAGE_KEYS.baseline, baselineCar?.id ?? "");
   }, [baselineCar, isInitialized]);
 
   // Save columns to localStorage
@@ -425,8 +430,11 @@ export default function Home() {
       state.s = [sortConfig.field, sortConfig.direction === "desc" ? 1 : 0];
     }
 
-    // Only add baseline if set and not default
-    if (baselineCar && baselineCar.id !== DEFAULT_BASELINE_ID) state.b = baselineCar.id;
+    // null is encoded explicitly: "the sharer deliberately compares against nothing" is
+    // a different view from "the sharer left it alone", and omitting it handed the
+    // recipient their own default baseline back.
+    if (baselineCar === null) state.b = null;
+    else if (baselineCar.id !== DEFAULT_BASELINE_ID) state.b = baselineCar.id;
 
     // Only add compare list if not empty
     if (compareList.length > 0) state.c = compareList;
