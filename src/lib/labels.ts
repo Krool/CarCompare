@@ -28,6 +28,7 @@ export const BODY_TYPE_LABELS: Record<BodyType, string> = {
   suv: "SUV",
   truck: "Truck",
   minivan: "Minivan",
+  van: "Van",
   hatchback: "Hatchback",
   wagon: "Wagon",
   coupe: "Coupe",
@@ -46,6 +47,7 @@ export const FUEL_TYPE_LABELS: Record<FuelType, string> = {
   hybrid: "Hybrid",
   "plug-in-hybrid": "Plug-in Hybrid",
   electric: "Electric",
+  hydrogen: "Hydrogen",
 };
 
 export const FUEL_TYPE_SHORT_LABELS: Record<FuelType, string> = {
@@ -54,6 +56,7 @@ export const FUEL_TYPE_SHORT_LABELS: Record<FuelType, string> = {
   hybrid: "Hybrid",
   "plug-in-hybrid": "PHEV",
   electric: "EV",
+  hydrogen: "H2",
 };
 
 export const ADAS_LEVEL_LABELS: Record<AutonomousLevel, string> = {

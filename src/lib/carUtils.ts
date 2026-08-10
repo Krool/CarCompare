@@ -1,4 +1,4 @@
-import { Car, CarFilters, SortConfig, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating } from "@/types/car";
+import { Car, CarFilters, SortConfig, SortField, SortDirection, SafetyRating, AutonomousLevel, LeaseRating, DepreciationCategory, ReliabilityRating } from "@/types/car";
 import { EMPTY } from "@/lib/labels";
 
 // Safety rating order for sorting (higher is better)
@@ -500,9 +500,11 @@ export const CAR_ANGLES = [
 /**
  * IMAGIN.studio account key.
  *
- * Defaults to "img", their public demo account, which returns WATERMARKED
- * renders. Set NEXT_PUBLIC_IMAGIN_CUSTOMER to a licensed key for clean
- * images; nothing else needs to change.
+ * Defaults to "img", their public demo account, which stamps a large IMAGIN
+ * watermark across the middle of every render. That watermark is baked into the
+ * returned pixels — no parameter or crop removes it — so a licensed key is the only
+ * fix. Set NEXT_PUBLIC_IMAGIN_CUSTOMER at build time; nothing else needs to change.
+ * Note the value ships publicly in the client bundle. See README.md.
  */
 export const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER ?? "img";
 
@@ -513,13 +515,6 @@ export const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER ?? "img";
  * @param angle - Camera angle id from CAR_ANGLES (default: front 3/4)
  * @returns URL string for car image
  */
-// IMAGIN.studio account the renders are requested under. The public demo account
-// ("img") stamps a large IMAGIN watermark across the middle of every image; that
-// watermark is baked into the returned pixels and is only removed by rendering
-// under a real account key. Set NEXT_PUBLIC_IMAGIN_CUSTOMER at build time to use
-// one — no other code change is needed. See README.md.
-const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER || "img";
-
 // Map fuel type to IMAGIN powerTrain parameter
 const IMAGIN_POWERTRAIN: Record<string, string> = {
   electric: "electric",

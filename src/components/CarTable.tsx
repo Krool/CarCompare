@@ -617,9 +617,12 @@ export default function CarTable({
  * electrified powertrains get the brand accent.
  */
 const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType: FuelType }) {
+  // Hydrogen sits with the electrified powertrains rather than with gas: it is a
+  // zero-tailpipe-emission electric drivetrain, and grouping it with diesel would
+  // read as a judgement the badge is not making.
   const tone = fuelType === "electric"
     ? "badge-accent"
-    : fuelType === "hybrid" || fuelType === "plug-in-hybrid"
+    : fuelType === "hybrid" || fuelType === "plug-in-hybrid" || fuelType === "hydrogen"
       ? "badge-good"
       : "badge-neutral";
 
