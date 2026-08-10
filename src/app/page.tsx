@@ -7,28 +7,59 @@ import FilterControls from "@/components/FilterControls";
 import CarTable from "@/components/CarTable";
 import BaselineSelector from "@/components/BaselineSelector";
 import CompareModal from "@/components/CompareModal";
-import ColumnSettings, { DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
+import ColumnSettings, { ALL_COLUMNS, DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
 import SetupWizard from "@/components/SetupWizard";
-import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl } from "@/lib/carUtils";
+import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl, localDateStamp } from "@/lib/carUtils";
 import { EMPTY, bodyTypeLabel, fuelTypeLabel } from "@/lib/labels";
-import { STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
+import { DEFAULT_BASELINE_ID, DEFAULT_SORT_CONFIG, STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
+import { readStorage, readStorageJson, writeStorage } from "@/lib/storage";
+import { isStringArray, parseFiniteInt, toSortConfig } from "@/lib/validation";
+
+const VALID_COLUMN_IDS = new Set<string>(ALL_COLUMNS.map(c => c.id));
+
+/**
+ * Keeps only column ids this build knows about. A stored list can outlive the deploy
+ * that wrote it and a link can be hand-edited, and an unknown id reaches the table as
+ * a column it cannot render. Falls back to the defaults rather than leaving the user
+ * with a table of nothing when every id is rejected.
+ */
+function sanitizeColumns(ids: string[]): ColumnId[] {
+  const valid = ids.filter((id): id is ColumnId => VALID_COLUMN_IDS.has(id));
+  return valid.length > 0 ? valid : DEFAULT_VISIBLE_COLUMNS;
+}
+
+// btoa throws on any code point above U+00FF, which would take the Share button down
+// before its own clipboard error handling ever runs. Percent-encoding first keeps the
+// payload inside Latin1. A pure-ASCII payload encodes byte-for-byte identically to a
+// bare btoa, so links already in the wild still decode.
+function encodeShareState(json: string): string {
+  const latin1 = encodeURIComponent(json).replace(/%([0-9A-F]{2})/g, (_, hex) =>
+    String.fromCharCode(parseInt(hex, 16))
+  );
+  return btoa(latin1);
+}
+
+function decodeShareState(encoded: string): string {
+  const percentEncoded = atob(encoded)
+    .split("")
+    .map(char => `%${char.charCodeAt(0).toString(16).padStart(2, "0")}`)
+    .join("");
+  return decodeURIComponent(percentEncoded);
+}
 
 export default function Home() {
   const allCars = carData.cars as Car[];
   const defaultMirrorBuffer = carData.mirrorBuffer;
 
   // Find default baseline (Toyota RAV4 2011)
-  const defaultBaseline = allCars.find((c) => c.id === "toyota-rav4-2011") ?? null;
+  const defaultBaseline = allCars.find((c) => c.id === DEFAULT_BASELINE_ID) ?? null;
 
   const [filters, setFilters] = useState<CarFilters>({});
   // Newest first. Sorting by price ascending made the landing view a wall of
   // 1960s classics listed at their original MSRP (a $3,592 Charger, a $4,900
   // Ferrari 250 GTO) compared against a modern baseline — accurate data, but a
   // meaningless first screen for someone shopping for a car that fits a garage.
-  const [sortConfig, setSortConfig] = useState<SortConfig>({
-    field: "year",
-    direction: "desc",
-  });
+  const [sortConfig, setSortConfig] = useState<SortConfig>(DEFAULT_SORT_CONFIG);
   const [baselineCar, setBaselineCar] = useState<Car | null>(defaultBaseline);
   const [mirrorBuffer, setMirrorBuffer] = useState(defaultMirrorBuffer);
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -79,10 +110,17 @@ export default function Home() {
 
     const hasNewFormatParams = urlColumns || urlBodyTypes || urlFuelTypes || urlYear || urlSeats || urlPrice || urlSafetyRating || urlSortField || urlBaseline;
 
+    // Favorites, the compare list and the baseline belong to the visitor, not to the
+    // link they arrived on, so they load on EVERY path. They used to load only in the
+    // no-params branch, while the persist effects below fired for all three the moment
+    // isInitialized flipped — so opening someone's share link wrote the empty in-memory
+    // defaults straight over the recipient's saved data, irrecoverably.
+    loadPersistedUserData();
+
     if (hasNewFormatParams) {
       // Parse new wizard-style URL format
       if (urlColumns) {
-        setVisibleColumns(urlColumns.split(",") as ColumnId[]);
+        setVisibleColumns(sanitizeColumns(urlColumns.split(",")));
       }
 
       const newFilters: CarFilters = {};
@@ -93,26 +131,58 @@ export default function Home() {
         newFilters.fuelTypes = urlFuelTypes.split(",") as FuelType[];
       }
       if (urlYear) {
-        newFilters.minYear = parseInt(urlYear);
+        newFilters.minYear = parseFiniteInt(urlYear);
+      }
+      // The wizard emits minY/maxY/seats/minP/al/hf/mpg/evr/pt/m as well. They were
+      // never read here, so a wizard link silently arrived with the right columns and
+      // the wrong result set.
+      if (urlParams.get("minY")) {
+        newFilters.minYear = parseFiniteInt(urlParams.get("minY"));
+      }
+      if (urlParams.get("maxY")) {
+        newFilters.maxYear = parseFiniteInt(urlParams.get("maxY"));
       }
       if (urlSeats) {
-        newFilters.minSeats = parseInt(urlSeats);
+        newFilters.minSeats = parseFiniteInt(urlSeats);
+      }
+      if (urlParams.get("seats")) {
+        const seats = urlParams.get("seats")!.split(",").map(parseFiniteInt).filter((n): n is number => n !== undefined);
+        if (seats.length > 0) newFilters.seats = seats;
+      }
+      if (urlParams.get("minP")) {
+        newFilters.minPrice = parseFiniteInt(urlParams.get("minP"));
       }
       if (urlPrice) {
-        newFilters.maxPrice = parseInt(urlPrice);
+        newFilters.maxPrice = parseFiniteInt(urlPrice);
       }
       if (urlSafetyRating) {
         newFilters.safetyRatings = urlSafetyRating.split(",") as SafetyRating[];
+      }
+      if (urlParams.get("al")) {
+        newFilters.autonomousLevels = urlParams.get("al")!.split(",") as AutonomousLevel[];
+      }
+      if (urlParams.get("hf") === "1") {
+        newFilters.hasHandsFree = true;
+      }
+      if (urlParams.get("mpg")) {
+        newFilters.minMpg = parseFiniteInt(urlParams.get("mpg"));
+      }
+      if (urlParams.get("evr")) {
+        newFilters.minEvRange = parseFiniteInt(urlParams.get("evr"));
+      }
+      if (urlParams.get("pt")) {
+        newFilters.plugTypes = urlParams.get("pt")!.split(",") as PlugType[];
+      }
+      if (urlParams.get("m")) {
+        newFilters.makes = urlParams.get("m")!.split(",");
       }
       if (Object.keys(newFilters).length > 0) {
         setFilters(newFilters);
       }
 
-      if (urlSortField && urlSortDir) {
-        setSortConfig({
-          field: urlSortField as SortField,
-          direction: urlSortDir as "asc" | "desc",
-        });
+      const urlSort = toSortConfig(urlSortField, urlSortDir);
+      if (urlSort) {
+        setSortConfig(urlSort);
       }
 
       if (urlBaseline) {
@@ -121,136 +191,130 @@ export default function Home() {
       }
 
       // Mark wizard as seen and don't show it
-      localStorage.setItem(STORAGE_KEYS.hasSeenWizard, "true");
+      writeStorage(STORAGE_KEYS.hasSeenWizard, "true");
 
-      // Clear the URL params after loading shared state
-      window.history.replaceState({}, "", window.location.pathname);
+      // The params are deliberately left in place; the URL-sync effect rewrites them
+      // into the canonical ?state= form once hydration finishes.
       setIsInitialized(true);
       return;
     } else if (sharedState) {
       try {
-        const decoded = JSON.parse(atob(sharedState));
+        const decoded = JSON.parse(decodeShareState(sharedState));
         // Support both old format (filters, sort, baseline, compare, columns) and new short format (f, s, b, c, v)
         const filters = decoded.f || decoded.filters;
         const sort = decoded.s || decoded.sort;
-        const baseline = decoded.b || decoded.baseline;
+        const baseline = "b" in decoded ? decoded.b : decoded.baseline;
         const compare = decoded.c || decoded.compare;
         const columns = decoded.v || decoded.columns;
 
-        if (filters) setFilters(filters);
+        // Everything below is attacker-authored: validate before it becomes state.
+        // An unchecked value reaches the renderer typed but wrong (`{"v":1}` makes
+        // visibleColumns.includes() throw), and there is no error boundary to catch it.
+        if (filters && typeof filters === "object" && !Array.isArray(filters)) setFilters(filters);
         if (sort) {
           // Handle new format [field, isDesc] or old format {field, direction}
-          if (Array.isArray(sort)) {
-            setSortConfig({ field: sort[0], direction: sort[1] ? "desc" : "asc" });
-          } else {
-            setSortConfig(sort);
-          }
+          const decodedSort = Array.isArray(sort)
+            ? toSortConfig(sort[0], sort[1] ? "desc" : "asc")
+            : toSortConfig(sort?.field, sort?.direction);
+          if (decodedSort) setSortConfig(decodedSort);
         }
-        if (baseline) {
+        if (baseline === null) {
+          setBaselineCar(null);
+        } else if (typeof baseline === "string") {
           const car = allCars.find(c => c.id === baseline);
           if (car) setBaselineCar(car);
         }
-        if (compare) setCompareList(compare);
-        if (columns) setVisibleColumns(columns);
-
-        // Clear the URL params after loading shared state
-        window.history.replaceState({}, "", window.location.pathname);
+        // A shared compare list replaces the visitor's own; ids are resolved against
+        // the dataset so a stale or invented id cannot linger and jam the 4-car cap.
+        if (isStringArray(compare)) {
+          setCompareList(compare.filter(id => allCars.some(c => c.id === id)));
+        }
+        if (isStringArray(columns)) setVisibleColumns(sanitizeColumns(columns));
+        if (typeof decoded.q === "string") {
+          setSearchInput(decoded.q);
+          setSearchQuery(decoded.q);
+        }
       } catch (e) {
         console.error("Failed to parse shared state:", e);
       }
-      // Don't load localStorage when we have shared state
       setIsInitialized(true);
       return;
     } else {
-      // Load from localStorage with error handling
-      try {
-        const savedFavorites = localStorage.getItem(STORAGE_KEYS.favorites);
-        if (savedFavorites) setFavorites(JSON.parse(savedFavorites));
-      } catch (e) {
-        console.error("Failed to parse favorites:", e);
-      }
+      const savedFilters = readStorageJson(STORAGE_KEYS.filters, (v): v is CarFilters =>
+        typeof v === "object" && v !== null && !Array.isArray(v));
+      if (savedFilters) setFilters(savedFilters);
 
-      try {
-        const savedFilters = localStorage.getItem(STORAGE_KEYS.filters);
-        if (savedFilters) setFilters(JSON.parse(savedFilters));
-      } catch (e) {
-        console.error("Failed to parse filters:", e);
-      }
-
-      try {
-        const savedBuffer = localStorage.getItem(STORAGE_KEYS.mirrorBuffer);
-        if (savedBuffer) setMirrorBuffer(parseInt(savedBuffer));
-      } catch (e) {
-        console.error("Failed to parse mirrorBuffer:", e);
-      }
-
-      const savedBaseline = localStorage.getItem(STORAGE_KEYS.baseline);
-      if (savedBaseline) {
-        const car = allCars.find(c => c.id === savedBaseline);
-        if (car) setBaselineCar(car);
-      }
-
-      try {
-        const savedColumns = localStorage.getItem(STORAGE_KEYS.columns);
-        if (savedColumns) setVisibleColumns(JSON.parse(savedColumns));
-      } catch (e) {
-        console.error("Failed to parse columns:", e);
-      }
-
-      try {
-        const savedCompareList = localStorage.getItem(STORAGE_KEYS.compareList);
-        if (savedCompareList) setCompareList(JSON.parse(savedCompareList));
-      } catch (e) {
-        console.error("Failed to parse compareList:", e);
-      }
+      const savedColumns = readStorageJson(STORAGE_KEYS.columns, isStringArray);
+      if (savedColumns) setVisibleColumns(sanitizeColumns(savedColumns));
 
       // Check if first-time user (no wizard seen)
-      const hasSeenWizard = localStorage.getItem(STORAGE_KEYS.hasSeenWizard);
-      if (!hasSeenWizard) {
+      if (!readStorage(STORAGE_KEYS.hasSeenWizard)) {
         setShowWizard(true);
       }
     }
 
     setIsInitialized(true);
     }
+
+    /** Visitor-owned state, orthogonal to whatever a share link carries. */
+    function loadPersistedUserData() {
+      const savedFavorites = readStorageJson(STORAGE_KEYS.favorites, isStringArray);
+      if (savedFavorites) setFavorites(savedFavorites);
+
+      // The garage measurement is the visitor's own; no link format carries it.
+      const savedBuffer = parseFiniteInt(readStorage(STORAGE_KEYS.mirrorBuffer));
+      if (savedBuffer !== undefined) setMirrorBuffer(savedBuffer);
+
+      const savedCompareList = readStorageJson(STORAGE_KEYS.compareList, isStringArray);
+      if (savedCompareList) setCompareList(savedCompareList);
+
+      const savedBaseline = readStorage(STORAGE_KEYS.baseline);
+      if (savedBaseline === "") {
+        setBaselineCar(null);
+      } else if (savedBaseline) {
+        const car = allCars.find(c => c.id === savedBaseline);
+        if (car) setBaselineCar(car);
+      }
+    }
   }, [allCars]);
 
   // Save favorites to localStorage
   useEffect(() => {
     if (!isInitialized) return;
-    localStorage.setItem(STORAGE_KEYS.favorites, JSON.stringify(favorites));
+    writeStorage(STORAGE_KEYS.favorites, JSON.stringify(favorites));
   }, [favorites, isInitialized]);
 
   // Save filters to localStorage
   useEffect(() => {
     if (!isInitialized) return;
-    localStorage.setItem(STORAGE_KEYS.filters, JSON.stringify(filters));
+    writeStorage(STORAGE_KEYS.filters, JSON.stringify(filters));
   }, [filters, isInitialized]);
 
   // Save mirror buffer to localStorage
   useEffect(() => {
     if (!isInitialized) return;
-    localStorage.setItem(STORAGE_KEYS.mirrorBuffer, mirrorBuffer.toString());
+    writeStorage(STORAGE_KEYS.mirrorBuffer, mirrorBuffer.toString());
   }, [mirrorBuffer, isInitialized]);
 
   // Save baseline to localStorage
   useEffect(() => {
     if (!isInitialized) return;
-    if (baselineCar) {
-      localStorage.setItem(STORAGE_KEYS.baseline, baselineCar.id);
-    }
+    // "" records a deliberately cleared baseline, which an absent key cannot express —
+    // it would be indistinguishable from a first visit. Clearing the baseline used to
+    // write nothing at all, so the old car came back on the next reload.
+    writeStorage(STORAGE_KEYS.baseline, baselineCar?.id ?? "");
   }, [baselineCar, isInitialized]);
 
   // Save columns to localStorage
   useEffect(() => {
     if (!isInitialized) return;
-    localStorage.setItem(STORAGE_KEYS.columns, JSON.stringify(visibleColumns));
+    writeStorage(STORAGE_KEYS.columns, JSON.stringify(visibleColumns));
   }, [visibleColumns, isInitialized]);
 
   // Save compare list to localStorage
   useEffect(() => {
     if (!isInitialized) return;
-    localStorage.setItem(STORAGE_KEYS.compareList, JSON.stringify(compareList));
+    writeStorage(STORAGE_KEYS.compareList, JSON.stringify(compareList));
   }, [compareList, isInitialized]);
 
   // Debounce search input
@@ -309,7 +373,9 @@ export default function Home() {
   const toggleCompare = useCallback((carId: string) => {
     setCompareList(prev => {
       if (prev.includes(carId)) {
-        return prev.filter(id => id !== carId);
+        const next = prev.filter(id => id !== carId);
+        if (next.length === 0) setShowCompareModal(false);
+        return next;
       }
       // Limit to 4 cars for comparison
       if (prev.length >= 4) {
@@ -327,20 +393,33 @@ export default function Home() {
   }, [showToast]);
 
   const removeFromCompare = useCallback((carId: string) => {
-    setCompareList(prev => prev.filter(id => id !== carId));
+    setCompareList(prev => {
+      const next = prev.filter(id => id !== carId);
+      // The modal renders on `showCompareModal && carsToCompare.length > 0`, so emptying
+      // the list here only hides it while leaving the flag set — and it would then spring
+      // open unbidden the next time any car was ticked.
+      if (next.length === 0) setShowCompareModal(false);
+      return next;
+    });
   }, []);
 
   const handleExportCsv = useCallback(() => {
     const csv = exportToCsv(sortedCars, mirrorBuffer);
-    downloadCsv(csv, `car-compare-${new Date().toISOString().split('T')[0]}.csv`);
+    downloadCsv(csv, `car-compare-${localDateStamp()}.csv`);
   }, [sortedCars, mirrorBuffer]);
 
   const handlePrint = useCallback(() => {
     window.print();
   }, []);
 
-  const handleShareUrl = useCallback(() => {
-    // Only include non-default/non-empty values to keep URLs short
+  /**
+   * The current view as a query string, or "" when nothing differs from the defaults.
+   *
+   * Only non-default values are encoded, so an untouched app keeps a bare URL and a
+   * shared one stays as short as the view is unusual. Favorites are deliberately absent:
+   * they are the visitor's own, not part of the view being shared.
+   */
+  const shareQuery = useMemo(() => {
     const state: Record<string, unknown> = {};
 
     // Only add filters if there are any active
@@ -350,12 +429,15 @@ export default function Home() {
     if (Object.keys(activeFilters).length > 0) state.f = activeFilters;
 
     // Only add sort if not default
-    if (sortConfig.field !== "msrp" || sortConfig.direction !== "asc") {
+    if (sortConfig.field !== DEFAULT_SORT_CONFIG.field || sortConfig.direction !== DEFAULT_SORT_CONFIG.direction) {
       state.s = [sortConfig.field, sortConfig.direction === "desc" ? 1 : 0];
     }
 
-    // Only add baseline if set and not default
-    if (baselineCar && baselineCar.id !== "toyota-rav4-2011") state.b = baselineCar.id;
+    // null is encoded explicitly: "the sharer deliberately compares against nothing" is
+    // a different view from "the sharer left it alone", and omitting it handed the
+    // recipient their own default baseline back.
+    if (baselineCar === null) state.b = null;
+    else if (baselineCar.id !== DEFAULT_BASELINE_ID) state.b = baselineCar.id;
 
     // Only add compare list if not empty
     if (compareList.length > 0) state.c = compareList;
@@ -367,16 +449,41 @@ export default function Home() {
       state.v = visibleColumns;
     }
 
-    const encoded = btoa(JSON.stringify(state));
-    const url = `${window.location.origin}${window.location.pathname}?state=${encoded}`;
+    if (searchQuery.trim()) state.q = searchQuery.trim();
+
+    return Object.keys(state).length > 0
+      ? `?state=${encodeShareState(JSON.stringify(state))}`
+      : "";
+  }, [filters, sortConfig, baselineCar, compareList, visibleColumns, searchQuery]);
+
+  // Keep the address bar in step with the view, so copying the URL out of the browser
+  // is exactly as good as pressing Share. The app used to strip its params immediately
+  // after reading them, which meant the location never described what you were looking
+  // at and the Share button was the only way to capture it.
+  //
+  // replaceState, not pushState: nudging a filter should not bury the previous page
+  // under dozens of history entries. It also runs only after hydration, so it cannot
+  // clobber the very params it is about to read.
+  useEffect(() => {
+    if (!isInitialized) return;
+    const next = `${window.location.pathname}${shareQuery}`;
+    if (next !== `${window.location.pathname}${window.location.search}`) {
+      window.history.replaceState(null, "", next);
+    }
+  }, [shareQuery, isInitialized]);
+
+  const handleShareUrl = useCallback(() => {
+    const url = `${window.location.origin}${window.location.pathname}${shareQuery}`;
 
     navigator.clipboard.writeText(url).then(() => {
       showToast("Share link copied to clipboard!", "success");
     }).catch(() => {
-      // Fallback for older browsers
+      // Clipboard unavailable or permission denied. Say so before falling back to the
+      // prompt, so the browser dialog is explained rather than appearing unbidden.
+      showToast("Couldn't copy automatically — copy the link from the dialog", "info");
       prompt("Copy this link to share:", url);
     });
-  }, [filters, sortConfig, baselineCar, compareList, visibleColumns, showToast]);
+  }, [shareQuery, showToast]);
 
   const handleWizardComplete = useCallback((settings: {
     columns: ColumnId[];
@@ -425,12 +532,12 @@ export default function Home() {
     if (settings.sortConfig) {
       setSortConfig(settings.sortConfig);
     }
-    localStorage.setItem(STORAGE_KEYS.hasSeenWizard, "true");
+    writeStorage(STORAGE_KEYS.hasSeenWizard, "true");
     setShowWizard(false);
   }, []);
 
   const handleWizardSkip = useCallback(() => {
-    localStorage.setItem(STORAGE_KEYS.hasSeenWizard, "true");
+    writeStorage(STORAGE_KEYS.hasSeenWizard, "true");
     setShowWizard(false);
   }, []);
 
@@ -447,7 +554,10 @@ export default function Home() {
       </a>
 
       {/* ── Header ── */}
-      <header className="relative z-10 border-b border-gray-800/80 px-6 py-5">
+      {/* z-20 keeps the header above <main>: it is a stacking context, so the
+          Columns dropdown inside it cannot escape the header's own layer and
+          would otherwise be painted underneath the table. */}
+      <header className="relative z-20 border-b border-gray-800/80 px-6 py-5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-4">
             {/* Logo mark */}
@@ -868,10 +978,15 @@ function MobileCardView({
             }`}
           >
             <div className="flex gap-4">
+              {/* This card list is `block lg:hidden` — rendered on every device and only
+                  hidden by CSS. Without loading="lazy", React hoists a <link rel="preload">
+                  for each visible card, so desktop visitors eagerly fetched 20 images they
+                  never see, at preload priority. */}
               <img
                 src={getCarImageUrl(car, 200)}
                 alt={`${car.year} ${car.make} ${car.model}`}
                 className="w-32 h-20 object-cover rounded-lg"
+                loading="lazy"
               />
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-start">

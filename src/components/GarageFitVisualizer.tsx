@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Car } from "@/types/car";
 import { getEffectiveWidth, getCarDisplayName } from "@/lib/carUtils";
 import { useFocusTrap } from "@/lib/useFocusTrap";
+import { readStorageJson, writeStorage } from "@/lib/storage";
 
 interface GarageFitVisualizerProps {
   car: Car;
@@ -45,19 +46,16 @@ export default function GarageFitVisualizer({
   // instead of hydrating via an effect.
   const [garage, setGarage] = useState<GarageDimensions>(() => {
     if (typeof window === "undefined") return DEFAULT_GARAGE;
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : DEFAULT_GARAGE;
-    } catch (e) {
-      console.error("Failed to parse garage dimensions:", e);
-      return DEFAULT_GARAGE;
-    }
+    const saved = readStorageJson(STORAGE_KEY, (v): v is GarageDimensions =>
+      typeof v === "object" && v !== null &&
+      ["width", "length", "height"].every(k => typeof (v as Record<string, unknown>)[k] === "number"));
+    return saved ?? DEFAULT_GARAGE;
   });
   const focusTrapRef = useFocusTrap();
 
   // Save garage dimensions to localStorage
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(garage));
+    writeStorage(STORAGE_KEY, JSON.stringify(garage));
   }, [garage]);
 
   const carWidth = getEffectiveWidth(car, mirrorBuffer);
@@ -83,9 +81,15 @@ export default function GarageFitVisualizer({
     };
   }, [garage, carWidth, carLength, carHeight]);
 
-  // Scale factor for visualization (pixels per inch)
+  // Scale factor for visualization (pixels per inch).
+  // Clearing both number inputs leaves the dimensions at 0, and dividing by 0 gives
+  // Infinity — which propagates into every inline width/height as an invalid style and
+  // collapses the drawing. Guard the divisor rather than the individual results.
   const maxVisualWidth = 400;
-  const scale = Math.min(maxVisualWidth / garage.width, maxVisualWidth / garage.length) * 0.9;
+  const scale = Math.min(
+    maxVisualWidth / Math.max(garage.width, 1),
+    maxVisualWidth / Math.max(garage.length, 1)
+  ) * 0.9;
 
   const garageVisualWidth = garage.width * scale;
   const garageVisualLength = garage.length * scale;

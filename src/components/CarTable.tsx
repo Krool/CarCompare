@@ -9,6 +9,10 @@ import {
   calculateDifference,
   getCarImageUrl,
   CAR_ANGLES,
+  getFoldedWidth,
+  getOneMirrorWidth,
+  isFoldedWidthEstimated,
+  FOLDED_MIRROR_FALLBACK_INCHES,
 } from "@/lib/carUtils";
 import {
   EMPTY,
@@ -171,13 +175,6 @@ function NumCell({
       {diff && <DiffBadge diff={diff} positive={positive} />}
     </td>
   );
-}
-
-/** Width with the driver's mirror extended and the passenger's folded. */
-function getOneMirrorWidth(car: Car, mirrorBuffer: number): number {
-  const folded = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches;
-  const extended = getEffectiveWidth(car, mirrorBuffer);
-  return ((extended - folded) / 2) + folded;
 }
 
 function DetailRow({ label, value, diff, positive, isBaseline }: { label: string; value: string | number | undefined; diff?: string | null; positive?: "higher" | "lower"; isBaseline?: boolean }) {
@@ -458,21 +455,24 @@ export default function CarTable({
                 )}
                 {isVisible("mirrorsFoldedWidthInches") && (
                   <NumCell
-                    value={car.mirrorsFoldedWidthInches}
-                    format={(v) => `${v}"`}
-                    title="Width with mirrors folded"
+                    value={getFoldedWidth(car)}
+                    /* The filter and the sort both fall back to an estimate for the 90
+                       cars with no measured value, so rendering EMPTY here would leave
+                       the table disagreeing with its own search. Show it, marked "~". */
+                    format={(v) => (isFoldedWidthEstimated(car) ? `~${v.toFixed(1)}"` : `${v}"`)}
+                    title={isFoldedWidthEstimated(car)
+                      ? `No measured folded width; estimated as body width + ${FOLDED_MIRROR_FALLBACK_INCHES}"`
+                      : "Width with mirrors folded"}
                     diff={showDiff && hasValue(baselineCar?.mirrorsFoldedWidthInches) ? calculateDifference(baselineCar!, car, "mirrorsFoldedWidthInches", mirrorBuffer) : null}
                     positive="lower"
                   />
                 )}
                 {isVisible("oneMirrorWidthInches") && (() => {
-                  // Calculate 1 mirror width: (extended - folded) / 2 + folded
                   const oneMirror = getOneMirrorWidth(car, mirrorBuffer);
                   const baseOneMirror = baselineCar ? getOneMirrorWidth(baselineCar, mirrorBuffer) : null;
                   const delta = baseOneMirror !== null && showDiff ? oneMirror - baseOneMirror : null;
                   // Narrower than the baseline is the good direction here, same
-                  // as every other width column — the old inline styling had it
-                  // inverted and used off-palette red/green.
+                  // as every other width column.
                   const diffStr = delta === null
                     ? null
                     : Math.abs(delta) < 0.05
@@ -1214,12 +1214,18 @@ const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
   // Memoize the image URL to prevent recalculation
   const imageUrl = useMemo(() => getCarImageUrl(car), [car]);
 
-  // Add timeout to stop loading animation after 5 seconds
+  // Give up on a stalled image after 5s. Previously this only hid the spinner, leaving
+  // a blank cell that looked identical to "still loading" — fall through to the same
+  // body-type placeholder the onError path uses, so the cell always says something.
   React.useEffect(() => {
+    setIsLoading(true);
+    setHasError(false);
+
     const timer = setTimeout(() => {
-      if (isLoading) {
-        setIsLoading(false);
+      if (!imgRef.current?.complete) {
+        setHasError(true);
       }
+      setIsLoading(false);
     }, 5000);
 
     // Also check if image is already loaded (cached)
@@ -1228,7 +1234,7 @@ const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
     }
 
     return () => clearTimeout(timer);
-  }, [imageUrl, isLoading]);
+  }, [imageUrl]);
 
   if (hasError) {
     return <CarImagePlaceholder className="w-20 h-12 shrink-0" label={bodyTypeLabel(car.bodyType)} />;

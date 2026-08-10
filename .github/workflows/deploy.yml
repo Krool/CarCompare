@@ -41,8 +41,17 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
+      - name: Validate car data
+        run: npm run validate-data
+
       - name: Build
         run: npm run build
+        env:
+          # Optional IMAGIN.studio account key; unset falls back to their public demo
+          # account, which watermarks every car render. NOT confidential despite living
+          # in secrets: NEXT_PUBLIC_* is inlined into the client bundle and is readable
+          # in view-source on the deployed site. See README.md.
+          NEXT_PUBLIC_IMAGIN_CUSTOMER: ${{ secrets.IMAGIN_CUSTOMER }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

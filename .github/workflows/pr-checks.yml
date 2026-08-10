@@ -2,7 +2,7 @@ name: PR Checks
 
 # Verification signal for pull requests. Does not deploy; deploy.yml owns GitHub Pages.
 #
-# Blocking gate: lint + typecheck + build.
+# Blocking gate: lint + typecheck + data validation + build.
 
 on:
   pull_request:
@@ -33,6 +33,9 @@ jobs:
 
       - name: Typecheck
         run: npx tsc --noEmit
+
+      - name: Validate car data
+        run: npm run validate-data
 
       - name: Build
         run: npm run build

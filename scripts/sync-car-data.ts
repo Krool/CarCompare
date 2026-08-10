@@ -16,41 +16,12 @@
 
 import * as fs from "fs";
 import * as path from "path";
+import { Car, CarDatabase } from "../src/types/car";
 
-interface Car {
-  id: string;
-  year: number;
-  make: string;
-  model: string;
-  trim?: string;
-  bodyWidthInches: number;
-  mirrorWidthInches?: number;
-  lengthInches?: number;
-  heightInches?: number;
-  seats: number;
-  doors: number;
-  cargoVolumesCuFt?: number;
-  fuelType: "gasoline" | "hybrid" | "electric" | "diesel" | "plug-in-hybrid";
-  plugType: "J1772" | "CCS1" | "CHAdeMO" | "NACS" | "Tesla" | "none";
-  mpgCity?: number;
-  mpgHighway?: number;
-  mpgCombined?: number;
-  mpge?: number;
-  electricRangeMiles?: number;
-  msrp?: number;
-  usedPriceLow?: number;
-  usedPriceHigh?: number;
-  standardFeatures?: string[];
-  notes?: string;
-  lastUpdated: string;
-  dataSource?: string;
-}
+// The authoritative shape lives in src/types/car.ts. This file used to redeclare a
+// drifted subset of it (no bodyType, safetyRating, adasFeatures, ...), so a future
+// required field would not have been enforced here.
 
-interface CarDatabase {
-  cars: Car[];
-  lastSyncDate: string;
-  mirrorBuffer: number;
-}
 
 const DATA_FILE = path.join(__dirname, "../src/data/cars.json");
 const BACKUP_FILE = path.join(__dirname, "../src/data/cars.backup.json");

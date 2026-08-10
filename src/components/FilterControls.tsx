@@ -75,6 +75,7 @@ const FUEL_TYPES: { value: FuelType; label: string }[] = [
   { value: "plug-in-hybrid", label: "Plug-in Hybrid" },
   { value: "electric", label: "Electric" },
   { value: "diesel", label: "Diesel" },
+  { value: "hydrogen", label: "Hydrogen" },
 ];
 
 const PLUG_TYPES: { value: PlugType; label: string }[] = [
@@ -91,6 +92,7 @@ const BODY_TYPES: { value: BodyType; label: string }[] = [
   { value: "suv", label: "SUV" },
   { value: "truck", label: "Truck" },
   { value: "minivan", label: "Minivan" },
+  { value: "van", label: "Van" },
   { value: "hatchback", label: "Hatchback" },
   { value: "wagon", label: "Wagon" },
   { value: "coupe", label: "Coupe" },
@@ -185,18 +187,26 @@ function FilterControlsComponent({
     onFiltersChange({ ...filters, autonomousLevels: newArr.length > 0 ? newArr : undefined });
   }, [onFiltersChange, filters]);
 
-  // Count active filters for each section
+  // Count active filters for each section.
+  //
+  // Test with the same predicate filterCars uses (`!== undefined`), not `Boolean`. A
+  // maxPrice of 0 — typed directly, or persisted as null after a NaN round-trip through
+  // JSON — is falsy but still applied, so the old count called it inactive, hid "Clear
+  // All Filters", and left the user staring at an empty table the UI insisted was
+  // unfiltered.
+  const isActive = (value: number | undefined | null) => value !== undefined && value !== null;
+
   const basicFilterCount = [
     filters.minYear, filters.maxYear, filters.minPrice, filters.maxPrice
-  ].filter(Boolean).length;
+  ].filter(isActive).length;
 
   const dimensionFilterCount = [
     filters.maxLengthInches, filters.maxWidthInches, filters.maxHeightInches,
     filters.minGroundClearance, filters.minTowingCapacity, filters.minLegroom, filters.minCargo
-  ].filter(Boolean).length;
+  ].filter(isActive).length;
 
   const safetyFilterCount = (filters.safetyRatings?.length ?? 0) +
-    (filters.minReviewScore ? 1 : 0) +
+    (isActive(filters.minReviewScore) ? 1 : 0) +
     (filters.autonomousLevels?.length ?? 0) +
     (filters.hasHandsFree ? 1 : 0) +
     (filters.hasAutoLaneChange ? 1 : 0) +
@@ -204,8 +214,8 @@ function FilterControlsComponent({
 
   const powertrainFilterCount = (filters.fuelTypes?.length ?? 0) +
     (filters.plugTypes?.length ?? 0) +
-    (filters.minMpg ? 1 : 0) +
-    (filters.minEvRange ? 1 : 0);
+    (isActive(filters.minMpg) ? 1 : 0) +
+    (isActive(filters.minEvRange) ? 1 : 0);
 
   const vehicleFilterCount = (filters.bodyTypes?.length ?? 0) +
     (filters.doors?.length ?? 0) +
