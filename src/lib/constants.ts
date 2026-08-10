@@ -7,6 +7,9 @@ export const TOAST_DURATION_MS = 3000;
 // cars instead of the classics that happen to carry the lowest MSRP.
 export const DEFAULT_SORT_CONFIG: SortConfig = { field: "year", direction: "desc" };
 
+// The vehicle the table compares against out of the box (the owner's current car).
+export const DEFAULT_BASELINE_ID = "toyota-rav4-2011";
+
 // LocalStorage keys
 export const STORAGE_KEYS = {
   favorites: "carcompare_favorites",

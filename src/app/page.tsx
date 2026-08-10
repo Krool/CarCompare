@@ -10,7 +10,7 @@ import CompareModal from "@/components/CompareModal";
 import ColumnSettings, { ALL_COLUMNS, DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
 import SetupWizard from "@/components/SetupWizard";
 import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl, localDateStamp } from "@/lib/carUtils";
-import { DEFAULT_SORT_CONFIG, STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
+import { DEFAULT_BASELINE_ID, DEFAULT_SORT_CONFIG, STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
 import { readStorage, readStorageJson, writeStorage } from "@/lib/storage";
 import { isStringArray, parseFiniteInt, toSortConfig } from "@/lib/validation";
 
@@ -51,7 +51,7 @@ export default function Home() {
   const defaultMirrorBuffer = carData.mirrorBuffer;
 
   // Find default baseline (Toyota RAV4 2011)
-  const defaultBaseline = allCars.find((c) => c.id === "toyota-rav4-2011") ?? null;
+  const defaultBaseline = allCars.find((c) => c.id === DEFAULT_BASELINE_ID) ?? null;
 
   const [filters, setFilters] = useState<CarFilters>({});
   // Newest model year first. Sorting by price ascending put the handful of
@@ -190,8 +190,8 @@ export default function Home() {
       // Mark wizard as seen and don't show it
       writeStorage(STORAGE_KEYS.hasSeenWizard, "true");
 
-      // Clear the URL params after loading shared state
-      window.history.replaceState({}, "", window.location.pathname);
+      // The params are deliberately left in place; the URL-sync effect rewrites them
+      // into the canonical ?state= form once hydration finishes.
       setIsInitialized(true);
       return;
     } else if (sharedState) {
@@ -225,9 +225,10 @@ export default function Home() {
           setCompareList(compare.filter(id => allCars.some(c => c.id === id)));
         }
         if (isStringArray(columns)) setVisibleColumns(sanitizeColumns(columns));
-
-        // Clear the URL params after loading shared state
-        window.history.replaceState({}, "", window.location.pathname);
+        if (typeof decoded.q === "string") {
+          setSearchInput(decoded.q);
+          setSearchQuery(decoded.q);
+        }
       } catch (e) {
         console.error("Failed to parse shared state:", e);
       }
@@ -403,8 +404,14 @@ export default function Home() {
     window.print();
   }, []);
 
-  const handleShareUrl = useCallback(() => {
-    // Only include non-default/non-empty values to keep URLs short
+  /**
+   * The current view as a query string, or "" when nothing differs from the defaults.
+   *
+   * Only non-default values are encoded, so an untouched app keeps a bare URL and a
+   * shared one stays as short as the view is unusual. Favorites are deliberately absent:
+   * they are the visitor's own, not part of the view being shared.
+   */
+  const shareQuery = useMemo(() => {
     const state: Record<string, unknown> = {};
 
     // Only add filters if there are any active
@@ -419,7 +426,7 @@ export default function Home() {
     }
 
     // Only add baseline if set and not default
-    if (baselineCar && baselineCar.id !== "toyota-rav4-2011") state.b = baselineCar.id;
+    if (baselineCar && baselineCar.id !== DEFAULT_BASELINE_ID) state.b = baselineCar.id;
 
     // Only add compare list if not empty
     if (compareList.length > 0) state.c = compareList;
@@ -431,8 +438,31 @@ export default function Home() {
       state.v = visibleColumns;
     }
 
-    const encoded = encodeShareState(JSON.stringify(state));
-    const url = `${window.location.origin}${window.location.pathname}?state=${encoded}`;
+    if (searchQuery.trim()) state.q = searchQuery.trim();
+
+    return Object.keys(state).length > 0
+      ? `?state=${encodeShareState(JSON.stringify(state))}`
+      : "";
+  }, [filters, sortConfig, baselineCar, compareList, visibleColumns, searchQuery]);
+
+  // Keep the address bar in step with the view, so copying the URL out of the browser
+  // is exactly as good as pressing Share. The app used to strip its params immediately
+  // after reading them, which meant the location never described what you were looking
+  // at and the Share button was the only way to capture it.
+  //
+  // replaceState, not pushState: nudging a filter should not bury the previous page
+  // under dozens of history entries. It also runs only after hydration, so it cannot
+  // clobber the very params it is about to read.
+  useEffect(() => {
+    if (!isInitialized) return;
+    const next = `${window.location.pathname}${shareQuery}`;
+    if (next !== `${window.location.pathname}${window.location.search}`) {
+      window.history.replaceState(null, "", next);
+    }
+  }, [shareQuery, isInitialized]);
+
+  const handleShareUrl = useCallback(() => {
+    const url = `${window.location.origin}${window.location.pathname}${shareQuery}`;
 
     navigator.clipboard.writeText(url).then(() => {
       showToast("Share link copied to clipboard!", "success");
@@ -442,7 +472,7 @@ export default function Home() {
       showToast("Couldn't copy automatically — copy the link from the dialog", "info");
       prompt("Copy this link to share:", url);
     });
-  }, [filters, sortConfig, baselineCar, compareList, visibleColumns, showToast]);
+  }, [shareQuery, showToast]);
 
   const handleWizardComplete = useCallback((settings: {
     columns: ColumnId[];
