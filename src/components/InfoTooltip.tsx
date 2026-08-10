@@ -371,23 +371,3 @@ export function CargoInfoContent() {
   );
 }
 
-export function LeaseDepreciationInfoContent() {
-  return (
-    <>
-      <div className="border-b border-gray-800/50 pb-2 mb-2">
-        <p className="font-medium text-white">Lease Rating</p>
-        <p className="text-gray-400 text-xs">How favorable lease deals typically are. Based on money factor (interest rate), residual value, and available incentives.</p>
-        <p className="text-gray-500 text-xs mt-1">Excellent: Great deals, low payments relative to MSRP</p>
-        <p className="text-gray-500 text-xs">Poor: High payments, better to buy or look elsewhere</p>
-      </div>
-      <div className="border-b border-gray-800/50 pb-2 mb-2">
-        <p className="font-medium text-white">Depreciation</p>
-        <p className="text-gray-400 text-xs">How fast the vehicle loses value. Low depreciation = better resale value. Luxury vehicles and EVs often depreciate faster.</p>
-      </div>
-      <div>
-        <p className="font-medium text-white">5-Year Resale %</p>
-        <p className="text-gray-400 text-xs">Estimated percentage of MSRP the vehicle will be worth after 5 years. Higher is better. Toyota/Lexus typically retain value best.</p>
-      </div>
-    </>
-  );
-}

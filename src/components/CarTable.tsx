@@ -7,8 +7,11 @@ import {
   formatMpg,
   getEffectiveWidth,
   calculateDifference,
-  getCarDisplayName,
   getCarImageUrl,
+  getFoldedWidth,
+  getOneMirrorWidth,
+  isFoldedWidthEstimated,
+  FOLDED_MIRROR_FALLBACK_INCHES,
 } from "@/lib/carUtils";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import GarageFitVisualizer from "./GarageFitVisualizer";
@@ -377,23 +380,23 @@ export default function CarTable({
                   </td>
                 )}
                 {isVisible("mirrorsFoldedWidthInches") && (
-                  <td className="px-3 py-2 text-sm text-white" title="Width with mirrors folded">
-                    {car.mirrorsFoldedWidthInches ? `${car.mirrorsFoldedWidthInches}"` : "-"}
+                  <td
+                    className="px-3 py-2 text-sm text-white"
+                    title={isFoldedWidthEstimated(car)
+                      ? `No measured folded width; estimated as body width + ${FOLDED_MIRROR_FALLBACK_INCHES}"`
+                      : "Width with mirrors folded"}
+                  >
+                    {/* Showing "-" here while the filter and sort both used an estimate meant
+                        the table disagreed with its own search. Show the estimate, marked. */}
+                    {isFoldedWidthEstimated(car) ? `~${getFoldedWidth(car).toFixed(1)}"` : `${car.mirrorsFoldedWidthInches}"`}
                     {baselineCar && !isBaseline && car.mirrorsFoldedWidthInches && baselineCar.mirrorsFoldedWidthInches && (
                       <DiffBadge diff={calculateDifference(baselineCar, car, "mirrorsFoldedWidthInches", mirrorBuffer)} positive="lower" />
                     )}
                   </td>
                 )}
                 {isVisible("oneMirrorWidthInches") && (() => {
-                  // Calculate 1 mirror width: (extended - folded) / 2 + folded
-                  const folded = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches;
-                  const extended = effectiveWidth;
-                  const oneMirror = ((extended - folded) / 2) + folded;
-                  const baseOneMirror = baselineCar ? (() => {
-                    const baseFolded = baselineCar.mirrorsFoldedWidthInches ?? baselineCar.bodyWidthInches;
-                    const baseExtended = getEffectiveWidth(baselineCar, mirrorBuffer);
-                    return ((baseExtended - baseFolded) / 2) + baseFolded;
-                  })() : null;
+                  const oneMirror = getOneMirrorWidth(car, mirrorBuffer);
+                  const baseOneMirror = baselineCar ? getOneMirrorWidth(baselineCar, mirrorBuffer) : null;
                   const diff = baseOneMirror && !isBaseline ? (oneMirror - baseOneMirror).toFixed(1) : null;
                   const diffStr = diff ? (parseFloat(diff) > 0 ? `+${diff}` : diff === "0.0" ? "same" : diff) : null;
                   return (
@@ -537,6 +540,7 @@ const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType
     hybrid: "bg-emerald-900/30 text-emerald-300 border-emerald-800/30",
     "plug-in-hybrid": "bg-teal-900/30 text-teal-300 border-teal-800/30",
     electric: "bg-sky-900/30 text-sky-300 border-sky-800/30",
+    hydrogen: "bg-blue-900/30 text-blue-300 border-blue-800/30",
   };
 
   const labels: Record<string, string> = {
@@ -545,6 +549,7 @@ const FuelTypeBadge = React.memo(function FuelTypeBadge({ fuelType }: { fuelType
     hybrid: "Hybrid",
     "plug-in-hybrid": "PHEV",
     electric: "EV",
+    hydrogen: "H2",
   };
 
   return (
@@ -561,6 +566,7 @@ const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType
     suv: "bg-amber-900/30 text-amber-300 border-amber-800/30",
     truck: "bg-rose-900/30 text-rose-300 border-rose-800/30",
     minivan: "bg-pink-900/30 text-pink-300 border-pink-800/30",
+    van: "bg-fuchsia-900/30 text-fuchsia-300 border-fuchsia-800/30",
     hatchback: "bg-cyan-900/30 text-cyan-300 border-cyan-800/30",
     wagon: "bg-lime-900/30 text-lime-300 border-lime-800/30",
     coupe: "bg-indigo-900/30 text-indigo-300 border-indigo-800/30",
@@ -572,6 +578,7 @@ const BodyTypeBadge = React.memo(function BodyTypeBadge({ bodyType }: { bodyType
     suv: "SUV",
     truck: "Truck",
     minivan: "Minivan",
+    van: "Van",
     hatchback: "Hatch",
     wagon: "Wagon",
     coupe: "Coupe",
@@ -1168,12 +1175,18 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
   // Memoize the image URL to prevent recalculation
   const imageUrl = useMemo(() => getCarImageUrl(car), [car]);
 
-  // Add timeout to stop loading animation after 5 seconds
+  // Give up on a stalled image after 5s. Previously this only hid the spinner, leaving
+  // a blank cell that looked identical to "still loading" — fall through to the same
+  // body-type placeholder the onError path uses, so the cell always says something.
   React.useEffect(() => {
+    setIsLoading(true);
+    setHasError(false);
+
     const timer = setTimeout(() => {
-      if (isLoading) {
-        setIsLoading(false);
+      if (!imgRef.current?.complete) {
+        setHasError(true);
       }
+      setIsLoading(false);
     }, 5000);
 
     // Also check if image is already loaded (cached)
@@ -1182,7 +1195,7 @@ const CarImage = React.memo(function CarImage({ car, onImageClick }: { car: Car;
     }
 
     return () => clearTimeout(timer);
-  }, [imageUrl, isLoading]);
+  }, [imageUrl]);
 
   if (hasError) {
     return (

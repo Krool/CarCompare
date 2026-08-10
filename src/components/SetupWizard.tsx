@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Car, ColumnId, BodyType, FuelType, SortField, SafetyRating, AutonomousLevel, PlugType } from "@/types/car";
 import { ALL_COLUMNS } from "./ColumnSettings";
 import { useFocusTrap } from "@/lib/useFocusTrap";
+import { EV_RANGE_PRESETS, PRICE_PRESETS } from "@/lib/constants";
 
 interface SetupWizardProps {
   cars: Car[];
@@ -182,6 +183,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
     makes: [] as string[],
   });
   const [sortConfig, setSortConfig] = useState<{ field: SortField; direction: "asc" | "desc" } | undefined>(undefined);
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   // Handle ESC key to close wizard
@@ -472,15 +474,6 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
       makes: prev.makes.includes(make)
         ? prev.makes.filter(m => m !== make)
         : [...prev.makes, make],
-    }));
-  };
-
-  const toggleSeats = (seats: number) => {
-    setPreferences(prev => ({
-      ...prev,
-      seats: prev.seats.includes(seats)
-        ? prev.seats.filter(s => s !== seats)
-        : [...prev.seats, seats],
     }));
   };
 
@@ -830,7 +823,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               <div className="surface-inset rounded-xl p-3">
                 <p className="text-white text-sm font-medium mb-2">Budget</p>
                 <div className="flex flex-wrap gap-1">
-                  {[40000, 50000, 60000, 80000].map(price => (
+                  {PRICE_PRESETS.map(price => (
                     <button
                       key={price}
                       onClick={() => setPreferences(prev => ({
@@ -1005,7 +998,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                     <div>
                       <p className="text-gray-400 text-xs mb-1">Min EV Range (mi)</p>
                       <div className="flex flex-wrap gap-1">
-                        {[200, 250, 300, 350].map(range => (
+                        {EV_RANGE_PRESETS.map(range => (
                           <button
                             key={range}
                             onClick={() => setPreferences(prev => ({
@@ -1242,16 +1235,22 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                 />
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText(generateShareUrl());
+                    // Unhandled, this rejects silently on a denied permission and the
+                    // button looks like it worked.
+                    navigator.clipboard.writeText(generateShareUrl())
+                      .then(() => setCopyState("copied"))
+                      .catch(() => setCopyState("failed"));
                   }}
                   className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm"
                   title="Copy to clipboard"
                 >
-                  Copy
+                  {copyState === "copied" ? "Copied" : "Copy"}
                 </button>
               </div>
-              <p className="text-gray-500 text-xs mt-1">
-                Anyone with this link will see your column and filter settings
+              <p className={`text-xs mt-1 ${copyState === "failed" ? "text-rose-400" : "text-gray-500"}`}>
+                {copyState === "failed"
+                  ? "Couldn't copy automatically — select the link above and copy it manually."
+                  : "Anyone with this link will see your column and filter settings"}
               </p>
             </div>
 

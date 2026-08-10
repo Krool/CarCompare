@@ -1,8 +1,11 @@
-export type FuelType = "gasoline" | "hybrid" | "electric" | "diesel" | "plug-in-hybrid";
+// "hydrogen" covers fuel-cell vehicles (Mirai, CR-V e:FCEV). They are a distinct
+// powertrain: no plug, no engine, so none of the other members describe them.
+export type FuelType = "gasoline" | "hybrid" | "electric" | "diesel" | "plug-in-hybrid" | "hydrogen";
 
 export type PlugType = "J1772" | "CCS1" | "CHAdeMO" | "NACS" | "Tesla" | "none";
 
-export type BodyType = "sedan" | "crossover" | "suv" | "truck" | "minivan" | "hatchback" | "wagon" | "coupe";
+// "van" is a full-size/cargo van, distinct from the passenger-oriented "minivan".
+export type BodyType = "sedan" | "crossover" | "suv" | "truck" | "minivan" | "van" | "hatchback" | "wagon" | "coupe";
 
 // IIHS Top Safety Pick ratings
 export type SafetyRating = "TSP+" | "TSP" | "Good" | "Acceptable" | "Pending" | "Not Rated";
@@ -37,7 +40,6 @@ export interface Car {
   model: string;
   trim?: string;
   bodyType: BodyType;
-  imageUrl?: string;            // URL to car image
 
   // Dimensions
   bodyWidthInches: number;           // Width without mirrors (body only)

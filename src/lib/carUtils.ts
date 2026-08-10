@@ -89,14 +89,11 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
       const widthType = filters.widthFilterType ?? "extended";
       let widthToCheck: number;
       if (widthType === "folded") {
-        widthToCheck = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches + 2;
+        widthToCheck = getFoldedWidth(car);
       } else if (widthType === "one-mirror") {
-        // One mirror = folded + half the difference between extended and folded
-        const extended = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
-        const folded = car.mirrorsFoldedWidthInches ?? car.bodyWidthInches + 2;
-        widthToCheck = folded + (extended - folded) / 2;
+        widthToCheck = getOneMirrorWidth(car, mirrorBuffer);
       } else {
-        widthToCheck = car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
+        widthToCheck = getEffectiveWidth(car, mirrorBuffer);
       }
       if (widthToCheck > filters.maxWidthInches) return false;
     }
@@ -217,8 +214,15 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
   });
 }
 
-// Resolves the value a car is ranked by for a given sort field. Returns null for
-// fields with no ranking rule, which leaves the comparison to the tie-breakers.
+/**
+ * Resolves the value a car is ranked by for a given sort field.
+ *
+ * `null` means "this car has no value for this field" and is sorted last in both
+ * directions by `compareSortValues`. Missing values used to be encoded as `0` or
+ * `Infinity`, which made them extreme rather than absent: since a fresh column always
+ * starts ascending, the first click on 0-60, Horsepower, Towing or EV Range opened on
+ * a run of empty rows (97 cars have no 0-60 time, 321 have no EV range).
+ */
 function getSortValue(car: Car, field: SortField): number | string | null {
   switch (field) {
     case "year":
@@ -230,53 +234,54 @@ function getSortValue(car: Car, field: SortField): number | string | null {
     case "bodyType":
       return car.bodyType.toLowerCase();
     case "lengthInches":
-      return car.lengthInches ?? 0;
+      return car.lengthInches ?? null;
     case "bodyWidthInches":
       return car.mirrorWidthInches ?? car.bodyWidthInches;
     case "mirrorsFoldedWidthInches":
-      return car.mirrorsFoldedWidthInches ?? car.bodyWidthInches;
+      // Estimated for cars with no measured value, matching the filter and the table.
+      return getFoldedWidth(car);
     case "seats":
       return car.seats;
     case "doors":
       return car.doors;
     case "msrp":
-      return car.msrp ?? Infinity;
+      return car.msrp ?? null;
     case "mpgCombined":
-      return car.mpgCombined ?? car.mpge ?? 0;
+      return car.mpgCombined ?? car.mpge ?? null;
     case "electricRangeMiles":
-      return car.electricRangeMiles ?? 0;
+      return car.electricRangeMiles ?? null;
     case "driverLegroomInches":
-      return car.driverLegroomInches ?? 0;
+      return car.driverLegroomInches ?? null;
     case "safetyRating":
-      return SAFETY_RATING_ORDER[car.safetyRating ?? "undefined"];
+      return car.safetyRating === undefined ? null : SAFETY_RATING_ORDER[car.safetyRating];
     case "autonomousLevel":
-      return AUTONOMOUS_LEVEL_ORDER[car.autonomousLevel ?? "undefined"];
+      return car.autonomousLevel === undefined ? null : AUTONOMOUS_LEVEL_ORDER[car.autonomousLevel];
     case "reviewScore":
-      return car.reviewScore ?? 0;
+      return car.reviewScore ?? null;
     case "heightInches":
-      return car.heightInches ?? 0;
+      return car.heightInches ?? null;
     case "groundClearanceInches":
-      return car.groundClearanceInches ?? 0;
+      return car.groundClearanceInches ?? null;
     case "towingCapacityLbs":
-      return car.towingCapacityLbs ?? 0;
+      return car.towingCapacityLbs ?? null;
     case "cargoVolumesCuFt":
-      return car.cargoVolumesCuFt ?? 0;
+      return car.cargoVolumesCuFt ?? null;
     case "leaseRating":
-      return LEASE_RATING_ORDER[car.leaseRating ?? "undefined"];
+      return car.leaseRating === undefined ? null : LEASE_RATING_ORDER[car.leaseRating];
     case "depreciationCategory":
-      return DEPRECIATION_ORDER[car.depreciationCategory ?? "undefined"];
+      return car.depreciationCategory === undefined ? null : DEPRECIATION_ORDER[car.depreciationCategory];
     case "fiveYearResalePercent":
-      return car.fiveYearResalePercent ?? 0;
+      return car.fiveYearResalePercent ?? null;
     case "reliabilityRating":
-      return RELIABILITY_ORDER[car.reliabilityRating ?? "undefined"];
+      return car.reliabilityRating === undefined ? null : RELIABILITY_ORDER[car.reliabilityRating];
     case "insuranceCostAnnual":
-      return car.insuranceCostAnnual ?? Infinity;
+      return car.insuranceCostAnnual ?? null;
     case "maintenanceCostAnnual":
-      return car.maintenanceCostAnnual ?? Infinity;
+      return car.maintenanceCostAnnual ?? null;
     case "zeroToSixtySeconds":
-      return car.zeroToSixtySeconds ?? Infinity;
+      return car.zeroToSixtySeconds ?? null;
     case "horsepower":
-      return car.horsepower ?? 0;
+      return car.horsepower ?? null;
     default:
       return null;
   }
@@ -287,7 +292,11 @@ function compareSortValues(
   bVal: number | string | null,
   direction: SortDirection
 ): number {
-  if (aVal === null || bVal === null) return 0;
+  // Cars with no value for the sorted field go last whichever way the column points —
+  // reversing the sort should not promote a screen of blanks to the top.
+  if (aVal === null && bVal === null) return 0;
+  if (aVal === null) return 1;
+  if (bVal === null) return -1;
 
   if (typeof aVal === "string" && typeof bVal === "string") {
     return direction === "asc" ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
@@ -295,8 +304,6 @@ function compareSortValues(
 
   const numA = aVal as number;
   const numB = bVal as number;
-  // Guard the equal case explicitly: missing values map to Infinity for some
-  // fields, and Infinity - Infinity is NaN, which breaks the comparator.
   if (numA === numB) return 0;
   return direction === "asc" ? numA - numB : numB - numA;
 }
@@ -345,6 +352,32 @@ export function formatMpg(car: Car): string {
 
 export function getEffectiveWidth(car: Car, mirrorBuffer: number): number {
   return car.mirrorWidthInches ?? car.bodyWidthInches + mirrorBuffer;
+}
+
+// Cars without a measured folded width are estimated at 2" wider than the bare body.
+export const FOLDED_MIRROR_FALLBACK_INCHES = 2;
+
+/**
+ * Width with the mirrors folded in.
+ *
+ * Filtering, sorting and the table cell each used to apply their own fallback for the
+ * 90 cars with no measured value — `+2`, nothing, and nothing respectively — so the
+ * number on screen was a full inch below the number the filter tested, and a "fits in
+ * 76 inches" search excluded cars the table said were 75.4". One definition now.
+ */
+export function getFoldedWidth(car: Car): number {
+  return car.mirrorsFoldedWidthInches ?? car.bodyWidthInches + FOLDED_MIRROR_FALLBACK_INCHES;
+}
+
+/** Width with one mirror folded and one extended — halfway between the two. */
+export function getOneMirrorWidth(car: Car, mirrorBuffer: number): number {
+  const folded = getFoldedWidth(car);
+  return folded + (getEffectiveWidth(car, mirrorBuffer) - folded) / 2;
+}
+
+/** True when the folded width is an estimate rather than a measured figure. */
+export function isFoldedWidthEstimated(car: Car): boolean {
+  return car.mirrorsFoldedWidthInches === undefined;
 }
 
 export function calculateDifference(baseline: Car, comparison: Car, field: keyof Car, mirrorBuffer: number): string | null {
@@ -422,8 +455,11 @@ export function exportToCsv(cars: Car[], mirrorBuffer: number): string {
 
   const csvContent = [
     headers.join(","),
+    // Newlines need quoting as much as commas do: an unquoted one splits a record in
+    // two and silently shifts every later column. No note contains one today, which is
+    // exactly why it would ship unnoticed the first time one does.
     ...rows.map(row => row.map(cell =>
-      typeof cell === "string" && (cell.includes(",") || cell.includes('"'))
+      typeof cell === "string" && /[",\r\n]/.test(cell)
         ? `"${cell.replace(/"/g, '""')}"`
         : cell
     ).join(","))
@@ -435,10 +471,20 @@ export function exportToCsv(cars: Car[], mirrorBuffer: number): string {
 export function downloadCsv(content: string, filename: string): void {
   const blob = new Blob([content], { type: "text/csv;charset=utf-8;" });
   const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
+  const url = URL.createObjectURL(blob);
+  link.href = url;
   link.download = filename;
   link.click();
-  URL.revokeObjectURL(link.href);
+  // Firefox and Safari can still be reading the blob when click() returns on a link
+  // that was never attached to the document; revoking synchronously races that read.
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+/** Local-calendar YYYY-MM-DD. `toISOString` is UTC, so an evening export in the
+ *  Americas was stamped with tomorrow's date. */
+export function localDateStamp(date: Date = new Date()): string {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
 /**

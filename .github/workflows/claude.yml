@@ -31,10 +31,19 @@ permissions:
 
 jobs:
   claude:
+    # The mention must come from someone who can already write to this repo.
+    #
+    # This is a public repo, the job holds contents/pull-requests/issues write, and any
+    # push to master is a production deploy — so without this check, an "@claude" from
+    # any passer-by turns untrusted comment text into instructions for a write-capable
+    # agent. --max-turns is a cost guard, not a security boundary.
     if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude') &&
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude') &&
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)) ||
+      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude') &&
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

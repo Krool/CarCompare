@@ -14,11 +14,12 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/CarCompare](http://localhost:3000/CarCompare) with your browser to see the result.
+(`next.config.ts` sets `basePath: "/CarCompare"` for GitHub Pages, and it applies in dev too.)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to load Outfit (UI) and DM Mono (tabular data), both from Google Fonts.
 
 ## Car images
 
@@ -37,9 +38,17 @@ If you have an account key, set it at build time and no code change is needed:
 NEXT_PUBLIC_IMAGIN_CUSTOMER=your-customer-key npm run build
 ```
 
-For the GitHub Pages deploy, add the key as a repository secret named `IMAGIN_CUSTOMER`;
-`.github/workflows/deploy.yml` already passes it through. With the secret unset the build
-falls back to the watermarked demo account.
+For the GitHub Pages deploy, store the key as a repository secret named `IMAGIN_CUSTOMER`;
+`.github/workflows/deploy.yml` already passes it through. With it unset, the build falls
+back to the watermarked demo account.
+
+> **This customer key is public, not secret.** The browser makes the IMAGIN request, so
+> `NEXT_PUBLIC_*` values are inlined into the client bundle at build time and are readable
+> in view-source on the deployed site. GitHub Actions will mask the value in build logs,
+> which makes it *look* protected — it isn't. Treat it as a public identifier: assume
+> anyone can render images against the account, and if IMAGIN supports origin or referrer
+> locking, restrict the account to your Pages domain, since that is the only control that
+> actually limits use.
 
 ## Learn More
 
@@ -50,8 +59,9 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploying
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Statically exported (`output: "export"` in `next.config.ts`) and shipped to GitHub Pages by
+`.github/workflows/deploy.yml` on every push to `master` — a merged PR IS the production
+deploy. `.github/workflows/pr-checks.yml` runs the same lint / typecheck / data-validation /
+build gate on pull requests. See `CLAUDE.md`.
