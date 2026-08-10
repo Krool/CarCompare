@@ -1,5 +1,11 @@
+import type { SortConfig } from "@/types/car";
+
 // UI timing constants
 export const TOAST_DURATION_MS = 3000;
+
+// Sort defaults — newest model year first, so the table opens on current-year
+// cars instead of the classics that happen to carry the lowest MSRP.
+export const DEFAULT_SORT_CONFIG: SortConfig = { field: "year", direction: "desc" };
 
 // Image API constants
 export const IMAGE_SIZES = {

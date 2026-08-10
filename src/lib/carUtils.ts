@@ -217,140 +217,107 @@ export function filterCars(cars: Car[], filters: CarFilters, mirrorBuffer: numbe
   });
 }
 
+// Resolves the value a car is ranked by for a given sort field. Returns null for
+// fields with no ranking rule, which leaves the comparison to the tie-breakers.
+function getSortValue(car: Car, field: SortField): number | string | null {
+  switch (field) {
+    case "year":
+      return car.year;
+    case "make":
+      return car.make.toLowerCase();
+    case "model":
+      return car.model.toLowerCase();
+    case "bodyType":
+      return car.bodyType.toLowerCase();
+    case "lengthInches":
+      return car.lengthInches ?? 0;
+    case "bodyWidthInches":
+      return car.mirrorWidthInches ?? car.bodyWidthInches;
+    case "mirrorsFoldedWidthInches":
+      return car.mirrorsFoldedWidthInches ?? car.bodyWidthInches;
+    case "seats":
+      return car.seats;
+    case "doors":
+      return car.doors;
+    case "msrp":
+      return car.msrp ?? Infinity;
+    case "mpgCombined":
+      return car.mpgCombined ?? car.mpge ?? 0;
+    case "electricRangeMiles":
+      return car.electricRangeMiles ?? 0;
+    case "driverLegroomInches":
+      return car.driverLegroomInches ?? 0;
+    case "safetyRating":
+      return SAFETY_RATING_ORDER[car.safetyRating ?? "undefined"];
+    case "autonomousLevel":
+      return AUTONOMOUS_LEVEL_ORDER[car.autonomousLevel ?? "undefined"];
+    case "reviewScore":
+      return car.reviewScore ?? 0;
+    case "heightInches":
+      return car.heightInches ?? 0;
+    case "groundClearanceInches":
+      return car.groundClearanceInches ?? 0;
+    case "towingCapacityLbs":
+      return car.towingCapacityLbs ?? 0;
+    case "cargoVolumesCuFt":
+      return car.cargoVolumesCuFt ?? 0;
+    case "leaseRating":
+      return LEASE_RATING_ORDER[car.leaseRating ?? "undefined"];
+    case "depreciationCategory":
+      return DEPRECIATION_ORDER[car.depreciationCategory ?? "undefined"];
+    case "fiveYearResalePercent":
+      return car.fiveYearResalePercent ?? 0;
+    case "reliabilityRating":
+      return RELIABILITY_ORDER[car.reliabilityRating ?? "undefined"];
+    case "insuranceCostAnnual":
+      return car.insuranceCostAnnual ?? Infinity;
+    case "maintenanceCostAnnual":
+      return car.maintenanceCostAnnual ?? Infinity;
+    case "zeroToSixtySeconds":
+      return car.zeroToSixtySeconds ?? Infinity;
+    case "horsepower":
+      return car.horsepower ?? 0;
+    default:
+      return null;
+  }
+}
+
+function compareSortValues(
+  aVal: number | string | null,
+  bVal: number | string | null,
+  direction: SortDirection
+): number {
+  if (aVal === null || bVal === null) return 0;
+
+  if (typeof aVal === "string" && typeof bVal === "string") {
+    return direction === "asc" ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+  }
+
+  const numA = aVal as number;
+  const numB = bVal as number;
+  // Guard the equal case explicitly: missing values map to Infinity for some
+  // fields, and Infinity - Infinity is NaN, which breaks the comparator.
+  if (numA === numB) return 0;
+  return direction === "asc" ? numA - numB : numB - numA;
+}
+
 export function sortCars(cars: Car[], sortConfig: SortConfig): Car[] {
-  const sorted = [...cars].sort((a, b) => {
-    let aVal: number | string;
-    let bVal: number | string;
+  return [...cars].sort((a, b) => {
+    const primary = compareSortValues(
+      getSortValue(a, sortConfig.field),
+      getSortValue(b, sortConfig.field),
+      sortConfig.direction
+    );
+    if (primary !== 0) return primary;
 
-    switch (sortConfig.field) {
-      case "year":
-        aVal = a.year;
-        bVal = b.year;
-        break;
-      case "make":
-        aVal = a.make.toLowerCase();
-        bVal = b.make.toLowerCase();
-        break;
-      case "model":
-        aVal = a.model.toLowerCase();
-        bVal = b.model.toLowerCase();
-        break;
-      case "bodyType":
-        aVal = a.bodyType.toLowerCase();
-        bVal = b.bodyType.toLowerCase();
-        break;
-      case "lengthInches":
-        aVal = a.lengthInches ?? 0;
-        bVal = b.lengthInches ?? 0;
-        break;
-      case "bodyWidthInches":
-        aVal = a.mirrorWidthInches ?? a.bodyWidthInches;
-        bVal = b.mirrorWidthInches ?? b.bodyWidthInches;
-        break;
-      case "mirrorsFoldedWidthInches":
-        aVal = a.mirrorsFoldedWidthInches ?? a.bodyWidthInches;
-        bVal = b.mirrorsFoldedWidthInches ?? b.bodyWidthInches;
-        break;
-      case "seats":
-        aVal = a.seats;
-        bVal = b.seats;
-        break;
-      case "doors":
-        aVal = a.doors;
-        bVal = b.doors;
-        break;
-      case "msrp":
-        aVal = a.msrp ?? Infinity;
-        bVal = b.msrp ?? Infinity;
-        break;
-      case "mpgCombined":
-        aVal = a.mpgCombined ?? a.mpge ?? 0;
-        bVal = b.mpgCombined ?? b.mpge ?? 0;
-        break;
-      case "electricRangeMiles":
-        aVal = a.electricRangeMiles ?? 0;
-        bVal = b.electricRangeMiles ?? 0;
-        break;
-      case "driverLegroomInches":
-        aVal = a.driverLegroomInches ?? 0;
-        bVal = b.driverLegroomInches ?? 0;
-        break;
-      case "safetyRating":
-        aVal = SAFETY_RATING_ORDER[a.safetyRating ?? "undefined"];
-        bVal = SAFETY_RATING_ORDER[b.safetyRating ?? "undefined"];
-        break;
-      case "autonomousLevel":
-        aVal = AUTONOMOUS_LEVEL_ORDER[a.autonomousLevel ?? "undefined"];
-        bVal = AUTONOMOUS_LEVEL_ORDER[b.autonomousLevel ?? "undefined"];
-        break;
-      case "reviewScore":
-        aVal = a.reviewScore ?? 0;
-        bVal = b.reviewScore ?? 0;
-        break;
-      case "heightInches":
-        aVal = a.heightInches ?? 0;
-        bVal = b.heightInches ?? 0;
-        break;
-      case "groundClearanceInches":
-        aVal = a.groundClearanceInches ?? 0;
-        bVal = b.groundClearanceInches ?? 0;
-        break;
-      case "towingCapacityLbs":
-        aVal = a.towingCapacityLbs ?? 0;
-        bVal = b.towingCapacityLbs ?? 0;
-        break;
-      case "cargoVolumesCuFt":
-        aVal = a.cargoVolumesCuFt ?? 0;
-        bVal = b.cargoVolumesCuFt ?? 0;
-        break;
-      case "leaseRating":
-        aVal = LEASE_RATING_ORDER[a.leaseRating ?? "undefined"];
-        bVal = LEASE_RATING_ORDER[b.leaseRating ?? "undefined"];
-        break;
-      case "depreciationCategory":
-        aVal = DEPRECIATION_ORDER[a.depreciationCategory ?? "undefined"];
-        bVal = DEPRECIATION_ORDER[b.depreciationCategory ?? "undefined"];
-        break;
-      case "fiveYearResalePercent":
-        aVal = a.fiveYearResalePercent ?? 0;
-        bVal = b.fiveYearResalePercent ?? 0;
-        break;
-      case "reliabilityRating":
-        aVal = RELIABILITY_ORDER[a.reliabilityRating ?? "undefined"];
-        bVal = RELIABILITY_ORDER[b.reliabilityRating ?? "undefined"];
-        break;
-      case "insuranceCostAnnual":
-        aVal = a.insuranceCostAnnual ?? Infinity;
-        bVal = b.insuranceCostAnnual ?? Infinity;
-        break;
-      case "maintenanceCostAnnual":
-        aVal = a.maintenanceCostAnnual ?? Infinity;
-        bVal = b.maintenanceCostAnnual ?? Infinity;
-        break;
-      case "zeroToSixtySeconds":
-        aVal = a.zeroToSixtySeconds ?? Infinity;
-        bVal = b.zeroToSixtySeconds ?? Infinity;
-        break;
-      case "horsepower":
-        aVal = a.horsepower ?? 0;
-        bVal = b.horsepower ?? 0;
-        break;
-      default:
-        return 0;
-    }
-
-    if (typeof aVal === "string" && typeof bVal === "string") {
-      return sortConfig.direction === "asc"
-        ? aVal.localeCompare(bVal)
-        : bVal.localeCompare(aVal);
-    }
-
-    const numA = aVal as number;
-    const numB = bVal as number;
-    return sortConfig.direction === "asc" ? numA - numB : numB - numA;
+    // Ties are common (253 cars share model year 2025), so fall back to a fixed
+    // order instead of leaving them in whatever order the dataset happens to use.
+    return (
+      b.year - a.year ||
+      a.make.toLowerCase().localeCompare(b.make.toLowerCase()) ||
+      a.model.toLowerCase().localeCompare(b.model.toLowerCase())
+    );
   });
-
-  return sorted;
 }
 
 export function getUniqueMakes(cars: Car[]): string[] {
@@ -480,7 +447,23 @@ export function downloadCsv(content: string, filename: string): void {
  * @param size - Image width in pixels (default: 400)
  * @returns URL string for car image
  */
-export function getCarImageUrl(car: Car, size: number = 400): string {
+// IMAGIN.studio account the renders are requested under. The public demo account
+// ("img") stamps a large IMAGIN watermark across the middle of every image; that
+// watermark is baked into the returned pixels and is only removed by rendering
+// under a real account key. Set NEXT_PUBLIC_IMAGIN_CUSTOMER at build time to use
+// one — no other code change is needed. See README.md.
+const IMAGIN_CUSTOMER = process.env.NEXT_PUBLIC_IMAGIN_CUSTOMER || "img";
+
+// Map fuel type to IMAGIN powerTrain parameter
+const IMAGIN_POWERTRAIN: Record<string, string> = {
+  electric: "electric",
+  hybrid: "hybrid",
+  "plug-in-hybrid": "phev",
+  gasoline: "petrol",
+  diesel: "diesel",
+};
+
+export function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): string {
   const modelFamily = car.model
     .split(" ")[0]
     .toLowerCase()
@@ -488,24 +471,16 @@ export function getCarImageUrl(car: Car, size: number = 400): string {
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
   const make = car.make.toLowerCase();
-  // Map fuel type to IMAGIN powerTrain parameter
-  const powerTrainMap: Record<string, string> = {
-    electric: "electric",
-    hybrid: "hybrid",
-    "plug-in-hybrid": "phev",
-    gasoline: "petrol",
-    diesel: "diesel",
-  };
-  const powerTrain = powerTrainMap[car.fuelType] || "";
+  const powerTrain = IMAGIN_POWERTRAIN[car.fuelType] || "";
   // Use CDN load balancing (cdn-01 through cdn-09) based on car id hash
   const cdnNum = ((car.id.charCodeAt(0) + car.id.charCodeAt(car.id.length - 1)) % 9) + 1;
   const cdn = `cdn-0${cdnNum}`;
   const params = new URLSearchParams({
-    customer: "img",
+    customer: IMAGIN_CUSTOMER,
     make,
     modelFamily,
     modelYear: String(car.year),
-    angle: "01",
+    angle,
     width: String(size),
     zoomType: "fullscreen",
     fileType: "webp",

@@ -48,7 +48,7 @@ export default function InfoTooltip({ title, children }: InfoTooltipProps) {
       {isOpen && (
         <div
           ref={panelRef}
-          className="absolute z-50 left-0 top-6 w-80 surface-elevated rounded-xl shadow-2xl p-4"
+          className="absolute z-50 left-0 top-6 w-80 popover-panel rounded-xl p-4"
         >
           <div className="flex justify-between items-start mb-3">
             <h4 className="text-white font-semibold">{title}</h4>

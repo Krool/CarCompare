@@ -160,7 +160,7 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 surface-elevated rounded-xl shadow-2xl z-50 max-h-[70vh] overflow-y-auto modal-content">
+        <div className="absolute right-0 mt-2 w-80 popover-panel rounded-xl z-50 max-h-[70vh] overflow-y-auto modal-content">
           <div className="p-4">
             <h3 className="text-gray-200 font-semibold text-sm uppercase tracking-wider mb-3">Customize Columns</h3>
 

@@ -8,6 +8,7 @@ import {
   getEffectiveWidth,
   calculateDifference,
   getCarDisplayName,
+  getCarImageUrl,
 } from "@/lib/carUtils";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import GarageFitVisualizer from "./GarageFitVisualizer";
@@ -801,38 +802,6 @@ const CAR_ANGLES = [
   { id: "29", label: "Front" },
   { id: "33", label: "Top" },
 ] as const;
-
-function getCarImageUrl(car: Car, size: number = 400, angle: string = "01"): string {
-  const modelFamily = car.model
-    .split(" ")[0]
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
-  const make = car.make.toLowerCase();
-  const powerTrainMap: Record<string, string> = {
-    electric: "electric",
-    hybrid: "hybrid",
-    "plug-in-hybrid": "phev",
-    gasoline: "petrol",
-    diesel: "diesel",
-  };
-  const powerTrain = powerTrainMap[car.fuelType] || "";
-  const params = new URLSearchParams({
-    customer: "img",
-    make,
-    modelFamily,
-    modelYear: String(car.year),
-    angle,
-    width: String(size),
-    zoomType: "fullscreen",
-    fileType: "webp",
-  });
-  if (powerTrain) params.set("powerTrain", powerTrain);
-  const cdnNum = ((car.id.charCodeAt(0) + car.id.charCodeAt(car.id.length - 1)) % 9) + 1;
-  const cdn = `cdn-0${cdnNum}`;
-  return `https://${cdn}.imagin.studio/getImage?${params.toString()}`;
-}
 
 interface ImageModalProps {
   car: Car;

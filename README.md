@@ -20,6 +20,27 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Car images
+
+Vehicle renders come from [IMAGIN.studio](https://www.imagin.studio/), requested at
+runtime by `getCarImageUrl` in `src/lib/carUtils.ts`.
+
+By default the app requests them under IMAGIN's public demo account (`customer=img`),
+which stamps a large "IMAGIN studio" watermark across the middle of every image. The
+watermark is baked into the returned pixels — it is a property of the demo account, not
+something the app can strip or crop around. The only way to remove it is to render under
+a real IMAGIN account.
+
+If you have an account key, set it at build time and no code change is needed:
+
+```bash
+NEXT_PUBLIC_IMAGIN_CUSTOMER=your-customer-key npm run build
+```
+
+For the GitHub Pages deploy, add the key as a repository secret named `IMAGIN_CUSTOMER`;
+`.github/workflows/deploy.yml` already passes it through. With the secret unset the build
+falls back to the watermarked demo account.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

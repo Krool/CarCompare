@@ -10,7 +10,7 @@ import CompareModal from "@/components/CompareModal";
 import ColumnSettings, { DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
 import SetupWizard from "@/components/SetupWizard";
 import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl } from "@/lib/carUtils";
-import { STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
+import { DEFAULT_SORT_CONFIG, STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
 
 export default function Home() {
   const allCars = carData.cars as Car[];
@@ -20,10 +20,9 @@ export default function Home() {
   const defaultBaseline = allCars.find((c) => c.id === "toyota-rav4-2011") ?? null;
 
   const [filters, setFilters] = useState<CarFilters>({});
-  const [sortConfig, setSortConfig] = useState<SortConfig>({
-    field: "msrp",
-    direction: "asc",
-  });
+  // Newest model year first. Sorting by price ascending put the handful of
+  // classics (whose MSRP is their original-era sticker) at the top of the table.
+  const [sortConfig, setSortConfig] = useState<SortConfig>(DEFAULT_SORT_CONFIG);
   const [baselineCar, setBaselineCar] = useState<Car | null>(defaultBaseline);
   const [mirrorBuffer, setMirrorBuffer] = useState(defaultMirrorBuffer);
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -345,7 +344,7 @@ export default function Home() {
     if (Object.keys(activeFilters).length > 0) state.f = activeFilters;
 
     // Only add sort if not default
-    if (sortConfig.field !== "msrp" || sortConfig.direction !== "asc") {
+    if (sortConfig.field !== DEFAULT_SORT_CONFIG.field || sortConfig.direction !== DEFAULT_SORT_CONFIG.direction) {
       state.s = [sortConfig.field, sortConfig.direction === "desc" ? 1 : 0];
     }
 
@@ -442,7 +441,10 @@ export default function Home() {
       </a>
 
       {/* ── Header ── */}
-      <header className="relative z-10 border-b border-gray-800/80 px-6 py-5">
+      {/* z-20 keeps the header above <main>: it is a stacking context, so the
+          Columns dropdown inside it cannot escape the header's own layer and
+          would otherwise be painted underneath the table. */}
+      <header className="relative z-20 border-b border-gray-800/80 px-6 py-5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-4">
             {/* Logo mark */}

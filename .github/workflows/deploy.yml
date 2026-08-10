@@ -43,6 +43,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Optional: IMAGIN.studio account key. Unset falls back to their public
+          # demo account, which watermarks every car render. See README.md.
+          NEXT_PUBLIC_IMAGIN_CUSTOMER: ${{ secrets.IMAGIN_CUSTOMER }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
