@@ -10,6 +10,7 @@ import CompareModal from "@/components/CompareModal";
 import ColumnSettings, { ALL_COLUMNS, DEFAULT_VISIBLE_COLUMNS } from "@/components/ColumnSettings";
 import SetupWizard from "@/components/SetupWizard";
 import { filterCars, sortCars, getUniqueMakes, exportToCsv, downloadCsv, getCarImageUrl, localDateStamp } from "@/lib/carUtils";
+import { EMPTY, bodyTypeLabel, fuelTypeLabel } from "@/lib/labels";
 import { DEFAULT_BASELINE_ID, DEFAULT_SORT_CONFIG, STORAGE_KEYS, TOAST_DURATION_MS } from "@/lib/constants";
 import { readStorage, readStorageJson, writeStorage } from "@/lib/storage";
 import { isStringArray, parseFiniteInt, toSortConfig } from "@/lib/validation";
@@ -54,8 +55,10 @@ export default function Home() {
   const defaultBaseline = allCars.find((c) => c.id === DEFAULT_BASELINE_ID) ?? null;
 
   const [filters, setFilters] = useState<CarFilters>({});
-  // Newest model year first. Sorting by price ascending put the handful of
-  // classics (whose MSRP is their original-era sticker) at the top of the table.
+  // Newest first. Sorting by price ascending made the landing view a wall of
+  // 1960s classics listed at their original MSRP (a $3,592 Charger, a $4,900
+  // Ferrari 250 GTO) compared against a modern baseline — accurate data, but a
+  // meaningless first screen for someone shopping for a car that fits a garage.
   const [sortConfig, setSortConfig] = useState<SortConfig>(DEFAULT_SORT_CONFIG);
   const [baselineCar, setBaselineCar] = useState<Car | null>(defaultBaseline);
   const [mirrorBuffer, setMirrorBuffer] = useState(defaultMirrorBuffer);
@@ -612,9 +615,11 @@ export default function Home() {
             >
               Share
             </button>
+            {/* Secondary, like its neighbours. Gold used to make re-running
+                onboarding the loudest action in the header. */}
             <button
               onClick={() => setShowWizard(true)}
-              className="px-3.5 py-2 bg-amber-900/30 hover:bg-amber-900/50 text-amber-400 border border-amber-800/30 rounded-lg text-sm font-medium btn-hover no-print transition-colors"
+              className="px-3.5 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700/50 rounded-lg text-sm font-medium btn-hover no-print transition-colors"
               title="Run the quick setup wizard"
             >
               Setup
@@ -661,9 +666,16 @@ export default function Home() {
       </div>
 
       <main id="main-content" className="relative z-10 p-6">
-        <div className="flex flex-col lg:flex-row gap-6">
-          {/* Sidebar */}
-          <aside className="lg:w-80 flex-shrink-0 space-y-4 no-print">
+        {/*
+          The split happens at `md` (768px), not `lg` (1024px). Below the
+          breakpoint the sidebar stacks ABOVE the results, so the baseline
+          panel plus five filter accordions pushed the first car roughly two
+          screens down — which is what every tablet and small laptop saw.
+        */}
+        <div className="flex flex-col md:flex-row gap-6 md:h-[calc(100dvh-11rem)] md:min-h-[32rem]">
+          {/* Sidebar. Sticky and independently scrollable on desktop: with 400+
+              rows it otherwise scrolled away on the first flick. */}
+          <aside className="md:w-72 lg:w-80 flex-shrink-0 space-y-4 no-print md:overflow-y-auto md:pr-1 md:pb-2">
             <BaselineSelector
               cars={allCars}
               baselineCar={baselineCar}
@@ -679,8 +691,8 @@ export default function Home() {
           </aside>
 
           {/* Main content */}
-          <div className="flex-1 min-w-0">
-            <div className="mb-4 space-y-3">
+          <div className="flex-1 min-w-0 md:flex md:flex-col md:min-h-0">
+            <div className="mb-4 space-y-3 md:flex-shrink-0">
               {/* Search box */}
               <div className="relative">
                 <label htmlFor="car-search" className="sr-only">Search cars</label>
@@ -732,8 +744,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mobile: Card view */}
-            <div className="block lg:hidden">
+            {/* Narrow screens: card view */}
+            <div className="block md:hidden">
               <MobileCardView
                 cars={sortedCars}
                 baselineCar={baselineCar}
@@ -750,7 +762,7 @@ export default function Home() {
             </div>
 
             {/* Desktop: Table view */}
-            <div className="hidden lg:block">
+            <div className="hidden md:flex md:flex-col md:flex-1 md:min-h-0">
               <CarTable
                 cars={sortedCars}
                 sortConfig={sortConfig}
@@ -895,7 +907,7 @@ function MobileCardView({
   };
 
   const formatCurrency = (value: number | undefined): string => {
-    if (value === undefined) return "-";
+    if (value === undefined) return EMPTY;
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -997,18 +1009,16 @@ function MobileCardView({
                       type="checkbox"
                       checked={isInCompare}
                       onChange={() => onToggleCompare(car.id)}
-                      className="w-4 h-4 rounded border-gray-600 bg-gray-800 accent-amber-500"
+                      className="w-4 h-4"
                       aria-label={isInCompare ? `Remove ${car.year} ${car.make} ${car.model} from comparison` : `Add ${car.year} ${car.make} ${car.model} to comparison`}
                     />
                   </div>
                 </div>
-                <div className="mt-2 flex flex-wrap gap-1.5 text-xs">
-                  <span className="px-2 py-0.5 bg-gray-800 border border-gray-700/50 rounded text-gray-400">{car.bodyType}</span>
-                  <span className="px-2 py-0.5 bg-gray-800 border border-gray-700/50 rounded text-gray-400">{car.seats} seats</span>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  <span className="badge badge-neutral">{bodyTypeLabel(car.bodyType)}</span>
+                  <span className="badge badge-neutral">{car.seats} seats</span>
                   {car.safetyRating && car.safetyRating !== "Not Rated" && (
-                    <span className="px-2 py-0.5 bg-emerald-900/30 border border-emerald-800/30 text-emerald-400 rounded">
-                      {car.safetyRating}
-                    </span>
+                    <span className="badge badge-good">{car.safetyRating}</span>
                   )}
                 </div>
               </div>
@@ -1025,12 +1035,12 @@ function MobileCardView({
               </div>
               <div>
                 <span className="text-gray-400 text-xs">Legroom</span>
-                <span className="text-white ml-2 tabular-nums">{car.driverLegroomInches ? `${car.driverLegroomInches}"` : "-"}</span>
+                <span className="text-white ml-2 tabular-nums">{car.driverLegroomInches ? `${car.driverLegroomInches}"` : EMPTY}</span>
               </div>
               <div>
                 <span className="text-gray-400 text-xs">MPG</span>
                 <span className="text-white ml-2 tabular-nums">
-                  {car.mpgCombined ?? car.mpge ?? "-"}{car.mpge ? " MPGe" : ""}
+                  {car.mpgCombined ?? car.mpge ?? EMPTY}{car.mpge ? " MPGe" : ""}
                 </span>
               </div>
             </div>
@@ -1040,27 +1050,27 @@ function MobileCardView({
               <div className="mt-3 pt-3 border-t border-gray-700/50 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm animate-fadeIn">
                 <div>
                   <span className="text-gray-400 text-xs">Length</span>
-                  <span className="text-white ml-2 tabular-nums">{car.lengthInches ? `${car.lengthInches}"` : "-"}</span>
+                  <span className="text-white ml-2 tabular-nums">{car.lengthInches ? `${car.lengthInches}"` : EMPTY}</span>
                 </div>
                 <div>
                   <span className="text-gray-400 text-xs">Height</span>
-                  <span className="text-white ml-2 tabular-nums">{car.heightInches ? `${car.heightInches}"` : "-"}</span>
+                  <span className="text-white ml-2 tabular-nums">{car.heightInches ? `${car.heightInches}"` : EMPTY}</span>
                 </div>
                 <div>
                   <span className="text-gray-400 text-xs">Clearance</span>
-                  <span className="text-white ml-2 tabular-nums">{car.groundClearanceInches ? `${car.groundClearanceInches}"` : "-"}</span>
+                  <span className="text-white ml-2 tabular-nums">{car.groundClearanceInches ? `${car.groundClearanceInches}"` : EMPTY}</span>
                 </div>
                 <div>
                   <span className="text-gray-400 text-xs">Cargo</span>
-                  <span className="text-white ml-2 tabular-nums">{car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : "-"}</span>
+                  <span className="text-white ml-2 tabular-nums">{car.cargoVolumesCuFt ? `${car.cargoVolumesCuFt} cu ft` : EMPTY}</span>
                 </div>
                 <div>
                   <span className="text-gray-400 text-xs">Fuel</span>
-                  <span className="text-white ml-2 capitalize">{car.fuelType.replace("-", " ")}</span>
+                  <span className="text-white ml-2">{fuelTypeLabel(car.fuelType)}</span>
                 </div>
                 <div>
                   <span className="text-gray-400 text-xs">EV Range</span>
-                  <span className="text-white ml-2 tabular-nums">{car.electricRangeMiles ? `${car.electricRangeMiles} mi` : "-"}</span>
+                  <span className="text-white ml-2 tabular-nums">{car.electricRangeMiles ? `${car.electricRangeMiles} mi` : EMPTY}</span>
                 </div>
                 {car.adasFeatures?.autoFoldingMirrors && (
                   <div className="col-span-2">
@@ -1070,22 +1080,27 @@ function MobileCardView({
               </div>
             )}
 
+            {/* "More specs" is what people came for, so it takes the width.
+                Setting a baseline is a niche action and used to occupy ~85% of
+                the row purely because it was the flex-1 button. */}
             <div className="mt-3 flex gap-2">
               <button
                 onClick={() => toggleExpanded(car.id)}
-                className="px-3 py-2 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:text-white border border-gray-700/50 transition-colors"
+                aria-expanded={isExpanded}
+                className="flex-1 px-3 py-2 rounded-lg text-xs font-medium bg-gray-800 text-gray-200 hover:text-white border border-gray-700/50 transition-colors"
               >
-                {isExpanded ? "Less" : "More"}
+                {isExpanded ? "Fewer specs" : "More specs"}
               </button>
               <button
                 onClick={() => onSelectBaseline(car)}
-                className={`flex-1 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                aria-pressed={isBaseline}
+                className={`px-3 py-2 rounded-lg text-xs font-medium transition-colors whitespace-nowrap ${
                   isBaseline
-                    ? "btn-accent"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
                     : "bg-gray-800 text-gray-400 border border-gray-700/50 hover:text-white"
                 }`}
               >
-                {isBaseline ? "✓ Baseline" : "Set as Baseline"}
+                {isBaseline ? "✓ Baseline" : "Set baseline"}
               </button>
             </div>
           </div>

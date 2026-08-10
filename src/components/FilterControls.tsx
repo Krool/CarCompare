@@ -238,10 +238,12 @@ function FilterControlsComponent({
         <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider">Quick Presets</label>
         <div className="flex gap-1.5 flex-wrap">
           {PRESETS.map((preset) => (
+            /* Neutral until hovered. Seven identical gold chips competed with
+               the page's real primary actions for the same accent. */
             <button
               key={preset.name}
               onClick={() => onFiltersChange({ ...preset.filters })}
-              className="px-2.5 py-1 rounded-lg text-xs bg-amber-900/20 text-amber-400 hover:bg-amber-900/35 border border-amber-800/20 transition-colors"
+              className="px-2.5 py-1 rounded-lg text-xs bg-white/[0.04] text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 border border-white/[0.07] hover:border-amber-500/25 transition-colors"
             >
               {preset.name}
             </button>
@@ -257,7 +259,6 @@ function FilterControlsComponent({
               type="checkbox"
               checked={filters.showFavoritesOnly ?? false}
               onChange={(e) => updateFilter("showFavoritesOnly", e.target.checked || undefined)}
-              className="w-4 h-4 rounded border-gray-600 bg-gray-800 accent-amber-500"
             />
             <span className="text-sm font-medium text-amber-400">★ Show Favorites Only</span>
           </label>
@@ -537,7 +538,7 @@ function FilterControlsComponent({
                 aria-pressed={filters.autonomousLevels?.includes(al.value) ?? false}
                 className={`px-3 py-1 rounded text-sm ${
                   filters.autonomousLevels?.includes(al.value)
-                    ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                    ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
                     : "bg-gray-800/50 text-gray-400 border border-gray-700/30 hover:text-gray-300"
                 }`}
               >
@@ -561,7 +562,6 @@ function FilterControlsComponent({
                 type="checkbox"
                 checked={filters.hasHandsFree === true}
                 onChange={(e) => updateFilter("hasHandsFree", e.target.checked ? true : undefined)}
-                className="rounded border-gray-600 bg-gray-800 accent-amber-500"
               />
               Hands-Free Highway
             </label>
@@ -570,7 +570,6 @@ function FilterControlsComponent({
                 type="checkbox"
                 checked={filters.hasAutoLaneChange === true}
                 onChange={(e) => updateFilter("hasAutoLaneChange", e.target.checked ? true : undefined)}
-                className="rounded border-gray-600 bg-gray-800 accent-amber-500"
               />
               Auto Lane Change
             </label>
@@ -579,7 +578,6 @@ function FilterControlsComponent({
                 type="checkbox"
                 checked={filters.hasAutoFoldingMirrors === true}
                 onChange={(e) => updateFilter("hasAutoFoldingMirrors", e.target.checked ? true : undefined)}
-                className="rounded border-gray-600 bg-gray-800 accent-amber-500"
               />
               Auto-Folding Mirrors
             </label>

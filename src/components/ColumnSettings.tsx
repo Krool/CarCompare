@@ -204,7 +204,7 @@ export default function ColumnSettings({ visibleColumns, onColumnsChange }: Colu
                           type="checkbox"
                           checked={visibleColumns.includes(column.id)}
                           onChange={() => toggleColumn(column.id)}
-                          className="w-3.5 h-3.5 rounded border-gray-600 bg-gray-800 accent-amber-500"
+                          className="w-3.5 h-3.5"
                         />
                         <span className="text-gray-300 text-sm">{column.label}</span>
                       </label>

@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { Car } from "@/types/car";
 import { getCarDisplayName, getEffectiveWidth, formatCurrency, formatMpg } from "@/lib/carUtils";
+import { EMPTY, bodyTypeLabel, fuelTypeLabel } from "@/lib/labels";
 
 interface BaselineSelectorProps {
   cars: Car[];
@@ -152,7 +153,7 @@ export default function BaselineSelector({
                       className="w-full px-3 py-2 text-left hover:bg-gray-700 text-white text-sm flex justify-between items-center"
                     >
                       <span>{car.year} {car.model}{car.trim ? ` ${car.trim}` : ""}</span>
-                      <span className="text-gray-500 text-xs">{car.bodyType}</span>
+                      <span className="text-gray-500 text-xs">{bodyTypeLabel(car.bodyType)}</span>
                     </button>
                   ))}
                 </div>
@@ -169,40 +170,37 @@ export default function BaselineSelector({
       {baselineCar && (
         <div className="surface-inset rounded-xl p-3 space-y-2">
           <h3 className="font-medium text-white text-sm">{getCarDisplayName(baselineCar)}</h3>
-          <div className="grid grid-cols-2 gap-2 text-sm">
-            <div>
-              <span className="text-gray-400">Width (Folded):</span>
-              <span className="text-white ml-1">
-                {baselineCar.mirrorsFoldedWidthInches ? `${baselineCar.mirrorsFoldedWidthInches}"` : "-"}
-              </span>
-            </div>
-            <div>
-              <span className="text-gray-400">Width (Extended):</span>
-              <span className="text-white ml-1">
-                {getEffectiveWidth(baselineCar, mirrorBuffer).toFixed(1)}"
-              </span>
-            </div>
-            <div>
-              <span className="text-gray-400">Seats:</span>
-              <span className="text-white ml-1">{baselineCar.seats}</span>
-            </div>
-            <div>
-              <span className="text-gray-400">Doors:</span>
-              <span className="text-white ml-1">{baselineCar.doors}</span>
-            </div>
-            <div>
-              <span className="text-gray-400">Fuel:</span>
-              <span className="text-white ml-1 capitalize">{baselineCar.fuelType.replace("-", " ")}</span>
-            </div>
-            <div>
-              <span className="text-gray-400">Efficiency:</span>
-              <span className="text-white ml-1">{formatMpg(baselineCar)}</span>
-            </div>
-            <div>
-              <span className="text-gray-400">MSRP:</span>
-              <span className="text-white ml-1">{formatCurrency(baselineCar.msrp)}</span>
-            </div>
-          </div>
+          {/*
+            A definition list in two aligned columns. The previous 2-column
+            grid of inline label/value pairs held seven items, so the last row
+            left half the panel empty and no two values lined up.
+          */}
+          <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
+            <dt className="text-gray-400">Width (folded)</dt>
+            <dd className="text-white text-right tabular-nums">
+              {baselineCar.mirrorsFoldedWidthInches ? `${baselineCar.mirrorsFoldedWidthInches}"` : EMPTY}
+            </dd>
+
+            <dt className="text-gray-400">Width (extended)</dt>
+            <dd className="text-white text-right tabular-nums">
+              {getEffectiveWidth(baselineCar, mirrorBuffer).toFixed(1)}&quot;
+            </dd>
+
+            <dt className="text-gray-400">Seats</dt>
+            <dd className="text-white text-right tabular-nums">{baselineCar.seats}</dd>
+
+            <dt className="text-gray-400">Doors</dt>
+            <dd className="text-white text-right tabular-nums">{baselineCar.doors}</dd>
+
+            <dt className="text-gray-400">Fuel</dt>
+            <dd className="text-white text-right">{fuelTypeLabel(baselineCar.fuelType)}</dd>
+
+            <dt className="text-gray-400">Efficiency</dt>
+            <dd className="text-white text-right tabular-nums">{formatMpg(baselineCar)}</dd>
+
+            <dt className="text-gray-400">MSRP</dt>
+            <dd className="text-white text-right tabular-nums">{formatCurrency(baselineCar.msrp)}</dd>
+          </dl>
           {baselineCar.notes && (
             <p className="text-xs text-gray-400 italic">{baselineCar.notes}</p>
           )}
@@ -216,8 +214,8 @@ export default function BaselineSelector({
       )}
 
       <p className="text-xs text-gray-500">
-        Differences in table: <span className="text-emerald-400">green = better</span>,{" "}
-        <span className="text-rose-400">red = worse</span>
+        Differences in table: <span className="delta delta-good">▲▼</span> better,{" "}
+        <span className="delta delta-bad">▲▼</span> worse than this car.
       </p>
     </div>
   );

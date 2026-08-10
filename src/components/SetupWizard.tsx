@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Car, ColumnId, BodyType, FuelType, SortField, SafetyRating, AutonomousLevel, PlugType } from "@/types/car";
 import { ALL_COLUMNS } from "./ColumnSettings";
+import { bodyTypeLabel, fuelTypeLabel } from "@/lib/labels";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import { EV_RANGE_PRESETS, PRICE_PRESETS } from "@/lib/constants";
 
@@ -479,9 +480,12 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
 
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="wizard-title">
-      <div ref={focusTrapRef} className="surface-elevated rounded-2xl max-w-2xl w-full p-8 modal-content max-h-[90vh] overflow-y-auto">
-        {/* Progress indicator - clickable steps */}
-        <nav aria-label="Setup progress" className="flex justify-center mb-8">
+      <div ref={focusTrapRef} className="surface-elevated rounded-2xl max-w-2xl w-full p-8 modal-content max-h-[90dvh] overflow-y-auto">
+        {/* Progress indicator - clickable steps.
+            Sticky: on the filters step the panel is taller than the viewport,
+            and the progress dots, the heading and the Next button all used to
+            scroll out of sight together. */}
+        <nav aria-label="Setup progress" className="sticky -top-8 z-10 flex justify-center -mx-8 -mt-8 mb-6 px-8 pt-8 pb-4 bg-gray-900/95 backdrop-blur-sm rounded-t-2xl">
           <ol className="flex items-center gap-2">
             {(["welcome", "use-case", "baseline", "preferences", "complete"] as WizardStep[]).map((s, i) => {
               const stepNames = ["Welcome", "Use Case", "Baseline", "Filters", "Done"];
@@ -588,31 +592,40 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               })}
             </div>
 
-            {/* Preview of selected columns */}
-            {selectedUseCases.length > 0 && (
-              <div className="surface-inset rounded-xl p-3 mb-6">
-                <p className="text-gray-500 text-xs mb-2">
-                  Columns: <span className="text-amber-400 font-medium">{combinedColumns.length}</span> selected
+            {/* Preview of selected columns.
+                Always occupies its slot: revealing it on first selection grew
+                the panel and re-centred the modal, so the card you were about
+                to click a second time had already moved. */}
+            <div className="surface-inset rounded-xl p-3 mb-6 min-h-[5.25rem]">
+              {selectedUseCases.length === 0 ? (
+                <p className="text-gray-500 text-xs">
+                  Pick one or more above to preview the columns you&apos;ll get. Skip to see them all.
                 </p>
-                <div className="flex flex-wrap gap-1">
-                  {combinedColumns.slice(0, 12).map(col => {
-                    const colConfig = ALL_COLUMNS.find(c => c.id === col);
-                    return (
-                      <span key={col} className="px-2 py-0.5 bg-gray-800/50 text-gray-400 text-xs rounded-md border border-gray-700/30">
-                        {colConfig?.shortLabel || colConfig?.label || col}
+              ) : (
+                <>
+                  <p className="text-gray-500 text-xs mb-2">
+                    Columns: <span className="text-amber-400 font-medium">{combinedColumns.length}</span> selected
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {combinedColumns.slice(0, 12).map(col => {
+                      const colConfig = ALL_COLUMNS.find(c => c.id === col);
+                      return (
+                        <span key={col} className="px-2 py-0.5 bg-gray-800/50 text-gray-400 text-xs rounded-md border border-gray-700/30">
+                          {colConfig?.shortLabel || colConfig?.label || col}
+                        </span>
+                      );
+                    })}
+                    {combinedColumns.length > 12 && (
+                      <span className="px-2 py-0.5 text-gray-500 text-xs">
+                        +{combinedColumns.length - 12} more
                       </span>
-                    );
-                  })}
-                  {combinedColumns.length > 12 && (
-                    <span className="px-2 py-0.5 text-gray-500 text-xs">
-                      +{combinedColumns.length - 12} more
-                    </span>
-                  )}
-                </div>
-              </div>
-            )}
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
 
-            <div className="flex justify-between">
+            <div className="wizard-footer">
               <button
                 onClick={() => setStep("welcome")}
                 className="px-6 py-2 text-gray-400 hover:text-white"
@@ -664,7 +677,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white flex justify-between"
                     >
                       <span>{car.year} {car.make} {car.model}</span>
-                      <span className="text-gray-400">{car.bodyType}</span>
+                      <span className="text-gray-400">{bodyTypeLabel(car.bodyType)}</span>
                     </button>
                   ))}
                 </div>
@@ -690,45 +703,47 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </div>
             )}
 
-            {/* Quick picks */}
-            {!selectedBaseline && (
-              <div className="mb-6">
-                <p className="text-gray-400 text-sm mb-2">Popular choices:</p>
-                <div className="flex flex-wrap gap-2">
-                  {popularBaselines.map(car => (
+            {/* Quick picks. Kept visible after a selection so you can switch
+                between them directly instead of clearing first. */}
+            <div className="mb-6">
+              <p className="text-gray-400 text-sm mb-2">Popular choices:</p>
+              <div className="flex flex-wrap gap-2">
+                {popularBaselines.map(car => {
+                  const isSelected = selectedBaseline?.id === car.id;
+                  return (
                     <button
                       key={car.id}
                       onClick={() => setSelectedBaseline(car)}
-                      className="px-3 py-1.5 bg-gray-800/50 hover:bg-gray-800 text-gray-400 hover:text-white border border-gray-700/30 text-sm rounded-full"
+                      aria-pressed={isSelected}
+                      className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
+                        isSelected
+                          ? "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                          : "bg-gray-800/50 hover:bg-gray-800 text-gray-400 hover:text-white border-gray-700/30"
+                      }`}
                     >
                       {car.year} {car.make} {car.model}
                     </button>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
-            )}
+            </div>
 
-            <div className="flex justify-between">
+            <div className="wizard-footer">
               <button
                 onClick={() => setStep("use-case")}
                 className="px-6 py-2 text-gray-400 hover:text-white"
               >
                 Back
               </button>
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setStep("preferences")}
-                  className="px-6 py-2 text-gray-400 hover:text-white"
-                >
-                  Skip
-                </button>
-                <button
-                  onClick={() => setStep("preferences")}
-                  className="px-8 py-3 btn-accent rounded-xl font-medium"
-                >
-                  Next
-                </button>
-              </div>
+              {/* One forward action. "Skip" and "Next" sat side by side doing
+                  exactly the same thing, and "Skip" stayed visible after a
+                  baseline was picked, implying it would discard the choice. */}
+              <button
+                onClick={() => setStep("preferences")}
+                className="px-8 py-3 btn-accent rounded-xl font-medium"
+              >
+                {selectedBaseline ? "Next" : "Continue without a baseline"}
+              </button>
             </div>
           </div>
         )}
@@ -775,7 +790,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         : "bg-gray-800/30 border border-gray-700/30 hover:border-gray-600/50"
                     }`}
                   >
-                    <span className="text-white text-sm capitalize block">{type}</span>
+                    <span className="text-white text-sm block">{bodyTypeLabel(type)}</span>
                     <span className="text-gray-400 text-xs">{desc}</span>
                   </button>
                 ))}
@@ -810,7 +825,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                         : "bg-gray-800/30 border border-gray-700/30 hover:border-gray-600/50"
                     }`}
                   >
-                    <span className="text-white text-sm capitalize block">{type.replace("-", " ")}</span>
+                    <span className="text-white text-sm block">{fuelTypeLabel(type)}</span>
                     <span className="text-gray-400 text-xs">{desc}</span>
                   </button>
                 ))}
@@ -873,7 +888,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                   type="checkbox"
                   checked={preferences.newOnly}
                   onChange={(e) => setPreferences(prev => ({ ...prev, newOnly: e.target.checked }))}
-                  className="w-5 h-5 rounded border-gray-600 bg-gray-800 accent-amber-500"
+                  className="w-5 h-5"
                 />
                 <div>
                   <span className="text-white block">Only new cars (2024+)</span>
@@ -885,13 +900,13 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
             {/* Advanced Filters toggle */}
             <button
               onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-              className="w-full mb-4 px-4 py-3 bg-amber-900/15 hover:bg-amber-900/25 text-gray-200 rounded-xl text-sm flex items-center justify-between border border-amber-800/20 transition-colors"
+              className="w-full mb-4 px-4 py-3 surface-inset hover:bg-white/[0.03] text-gray-200 rounded-xl text-sm flex items-center justify-between transition-colors"
             >
               <div className="flex items-center gap-3">
-                <LineIcon path={ICON_PATHS.sliders} className="w-4 h-4 text-amber-400" />
+                <LineIcon path={ICON_PATHS.sliders} className="w-4 h-4 text-gray-400" />
                 <div className="text-left">
                   <span className="font-medium block">Advanced Filters</span>
-                  <span className="text-amber-400/70 text-xs">Safety ratings, ADAS tech, efficiency, brands</span>
+                  <span className="text-gray-400 text-xs">Safety ratings, ADAS tech, efficiency, brands</span>
                 </div>
               </div>
               <LineIcon
@@ -964,7 +979,6 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
                       type="checkbox"
                       checked={preferences.hasHandsFree}
                       onChange={(e) => setPreferences(prev => ({ ...prev, hasHandsFree: e.target.checked }))}
-                      className="rounded border-gray-600 bg-gray-800 accent-amber-500"
                     />
                     Must have hands-free highway driving
                   </label>
@@ -1127,7 +1141,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </p>
             </div>
 
-            <div className="flex justify-between">
+            <div className="wizard-footer">
               <button
                 onClick={() => setStep("baseline")}
                 className="px-6 py-2 text-gray-400 hover:text-white"
@@ -1175,16 +1189,16 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               {preferences.bodyTypes.length > 0 && (
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-400">Body types:</span>
-                  <span className="text-white font-medium capitalize">
-                    {preferences.bodyTypes.join(", ")}
+                  <span className="text-white font-medium">
+                    {preferences.bodyTypes.map(t => bodyTypeLabel(t)).join(", ")}
                   </span>
                 </div>
               )}
               {preferences.fuelTypes.length > 0 && (
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-400">Fuel types:</span>
-                  <span className="text-white font-medium capitalize">
-                    {preferences.fuelTypes.map(t => t.replace("-", " ")).join(", ")}
+                  <span className="text-white font-medium">
+                    {preferences.fuelTypes.map(t => fuelTypeLabel(t)).join(", ")}
                   </span>
                 </div>
               )}
@@ -1254,7 +1268,7 @@ export default function SetupWizard({ cars, onComplete, onSkip }: SetupWizardPro
               </p>
             </div>
 
-            <div className="flex justify-between">
+            <div className="wizard-footer">
               <button
                 onClick={() => setStep("preferences")}
                 className="px-6 py-2 text-gray-400 hover:text-white"
