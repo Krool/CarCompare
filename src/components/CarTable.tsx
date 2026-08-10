@@ -1222,27 +1222,23 @@ const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
   // Memoize the image URL to prevent recalculation
   const imageUrl = useMemo(() => getCarImageUrl(car), [car]);
 
-  // Give up on a stalled image after 5s. Previously this only hid the spinner, leaving
-  // a blank cell that looked identical to "still loading" — fall through to the same
-  // body-type placeholder the onError path uses, so the cell always says something.
   React.useEffect(() => {
     setIsLoading(true);
     setHasError(false);
 
-    const timer = setTimeout(() => {
-      if (!imgRef.current?.complete) {
-        setHasError(true);
-      }
-      setIsLoading(false);
-    }, 5000);
-
-    // Also check if image is already loaded (cached)
-    if (imgRef.current?.complete) {
+    // A cached image can finish decoding before React attaches onLoad, so the
+    // event never fires and the skeleton would shimmer forever.
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
       setIsLoading(false);
     }
-
-    return () => clearTimeout(timer);
   }, [imageUrl]);
+
+  // NOTE: do not add a timeout that flips hasError for a slow image. These are
+  // loading="lazy" and the table holds 400+ rows, so the browser deliberately
+  // never requests the offscreen ones — their `complete` stays false forever.
+  // A 5s "give up" timer therefore marked EVERY row below the fold as failed,
+  // unmounted the <img> so it could never recover, and replaced the entire
+  // table with placeholders. Genuine failures come through onError.
 
   if (hasError || !hasVehicleImagery(car)) {
     return <CarImagePlaceholder className="w-20 h-12 shrink-0" label={bodyTypeLabel(car.bodyType)} />;
