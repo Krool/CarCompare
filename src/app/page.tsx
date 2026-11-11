@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
+import Link from "next/link";
 import { Car, CarFilters, SortConfig, SortField, ColumnId, BodyType, FuelType, SafetyRating, AutonomousLevel, PlugType } from "@/types/car";
 import carData from "@/data/cars.json";
 import FilterControls from "@/components/FilterControls";
@@ -637,7 +638,10 @@ export default function Home() {
           <div>
             <h1 className="text-2xl font-bold">CarCompare Vehicle List</h1>
             <p className="text-sm text-gray-500">
-              Generated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              {/* Only after hydration: the date in the pre-rendered HTML is the build
+                  date, and a different date in the browser is a hydration mismatch
+                  that makes React discard and re-render the whole page. */}
+              Generated: {isInitialized ? new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : ""}
             </p>
           </div>
           <div className="text-right">
@@ -807,6 +811,10 @@ export default function Home() {
                 <line x1="10" y1="14" x2="21" y2="3" />
               </svg>
             </a>
+            {" · "}
+            <Link href="/privacy" prefetch={false} className="text-amber-600 hover:text-amber-500 transition-colors">
+              Privacy
+            </Link>
           </p>
         </div>
       </footer>
