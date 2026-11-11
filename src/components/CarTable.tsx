@@ -1215,23 +1215,29 @@ function ImageModal({ car, onClose, baselineCar, mirrorBuffer }: ImageModalProps
 // thumbnail is not separately interactive (it used to be a second, nested
 // click handler beside the "info" button that did the same thing).
 const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
-  const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const imgRef = React.useRef<HTMLImageElement>(null);
-
   // Memoize the image URL to prevent recalculation
   const imageUrl = useMemo(() => getCarImageUrl(car), [car]);
 
-  React.useEffect(() => {
-    setIsLoading(true);
-    setHasError(false);
+  // The outcome is stored with the URL it belongs to, so a new URL reads as
+  // "loading" again without an effect having to reset anything.
+  const [settled, setSettled] = useState<{ url: string; outcome: "loaded" | "error" } | null>(null);
+  const outcome = settled?.url === imageUrl ? settled.outcome : null;
+  const hasError = outcome === "error";
+  const isLoading = outcome === null;
 
-    // A cached image can finish decoding before React attaches onLoad, so the
-    // event never fires and the skeleton would shimmer forever.
-    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
-      setIsLoading(false);
-    }
-  }, [imageUrl]);
+  // A cached image can finish decoding before React attaches onLoad, so the
+  // event never fires and the skeleton would shimmer forever. React calls this
+  // ref on mount and again whenever imageUrl changes, after the new src is set.
+  // The same goes for a failure: `complete` with no pixels means the request
+  // already failed and onError will not fire again. A lazy image the browser
+  // has not requested yet is not `complete`, so offscreen rows are untouched.
+  const checkAlreadyLoaded = React.useCallback(
+    (img: HTMLImageElement | null) => {
+      if (!img?.complete) return;
+      setSettled({ url: imageUrl, outcome: img.naturalWidth > 0 ? "loaded" : "error" });
+    },
+    [imageUrl]
+  );
 
   // NOTE: do not add a timeout that flips hasError for a slow image. These are
   // loading="lazy" and the table holds 400+ rows, so the browser deliberately
@@ -1260,16 +1266,13 @@ const CarImage = React.memo(function CarImage({ car }: { car: Car }) {
       */}
       {isLoading && <span className="absolute inset-0 skeleton rounded-lg block" aria-hidden="true" />}
       <img
-        ref={imgRef}
+        ref={checkAlreadyLoaded}
         src={imageUrl}
         alt=""
         className="w-20 h-12 object-cover rounded-lg relative"
         loading="lazy"
-        onLoad={() => setIsLoading(false)}
-        onError={() => {
-          setHasError(true);
-          setIsLoading(false);
-        }}
+        onLoad={() => setSettled({ url: imageUrl, outcome: "loaded" })}
+        onError={() => setSettled({ url: imageUrl, outcome: "error" })}
       />
     </span>
   );
