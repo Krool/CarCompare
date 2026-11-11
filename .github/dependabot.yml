@@ -6,8 +6,17 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 5
     groups:
+      # Pairs that peer each other must arrive together or npm ci fails.
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
+      next:
+        patterns: ["next", "eslint-config-next"]
+      # Minor/patch only: majors (TypeScript, ESLint) arrive one at a time
+      # instead of sinking the whole group.
       dev-dependencies:
         dependency-type: "development"
+        update-types: ["minor", "patch"]
+        exclude-patterns: ["@types/react", "@types/react-dom", "eslint-config-next"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

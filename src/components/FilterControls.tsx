@@ -273,8 +273,8 @@ function FilterControlsComponent({
           <div className="flex gap-2">
             <input
               type="number"
-              min={2010}
-              max={2026}
+              min={1960}
+              max={2027}
               placeholder="Min"
               aria-label="Minimum year"
               value={filters.minYear ?? ""}
@@ -284,8 +284,8 @@ function FilterControlsComponent({
             <span className="text-gray-400 self-center">to</span>
             <input
               type="number"
-              min={2010}
-              max={2026}
+              min={1960}
+              max={2027}
               placeholder="Max"
               aria-label="Maximum year"
               value={filters.maxYear ?? ""}

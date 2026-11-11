@@ -1,17 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CarCompare
+
+Side-by-side car comparison tool. Live at https://krool.github.io/CarCompare/
+
+Next.js static export, deployed to GitHub Pages on every push to `master`.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev            # dev server
+npm run lint           # eslint
+npx tsc --noEmit       # typecheck
+npm run validate-data  # dataset checks
+npm run build          # static export
 ```
 
 Open [http://localhost:3000/CarCompare](http://localhost:3000/CarCompare) with your browser to see the result.
@@ -49,15 +50,6 @@ back to the watermarked demo account.
 > anyone can render images against the account, and if IMAGIN supports origin or referrer
 > locking, restrict the account to your Pages domain, since that is the only control that
 > actually limits use.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploying
 
