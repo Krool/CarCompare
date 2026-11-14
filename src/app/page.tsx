@@ -815,6 +815,15 @@ export default function Home() {
             <Link href="/privacy" prefetch={false} className="text-amber-600 hover:text-amber-500 transition-colors">
               Privacy
             </Link>
+            {" · "}
+            <a
+              href="https://ko-fi.com/kroolworld"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-600 hover:text-amber-500 transition-colors"
+            >
+              Ko-fi
+            </a>
           </p>
         </div>
       </footer>
