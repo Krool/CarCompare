@@ -822,7 +822,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="text-amber-600 hover:text-amber-500 transition-colors"
             >
-              Ko-fi
+              Donate
             </a>
           </p>
         </div>
